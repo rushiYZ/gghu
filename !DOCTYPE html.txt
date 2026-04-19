@@ -1,0 +1,1147 @@
+以下是修改后的代码。主要修复了CSS自定义属性（变量）的语法错误（将 `var(–xxx)` 改为 `var(--xxx)`），并修正了全局选择器错误（`-` 改为 `*`），确保在电脑端浏览器中颜色、背景、字体等样式能正常渲染。同时保留了原有的布局和响应式设计，适配电脑屏幕的显示比例。
+
+```html
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>玉琳命盘·感情婚姻深度报告</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+SC:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink: #E8629A;
+  --pink-light: #F4A0C0;
+  --pink-pale: #FFD6E7;
+  --pink-deep: #C0395A;
+  --pink-glow: rgba(232,98,154,0.25);
+  --black: #070709;
+  --black-2: #0F0F14;
+  --black-3: #161620;
+  --black-4: #1E1E2C;
+  --black-5: #252535;
+  --text-white: #F5EEF5;
+  --text-soft: #C8B8C8;
+  --text-dim: #7A6880;
+  --gold: #D4A84B;
+  --gold-light: #F0C870;
+  --teal: #3DADA0;
+  --purple: #8B6BB5;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--black);
+  color: var(--text-white);
+  font-family: 'Noto Serif SC', serif;
+  overflow-x: hidden;
+}
+
+/* ── NOISE TEXTURE OVERLAY ── */
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:0; opacity:.5;
+}
+
+/* ── AMBIENT GLOW ── */
+body::after {
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 15%, rgba(232,98,154,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 75%, rgba(139,107,181,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(212,168,75,0.04) 0%, transparent 50%);
+  pointer-events:none; z-index:0;
+}
+
+.page {
+  position:relative; z-index:1;
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 20px 80px;
+}
+
+/* ══════════════════ COVER ══════════════════ */
+.cover {
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:60px 20px;
+  position:relative;
+  border-bottom: 1px solid rgba(232,98,154,0.15);
+  margin-bottom:70px;
+}
+
+/* floating petals */
+.petal {
+  position:absolute;
+  border-radius:50% 0 50% 0;
+  background:var(--pink);
+  opacity:0.04;
+  animation:float 8s ease-in-out infinite;
+}
+.petal:nth-child(1){width:120px;height:120px;top:10%;left:8%;animation-delay:0s;}
+.petal:nth-child(2){width:80px;height:80px;top:20%;right:12%;animation-delay:2s; border-radius:0 50% 0 50%;}
+.petal:nth-child(3){width:150px;height:150px;bottom:15%;left:5%;animation-delay:4s;opacity:0.025;}
+.petal:nth-child(4){width:60px;height:60px;bottom:25%;right:8%;animation-delay:1s;border-radius:0 50% 0 50%;}
+.petal:nth-child(5){width:200px;height:200px;top:50%;left:45%;animation-delay:3s;opacity:0.02;transform:translate(-50%,-50%);}
+
+@keyframes float {
+  0%,100%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(-20px) rotate(5deg);}
+}
+
+.cover-eyebrow {
+  font-family:'Cinzel Decorative',serif;
+  font-size:10px;
+  letter-spacing:6px;
+  color:var(--pink);
+  text-transform:uppercase;
+  margin-bottom:24px;
+}
+
+.cover-symbol {
+  font-size:52px;
+  margin-bottom:20px;
+  animation:heart-pulse 2.5s ease-in-out infinite;
+  filter:drop-shadow(0 0 20px rgba(232,98,154,0.5));
+}
+
+@keyframes heart-pulse {
+  0%,100%{transform:scale(1); filter:drop-shadow(0 0 20px rgba(232,98,154,0.5));}
+  50%{transform:scale(1.08); filter:drop-shadow(0 0 40px rgba(232,98,154,0.8));}
+}
+
+.cover-title {
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(26px,5vw,52px);
+  font-weight:900;
+  line-height:1.1;
+  margin-bottom:8px;
+  background:linear-gradient(135deg, #fff 0%, var(--pink-light) 50%, var(--pink) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.cover-subtitle {
+  font-family:'Noto Serif SC',serif;
+  font-size:16px;
+  color:var(--text-soft);
+  letter-spacing:4px;
+  font-weight:300;
+  margin-bottom:40px;
+}
+
+.cover-tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+  margin-bottom:40px;
+}
+
+.cover-tag {
+  padding:6px 18px;
+  border:1px solid rgba(232,98,154,0.3);
+  border-radius:20px;
+  font-size:12px;
+  color:var(--pink-light);
+  letter-spacing:1px;
+  background:rgba(232,98,154,0.05);
+}
+
+.cover-meta-row {
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.meta-block { text-align:center; }
+.meta-l { font-size:9px; letter-spacing:3px; color:var(--text-dim); text-transform:uppercase; margin-bottom:4px; }
+.meta-v { font-family:'Cormorant Garamond',serif; font-size:14px; color:var(--pink-light); }
+
+/* ══════════════════ SECTION HEADER ══════════════════ */
+.sec-header { margin-bottom:28px; }
+
+.sec-num {
+  font-family:'Cinzel Decorative',serif;
+  font-size:10px;
+  letter-spacing:4px;
+  color:var(--pink);
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+
+.sec-title {
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(18px,3vw,28px);
+  font-weight:700;
+  color:var(--text-white);
+}
+
+.sec-title span { color:var(--pink); }
+.sec-sub { font-size:12px; color:var(--text-dim); letter-spacing:2px; margin-top:5px; }
+
+/* ══════════════════ DIVIDER ══════════════════ */
+.divider {
+  display:flex; align-items:center; gap:16px;
+  margin:60px 0;
+}
+.divider::before,.divider::after {
+  content:''; flex:1; height:1px;
+  background:linear-gradient(90deg,transparent,rgba(232,98,154,0.25),transparent);
+}
+.divider-icon {
+  width:32px; height:32px;
+  border:1px solid rgba(232,98,154,0.25);
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:13px; color:var(--pink); opacity:0.6;
+}
+
+/* ══════════════════ INFO CARDS ══════════════════ */
+.card-grid { display:grid; gap:14px; margin-bottom:32px; }
+.grid-2 { grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); }
+.grid-3 { grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); }
+
+.card {
+  background:linear-gradient(145deg, var(--black-3) 0%, var(--black-2) 100%);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:6px;
+  padding:22px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .2s, border-color .3s;
+}
+.card:hover { transform:translateY(-3px); border-color:rgba(232,98,154,0.25); }
+
+.card::before {
+  content:''; position:absolute;
+  top:0; left:0; right:0; height:2px;
+  border-radius:6px 6px 0 0;
+}
+.card.pk::before { background:linear-gradient(90deg,transparent,var(--pink),transparent); }
+.card.gd::before { background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+.card.tl::before { background:linear-gradient(90deg,transparent,var(--teal),transparent); }
+.card.pu::before { background:linear-gradient(90deg,transparent,var(--purple),transparent); }
+
+/* corner watermark */
+.card::after {
+  content:attr(data-icon);
+  position:absolute;
+  bottom:-5px; right:10px;
+  font-size:60px;
+  opacity:0.04;
+}
+
+.card-tag {
+  font-family:'Cinzel Decorative',serif;
+  font-size:8px; letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.card-tag.pk { color:var(--pink); }
+.card-tag.gd { color:var(--gold); }
+.card-tag.tl { color:var(--teal); }
+.card-tag.pu { color:var(--purple); }
+
+.card-title { font-size:15px; font-weight:700; color:var(--text-white); margin-bottom:4px; line-height:1.4; }
+.card-en { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:12px; color:var(--text-dim); margin-bottom:10px; }
+.card-body { font-size:13px; color:var(--text-soft); line-height:1.8; }
+.card-body strong { color:var(--pink-light); }
+.card-body .ok { color:#66BB6A; font-weight:600; }
+.card-body .warn { color:#FFA726; font-weight:600; }
+.card-body .bad { color:var(--pink); font-weight:600; }
+
+/* ══════════════════ VERDICT / HIGHLIGHT BOX ══════════════════ */
+.verdict {
+  background:linear-gradient(135deg,rgba(232,98,154,0.12) 0%,var(--black-3) 60%,var(--black-2) 100%);
+  border:1px solid rgba(232,98,154,0.35);
+  border-radius:6px;
+  padding:32px 36px;
+  text-align:center;
+  margin-bottom:32px;
+  position:relative;
+  overflow:hidden;
+}
+.verdict::after {
+  content:'♥'; position:absolute;
+  right:20px; bottom:10px;
+  font-size:100px; opacity:0.03;
+}
+.verdict-label {
+  font-family:'Cinzel Decorative',serif;
+  font-size:9px; letter-spacing:5px;
+  color:var(--pink); text-transform:uppercase;
+  margin-bottom:12px;
+}
+.verdict-main {
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(15px,2.5vw,20px);
+  font-weight:700; color:var(--text-white);
+  line-height:1.7; margin-bottom:12px;
+}
+.verdict-sub {
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic; font-size:14px;
+  color:var(--text-soft);
+}
+
+.hlbox {
+  border-radius:6px; padding:24px 28px;
+  margin-bottom:20px; position:relative;
+}
+.hlbox.pink {
+  background:linear-gradient(135deg,rgba(232,98,154,0.1) 0%,var(--black-2) 100%);
+  border-left:3px solid var(--pink);
+  border-top:1px solid rgba(232,98,154,0.15);
+  border-right:1px solid rgba(232,98,154,0.06);
+  border-bottom:1px solid rgba(232,98,154,0.06);
+}
+.hlbox.gold {
+  background:linear-gradient(135deg,rgba(212,168,75,0.08) 0%,var(--black-2) 100%);
+  border-left:3px solid var(--gold);
+  border-top:1px solid rgba(212,168,75,0.12);
+  border-right:1px solid rgba(212,168,75,0.04);
+  border-bottom:1px solid rgba(212,168,75,0.04);
+}
+.hlbox.teal {
+  background:linear-gradient(135deg,rgba(61,173,160,0.08) 0%,var(--black-2) 100%);
+  border-left:3px solid var(--teal);
+  border-top:1px solid rgba(61,173,160,0.12);
+  border-right:1px solid rgba(61,173,160,0.04);
+  border-bottom:1px solid rgba(61,173,160,0.04);
+}
+
+.hlbox-tag {
+  font-family:'Cinzel Decorative',serif;
+  font-size:8px; letter-spacing:3px;
+  text-transform:uppercase; margin-bottom:10px;
+}
+.hlbox.pink .hlbox-tag { color:var(--pink); }
+.hlbox.gold .hlbox-tag { color:var(--gold); }
+.hlbox.teal .hlbox-tag { color:var(--teal); }
+
+.hlbox-title { font-size:15px; font-weight:700; color:var(--text-white); margin-bottom:8px; }
+.hlbox-body { font-size:13px; color:var(--text-soft); line-height:1.85; }
+.hlbox-body strong { color:var(--pink-light); }
+.hlbox-body .ok { color:#66BB6A; font-weight:600; }
+.hlbox-body .warn { color:#FFA726; font-weight:600; }
+.hlbox-body .bad { color:var(--pink); font-weight:600; }
+
+/* ══════════════════ YOGA JUDGMENT ══════════════════ */
+.yoga-item {
+  display:flex; gap:16px; align-items:flex-start;
+  background:var(--black-3);
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:6px;
+  padding:18px 22px;
+  margin-bottom:12px;
+  transition:background .2s;
+}
+.yoga-item:hover { background:var(--black-4); }
+
+.yoga-badge {
+  flex-shrink:0; width:38px; height:38px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size:16px;
+}
+.badge-yes { background:rgba(102,187,106,0.15); border:1px solid #66BB6A; color:#66BB6A; }
+.badge-no  { background:rgba(158,158,158,0.1);  border:1px solid #757575; color:#9E9E9E; }
+.badge-part{ background:rgba(255,167,38,0.15);  border:1px solid #FFA726; color:#FFA726; }
+
+.yoga-body { flex:1; }
+.yoga-name { font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:600; color:var(--text-white); }
+.yoga-cn { font-size:11px; color:var(--text-dim); letter-spacing:1px; margin-bottom:8px; }
+.yoga-desc { font-size:13px; color:var(--text-soft); line-height:1.75; }
+.yoga-desc strong { color:var(--pink-light); }
+.yoga-desc .ok { color:#66BB6A; }
+.yoga-desc .warn { color:#FFA726; }
+
+/* ══════════════════ TABLE ══════════════════ */
+.dtable { width:100%; border-collapse:collapse; font-size:13px; margin-bottom:24px; overflow:hidden; border-radius:6px; }
+.dtable th {
+  background:rgba(232,98,154,0.1);
+  color:var(--pink-light);
+  font-family:'Cinzel Decorative',serif;
+  font-size:8px; letter-spacing:2px;
+  text-transform:uppercase;
+  padding:12px 16px; text-align:left;
+  border-bottom:1px solid rgba(232,98,154,0.2);
+  font-weight:400;
+}
+.dtable td {
+  padding:11px 16px;
+  color:var(--text-soft);
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  vertical-align:top; line-height:1.6;
+}
+.dtable tr:hover td { background:rgba(232,98,154,0.03); }
+.dtable td:first-child { color:var(--text-white); font-weight:600; }
+.num { font-family:'Cormorant Garamond',serif; font-size:15px; }
+.tag-ok  { color:#66BB6A; font-size:11px; font-weight:700; }
+.tag-warn{ color:#FFA726; font-size:11px; font-weight:700; }
+.tag-bad { color:var(--pink); font-size:11px; font-weight:700; }
+
+/* ══════════════════ TIMELINE ══════════════════ */
+.timeline { position:relative; padding-left:22px; margin-bottom:32px; }
+.timeline::before {
+  content:''; position:absolute;
+  left:0; top:0; bottom:0; width:1px;
+  background:linear-gradient(180deg,var(--pink),var(--purple),transparent);
+}
+
+.tl-item { position:relative; padding:0 0 28px 24px; }
+
+.tl-dot {
+  position:absolute; left:-22px; top:5px;
+  width:8px; height:8px; border-radius:50%;
+  transform:translateX(50%);
+}
+.dot-pk { background:var(--pink); box-shadow:0 0 10px rgba(232,98,154,0.6); }
+.dot-gd { background:var(--gold); box-shadow:0 0 10px rgba(212,168,75,0.6); }
+.dot-tl { background:var(--teal); box-shadow:0 0 10px rgba(61,173,160,0.6); }
+.dot-pu { background:var(--purple); box-shadow:0 0 10px rgba(139,107,181,0.6); }
+.dot-dim{ background:var(--text-dim); }
+
+.tl-badge {
+  display:inline-block; padding:2px 12px;
+  border-radius:20px; font-family:'Cinzel Decorative',serif;
+  font-size:8px; letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:6px;
+}
+.tbadge-pk { background:rgba(232,98,154,0.15); color:var(--pink); border:1px solid rgba(232,98,154,0.35); }
+.tbadge-gd { background:rgba(212,168,75,0.12); color:var(--gold); border:1px solid rgba(212,168,75,0.3); }
+.tbadge-tl { background:rgba(61,173,160,0.12); color:var(--teal); border:1px solid rgba(61,173,160,0.3); }
+.tbadge-pu { background:rgba(139,107,181,0.12); color:var(--purple); border:1px solid rgba(139,107,181,0.3); }
+.tbadge-dim{ background:rgba(120,104,128,0.12); color:var(--text-dim); border:1px solid rgba(120,104,128,0.3); }
+
+.tl-period { font-family:'Cinzel Decorative',serif; font-size:9px; letter-spacing:2px; color:var(--text-dim); margin-bottom:3px; }
+.tl-age { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:13px; color:var(--text-dim); margin-bottom:5px; }
+.tl-title { font-size:14px; font-weight:700; color:var(--text-white); margin-bottom:6px; }
+.tl-desc { font-size:13px; color:var(--text-soft); line-height:1.75; }
+.tl-desc strong { color:var(--pink-light); }
+
+/* ══════════════════ SAV BAR ══════════════════ */
+.sav-row { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+.sav-lbl { font-size:12px; color:var(--text-soft); width:90px; flex-shrink:0; text-align:right; }
+.sav-wrap { flex:1; height:22px; background:rgba(255,255,255,0.03); border-radius:3px; overflow:hidden; }
+.sav-fill {
+  height:100%; border-radius:3px;
+  display:flex; align-items:center; justify-content:flex-end;
+  padding-right:8px; transition:width 1.2s ease;
+}
+.sav-fill span { font-family:'Cormorant Garamond',serif; font-size:12px; color:rgba(255,255,255,0.85); font-weight:600; }
+.sfill-pk { background:linear-gradient(90deg,rgba(192,57,90,0.5),rgba(232,98,154,0.85)); }
+.sfill-gd { background:linear-gradient(90deg,rgba(160,120,40,0.5),rgba(212,168,75,0.85)); }
+.sfill-tl { background:linear-gradient(90deg,rgba(30,100,92,0.5),rgba(61,173,160,0.85)); }
+.sfill-pu { background:linear-gradient(90deg,rgba(80,55,120,0.5),rgba(139,107,181,0.85)); }
+.sfill-low{ background:linear-gradient(90deg,rgba(150,40,60,0.5),rgba(200,60,80,0.85)); }
+
+/* ══════════════════ 5-POINT ══════════════════ */
+.five-pt { display:flex; flex-direction:column; gap:18px; margin-bottom:32px; }
+.pt-row { display:flex; gap:18px; align-items:flex-start; }
+.pt-num {
+  flex-shrink:0; width:42px; height:42px;
+  background:linear-gradient(135deg,rgba(192,57,90,0.4),rgba(232,98,154,0.15));
+  border:1px solid rgba(232,98,154,0.4); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Cinzel Decorative',serif; font-size:14px;
+  color:var(--pink); font-weight:700;
+}
+.pt-title { font-size:15px; font-weight:700; color:var(--text-white); margin-bottom:6px; }
+.pt-text { font-size:13px; color:var(--text-soft); line-height:1.85; }
+.pt-text strong { color:var(--pink-light); }
+.pt-text .ok { color:#66BB6A; }
+.pt-text .bad { color:var(--pink); }
+
+/* ══════════════════ UPAYA CARDS ══════════════════ */
+.upaya-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px; margin-bottom:32px; }
+.upaya-card {
+  background:var(--black-3); border:1px solid rgba(255,255,255,0.05);
+  border-radius:6px; padding:20px; text-align:center;
+}
+.upaya-icon { font-size:30px; margin-bottom:10px; }
+.upaya-title { font-family:'Cinzel Decorative',serif; font-size:9px; letter-spacing:2px; color:var(--pink); text-transform:uppercase; margin-bottom:8px; }
+.upaya-body { font-size:13px; color:var(--text-soft); line-height:1.7; }
+.upaya-body strong { color:var(--text-white); }
+
+/* ══════════════════ PLAIN TIPS ══════════════════ */
+.plain-tip {
+  border-left:2px solid var(--pink);
+  padding:16px 20px;
+  background:rgba(232,98,154,0.04);
+  border-radius:0 6px 6px 0;
+  margin-bottom:12px;
+}
+.tip-num { font-family:'Cinzel Decorative',serif; font-size:10px; letter-spacing:2px; color:var(--pink); margin-bottom:6px; }
+.tip-title { font-size:14px; font-weight:700; color:var(--text-white); margin-bottom:5px; }
+.tip-body { font-size:13px; color:var(--text-soft); line-height:1.8; }
+.tip-body strong { color:var(--pink-light); }
+.tip-body .ok { color:#66BB6A; }
+.tip-body .bad { color:var(--pink); }
+
+/* ══════════════════ QUOTE ══════════════════ */
+.quote-sec {
+  text-align:center; padding:70px 20px 60px;
+  border-top:1px solid rgba(232,98,154,0.12);
+  margin-top:30px;
+}
+.quote-mark { font-family:'Cinzel Decorative',serif; font-size:70px; color:rgba(232,98,154,0.1); line-height:0.7; margin-bottom:24px; }
+.quote-en {
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:clamp(16px,2.5vw,22px); color:var(--text-white);
+  max-width:700px; margin:0 auto 16px; line-height:1.7;
+}
+.quote-cn {
+  font-size:14px; color:var(--pink-light); letter-spacing:2px;
+  max-width:600px; margin:0 auto 20px; line-height:1.9;
+}
+.quote-src { font-family:'Cinzel Decorative',serif; font-size:9px; letter-spacing:3px; color:var(--text-dim); }
+
+/* ══════════════════ RESPONSIVE ══════════════════ */
+@media(max-width:600px){
+  .grid-3 { grid-template-columns:1fr; }
+  .pt-row { flex-direction:column; gap:10px; }
+  .sav-lbl { width:66px; font-size:11px; }
+  .cover-meta-row { gap:20px; }
+}
+
+/* fade in */
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(18px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.fade { animation:fadeUp .7s ease both; }
+.d1{animation-delay:.1s;} .d2{animation-delay:.2s;} .d3{animation-delay:.3s;}
+</style>
+
+</head>
+<body>
+<div class="page">
+
+<!-- ════════════ COVER ════════════ -->
+
+<div class="cover">
+  <div class="petal"></div><div class="petal"></div>
+  <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+
+  <div class="cover-eyebrow fade">Parashari Jyotish · Love & Marriage Intelligence</div>
+  <div class="cover-symbol fade d1">♥</div>
+  <div class="cover-title fade d1">YULIN</div>
+  <div class="cover-title fade d2" style="font-size:clamp(18px,3vw,30px); background:linear-gradient(135deg,var(--pink-light),var(--pink)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">感情婚姻深度报告</div>
+  <div class="cover-subtitle fade d3">以 B.V. Raman 体系为核心 · D1主盘 × D9纳旺莎盘 交叉验证</div>
+
+  <div class="cover-tags fade d3">
+    <span class="cover-tag">2001.08.12 · 22:58 · 榆林子</span>
+    <span class="cover-tag">上升白羊 Mesha Aries</span>
+    <span class="cover-tag">月亮金牛 Vrishabha</span>
+    <span class="cover-tag">当前大运 拉胡—木星</span>
+  </div>
+
+  <div class="cover-meta-row fade d3">
+    <div class="meta-block"><div class="meta-l">AK 灵魂指标</div><div class="meta-v">太阳 Sun · 第4宫</div></div>
+    <div class="meta-block"><div class="meta-l">DK 配偶指标</div><div class="meta-v">月亮 Moon · 第2宫</div></div>
+    <div class="meta-block"><div class="meta-l">7宫主 伴侣星</div><div class="meta-v">金星 Venus · 第3宫</div></div>
+    <div class="meta-block"><div class="meta-l">大运子运</div><div class="meta-v">Rahu–Jupiter 2025.06—2027.11</div></div>
+  </div>
+</div>
+
+<!-- ════════════ PART 1: OVERVIEW ════════════ -->
+
+<div class="sec-header fade">
+  <div class="sec-num">Part I · 01</div>
+  <div class="sec-title">基础盘面 <span>· Core Configuration</span></div>
+  <div class="sec-sub">核心配置速览 · 感情格局整体底色</div>
+</div>
+
+<div class="card-grid grid-2">
+  <div class="card pk" data-icon="♈">
+    <div class="card-tag pk">Lagna / 上升星座</div>
+    <div class="card-title">白羊座 Mesha · 19°31'</div>
+    <div class="card-en">Bharani Nakshatra · Pada 2 · 纳旺莎处女座</div>
+    <div class="card-body">上升主星<strong>火星</strong>落第8宫天蝎本命宫——命主内里深水，表面强硬。婆罗尼星宿由金星主宰，带来对深度爱的渴望，但也有承担苦与乐的使命感。情感上是那种<strong>宁愿真实地受伤也不愿表面的平静</strong>的人。</div>
+  </div>
+  <div class="card gd" data-icon="☽">
+    <div class="card-tag gd">Moon / 月亮状态</div>
+    <div class="card-title">金牛座 Vrishabha · 0°44' 极近入旺</div>
+    <div class="card-en">Krittika Nakshatra · Pada 2 · Avashtha: Mrita（死亡状态）</div>
+    <div class="card-body">月亮几乎完全入旺（入旺度3°），情感储备极为丰富；然而Mrita状态说明<strong>情感被压在玻璃罩里</strong>——看得见，流不出来。月土合相（土星同宫第2宫）进一步加重了这种压抑：<span class="warn">情感先理性、后感性，慢热且不轻易开口。</span></div>
+  </div>
+  <div class="card tl" data-icon="♀">
+    <div class="card-tag tl">Venus / 7宫主·感情主星</div>
+    <div class="card-title">金星 双子座 · 20°07' · 第3宫</div>
+    <div class="card-en">Punarvasu Nakshatra · Pada 1 · Avashtha: Vriddha（老年/疲惫）</div>
+    <div class="card-body">7宫主金星落第3宫，与<strong>木星（丈夫星）+ 拉胡</strong>三星聚首。金星Vriddha状态说明<strong>感情能量趋于疲软</strong>——不是没有爱，而是需要被真正触动才能激活。Vimsopaka综合评分高达78.13%，说明金星的整体多维度潜力其实很强，只是当下时机尚未完全到来。</div>
+  </div>
+  <div class="card pu" data-icon="♃">
+    <div class="card-tag pu">Jupiter / 女命丈夫星</div>
+    <div class="card-title">木星 双子座 · 13°42' · 第3宫</div>
+    <div class="card-en">Ardra Nakshatra · Pada 3 · Guru-Chandal Dosha成立</div>
+    <div class="card-body">木星落双子（弱宫）且与拉胡同宫，形成<strong>Guru-Chandal格局</strong>——丈夫能量受拉胡污染，暗示对象可能个性独特非传统，或初遇时带有某种"不像正常追求"的气质。Sodhya Pinda仅<strong>58（全盘最低）</strong>，丈夫的星盘力量偏弱，<span class="warn">婚姻需要你主动经营，不能等对方撑起全局。</span></div>
+  </div>
+</div>
+
+<div class="hlbox pink">
+  <div class="hlbox-tag">⚡ 整盘感情格局一句话定性</div>
+  <div class="hlbox-title">第3宫三星聚首 × 第7宫SAV全盘最低</div>
+  <div class="hlbox-body">木星+金星+拉胡三星同时落在第3宫（沟通/相遇/近邻宫位），感情的开始总是通过<strong>共同圈子、智识交流、或意外相遇</strong>触发，而非传统的安排相亲。但第7宫空置且SAV仅23（全盘最低），婚姻的"落地"需要付出远超普通人的努力——<strong class="bad">感情不缺桃花，缺的是把桃花走到最后的落地能力。</strong></div>
+</div>
+
+<div class="divider"><div class="divider-icon">✦</div></div>
+
+<!-- ════════════ PART 1: CHARACTER ════════════ -->
+
+<div class="sec-header">
+  <div class="sec-num">Part I · 02</div>
+  <div class="sec-title">亲密关系性格 <span>· Intimacy Profile</span></div>
+  <div class="sec-sub">上升 · 月亮 · 金星 · DK 深度解析</div>
+</div>
+
+<div class="card-grid grid-3">
+  <div class="card pk" data-icon="♈">
+    <div class="card-tag pk">上升性格底色</div>
+    <div class="card-title">🔥 独立战士的内心柔软</div>
+    <div class="card-body">白羊座上升：你在关系里是<strong>主动型</strong>，喜欢掌握节奏；但婆罗尼星宿（金星主宰）让你内心深处渴望被完全接住。表面"我不在乎"，内心"你有没有看见我"。<span class="ok">优势：忠诚，一旦认定全情投入。</span><span class="warn"> 弱点：受伤后筑墙极厚，恢复周期长。</span></div>
+  </div>
+  <div class="card gd" data-icon="☽">
+    <div class="card-tag gd">月亮安全感来源</div>
+    <div class="card-title">🌙 需要稳定，但说不出口</div>
+    <div class="card-body">金牛月亮：你在关系里需要<strong>确定感、物质稳定、和节奏一致</strong>。月土合相让你习惯先把情绪"翻译"成理性才说出口——但等翻译完，时机可能已过。<span class="warn">感情里的你其实很需要被主动询问和被看见，但不会开口要。</span></div>
+  </div>
+  <div class="card pu" data-icon="☿">
+    <div class="card-tag pu">DK 配偶指标深层功课</div>
+    <div class="card-title">🌊 此生伴侣课题：接纳脆弱</div>
+    <div class="card-body">DK为<strong>月亮（Moon）</strong>：此生在伴侣关系中的核心功课是——<strong>允许自己和伴侣都可以软弱</strong>，而不是两个强者的盔甲碰撞。月亮DK也暗示：真正的伴侣会触碰你的内心深处，<span class="ok">让你感觉被理解，而不仅仅是被欣赏。</span></div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-icon">✦</div></div>
+
+<!-- ════════════ PART 1: PAST EVENTS ════════════ -->
+
+<div class="sec-header">
+  <div class="sec-num">Part I · 03</div>
+  <div class="sec-title">关键人生事件验证 <span>· Past Events</span></div>
+  <div class="sec-sub">基于大运时序的过去感情节点推演</div>
+</div>
+
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-dot dot-pu"></div>
+    <div class="tl-badge tbadge-pu">验证锚点 01</div>
+    <div class="tl-period">Moon–Rahu · 月亮大运—拉胡子运</div>
+    <div class="tl-age">2007年3月—2008年9月 · 约5—7岁</div>
+    <div class="tl-title">家庭环境的不稳定，奠定安全感底色</div>
+    <div class="tl-desc">月亮（家庭/母亲）大运中拉胡子运激活第3宫，此期可能有居住变动、家庭关系调整或母亲状态变化。这段经历在内心深处写下了"<strong>稳定是奢侈品</strong>"的底层信念——日后在感情中对不确定性尤为敏感，对"你会不会走"的焦虑比大多数人更深。</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot dot-pk"></div>
+    <div class="tl-badge tbadge-pk">验证锚点 02</div>
+    <div class="tl-period">Mars–Venus · 火星大运—金星子运</div>
+    <div class="tl-age">2020年9月—2021年11月 · 约19—20岁</div>
+    <div class="tl-title">命中注定要发生的第一次深度动心</div>
+    <div class="tl-desc">火星（上升主星）×金星（7宫主）是教科书级别的感情点火组合。金星与拉胡同宫，此期的相遇极可能是<strong>网络缘、异地缘，或对方背景特殊</strong>——疫情居家叠加了这一配置的"非常规性"。即便最终未能走到底，这段经历打开了你对深度感情的认知，知道了自己能有多投入。</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot dot-gd"></div>
+    <div class="tl-badge tbadge-gd">验证锚点 03</div>
+    <div class="tl-period">Rahu–Rahu · 拉胡双重激活期</div>
+    <div class="tl-age">2022年10月—2025年6月 · 约21—24岁</div>
+    <div class="tl-title">社交圈急速扩大，桃花多但难落定</div>
+    <div class="tl-desc">拉胡大运×拉胡子运双重激活第3宫（社交/相遇/变化），这段时间大概率经历了<strong>快速的生活环境变化</strong>（新城市/新圈子/新身份），同时出现过几段让你心动但最终没有走向承诺的相遇。不是你不想，而是时机和对方都还不够成熟。<strong>这段时间的积累是在为正缘的到来做准备。</strong></div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-icon">✦</div></div>
+
+<!-- ════════════ PART 2: YOGA & DOSHA ════════════ -->
+
+<div class="sec-header">
+  <div class="sec-num">Part II · 04.1</div>
+  <div class="sec-title">婚姻格局逐一判定 <span>· Yoga & Dosha</span></div>
+  <div class="sec-sub">✓成立 / ✗不成立 / △部分成立</div>
+</div>
+
+<div class="yoga-item">
+  <div class="yoga-badge badge-part">△</div>
+  <div class="yoga-body">
+    <div class="yoga-name">Kuja Dosha · 火星煞（克夫克妻）</div>
+    <div class="yoga-cn">检查火星是否在1/2/4/7/8/12宫</div>
+    <div class="yoga-desc"><strong>部分成立，效力约50%</strong> ——火星确在第8宫（Dosha宫位），判定触发。但两大减弱因素：① 火星在天蝎<strong class="ok">本命宫</strong>，恶意大幅削减；② <strong class="ok">木星从第3宫以第5相位照射第7宫</strong>（最有力的保护相位），等于在婚姻宫上方加了一把保护伞。综合判断：婚姻初期有磨合期和适应难度，但不会造成根本性的破坏。</div>
+  </div>
+</div>
+
+<div class="yoga-item">
+  <div class="yoga-badge badge-yes">✓</div>
+  <div class="yoga-body">
+    <div class="yoga-name">Punarphoo Dosha · 月土煞（情感延迟）</div>
+    <div class="yoga-cn">土星与月亮同宫/合相 · 第2宫</div>
+    <div class="yoga-desc"><strong class="warn">完全成立</strong> ——土星（Saturn，20°26'）与月亮（Moon，0°44'）同宫第2宫金牛座，月土合相。效力由于月亮极近入旺（0°44'）而有所打折（约65%有效）。现实影响：感情推进慢于同龄人；初期感情体验可能有"开始后又退缩/被搁置"的模式；婚事在时间上比多数人<strong>晚一到三年到来</strong>，但晚到不代表不到。</div>
+  </div>
+</div>
+
+<div class="yoga-item">
+  <div class="yoga-badge badge-no">✗</div>
+  <div class="yoga-body">
+    <div class="yoga-name">Sannyasa Yoga · 出家格</div>
+    <div class="yoga-cn">四星以上聚于同一宫，命主离世倾向</div>
+    <div class="yoga-desc">不成立。第3宫虽有三星聚首，但拉胡的存在强化世俗欲望，与出家格背道而驰。命主是属于红尘的人。</div>
+  </div>
+</div>
+
+<div class="yoga-item">
+  <div class="yoga-badge badge-part">△</div>
+  <div class="yoga-body">
+    <div class="yoga-name">Raja Yoga · 帝王格（提升伴侣层次）</div>
+    <div class="yoga-cn">9宫主×7宫主同宫 · 第3宫</div>
+    <div class="yoga-desc"><strong>条件性成立</strong> ——9宫主木星与7宫主金星同宫，理论上构成准Raja Yoga，有助于提升感情与伴侣的品质层次。但第3宫非三角/中天宫，加上拉胡的染指，格局大打折扣。<strong>结论：潜力存在，但需要经历足够的生活历练才能兑现。</strong></div>
+  </div>
+</div>
+
+<div class="yoga-item">
+  <div class="yoga-badge badge-part">△</div>
+  <div class="yoga-body">
+    <div class="yoga-name">7宫主状态 · Venus in 3rd House</div>
+    <div class="yoga-cn">7宫主金星 × Guru-Chandal污染</div>
+    <div class="yoga-desc">金星落第3宫（非凶宫），与1宫主火星无直接刑冲，但受<strong>拉胡同宫污染</strong>，感情判断力偶尔会被"看起来很美"的幻象迷惑。金星Vriddha（老年状态）说明感情能量趋于内敛，<span class="warn">需要真正触动内心的人才能激活它的全部潜力</span>，平淡的追求很难打动你。</div>
+  </div>
+</div>
+
+<div class="yoga-item">
+  <div class="yoga-badge badge-part">△</div>
+  <div class="yoga-body">
+    <div class="yoga-name">Upapada Lagna · UL 婚姻现实点</div>
+    <div class="yoga-cn">UL所在宫位及宫主状态</div>
+    <div class="yoga-desc">UL落第3宫双子座区域，宫主水星落第5宫狮子座——指向婚姻在现实层面会通过<strong>共同创造（孩子/事业/作品）</strong>找到新的凝聚力。UL与第2宫（月土合宫）的互动说明：家庭期望与个人感情意愿之间存在某种拉锯，<span class="warn">父母/家庭的眼光会影响你对伴侣的选择</span>，需要主动区分"我想要"和"他们想要我有"。</div>
+  </div>
+</div>
+
+<div class="verdict">
+  <div class="verdict-label">婚姻总体判定 · Overall Marriage Verdict</div>
+  <div class="verdict-main">经历世界之后才能归根的探索型婚姻<br>先走够了，才能认出那个对的人</div>
+  <div class="verdict-sub">比同龄人晚一些确定，但一旦确定，深度和稳定性超过大多数人。婚姻不是一见钟情的礼物，是经历过足够多之后，主动选择的结果。</div>
+</div>
+
+<div class="divider"><div class="divider-icon">✦</div></div>
+
+<!-- ════════════ PART 2: PLANET POWER ════════════ -->
+
+<div class="sec-header">
+  <div class="sec-num">Part II · 04.2</div>
+  <div class="sec-title">感情行星力量分析 <span>· Planet Power</span></div>
+  <div class="sec-sub">Shadbala · IshtaPhala · KashtaPhala 数据一览</div>
+</div>
+
+<div style="overflow-x:auto; margin-bottom:24px;">
+<table class="dtable">
+  <thead>
+    <tr>
+      <th>行星 Planet</th>
+      <th>感情身份</th>
+      <th>Shadbala Rupas / %</th>
+      <th>达标</th>
+      <th>IshtaPhala 吉</th>
+      <th>KashtaPhala 凶</th>
+      <th>净效果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>♀ 金星 Venus</th>
+      <td>7宫主 · 感情主星</th>
+      <td><span class="num">425.32</span> / 128.88%</th>
+      <td><span class="tag-ok">✓</span></th>
+      <td><span class="num">28.10</span></th>
+      <td><span class="num tag-warn">31.39⚠</span></th>
+      <td><span class="tag-warn">微负</span></th>
+    </tr>
+    <tr>
+      <td>♃ 木星 Jupiter</th>
+      <td>女命丈夫星 · 9宫主</th>
+      <td><span class="num">422.61</span> / 108.36%</th>
+      <td><span class="tag-ok">✓</span></th>
+      <td><span class="num">29.72</span></th>
+      <td><span class="num">17.53</span></th>
+      <td><span class="tag-warn">受Guru-Chandal污染</span></th>
+    </tr>
+    <tr>
+      <td>☽ 月亮 Moon</th>
+      <td>DK 配偶指标星</th>
+      <td><span class="num">485.62</span> / 134.89%</th>
+      <td><span class="tag-ok">✓</span></th>
+      <td><span class="num tag-ok">41.33🌙</span></th>
+      <td><span class="num">4.84</span></th>
+      <td><span class="tag-ok">终极救赎力</span></th>
+    </tr>
+    <tr>
+      <td>♂ 火星 Mars</th>
+      <td>1/8宫主 · Kuja Dosha</th>
+      <td><span class="num">359.21</span> / 119.74%</th>
+      <td><span class="tag-ok">✓</span></th>
+      <td><span class="num">42.91</span></th>
+      <td><span class="num">16.52</span></th>
+      <td><span class="tag-ok">正向（8宫本命宫）</span></th>
+    </tr>
+    <tr>
+      <td>♄ 土星 Saturn</th>
+      <td>Punarphoo制造者</th>
+      <td><span class="num">283.33</span> / 94.44%</th>
+      <td><span class="tag-bad">✗未达标</span></th>
+      <td><span class="num">15.42</span></th>
+      <td><span class="num tag-bad">42.70☠</span></th>
+      <td><span class="tag-bad">强负·慢性消耗</span></th>
+    </tr>
+    <tr>
+      <td>☀ 太阳 Sun</th>
+      <td>AK 灵魂指标 · 5宫主</th>
+      <td><span class="num">391.18</span> / 130.39%</th>
+      <td><span class="tag-ok">✓</span></th>
+      <td><span class="num">32.39</span></th>
+      <td><span class="num">24.46</span></th>
+      <td><span class="tag-ok">正向</span></th>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="card-grid grid-2">
+  <div class="hlbox pink">
+    <div class="hlbox-tag">🩸 婚姻中的隐藏破坏者</div>
+    <div class="hlbox-title">土星 Saturn · 慢性冷冻机</div>
+    <div class="hlbox-body">全盘唯一未达标的行星（94.44%），KashtaPhala高达<strong>42.70——全盘之首</strong>。在第2宫压住月亮，让情感流动如同在零度的空气里试图点火。它不会主动破坏你的感情，但会让<strong>每一段感情的推进都比别人慢半拍，每一次表达都像要从冰层里凿出来</strong>。土星的化解方式不是对抗，而是接纳——接受你本来就是那个需要更多时间的人。</div>
+  </div>
+  <div class="hlbox teal">
+    <div class="hlbox-tag">🌙 终极救赎力量</div>
+    <div class="hlbox-title">月亮 Moon · 入旺的守护者</div>
+    <div class="hlbox-body">月亮以<strong>134.89% Shadbala</strong>和全盘最高IshtaPhala之一（41.33）成为感情领域最正向的力量。极近入旺（0°44'金牛）说明你的内心深处储藏着远超普通人的情感丰盛——<strong>只要找到那个打开阀门的人，你的爱可以是非常温暖、深沉、真实的</strong>。月亮同为DK，真正的伴侣会触碰你最深的内心。</div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-icon">✦</div></div>
+
+<!-- ════════════ PART 2: DASHA TIMELINE ════════════ -->
+
+<div class="sec-header">
+  <div class="sec-num">Part II · 04.3</div>
+  <div class="sec-title">大运婚恋时间窗 <span>· Marriage Timing</span></div>
+  <div class="sec-sub">未来20年关键感情节点 · 精确到年月</div>
+</div>
+
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-dot dot-pk"></div>
+    <div class="tl-badge tbadge-pk">🌟 当前进行中 · 正缘黄金窗</div>
+    <div class="tl-period">Rahu–Jupiter · 拉胡—木星</div>
+    <div class="tl-age">2025年6月23日—2027年11月18日 · 24—26岁</div>
+    <div class="tl-title">正缘出现概率最高的时间窗口</div>
+    <div class="tl-desc">木星（女命丈夫星）在拉胡大运中被直接点亮，这是命盘中激活感情能量最直接的子运。拉胡的"加速器"特质让相遇发生得突然且印象深刻。<strong>建议：2026年上半年（约25岁）是此窗口中能量最集中的时段</strong>——可能在旅行、工作变动、新的社交圈中出现关键相遇。不要在这段时间因为"还没准备好"而错过真实的相遇。</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot dot-gd"></div>
+    <div class="tl-badge tbadge-gd">💍 婚姻承诺窗口</div>
+    <div class="tl-period">Rahu–Saturn · 拉胡—土星</div>
+    <div class="tl-age">2027年11月18日—2030年9月25日 · 26—29岁</div>
+    <div class="tl-title">关系走向稳定承诺的过渡期</div>
+    <div class="tl-desc">若正缘在前一期出现，土星子运带来"结构化"的力量——<strong>这是谈婚论嫁、正式确定关系的窗口</strong>。土星在第2宫（家庭/承诺宫），此期家庭背景和长辈意见可能参与进来。2028年是此期能量最集中的时间节点，概率推演：<strong>28岁前后步入婚姻承诺的可能性最高。</strong></div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot dot-tl"></div>
+    <div class="tl-badge tbadge-tl">👶 感情深化·生育窗口</div>
+    <div class="tl-period">Rahu–Mercury · 拉胡—水星</div>
+    <div class="tl-age">2030年9月25日—2033年4月9日 · 29—32岁</div>
+    <div class="tl-title">婚姻生活进入创造力爆发期</div>
+    <div class="tl-desc">水星落第5宫（子女/创造/爱的表达宫），此期可能涉及<strong>生育计划或共同事业的创建</strong>。婚姻的凝聚力在"共同创造某件事"中加深。<span class="warn">注意：此期沟通需要格外小心，水星被拉胡激活有"话说一半、被误解"的风险。</span></div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot dot-dim"></div>
+    <div class="tl-badge tbadge-dim">🔄 业力结算期</div>
+    <div class="tl-period">Rahu–Ketu · 拉胡—计都</div>
+    <div class="tl-age">2033年4月9日—2034年4月28日 · 32—33岁</div>
+    <div class="tl-title">内省与断舍离期 · 不是终点，是净化</div>
+    <div class="tl-desc">Ketu（9宫，精神净化）子运代表回归本质。此期可能感觉婚姻关系进入"静默期"或对某些期待的主动放下。<strong>不是危机，而是双方都在重新确认"为什么在一起"</strong>的内省期。</div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot dot-pk"></div>
+    <div class="tl-badge tbadge-pk">💎 感情财富双丰收</div>
+    <div class="tl-period">Rahu–Venus · 拉胡—金星</div>
+    <div class="tl-age">2034年4月28日—2037年4月27日 · 33—36岁</div>
+    <div class="tl-title">婚姻与财富同时进入最美阶段</div>
+    <div class="tl-desc">金星（7宫主）子运，若前期关系稳定，这是婚姻进入<strong>最甜蜜、最稳定的黄金阶段</strong>。同时金星也是2宫主（财富），此期经济状况同步提升。Vimsopaka综合得分78.13%的金星在这一期终于被完全激活。<strong>这是命盘里等待最久、回报最丰盛的感情时段。</strong></div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-icon">✦</div></div>
+
+<!-- ════════════ PART 2: D9 ════════════ -->
+
+<div class="sec-header">
+  <div class="sec-num">Part II · 04.4</div>
+  <div class="sec-title">D9 纳旺莎盘验证 <span>· Navamsa Chart</span></div>
+  <div class="sec-sub">婚姻果实盘 · 婚后生活的深层密码</div>
+</div>
+
+<div class="card-grid grid-2">
+  <div class="card pk" data-icon="♍">
+    <div class="card-tag pk">D9 Ascendant / 纳旺莎上升</div>
+    <div class="card-title">处女座 Kanya · 婚后生活基调</div>
+    <div class="card-body">处女座D9上升：婚后生活<strong>务实、注重细节和品质</strong>，对家庭有强烈的责任心和奉献欲。但处女座同时带来挑剔——<span class="warn">婚后容易用"分析与改进"的眼光审视伴侣，无意间让对方感到被批评</span>。婚姻中最需要的练习是：接受"够好"，不是"完美才行"。</div>
+  </div>
+  <div class="card gd" data-icon="♎">
+    <div class="card-tag gd">7th Lord in D9 / 7宫主金星在D9</div>
+    <div class="card-title">白羊座 · 落D9第8宫</div>
+    <div class="card-body">金星在D9落白羊座（火星之宫，金星气质相克），且在D9第8宫（深层转化/婆媳/危机宫）。<strong>非Vargottama，力量削减。</strong><br>结论：D9对D1婚姻格局构成一定挑战——<span class="warn">婚后存在深层磨合期，关系的真正稳定需要经历至少一次"从内部重建"的过程</span>。这个重建过程通常在婚后3—5年出现。</div>
+  </div>
+  <div class="card tl" data-icon="♃">
+    <div class="card-tag tl">Jupiter in D9 / 木星（夫星）在D9</div>
+    <div class="card-title">水瓶座 · 落D9第6宫</div>
+    <div class="card-body">D9第6宫代表服务、障碍与适应。丈夫在婚姻中可能给你带来某些需要主动适应的生活习惯或观念差异——<strong>不是原则性问题，而是"日常相处模式需要磨合"</strong>。包容与双向调适是这段婚姻成长的主旋律。</div>
+  </div>
+  <div class="card pu" data-icon="▲">
+    <div class="card-tag pu">D9综合结论</div>
+    <div class="card-title">挑战型D9 · 但磨合后可持久</div>
+    <div class="card-body">D9并未提升D1的婚姻格局，而是<span class="warn">暗示了潜在的深层挑战</span>——但这不等于婚姻不幸福。处女座D9上升的人有极强的"优化和修复"能力，<strong>婚姻对你来说是一门需要认真做功课的课程，而你完全有能力拿到满分</strong>。关键是：不能指望对方自然而然契合，需要主动创造两个人的共同语言。</div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-icon">✦</div></div>
+
+<!-- ════════════ PART 2: SAV ════════════ -->
+
+<div class="sec-header">
+  <div class="sec-num">Part II · 04.5</div>
+  <div class="sec-title">SAV 八宫均分解读 <span>· Ashtakavarga</span></div>
+  <div class="sec-sub">感情相关关键宫位战力图 · 均值 28.7</div>
+</div>
+
+<div class="card-grid grid-2">
+  <div class="card pk" data-icon="📊">
+    <div class="card-tag pk">感情宫位SAV战力图</div>
+    <div class="card-title">关键宫位得分对比</div>
+    <div class="card-en">红色=低于均值·绿色=高于均值</div>
+    <div style="margin-top:16px;">
+      <div class="sav-row"><div class="sav-lbl">2宫 家庭/沟通</div><div class="sav-wrap"><div class="sav-fill sfill-gd" style="width:66%"><span>30</span></div></div></div>
+      <div class="sav-row"><div class="sav-lbl">4宫 内心安宁</div><div class="sav-wrap"><div class="sav-fill sfill-tl" style="width:60%"><span>28</span></div></div></div>
+      <div class="sav-row"><div class="sav-lbl">7宫 伴侣关系</div><div class="sav-wrap"><div class="sav-fill sfill-low" style="width:48%"><span>23 ⚠️</span></div></div></div>
+      <div class="sav-row"><div class="sav-lbl">8宫 婚姻深层</div><div class="sav-wrap"><div class="sav-fill sfill-pu" style="width:55%"><span>26</span></div></div></div>
+      <div class="sav-row"><div class="sav-lbl">10宫 事业</div><div class="sav-wrap"><div class="sav-fill sfill-gd" style="width:73%"><span>33 ⭐</span></div></div></div>
+      <div class="sav-row"><div class="sav-lbl">11宫 收入</div><div class="sav-wrap"><div class="sav-fill sfill-tl" style="width:68%"><span>31</span></div></div></div>
+      <div class="sav-row"><div class="sav-lbl">12宫 私密/放下</div><div class="sav-wrap"><div class="sav-fill sfill-pk" style="width:60%"><span>28</span></div></div></div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:14px;">
+    <div class="hlbox pink">
+      <div class="hlbox-tag">⚠ 最脆弱防线</div>
+      <div class="hlbox-title">第7宫 SAV=23 · 全盘最低</div>
+      <div class="hlbox-body">伴侣关系宫得分全盘垫底，这是命盘对感情领域最直白的警示：<strong class="bad">这里是你最难守住的城墙</strong>。选择伴侣或合作对象时，不要凭第一感觉仓促托付，需要时间和真实相处来验证。</div>
+    </div>
+    <div class="hlbox gold">
+      <div class="hlbox-tag">⭐ 最强势资本</div>
+      <div class="hlbox-title">第10宫 SAV=33 · 全盘最高</div>
+      <div class="hlbox-body">事业宫得分全盘第一，说明<strong>你在职业领域的潜力远大于感情领域的天然顺畅度</strong>。这不是坏事——它意味着独立、有价值感的你在感情里会更有底气选择，而不是将就。</div>
+    </div>
+    <div class="hlbox teal">
+      <div class="hlbox-tag">木星对第7宫的关键相位</div>
+      <div class="hlbox-title">第5相位保护 · 婚姻的守护光</div>
+      <div class="hlbox-body">木星从第3宫以<strong>第5相位照射空置的第7宫</strong>——这是对婚姻宫最有力的吉星保护。意味着即便第7宫SAV偏低，有木星守护，婚姻<strong>终究不会太差</strong>，只是需要更多时间来等待和经营。</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-icon">✦</div></div>
+
+<!-- ════════════ PART 3: CONCLUSIONS ════════════ -->
+
+<div class="sec-header">
+  <div class="sec-num">Part III · 05</div>
+  <div class="sec-title">综合结论 <span>· Final Verdict</span></div>
+  <div class="sec-sub">五要点总结 · 实践建议 · 接地气版大白话</div>
+</div>
+
+<div class="verdict">
+  <div class="verdict-label">总体婚姻评估 · Overall Verdict</div>
+  <div class="verdict-main">先经历，才能认出；先成长，才能承载<br>正缘在旅途中等你，24—27岁是关键窗口</div>
+  <div class="verdict-sub">婚姻需要认真经营，但基础可以持久 · 比同龄人晚但不是不到</div>
+</div>
+
+<div class="five-pt">
+  <div class="pt-row">
+    <div class="pt-num">1</div>
+    <div>
+      <div class="pt-title">格局定性 · 是什么样的婚姻命？</div>
+      <div class="pt-text"><strong>探索后的归宿型</strong>——不是开门就遇见正缘，而是走过足够多的路之后，在某个意想不到的地方认出了那个人。Punarphoo煞让你比别人晚开始，但<span class="ok">晚不代表错过，代表成熟后遇见</span>。整体：<strong>原配良缘，但需要时间和眼光。</strong></div>
+    </div>
+  </div>
+  <div class="pt-row">
+    <div class="pt-num">2</div>
+    <div>
+      <div class="pt-title">伴侣画像 · 他/她大概是什么样的人？</div>
+      <div class="pt-text">
+        • <strong>性格：</strong>思维活跃、有些特别、不走寻常路，情感深沉但可能不擅长表达<br>
+        • <strong>职业：</strong>教育、媒体、咨询、技术、创意、跨文化领域<br>
+        • <strong>相遇场景：</strong>工作场景、共同兴趣圈、旅途中、网络/跨城市认识<br>
+        • <strong>背景：</strong>思想开放，可能有跨文化元素，年龄相仿或略大但带有成熟感<br>
+        • <span class="ok">D9暗示：对方可能初次相遇时不走传统追求路线，但感情是真实的。</span>
+      </div>
+    </div>
+  </div>
+  <div class="pt-row">
+    <div class="pt-num">3</div>
+    <div>
+      <div class="pt-title">时机判断 · 我现在在哪儿？该做什么？</div>
+      <div class="pt-text">
+        • <strong>当前（2025—2026）：</strong>处于拉胡-木星期，感情能量最活跃的时段。<strong>这段时间遇见的人值得认真对待，不要因为"还没准备好"就错过。</strong><br>
+        • <strong>2027—2028：</strong>若正缘已出现，这段时间走向正式承诺<br>
+        • <strong>2034—2037：</strong>感情和财富的双重丰收期，值得等待
+      </div>
+    </div>
+  </div>
+  <div class="pt-row">
+    <div class="pt-num">4</div>
+    <div>
+      <div class="pt-title">相处雷区 · 关系里最容易炸的点</div>
+      <div class="pt-text">
+        • <span class="bad">情感封闭/冷暴力：</span>受伤时沉默代替沟通，月土合相的通病，你得主动练习开口<br>
+        • <span class="bad">隐性控制欲：</span>白羊+8宫火星，需要掌控关系节奏，对"失控"感极度不适<br>
+        • <span class="bad">完美主义式挑剔：</span>D9处女座上升，婚后容易用分析眼光看伴侣，无意间传递"你不够好"<br>
+        • <span class="bad">理想化落差：</span>金星与拉胡同宫，对感情的想象往往比现实更美丽，失望后容易走极端
+      </div>
+    </div>
+  </div>
+  <div class="pt-row">
+    <div class="pt-num">5</div>
+    <div>
+      <div class="pt-title">实践建议 · 星盘给的具体化解之道</div>
+      <div class="pt-text">见下方 Upayas 卡片。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ PLAIN TIPS — 大白话结论 ════════════ -->
+
+<div class="sec-header" style="margin-top:20px;">
+  <div class="sec-num">最后一页 · 大白话总结</div>
+  <div class="sec-title">不废话，直接说 <span>· Plain Truth</span></div>
+  <div class="sec-sub">不用懂占星，看这里就够了</div>
+</div>
+
+<div class="plain-tip">
+  <div class="tip-num">01.</div>
+  <div class="tip-title">你不是不适合谈恋爱，你只是慢热且对平庸过敏。</div>
+  <div class="tip-body">你的感情不缺可能性，缺的是那个真正能打穿你防御的人。表面你很独立，内心你非常需要被"真正看见"——不是被欣赏，是被理解。<strong>大多数人没能穿过你的第一层，就以为你冷漠。</strong>等那个有耐心穿进来的人，值得。</div>
+</div>
+
+<div class="plain-tip">
+  <div class="tip-num">02.</div>
+  <div class="tip-title">你的最大感情杀手不是遇不到人，而是遇到了不敢。</div>
+  <div class="tip-body">月土合相给你装了一个内置的"感情刹车"——理智总是比感受先到达。<strong class="bad">你总在感觉"还没准备好"的时候错过真实的时机。</strong>2025—2027年这个窗口，试着先出发，再在路上准备。这一次，理智可以让步一次。</div>
+</div>
+
+<div class="plain-tip">
+  <div class="tip-num">03.</div>
+  <div class="tip-title">你的正缘多半不是一眼就认出的那种，而是越看越对的那种。</div>
+  <div class="tip-body">拉胡+木星的组合告诉你：对的人通常不是按剧本来的。可能是初识时觉得"有点奇怪"，或者相识方式很意外。<strong>不要用"感觉对了"作为唯一标准，给越看越对的人一点时间。</strong></div>
+</div>
+
+<div class="plain-tip">
+  <div class="tip-num">04.</div>
+  <div class="tip-title">婚姻里你最需要学的一件事：说出来，而不是等对方自己感受到。</div>
+  <div class="tip-body">你的情感表达模式是把感受翻译成理性再输出——等翻译完，时机已过，对方以为你没事。<strong>在亲密关系里，"我需要你陪我"比任何分析都有效。</strong>开口，是你的婚姻功课里权重最高的一条。</div>
+</div>
+
+<div class="plain-tip">
+  <div class="tip-num">05.</div>
+  <div class="tip-title">事业是你最稳的地方，不要用感情来填补它，也不要用它来逃避感情。</div>
+  <div class="tip-body">第10宫SAV=33，全盘最高，事业是你最有底气的领域。但这也意味着当感情出问题时，你很容易一头扎进工作里假装没发生。<strong class="bad">那只是暂停，不是解决。</strong>两者都值得你认真对待。</div>
+</div>
+
+<div class="plain-tip">
+  <div class="tip-num">06.</div>
+  <div class="tip-title">对的人不会要求你完美，但你要先放下对对方"必须完美"的执念。</div>
+  <div class="tip-body">D9处女座上升是婚后最大的关系杀手——你会用分析和优化的眼光看伴侣，让他/她觉得"永远不够好"。<strong>爱一个人不是改造项目。</strong>第一次意识到自己在挑剔对方的时候，停下来，问问自己：我是在要求完美，还是在保护自己不受伤？</div>
+</div>
+
+<!-- ════════════ UPAYAS ════════════ -->
+
+<div class="sec-header" style="margin-top:40px;">
+  <div class="sec-num">Upayas · 化解之道</div>
+  <div class="sec-title">实践建议 <span>· Healing Actions</span></div>
+</div>
+
+<div class="upaya-grid">
+  <div class="upaya-card">
+    <div class="upaya-icon">🔴</div>
+    <div class="upaya-title">宝石 · 红珊瑚</div>
+    <div class="upaya-body"><strong>Red Coral · 约5克拉</strong><br>铜戒，右手无名指<br>强化上升主星火星，激活行动力和感情主动性，部分化解Kuja Dosha</div>
+  </div>
+  <div class="upaya-card">
+    <div class="upaya-icon">🌙</div>
+    <div class="upaya-title">宝石 · 月光石</div>
+    <div class="upaya-body"><strong>Moonstone · 银戒</strong><br>左手小指<br>激活入旺月亮的情感流动力，帮助打开"情感刹车"，舒缓月土合相的压抑</div>
+  </div>
+  <div class="upaya-card">
+    <div class="upaya-icon">🕊</div>
+    <div class="upaya-title">每周五仪式</div>
+    <div class="upaya-body"><strong>金星日 · Shukravar</strong><br>穿粉色/白色衣物<br>对镜重复：「我值得被全然地爱」<br>持续21天，打开感情阀门</div>
+  </div>
+  <div class="upaya-card">
+    <div class="upaya-icon">🙏</div>
+    <div class="upaya-title">拉胡化解</div>
+    <div class="upaya-body"><strong>Durga Mantra</strong><br>「Om Dum Durgayei Namaha」<br>每周六108次<br>净化Guru-Chandal的幻象，提升感情判断的准确性</div>
+  </div>
+  <div class="upaya-card">
+    <div class="upaya-icon">💧</div>
+    <div class="upaya-title">生活方式调整</div>
+    <div class="upaya-body"><strong>水元素疗愈</strong><br>游泳 · 品茶 · 插花<br>滋养金牛月亮的感受力<br>每天10分钟胸腔深呼吸冥想，疏通心轮（Anahata）</div>
+  </div>
+  <div class="upaya-card">
+    <div class="upaya-icon">✍️</div>
+    <div class="upaya-title">沟通策略</div>
+    <div class="upaya-body"><strong>情感日记 · 每日写3句</strong><br>「今天我感受到了___」<br>不是分析，是直接写感受<br>练习把感受从翻译模式改成直播模式</div>
+  </div>
+</div>
+
+<!-- ════════════ CLOSING QUOTE ════════════ -->
+
+<div class="quote-sec">
+  <div class="quote-mark">"</div>
+  <div class="quote-en">
+    The soul does not love —<br>the soul <em>is</em> love,<br>seeking itself in another.
+  </div>
+  <div class="quote-cn">
+    灵魂不是在寻找爱<br>
+    灵魂本身就是爱，在另一个人身上寻找自己
+  </div>
+  <div style="height:20px;"></div>
+  <div class="quote-en" style="font-size:14px; color:var(--text-soft);">
+    Atma ko prem ki zaroorat nahin —<br>
+    atma khud hi prem hai.
+  </div>
+  <div class="quote-src" style="margin-top:24px;">
+    Parashari Jyotish · Love & Marriage Report · Yulin · 2001.08.12<br>
+    <span style="color:var(--text-dim);margin-top:4px;display:block;">B.V. Raman 体系 · 当前大运：拉胡—木星 · 2025.06.23—2027.11.18</span>
+  </div>
+</div>
+
+</div><!-- end .page -->
+</body>
+</html>
+```
