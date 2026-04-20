@@ -1,0 +1,1334 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>玉琳 · 印度星盘全维度深度报告</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+SC:wght@300;400;600;700;900&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A0A12;--ink2:#111120;--ink3:#18182A;--ink4:#222238;
+  --text:#F0EBE3;--text2:#C8C0B0;--text3:#8A8070;--text4:#504848;
+  --gold:#D4A84B;--gold2:#F0C870;--gold3:#B88830;
+  --rose:#D4607A;--rose2:#F090A8;--rose3:#A83858;
+  --emerald:#28A868;--emerald2:#50D090;--emerald3:#187840;
+  --sapphire:#4878C8;--sapphire2:#78A8F0;--sapphire3:#284898;
+  --amber:#C87828;--amber2:#F0A848;--amber3:#985818;
+  --crimson:#B83028;--crimson2:#E05848;--crimson3:#882018;
+  --serif:'Noto Serif SC',serif;
+  --display:'Cinzel Decorative',serif;
+  --italic:'Cormorant Garamond',serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--ink);color:var(--text);font-family:var(--serif);overflow-x:hidden;line-height:1.75;}
+
+/* ══ NOISE OVERLAY ══ */
+body::before{content:"";position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:0;}
+
+/* ══ NAV ══ */
+#nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(10,10,18,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,168,75,0.15);padding:0 24px;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px;}
+.nav-logo{font-family:var(--display);font-size:13px;color:var(--gold);letter-spacing:3px;}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap;}
+.nav-links a{font-family:var(--mono);font-size:10px;letter-spacing:1px;padding:5px 12px;border-radius:20px;color:var(--text3);text-decoration:none;transition:all .2s;border:1px solid transparent;}
+.nav-links a:hover{color:var(--gold);border-color:rgba(212,168,75,0.3);background:rgba(212,168,75,0.05);}
+.nav-links a.n-rose{color:var(--rose2);}
+.nav-links a.n-emerald{color:var(--emerald2);}
+.nav-links a.n-sapphire{color:var(--sapphire2);}
+.nav-links a.n-crimson{color:var(--crimson2);}
+.nav-links a.n-amber{color:var(--amber2);}
+
+/* ══ WRAP ══ */
+.page{max-width:1100px;margin:0 auto;padding:0 20px 100px;position:relative;z-index:1;}
+
+/* ══ SECTION DIVIDER ══ */
+.sdiv{display:flex;align-items:center;gap:16px;margin:60px 0;}
+.sdiv::before,.sdiv::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,75,0.2),transparent);}
+.sdiv-icon{font-size:14px;color:var(--gold);opacity:.5;}
+
+/* ══ CHAPTER COVER ══ */
+.chapter-cover{min-height:85vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 20px;position:relative;overflow:hidden;border-radius:8px;margin:60px 0 50px;}
+.chapter-cover .cc-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:5px;text-transform:uppercase;margin-bottom:20px;opacity:.8;}
+.chapter-cover .cc-art{font-size:72px;margin-bottom:24px;line-height:1;}
+.chapter-cover .cc-num{font-family:var(--display);font-size:11px;letter-spacing:5px;text-transform:uppercase;margin-bottom:12px;}
+.chapter-cover .cc-title{font-family:var(--display);font-size:clamp(28px,5vw,52px);font-weight:900;line-height:1.1;margin-bottom:12px;}
+.chapter-cover .cc-sub{font-family:var(--italic);font-style:italic;font-size:16px;opacity:.7;letter-spacing:2px;}
+
+/* LOVE chapter */
+.cc-love{background:linear-gradient(160deg,rgba(168,56,88,0.18) 0%,var(--ink2) 40%,rgba(100,30,50,0.12) 100%);}
+.cc-love::before{content:"";position:absolute;inset:0;border:1px solid rgba(212,96,122,0.15);border-radius:8px;}
+.cc-love .cc-art{filter:drop-shadow(0 0 30px rgba(212,96,122,0.5));animation:hrt 2s ease-in-out infinite;}
+@keyframes hrt{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+.cc-love .cc-eyebrow,.cc-love .cc-num{color:var(--rose);}
+.cc-love .cc-title{background:linear-gradient(135deg,#fff,var(--rose2),var(--rose));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* WEALTH chapter */
+.cc-wealth{background:linear-gradient(160deg,rgba(100,70,20,0.18) 0%,var(--ink2) 40%,rgba(80,60,0,0.12) 100%);}
+.cc-wealth::before{content:"";position:absolute;inset:0;border:1px solid rgba(212,168,75,0.15);border-radius:8px;}
+.cc-wealth .cc-art{filter:drop-shadow(0 0 30px rgba(212,168,75,0.5));animation:coin 3s ease-in-out infinite;}
+@keyframes coin{0%,100%{filter:drop-shadow(0 0 24px rgba(212,168,75,0.5));}50%{filter:drop-shadow(0 0 50px rgba(240,200,112,0.8));}}
+.cc-wealth .cc-eyebrow,.cc-wealth .cc-num{color:var(--gold);}
+.cc-wealth .cc-title{background:linear-gradient(135deg,#fff,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* CAREER chapter */
+.cc-career{background:linear-gradient(160deg,rgba(30,60,100,0.18) 0%,var(--ink2) 40%,rgba(20,50,90,0.12) 100%);}
+.cc-career::before{content:"";position:absolute;inset:0;border:1px solid rgba(72,120,200,0.15);border-radius:8px;}
+.cc-career .cc-art{filter:drop-shadow(0 0 30px rgba(72,120,200,0.5));animation:star 2.5s ease-in-out infinite;}
+@keyframes star{0%,100%{transform:rotate(0deg);}50%{transform:rotate(15deg);}}
+.cc-career .cc-eyebrow,.cc-career .cc-num{color:var(--sapphire2);}
+.cc-career .cc-title{background:linear-gradient(135deg,#fff,var(--sapphire2),var(--sapphire));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* CRISIS chapter */
+.cc-crisis{background:linear-gradient(160deg,rgba(120,30,20,0.18) 0%,var(--ink2) 40%,rgba(100,20,15,0.12) 100%);}
+.cc-crisis::before{content:"";position:absolute;inset:0;border:1px solid rgba(184,48,40,0.15);border-radius:8px;}
+.cc-crisis .cc-art{filter:drop-shadow(0 0 30px rgba(184,48,40,0.5));animation:sword 2s ease-in-out infinite;}
+@keyframes sword{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.cc-crisis .cc-eyebrow,.cc-crisis .cc-num{color:var(--crimson2);}
+.cc-crisis .cc-title{background:linear-gradient(135deg,#fff,var(--crimson2),var(--crimson));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* HEALTH chapter */
+.cc-health{background:linear-gradient(160deg,rgba(80,80,20,0.18) 0%,var(--ink2) 40%,rgba(60,70,10,0.12) 100%);}
+.cc-health::before{content:"";position:absolute;inset:0;border:1px solid rgba(200,120,40,0.15);border-radius:8px;}
+.cc-health .cc-art{filter:drop-shadow(0 0 30px rgba(200,120,40,0.5));animation:leaf 3s ease-in-out infinite;}
+@keyframes leaf{0%,100%{transform:rotate(-5deg);}50%{transform:rotate(5deg);}}
+.cc-health .cc-eyebrow,.cc-health .cc-num{color:var(--amber2);}
+.cc-health .cc-title{background:linear-gradient(135deg,#fff,var(--amber2),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* ══ MAIN COVER ══ */
+#cover{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 20px;position:relative;border-bottom:1px solid rgba(212,168,75,0.12);margin-bottom:0;}
+#cover::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 40%,rgba(212,168,75,0.07) 0%,transparent 70%);pointer-events:none;}
+.cover-stars{font-size:14px;letter-spacing:8px;color:var(--gold);opacity:.4;margin-bottom:24px;}
+.cover-name{font-family:var(--display);font-size:clamp(40px,8vw,90px);font-weight:900;background:linear-gradient(135deg,#fff 0%,var(--gold2) 40%,var(--gold) 70%,#fff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:12px;}
+.cover-tagline{font-family:var(--italic);font-style:italic;font-size:clamp(14px,2vw,20px);color:var(--text2);letter-spacing:3px;margin-bottom:40px;}
+.cover-mandala{font-size:100px;opacity:.06;position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);pointer-events:none;}
+.cover-badges{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:40px;}
+.cover-badge{padding:7px 18px;border:1px solid rgba(212,168,75,0.25);border-radius:20px;font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--gold);background:rgba(212,168,75,0.05);}
+.cover-scroll{font-family:var(--mono);font-size:10px;letter-spacing:3px;color:var(--text3);margin-top:20px;}
+.cover-nav-hint{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:16px;}
+.cover-nav-hint a{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-decoration:none;padding:6px 16px;border-radius:20px;transition:all .25s;}
+.cnh-rose{color:var(--rose2);border:1px solid rgba(212,96,122,0.25);}
+.cnh-rose:hover{background:rgba(212,96,122,0.1);}
+.cnh-gold{color:var(--gold);border:1px solid rgba(212,168,75,0.25);}
+.cnh-gold:hover{background:rgba(212,168,75,0.1);}
+.cnh-blue{color:var(--sapphire2);border:1px solid rgba(72,120,200,0.25);}
+.cnh-blue:hover{background:rgba(72,120,200,0.1);}
+.cnh-red{color:var(--crimson2);border:1px solid rgba(184,48,40,0.25);}
+.cnh-red:hover{background:rgba(184,48,40,0.1);}
+.cnh-amber{color:var(--amber2);border:1px solid rgba(200,120,40,0.25);}
+.cnh-amber:hover{background:rgba(200,120,40,0.1);}
+
+/* ══ SECTION HEADER ══ */
+.sh{margin-bottom:28px;}
+.sh-num{font-family:var(--mono);font-size:9px;letter-spacing:4px;text-transform:uppercase;margin-bottom:8px;}
+.sh-title{font-family:var(--display);font-size:clamp(18px,3vw,28px);font-weight:700;}
+.sh-title em{font-style:normal;}
+.sh-sub{font-family:var(--mono);font-size:11px;letter-spacing:2px;margin-top:5px;color:var(--text3);}
+
+/* Color variants */
+.c-rose .sh-num,.c-rose .sh-title em{color:var(--rose);}
+.c-gold .sh-num,.c-gold .sh-title em{color:var(--gold);}
+.c-blue .sh-num,.c-blue .sh-title em{color:var(--sapphire2);}
+.c-red .sh-num,.c-red .sh-title em{color:var(--crimson2);}
+.c-amber .sh-num,.c-amber .sh-title em{color:var(--amber2);}
+.c-emerald .sh-num,.c-emerald .sh-title em{color:var(--emerald2);}
+
+/* ══ CARDS ══ */
+.grid{display:grid;gap:14px;margin-bottom:28px;}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+.g3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr));}
+
+.card{background:linear-gradient(145deg,var(--ink3),var(--ink2));border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:22px;position:relative;overflow:hidden;transition:transform .2s,border-color .3s;}
+.card:hover{transform:translateY(-2px);}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;}
+.card.rose::before{background:linear-gradient(90deg,transparent,var(--rose),transparent);}
+.card.gold::before{background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.card.blue::before{background:linear-gradient(90deg,transparent,var(--sapphire),transparent);}
+.card.red::before{background:linear-gradient(90deg,transparent,var(--crimson),transparent);}
+.card.amber::before{background:linear-gradient(90deg,transparent,var(--amber),transparent);}
+.card.emerald::before{background:linear-gradient(90deg,transparent,var(--emerald),transparent);}
+.card:hover.rose{border-color:rgba(212,96,122,0.25);}
+.card:hover.gold{border-color:rgba(212,168,75,0.25);}
+.card:hover.blue{border-color:rgba(72,120,200,0.25);}
+.card:hover.red{border-color:rgba(184,48,40,0.25);}
+.card:hover.amber{border-color:rgba(200,120,40,0.25);}
+.card:hover.emerald{border-color:rgba(40,168,104,0.25);}
+
+.ct{font-family:var(--mono);font-size:8px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;}
+.ct.rose{color:var(--rose);}
+.ct.gold{color:var(--gold);}
+.ct.blue{color:var(--sapphire2);}
+.ct.red{color:var(--crimson2);}
+.ct.amber{color:var(--amber2);}
+.ct.emerald{color:var(--emerald2);}
+
+.cn{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;line-height:1.4;}
+.ce{font-family:var(--mono);font-size:11px;color:var(--text3);margin-bottom:10px;}
+.cb{font-size:13px;color:var(--text2);line-height:1.85;}
+.cb strong{color:var(--gold2);}
+.cb .up{color:var(--emerald2);font-weight:700;}
+.cb .dn{color:var(--crimson2);font-weight:700;}
+.cb .warn{color:var(--amber2);font-weight:700;}
+.cb .rose{color:var(--rose2);font-weight:700;}
+
+/* ══ HIGHLIGHT BOXES ══ */
+.hl{border-radius:6px;padding:22px 26px;margin-bottom:16px;}
+.hl.rose{background:rgba(212,96,122,0.06);border-left:3px solid var(--rose);border-top:1px solid rgba(212,96,122,0.1);border-right:1px solid rgba(212,96,122,0.04);border-bottom:1px solid rgba(212,96,122,0.04);}
+.hl.gold{background:rgba(212,168,75,0.06);border-left:3px solid var(--gold);border-top:1px solid rgba(212,168,75,0.1);border-right:1px solid rgba(212,168,75,0.04);border-bottom:1px solid rgba(212,168,75,0.04);}
+.hl.blue{background:rgba(72,120,200,0.06);border-left:3px solid var(--sapphire);border-top:1px solid rgba(72,120,200,0.1);border-right:1px solid rgba(72,120,200,0.04);border-bottom:1px solid rgba(72,120,200,0.04);}
+.hl.red{background:rgba(184,48,40,0.06);border-left:3px solid var(--crimson);border-top:1px solid rgba(184,48,40,0.1);border-right:1px solid rgba(184,48,40,0.04);border-bottom:1px solid rgba(184,48,40,0.04);}
+.hl.amber{background:rgba(200,120,40,0.06);border-left:3px solid var(--amber);border-top:1px solid rgba(200,120,40,0.1);border-right:1px solid rgba(200,120,40,0.04);border-bottom:1px solid rgba(200,120,40,0.04);}
+.hl.emerald{background:rgba(40,168,104,0.06);border-left:3px solid var(--emerald);border-top:1px solid rgba(40,168,104,0.1);border-right:1px solid rgba(40,168,104,0.04);border-bottom:1px solid rgba(40,168,104,0.04);}
+
+.hl-tag{font-family:var(--mono);font-size:8px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;}
+.hl.rose .hl-tag{color:var(--rose);}
+.hl.gold .hl-tag{color:var(--gold);}
+.hl.blue .hl-tag{color:var(--sapphire2);}
+.hl.red .hl-tag{color:var(--crimson2);}
+.hl.amber .hl-tag{color:var(--amber2);}
+.hl.emerald .hl-tag{color:var(--emerald2);}
+
+.hl-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:7px;}
+.hl-body{font-size:13px;color:var(--text2);line-height:1.85;}
+.hl-body strong{color:var(--gold2);}
+.hl-body .up{color:var(--emerald2);font-weight:700;}
+.hl-body .dn{color:var(--crimson2);font-weight:700;}
+.hl-body .warn{color:var(--amber2);font-weight:700;}
+
+/* ══ VERDICT BOX ══ */
+.verdict{border-radius:6px;padding:28px 32px;text-align:center;margin-bottom:28px;position:relative;overflow:hidden;}
+.verdict.rose{background:linear-gradient(135deg,rgba(168,56,88,0.15),var(--ink3));border:1px solid rgba(212,96,122,0.3);}
+.verdict.gold{background:linear-gradient(135deg,rgba(150,110,20,0.15),var(--ink3));border:1px solid rgba(212,168,75,0.3);}
+.verdict.blue{background:linear-gradient(135deg,rgba(40,70,150,0.15),var(--ink3));border:1px solid rgba(72,120,200,0.3);}
+.verdict.red{background:linear-gradient(135deg,rgba(120,30,20,0.15),var(--ink3));border:1px solid rgba(184,48,40,0.3);}
+.verdict-label{font-family:var(--mono);font-size:9px;letter-spacing:4px;text-transform:uppercase;margin-bottom:10px;}
+.verdict.rose .verdict-label{color:var(--rose);}
+.verdict.gold .verdict-label{color:var(--gold);}
+.verdict.blue .verdict-label{color:var(--sapphire2);}
+.verdict.red .verdict-label{color:var(--crimson2);}
+.verdict-main{font-family:var(--display);font-size:clamp(14px,2.5vw,20px);font-weight:700;color:var(--text);line-height:1.6;margin-bottom:10px;}
+.verdict-sub{font-family:var(--italic);font-style:italic;font-size:14px;color:var(--text2);}
+
+/* ══ YOGA JUDGMENT ══ */
+.yoga{display:flex;gap:16px;align-items:flex-start;background:var(--ink3);border:1px solid rgba(255,255,255,0.04);border-radius:6px;padding:18px 20px;margin-bottom:10px;transition:background .2s;}
+.yoga:hover{background:var(--ink4);}
+.ybadge{flex-shrink:0;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;}
+.by{background:rgba(40,168,104,0.15);border:1px solid var(--emerald);color:var(--emerald);}
+.bn{background:rgba(100,100,100,0.1);border:1px solid #666;color:#888;}
+.bp{background:rgba(200,120,40,0.15);border:1px solid var(--amber);color:var(--amber);}
+.yb{flex:1;}
+.yn{font-family:var(--italic);font-size:16px;font-weight:600;color:var(--text);}
+.yc{font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:1px;margin-bottom:7px;}
+.yd{font-size:13px;color:var(--text2);line-height:1.75;}
+.yd strong{color:var(--gold2);}
+.yd .up{color:var(--emerald2);}
+.yd .dn{color:var(--crimson2);}
+.yd .warn{color:var(--amber2);}
+
+/* ══ TABLE ══ */
+.dt{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:24px;}
+.dt th{padding:10px 13px;text-align:left;font-family:var(--mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;font-weight:400;border-bottom:1px solid;}
+.dt td{padding:10px 13px;color:var(--text2);border-bottom:1px solid rgba(255,255,255,0.03);vertical-align:top;line-height:1.6;}
+.dt tr:hover td{background:rgba(255,255,255,0.015);}
+.dt td:first-child{color:var(--text);font-weight:600;}
+.dt.rose th{background:rgba(212,96,122,0.08);color:var(--rose);border-color:rgba(212,96,122,0.15);}
+.dt.gold th{background:rgba(212,168,75,0.08);color:var(--gold);border-color:rgba(212,168,75,0.15);}
+.dt.blue th{background:rgba(72,120,200,0.08);color:var(--sapphire2);border-color:rgba(72,120,200,0.15);}
+.dt.red th{background:rgba(184,48,40,0.08);color:var(--crimson2);border-color:rgba(184,48,40,0.15);}
+.dt.amber th{background:rgba(200,120,40,0.08);color:var(--amber2);border-color:rgba(200,120,40,0.15);}
+.mn{font-family:var(--mono);font-size:13px;}
+.tok{color:var(--emerald2);font-weight:700;font-family:var(--mono);font-size:10px;}
+.twarn{color:var(--amber2);font-weight:700;font-family:var(--mono);font-size:10px;}
+.tdn{color:var(--crimson2);font-weight:700;font-family:var(--mono);font-size:10px;}
+
+/* ══ TIMELINE ══ */
+.tline{position:relative;padding-left:22px;margin-bottom:28px;}
+.tline.rose::before{background:linear-gradient(180deg,var(--rose),var(--rose3),transparent);}
+.tline.gold::before{background:linear-gradient(180deg,var(--gold),var(--gold3),transparent);}
+.tline.blue::before{background:linear-gradient(180deg,var(--sapphire),var(--sapphire3),transparent);}
+.tline.red::before{background:linear-gradient(180deg,var(--crimson),var(--crimson3),transparent);}
+.tline::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;}
+.ti{position:relative;padding:0 0 26px 24px;}
+.tdot{position:absolute;left:-22px;top:5px;width:8px;height:8px;border-radius:50%;transform:translateX(50%);}
+.d-rose{background:var(--rose);box-shadow:0 0 10px rgba(212,96,122,0.5);}
+.d-gold{background:var(--gold);box-shadow:0 0 10px rgba(212,168,75,0.5);}
+.d-blue{background:var(--sapphire);box-shadow:0 0 10px rgba(72,120,200,0.5);}
+.d-red{background:var(--crimson);box-shadow:0 0 10px rgba(184,48,40,0.5);}
+.d-amber{background:var(--amber);box-shadow:0 0 10px rgba(200,120,40,0.5);}
+.d-dim{background:var(--text3);}
+.tbadge{display:inline-block;padding:2px 12px;border-radius:20px;font-family:var(--mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+.tb-rose{background:rgba(212,96,122,0.12);color:var(--rose);border:1px solid rgba(212,96,122,0.25);}
+.tb-gold{background:rgba(212,168,75,0.1);color:var(--gold);border:1px solid rgba(212,168,75,0.2);}
+.tb-blue{background:rgba(72,120,200,0.1);color:var(--sapphire2);border:1px solid rgba(72,120,200,0.2);}
+.tb-red{background:rgba(184,48,40,0.1);color:var(--crimson2);border:1px solid rgba(184,48,40,0.2);}
+.tb-amber{background:rgba(200,120,40,0.1);color:var(--amber2);border:1px solid rgba(200,120,40,0.2);}
+.tb-dim{background:rgba(100,100,100,0.08);color:var(--text3);border:1px solid rgba(100,100,100,0.2);}
+.tp{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--text3);margin-bottom:3px;}
+.ta{font-family:var(--mono);font-size:11px;color:var(--text4);margin-bottom:5px;}
+.tt{font-size:14px;font-weight:700;color:var(--text);margin-bottom:5px;}
+.td{font-size:13px;color:var(--text2);line-height:1.75;}
+.td strong{color:var(--gold2);}
+.td .up{color:var(--emerald2);font-weight:700;}
+.td .dn{color:var(--crimson2);font-weight:700;}
+.td .warn{color:var(--amber2);font-weight:700;}
+
+/* ══ SAV BARS ══ */
+.srow{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.slbl{font-family:var(--mono);font-size:11px;color:var(--text2);width:96px;flex-shrink:0;text-align:right;}
+.swrap{flex:1;height:22px;background:rgba(255,255,255,0.03);border-radius:2px;overflow:hidden;}
+.sfill{height:100%;border-radius:2px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;}
+.sfill span{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.9);font-weight:600;}
+.f-rose{background:linear-gradient(90deg,rgba(140,40,60,0.5),rgba(212,96,122,0.8));}
+.f-gold{background:linear-gradient(90deg,rgba(140,100,20,0.5),rgba(212,168,75,0.8));}
+.f-blue{background:linear-gradient(90deg,rgba(30,60,130,0.5),rgba(72,120,200,0.8));}
+.f-red{background:linear-gradient(90deg,rgba(110,25,20,0.5),rgba(184,48,40,0.8));}
+.f-em{background:linear-gradient(90deg,rgba(20,100,55,0.5),rgba(40,168,104,0.8));}
+.f-dm{background:linear-gradient(90deg,rgba(50,55,50,0.4),rgba(80,90,80,0.6));}
+.f-amber{background:linear-gradient(90deg,rgba(120,80,20,0.5),rgba(200,120,40,0.8));}
+
+/* ══ PLAIN TIPS ══ */
+.ptip{padding:14px 18px;border-radius:0 6px 6px 0;margin-bottom:11px;}
+.ptip.rose{background:rgba(212,96,122,0.04);border-left:2px solid var(--rose3);}
+.ptip.gold{background:rgba(212,168,75,0.04);border-left:2px solid var(--gold3);}
+.ptip.blue{background:rgba(72,120,200,0.04);border-left:2px solid var(--sapphire3);}
+.ptip.red{background:rgba(184,48,40,0.04);border-left:2px solid var(--crimson3);}
+.ptip.amber{background:rgba(200,120,40,0.04);border-left:2px solid var(--amber3);}
+.ptip.emerald{background:rgba(40,168,104,0.04);border-left:2px solid var(--emerald3);}
+.pnum{font-family:var(--mono);font-size:9px;letter-spacing:3px;margin-bottom:5px;}
+.ptip.rose .pnum{color:var(--rose);}
+.ptip.gold .pnum{color:var(--gold);}
+.ptip.blue .pnum{color:var(--sapphire2);}
+.ptip.red .pnum{color:var(--crimson2);}
+.ptip.amber .pnum{color:var(--amber2);}
+.ptip.emerald .pnum{color:var(--emerald2);}
+.ptitle{font-size:14px;font-weight:700;color:var(--text);margin-bottom:5px;}
+.pbody{font-size:13px;color:var(--text2);line-height:1.8;}
+.pbody strong{color:var(--gold2);}
+.pbody .up{color:var(--emerald2);}
+.pbody .dn{color:var(--crimson2);}
+
+/* ══ UPAYA CARDS ══ */
+.ugrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px;margin-bottom:28px;}
+.ucard{background:var(--ink3);border:1px solid rgba(255,255,255,0.05);border-radius:6px;padding:18px;text-align:center;}
+.uicon{font-size:28px;margin-bottom:8px;}
+.utitle{font-family:var(--mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-bottom:7px;}
+.ubody{font-size:12px;color:var(--text2);line-height:1.7;}
+.ubody strong{color:var(--text);}
+
+/* ══ INTRO SECTION ══ */
+.intro-wrap{max-width:820px;margin:0 auto;padding:60px 0;}
+.intro-lead{font-family:var(--italic);font-style:italic;font-size:clamp(20px,3vw,28px);color:var(--text);line-height:1.6;text-align:center;margin-bottom:40px;}
+.intro-text{font-size:14px;color:var(--text2);line-height:2;margin-bottom:24px;}
+.intro-text strong{color:var(--text);}
+.intro-quote{font-family:var(--italic);font-style:italic;font-size:16px;color:var(--gold2);text-align:center;margin:32px 0;padding:20px;border-top:1px solid rgba(212,168,75,0.15);border-bottom:1px solid rgba(212,168,75,0.15);}
+
+/* ══ HUMANISTIC FOOTER ══ */
+.human-section{background:linear-gradient(135deg,var(--ink3),var(--ink2));border-radius:8px;padding:36px;margin-top:40px;border:1px solid rgba(255,255,255,0.05);}
+.human-title{font-family:var(--display);font-size:18px;color:var(--text);margin-bottom:24px;text-align:center;}
+.human-quote{font-family:var(--italic);font-style:italic;font-size:17px;color:var(--text2);text-align:center;margin:28px 0;padding:20px;}
+
+/* ══ FINAL QUOTE ══ */
+.final-quote{text-align:center;padding:70px 20px;border-top:1px solid rgba(212,168,75,0.1);}
+.fq-mark{font-family:var(--display);font-size:80px;color:rgba(212,168,75,0.06);line-height:.7;margin-bottom:20px;}
+.fq-en{font-family:var(--italic);font-style:italic;font-size:clamp(16px,2.5vw,22px);color:var(--text);max-width:700px;margin:0 auto 14px;line-height:1.7;}
+.fq-cn{font-size:14px;color:var(--gold);letter-spacing:2px;max-width:600px;margin:0 auto 16px;line-height:1.9;}
+.fq-src{font-family:var(--mono);font-size:9px;letter-spacing:3px;color:var(--text3);}
+
+/* ══ DISCLAIMER ══ */
+.disc{font-family:var(--mono);font-size:10px;color:var(--text4);text-align:center;margin-top:20px;border:1px solid rgba(212,168,75,0.05);border-radius:4px;padding:12px 20px;letter-spacing:1px;}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:680px){
+.g3{grid-template-columns:1fr;}
+.nav-links{display:none;}
+.cover-nav-hint{gap:10px;}
+.slbl{width:70px;font-size:10px;}
+}
+</style>
+
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+
+<nav id="nav">
+  <div class="nav-inner">
+    <span class="nav-logo">玉琳 · YULIN</span>
+    <div class="nav-links">
+      <a href="#cover">封面</a>
+      <a href="#intro">引言</a>
+      <a href="#love" class="n-rose">♥ 感情</a>
+      <a href="#wealth" class="n-gold">🪙 财富</a>
+      <a href="#career" class="n-sapphire">✦ 事业</a>
+      <a href="#crisis" class="n-crimson">⚔ 危机</a>
+      <a href="#health" class="n-amber">🌿 健康</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page" style="padding-top:52px;">
+
+<!-- ══════════ MAIN COVER ══════════ -->
+
+<section id="cover">
+  <div class="cover-mandala">☸</div>
+  <div class="cover-stars">✦ · ✦ · ✦</div>
+  <div class="cover-name">YULIN</div>
+  <div class="cover-tagline">印度星盘 · 全维度深度命理报告</div>
+  <div class="cover-tagline" style="font-size:13px;margin-top:-28px;">Parashari Jyotish · B.V. Raman 体系</div>
+  <div class="cover-badges">
+    <span class="cover-badge">上升白羊 Mesha Aries</span>
+    <span class="cover-badge">AK 灵魂指标 · 太阳</span>
+    <span class="cover-badge">DK 配偶指标 · 月亮</span>
+    <span class="cover-badge">当前大运 · 拉胡—木星</span>
+  </div>
+  <div class="cover-scroll">▼ 点击章节导览进入</div>
+  <div class="cover-nav-hint">
+    <a href="#intro" class="cnh-gold">引言</a>
+    <a href="#love" class="cnh-rose">感情婚姻</a>
+    <a href="#wealth" class="cnh-gold">财富金融</a>
+    <a href="#career" class="cnh-blue">事业成就</a>
+    <a href="#crisis" class="cnh-red">危机排雷</a>
+    <a href="#health" class="cnh-amber">健康体质</a>
+  </div>
+</section>
+
+<!-- ══════════ INTRO ══════════ -->
+
+<section id="intro">
+  <div class="sdiv"><div class="sdiv-icon">◈</div></div>
+  <div class="intro-wrap">
+    <div class="intro-lead">
+      我为什么存在？我因何而来，因何而去？<br>
+      人生的终极意义，究竟藏在哪里？
+    </div>
+
+    <div class="intro-text">
+      每一个人来到这个世界，都带着某种说不清道不明的底色。有人天生敏感，触碰得了世界最深的部分；有人天生坚韧，在所有人放弃之后依然站着。玉琳，你就是后者。白羊座上升，月亮极近入旺——<strong>你的灵魂是那种不怕深水，但偶尔不知道怎么游出来的人。</strong>
+    </div>
+
+    <div class="intro-text">
+      印度占星的古老体系认为，人的诞生不是偶然。出生的那一刻，天空的样子就是灵魂的蓝图——<strong>前世的功课延续，今生的课题清晰。</strong>太阳作为你的AK灵魂指标星，落于第4宫巨蟹，意味着你此生最核心的灵魂命题是：在动荡与变化之中，找到真正属于自己的内心根基。这不是别人给你的，是你自己建造的。
+    </div>
+
+    <div class="intro-quote">
+      与父母的缘分带来了你的起点，<br>
+      与伴侣的相遇指向了你的功课，<br>
+      与自己的和解，才是你整个人生的终点。
+    </div>
+
+    <div class="intro-text">
+      你是一个在关系里成长、在经历里领悟、在独处里沉淀的人。感情让你知道自己能有多深，财富让你明白什么叫真正的安全感，事业告诉你才华从不是白长的——<strong>这张命盘的事业宫SAV全盘最高（33分），说明老天早就把最稳的底牌给了你，只是你自己未必清楚。</strong>
+    </div>
+
+    <div class="intro-text">
+      危机会来，但每一次危机都在淬炼你；爱情会迟，但迟来的是更成熟的遇见；财富会慢，但慢慢积累的才守得住。月亮DK（配偶指标）和火星的IshtaPhala（吉力值）都是全盘最高的行星——<strong>你命中注定不是一个平庸的故事，是一个有深度、有质感、值得回味的人生。</strong>
+    </div>
+
+    <div class="intro-quote">
+      天地人生，因缘际会。<br>
+      有些事情，亲临方可知。<br>
+      <span style="font-size:13px;color:var(--text3);">— 愿这份报告，是你与自己更深一次相遇的起点。</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="sdiv"><div class="sdiv-icon">◈</div></div>
+
+<!-- ══════════════════════════════════════
+     CHAPTER 1: LOVE & MARRIAGE
+══════════════════════════════════════ -->
+
+<section id="love">
+  <div class="chapter-cover cc-love">
+    <div class="cc-eyebrow">Chapter One · 第一大章节</div>
+    <div class="cc-art">♥</div>
+    <div class="cc-num">Love & Marriage</div>
+    <div class="cc-title">感情婚姻</div>
+    <div class="cc-title" style="font-size:clamp(16px,2vw,24px);background:linear-gradient(135deg,var(--rose2),var(--rose));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">深度报告</div>
+    <div class="cc-sub">D1 主盘 × D9 纳旺莎盘 交叉验证</div>
+    <div style="position:absolute;font-size:120px;opacity:0.04;bottom:-10px;right:20px;font-family:'Cormorant Garamond',serif;">❧</div>
+  </div>
+
+  <!-- 01 基础盘面 -->
+  <div class="sh c-rose">
+    <div class="sh-num">Part I · 01</div>
+    <div class="sh-title">基础盘面 <em>· Core Configuration</em></div>
+    <div class="sh-sub">感情格局整体底色 · 核心星象速览</div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card rose">
+      <div class="ct rose">Lagna / 上升</div>
+      <div class="cn">白羊座 Mesha · 19°31' · 婆罗尼星宿</div>
+      <div class="ce">Bharani Nakshatra · Pada 2 · D9 落处女座</div>
+      <div class="cb">上升主星<strong>火星</strong>落第8宫天蝎本命宫（Svakshetra）——你在关系里是<strong>主动型</strong>，喜欢掌控节奏，但婆罗尼星宿由金星主宰，让你内心深处燃烧着对深度爱的渴望。表面"我不在乎"，内心"你有没有真正看见我"。</div>
+    </div>
+    <div class="card rose">
+      <div class="ct rose">Moon / 月亮 · DK 配偶指标</div>
+      <div class="cn">金牛座 · 0°44' · 极近入旺 · Krittika</div>
+      <div class="ce">Avashtha: Mrita（死亡状态）· D1 第2宫</div>
+      <div class="cb">月亮几乎完全入旺（入旺度3°），情感储备极为丰富；但Mrita状态说明<strong>情感被压在玻璃罩里</strong>——看得见，流不出来。月土合相进一步压抑：<span class="warn">先理性后感性，慢热，不轻易开口要爱。</span></div>
+    </div>
+    <div class="card rose">
+      <div class="ct rose">Venus / 金星 · 7宫主</div>
+      <div class="cn">双子座 · 20°07' · 第3宫 · Punarvasu</div>
+      <div class="ce">Avashtha: Vriddha（老年疲惫）· Guru-Chandal同宫</div>
+      <div class="cb">7宫主金星与<strong>木星+拉胡三星聚第3宫</strong>，感情在圈子相遇、沟通交流、或网络缘中燃起。金星Vriddha状态：感情能量趋于内敛，<span class="warn">需要被真正触动才能全面激活。</span>Vimsopaka综合得分<strong>78.13%</strong>——潜力极高，等待时机爆发。</div>
+    </div>
+    <div class="card rose">
+      <div class="ct rose">Jupiter / 木星 · 女命丈夫星</div>
+      <div class="cn">双子座 · 13°42' · 第3宫 · Ardra</div>
+      <div class="ce">Guru-Chandal Dosha成立 · Sodhya Pinda 58（最低）</div>
+      <div class="cb">木星落双子（弱宫）且与拉胡同宫，<strong>Guru-Chandal格局</strong>——丈夫能量受污染，对象可能个性独特非传统，初遇可能带有某种"不按剧本来"的气质。Sodhya仅58，<span class="dn">婚姻需要你主动经营，无法靠等待对方撑起全局。</span></div>
+    </div>
+  </div>
+
+  <div class="hl rose">
+    <div class="hl-tag">⚡ 整盘感情格局一句话定性</div>
+    <div class="hl-title">第3宫三星聚首（Stellium）× 第7宫SAV全盘最低（23分）</div>
+    <div class="hl-body">感情的开始从不是传统的安排相亲，而是共同圈子、智识碰撞、甚至意外中触发。<strong>桃花不缺，缺的是把桃花走到最后的落地能力。</strong>第7宫SAV=23，全盘12宫中垫底——这就是命盘对感情最直白的警示：婚姻领域的阻力远大于其他一切生命领域。但木星从第3宫以<strong>第5相位保护第7宫</strong>，说明婚姻终究有祝福，只是需要时间和眼光。</div>
+  </div>
+
+  <div class="sdiv"><div class="sdiv-icon">♥</div></div>
+
+  <!-- 02 性格特质 -->
+  <div class="sh c-rose">
+    <div class="sh-num">Part I · 02</div>
+    <div class="sh-title">亲密关系性格 <em>· Intimacy Profile</em></div>
+  </div>
+
+  <div class="grid g3">
+    <div class="card rose">
+      <div class="ct rose">上升 · 行为底色</div>
+      <div class="cn">🔥 独立战士的内心柔软</div>
+      <div class="cb">你在关系里看起来不需要任何人，但其实你最渴望的是被<strong>真正看见</strong>，而不仅仅是被欣赏。白羊座上升赋予了你先行动的勇气，但婆罗尼星宿的金星底色让你同时是最深情的那个人。<span class="up">优势：一旦认定，忠诚深沉。</span><span class="warn"> 弱点：受伤后筑墙极厚，恢复周期长。</span></div>
+    </div>
+    <div class="card rose">
+      <div class="ct rose">月亮 · 安全感来源</div>
+      <div class="cn">🌙 需要稳定，却说不出口</div>
+      <div class="cb">金牛月亮需要确定感、节奏一致、和物质稳定。月土合相让你把情绪"翻译"成理性再输出——<strong>等翻译完，时机可能已经过了。</strong>你非常需要被主动询问和被看见，但你不会主动开口要。<span class="warn">这是你最大的情感死循环。</span></div>
+    </div>
+    <div class="card rose">
+      <div class="ct rose">DK · 此生伴侣功课</div>
+      <div class="cn">🌊 学会接纳彼此的脆弱</div>
+      <div class="cb">DK为<strong>月亮（Moon）</strong>：此生感情的核心功课是——允许自己和伴侣都可以软弱，而不是两个强者的盔甲碰撞。真正的伴侣不是来让你更强的，而是来触碰你最真实内心的。<span class="up">真实，比完美更重要。</span></div>
+    </div>
+  </div>
+
+  <div class="sdiv"><div class="sdiv-icon">♥</div></div>
+
+  <!-- 03 过往验证 -->
+  <div class="sh c-rose">
+    <div class="sh-num">Part I · 03</div>
+    <div class="sh-title">关键人生事件验证 <em>· Past Events</em></div>
+    <div class="sh-sub">多重大运系统交叉验证 · 精确到年月 · 仅列高概率事件</div>
+  </div>
+
+  <div class="tline rose">
+    <div class="ti">
+      <div class="tdot d-rose"></div>
+      <div class="tbadge tb-rose">高概率验证 · Vimshottari × Yogini × Kalachakra 三重确认</div>
+      <div class="tp">Mars–Venus · 火星大运—金星子运</div>
+      <div class="ta">2020年9月6日—2021年11月6日 · 约19—20岁</div>
+      <div class="tt">人生第一次深度动心——非传统相遇，强烈卷入</div>
+      <div class="td">火星（上升主星）× 金星（7宫主）：教科书级别的感情点火配置。同期Yogini大运为Moon期（2020.10），Kalachakra进入Scorpio相关运——多系统共鸣激活感情宫位。金星与拉胡同宫，<strong>此期相遇极可能通过网络、异地、或对方背景特殊</strong>。即便最终未走到底，这段经历彻底打开了你对深度感情的认知：你知道了自己能有多投入，也因此变得更谨慎地选择值得的人。</div>
+    </div>
+    <div class="ti">
+      <div class="tdot d-dim"></div>
+      <div class="tbadge tb-dim">参考验证 · Vimshottari × Moola Dasa</div>
+      <div class="tp">Rahu–Rahu · 拉胡双重激活</div>
+      <div class="ta">2022年10月—2025年6月 · 约21—24岁</div>
+      <div class="tt">社交圈急速扩大，出现心动却未落定的相遇</div>
+      <div class="td">Moola Dasa同期进入Mercury-Jupiter期，激活第3宫（社交/相遇）。此段时间大概率经历了<strong>快速的生活环境变化</strong>（新城市/新圈子/新身份），出现过令你心动却最终没有走向承诺的相遇——不是你不想，而是时机和对方都还不够成熟。这段见识为正缘的到来做了准备。</div>
+    </div>
+  </div>
+
+  <div class="sdiv"><div class="sdiv-icon">♥</div></div>
+
+  <!-- 04 婚姻格局 -->
+  <div class="sh c-rose">
+    <div class="sh-num">Part II · 04.1</div>
+    <div class="sh-title">婚姻格局判定 <em>· Yoga & Dosha</em></div>
+    <div class="sh-sub">✓成立 / ✗不成立 / △部分成立</div>
+  </div>
+
+  <div class="yoga">
+    <div class="ybadge bp">△</div>
+    <div class="yb">
+      <div class="yn">Kuja Dosha · 火星煞（克夫）</div>
+      <div class="yc">Mars in 8th House · Shadbala 119.74%</div>
+      <div class="yd"><strong>部分成立，效力约50%。</strong> 火星确在第8宫（Dosha宫位），触发煞星。但两大减弱因素：① 火星天蝎<strong class="up">本命宫（Own Sign）</strong>，恶意削减过半；② 木星从第3宫以<strong class="up">第5相位直接保护第7宫</strong>，等于在婚姻宫外加了一道防护盾。婚姻初期有真实的磨合阻力，但不会造成根本性破坏。<br>比喻：这把火是真实的，但地板下面有木星的钢筋支撑——不会塌，只是装修要翻新几次。</div>
+    </div>
+  </div>
+
+  <div class="yoga">
+    <div class="ybadge by">✓</div>
+    <div class="yb">
+      <div class="yn">Punarphoo Dosha · 月土煞（情感延迟）</div>
+      <div class="yc">Saturn + Moon in 2nd House · Saturn KashtaPhala 42.70</div>
+      <div class="yd"><strong>完全成立，效力约65%。</strong> 土星（20°26'）与月亮（0°44'）同宫第2宫金牛座，经典月土合相。月亮极近入旺（0°44'，入旺度3°）将效力打折。现实影响：情感推进慢于同龄人；早期感情体验可能有"开始后又退缩"的循环模式；婚事<strong class="warn">比多数同龄人晚一到三年确定</strong>，但晚到不代表不到——晚来的通常更真实。</div>
+    </div>
+  </div>
+
+  <div class="yoga">
+    <div class="ybadge bn">✗</div>
+    <div class="yb">
+      <div class="yn">Sannyasa Yoga · 出家格</div>
+      <div class="yc">Four+ planets in one house</div>
+      <div class="yd">不成立。第3宫虽有三星聚首，但拉胡的存在强化世俗欲望，与出家格背道而驰。你是属于红尘的人，不是逃离世界的人。</div>
+    </div>
+  </div>
+
+  <div class="yoga">
+    <div class="ybadge bp">△</div>
+    <div class="yb">
+      <div class="yn">Raja Yoga · 帝王格（提升伴侣层次）</div>
+      <div class="yc">9th Lord Jupiter + 7th Lord Venus in 3rd</div>
+      <div class="yd"><strong>条件性成立。</strong> 9宫主木星与7宫主金星同宫，理论上构成准Raja Yoga，有助于提升感情与伴侣的品质层次。但第3宫非三角/中天宫，加上拉胡染指，格局大打折扣。<strong>结论：潜力存在，但需要经历足够的人生历练才能兑现。</strong>伴侣层次会随着你自身成熟度的提升而提升。</div>
+    </div>
+  </div>
+
+  <div class="yoga">
+    <div class="ybadge bp">△</div>
+    <div class="yb">
+      <div class="yn">Upapada Lagna · UL婚姻现实点</div>
+      <div class="yc">UL in 3rd House (Gemini) · Lord Mercury in 5th</div>
+      <div class="yd">UL落第3宫双子座，宫主水星在第5宫——婚姻在现实层面会通过<strong>共同创造（孩子/事业/作品）</strong>找到新的凝聚力。UL与第2宫（月土合宫）互动暗示：<span class="warn">家庭期望与个人感情意愿之间存在某种拉锯，需要主动区分「我想要的人」和「父母想要我找的人」。</span></div>
+    </div>
+  </div>
+
+  <div class="verdict rose">
+    <div class="verdict-label">婚姻总体判定 · Overall Verdict</div>
+    <div class="verdict-main">先经历，才能认出；先成长，才能承载<br>探索后的归宿型婚姻——比同龄人晚但不是不到</div>
+    <div class="verdict-sub">婚姻不是一见钟情的礼物，是经历过足够多之后，主动选择的结果。</div>
+  </div>
+
+  <!-- 行星力量表 -->
+  <div class="sh c-rose" style="margin-top:40px;">
+    <div class="sh-num">Part II · 04.2</div>
+    <div class="sh-title">感情行星力量 <em>· Planet Power</em></div>
+  </div>
+
+  <div style="overflow-x:auto;margin-bottom:24px;">
+  <table class="dt rose">
+    <thead>
+      <tr><th>行星</th><th>感情身份</th><th>Shadbala %</th><th>达标</th><th>IshtaPhala</th><th>KashtaPhala</th><th>净效果</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>♀ 金星 Venus</th><td>7宫主·感情主星</th><td><span class="mn">128.88%</span></th><td><span class="tok">✓</span></th><td><span class="mn">28.10</span></th><td><span class="mn twarn">31.39⚠</span></th><td><span class="twarn">微负·感情判断易被幻象干扰</span></th></tr>
+      <tr><td>♃ 木星 Jupiter</th><td>女命丈夫星·9宫主</th><td><span class="mn">108.36%</span></th><td><span class="tok">✓</span></th><td><span class="mn">29.72</span></th><td><span class="mn">17.53</span></th><td><span class="twarn">受Guru-Chandal轻微污染</span></th></tr>
+      <tr><td>☽ 月亮 Moon</th><td>DK配偶指标·4宫主</th><td><span class="mn">134.89%</span></th><td><span class="tok">✓</span></th><td><span class="mn tok">41.33🌙</span></th><td><span class="mn">4.84</span></th><td><span class="tok">终极救赎力量</span></th></tr>
+      <tr><td>♂ 火星 Mars</th><td>1/8宫主·KujaDosha</th><td><span class="mn">119.74%</span></th><td><span class="tok">✓</span></th><td><span class="mn">42.91</span></th><td><span class="mn">16.52</span></th><td><span class="tok">正向（本命宫自驻）</span></th></tr>
+      <tr><td>♄ 土星 Saturn</th><td>Punarphoo制造者</th><td><span class="mn tdn">94.44%✗</span></th><td><span class="tdn">✗未达标</span></th><td><span class="mn">15.42</span></th><td><span class="mn tdn">42.70☠全盘最高</span></th><td><span class="tdn">隐藏破坏者·情感冷冻机</span></th></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="grid g2">
+    <div class="hl red">
+      <div class="hl-tag">🩸 婚姻隐藏破坏者</div>
+      <div class="hl-title">土星 Saturn · 情感冷冻机</div>
+      <div class="hl-body">全盘唯一未达标（94.44%），KashtaPhala全盘之首（42.70）。在第2宫压住月亮，让情感流动如同在零度的空气里试图点火。它不主动破坏你的感情，但会让<strong>每一段感情的推进都比别人慢半拍，每一次表达都像要从冰层里凿出来。</strong>化解方式不是对抗，而是接纳——接受你本来就是那个需要更多时间的人。</div>
+    </div>
+    <div class="hl rose">
+      <div class="hl-tag">🌙 终极救赎力量</div>
+      <div class="hl-title">月亮 Moon · 入旺的守护者</div>
+      <div class="hl-body">月亮以<strong>134.89% Shadbala</strong>和IshtaPhala 41.33成为感情领域最正向的力量。极近入旺（0°44'）说明你内心储藏着远超普通人的情感丰盛。<strong>只要找到那个打开阀门的人，你的爱可以是非常温暖、深沉、真实的。</strong>月亮同为DK，真正的伴侣会触碰你最深的内心——不是欣赏你，而是看见你。</div>
+    </div>
+  </div>
+
+  <div class="sdiv"><div class="sdiv-icon">♥</div></div>
+
+  <!-- 大运时间窗 -->
+  <div class="sh c-rose">
+    <div class="sh-num">Part II · 04.3</div>
+    <div class="sh-title">婚恋大运时间窗 <em>· Marriage Timing</em></div>
+    <div class="sh-sub">Vimshottari × Yogini × Tribhagi × Kalachakra 多系统验证</div>
+  </div>
+
+  <div style="overflow-x:auto;margin-bottom:24px;">
+  <table class="dt rose">
+    <thead>
+      <tr><th>大运子运</th><th>精确起止</th><th>年龄</th><th>激活星体</th><th>预期性质</th><th>策略</th></tr>
+    </thead>
+    <tbody>
+      <tr style="background:rgba(212,96,122,0.05)"><td>⭐ Rahu–Jupiter<br>拉胡—木星</th><td><span class="mn">2025.06.23—2027.11.18</span></th><td>24—26岁</th><td>木星（夫星）+3宫感情星全激活</th><td><strong>正缘出现黄金窗口 · 感情质变期</strong><br>Yogini期木星子运（2023.10—）持续助力；Tribhagi进入Saturn期为感情提供稳定底色。2026年上半年是此窗口中能量最集中时段。</th><td><span class="tok">主动出击</span></th></tr>
+      <tr><td>Rahu–Saturn<br>拉胡—土星</td><td><span class="mn">2027.11.18—2030.09.25</span></td><td>26—29岁</td><td>11宫主+2宫（承诺/家庭）</td><td><strong>若正缘已出现，此期走向婚姻承诺</strong><br>家庭背景和长辈意见参与进来。2028年是能量最集中节点，28岁前后步入承诺的概率最高。</td><td><span class="twarn">谨慎推进</span></td></tr>
+      <tr><td>Rahu–Mercury<br>拉胡—水星</td><td><span class="mn">2030.09.25—2033.04.09</span></td><td>29—32岁</td><td>6宫主（竞争）+3宫</td><td>沟通误解风险上升；婚后若已婚可能出现沟通摩擦期；注意第三方介入风险。<span class="dn">婚姻爆雷预警时段。</span></td><td><span class="tdn">防守沟通</span></td></tr>
+      <tr><td>Rahu–Ketu<br>拉胡—计都</td><td><span class="mn">2033.04.09—2034.04.28</span></td><td>32—33岁</td><td>9宫（精神净化）</td><td>业力结算期；断舍离；短期感情可能放缓；主动放下消耗性关系或期待。</td><td><span class="twarn">内省减法</span></td></tr>
+      <tr style="background:rgba(212,96,122,0.05)"><td>⭐ Rahu–Venus<br>拉胡—金星</td><td><span class="mn">2034.04.28—2037.04.27</span></td><td>33—36岁</td><td>2宫主+7宫主（双重感情星）</td><td><strong>命盘感情最甜蜜最稳定的黄金阶段</strong><br>若前期关系稳定，这是婚姻进入最高质量期。金星Vimsopaka综合得分78.13%在此期完全激活。</td><td><span class="tok">深化关系</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="hl rose">
+    <div class="hl-tag">🔴 离婚风险期评估</div>
+    <div class="hl-title">拉胡—水星（2030.09—2033.04，29—32岁）· 最需警惕</div>
+    <div class="hl-body">水星为6宫主（竞争/争端），在拉胡大运中被激活，6宫主入Trika宫位结构是婚姻争端的经典触发点。<strong>此期如已婚，需主动加强沟通，避免因小摩擦积累成系统性裂缝。</strong>规避建议：建立「一个月定期深度沟通」习惯；遇到矛盾不冷处理，立即说出来；此期不适合开展需要两人协作的大项目。</div>
+  </div>
+
+  <div class="hl rose">
+    <div class="hl-tag">💫 近期感情出现时机 · 多系统精确验证</div>
+    <div class="hl-title">2025年8月—2026年春 · 正缘出现概率最高时段</div>
+    <div class="hl-body">
+      Vimshottari：拉胡-木星（2025.06.23起），木星（夫星）直接激活；<br>
+      Yogini：木星大运（2023.10—2025.11），木星为女命夫星，Yogini月亮子运（2026.07）进一步共鸣感情宫；<br>
+      Tribhagi：Saturn期（2025.03起）提供感情的结构性稳定；<br>
+      Kalachakra：进入Li（天秤）相关运，激活7宫关键能量。<br><br>
+      <strong>四系统共鸣 → 2026年上半年（约24岁半）是命盘中最可能出现正缘相遇的时间节点。</strong>感情性质：可能是通过工作、学习、或共同兴趣圈子中的相遇，初始感觉"越看越对"而非"电光火石"，但深度和真实性更强。
+    </div>
+  </div>
+
+  <!-- D9分盘 -->
+  <div class="sh c-rose" style="margin-top:40px;">
+    <div class="sh-num">Part II · 04.4</div>
+    <div class="sh-title">D9纳旺莎盘验证 <em>· Navamsa Chart</em></div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card rose">
+      <div class="ct rose">D9 Ascendant / 纳旺莎上升</div>
+      <div class="cn">处女座 Kanya · 婚后生活基调</div>
+      <div class="cb">处女座D9上升：婚后生活<strong>务实、注重品质</strong>，对家庭有强烈的责任心和奉献欲。但处女座也带来挑剔——<span class="warn">婚后容易用「分析与改进」的眼光看伴侣，无意间让对方感觉永远不够好。</span>婚姻中最需要的练习是：接受「够好」，不是「完美才行」。</div>
+    </div>
+    <div class="card rose">
+      <div class="ct rose">Venus in D9 / 7宫主在纳旺莎</div>
+      <div class="cn">白羊座 · 落D9第8宫 · 非Vargottama</div>
+      <div class="cb">金星在D9落白羊（火星之宫，气质相克），且在D9第8宫（深层转化/危机宫）。<strong>非Vargottama，力量削减。</strong><br>D9对D1婚姻格局构成一定挑战：<span class="warn">婚后存在深层磨合期，关系的真正稳定需要经历一次「从内部重建」的过程</span>（通常在婚后3—5年触发）。</div>
+    </div>
+    <div class="card rose">
+      <div class="ct rose">Jupiter in D9 / 夫星在纳旺莎</div>
+      <div class="cn">水瓶座 · 落D9第6宫</div>
+      <div class="cb">D9第6宫代表障碍与适应。丈夫在婚姻中可能带来某些需要主动适应的生活习惯或观念差异——<strong>不是原则性问题，是「日常相处模式需要磨合」</strong>。包容与双向调适是这段婚姻成长的主旋律。</div>
+    </div>
+    <div class="card rose">
+      <div class="ct rose">D9综合结论</div>
+      <div class="cn">挑战型D9 · 磨合后可持久</div>
+      <div class="cb">D9并未提升D1的婚姻格局，而是<span class="warn">暗示潜在深层挑战</span>——但这不等于不幸福。处女座D9上升的人有极强的「优化和修复」能力，<strong>婚姻对你来说是一门需要认真做功课的课程，而你完全有能力拿到好分数。</strong></div>
+    </div>
+  </div>
+
+  <!-- SAV -->
+  <div class="sh c-rose" style="margin-top:40px;">
+    <div class="sh-num">Part II · 04.5</div>
+    <div class="sh-title">Ashtakavarga分析 <em>· SAV Balance</em></div>
+    <div class="sh-sub">感情相关宫位 · 均值28.7</div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card rose">
+      <div class="ct rose">感情关键宫位SAV</div>
+      <div class="cn">婚姻宫位战力图</div>
+      <div style="margin-top:16px;">
+        <div class="srow"><div class="slbl">2宫 家庭沟通</div><div class="swrap"><div class="sfill f-gold" style="width:64%"><span>30</span></div></div></div>
+        <div class="srow"><div class="slbl">4宫 内心安宁</div><div class="swrap"><div class="sfill f-em" style="width:59%"><span>28</span></div></div></div>
+        <div class="srow"><div class="slbl">7宫 伴侣关系</div><div class="swrap"><div class="sfill f-red" style="width:45%"><span>23⚠全盘最低</span></div></div></div>
+        <div class="srow"><div class="slbl">8宫 婚姻深层</div><div class="swrap"><div class="sfill f-dm" style="width:53%"><span>26</span></div></div></div>
+        <div class="srow"><div class="slbl">12宫 私密放下</div><div class="swrap"><div class="sfill f-rose" style="width:58%"><span>28</span></div></div></div>
+        <div class="srow"><div class="slbl">10宫 事业 ⭐</div><div class="swrap"><div class="sfill f-blue" style="width:72%"><span>33全盘最高</span></div></div></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="hl red">
+        <div class="hl-tag">⚠ 最脆弱防线</div>
+        <div class="hl-title">第7宫 SAV=23 · 全盘垫底</div>
+        <div class="hl-body">这是命盘对感情领域最直白的警示：<strong class="dn">伴侣关系宫是你整张命盘中最难守住的城墙。</strong>选择伴侣时，不要凭第一感觉仓促托付，需要时间和真实相处来验证。好消息是：木星第5相位的保护让这座城墙终究不会彻底失守。</div>
+      </div>
+      <div class="hl rose">
+        <div class="hl-tag">🛡 木星的守护相位</div>
+        <div class="hl-title">第5相位照射空置第7宫</div>
+        <div class="hl-body">木星从第3宫以第5相位（吉相位）照射空置的第7宫——这是对婚姻宫最有力的吉星保护。即便第7宫SAV偏低，有木星守护，婚姻<strong>终究不会太差，只是需要更多时间等待和经营。</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 人文总结 -->
+  <div class="human-section" style="border-color:rgba(212,96,122,0.12);">
+    <div class="human-title" style="color:var(--rose2);">♥ 感情篇 · 大白话结论与建议</div>
+
+    <div class="ptip rose"><div class="pnum">01.</div><div class="ptitle">你不是不适合谈恋爱，你只是慢热且对平庸过敏。</div><div class="pbody">你的感情不缺可能性，缺的是那个真正能打穿你防御的人。表面你很独立，内心你非常需要被「真正看见」——不是被欣赏，是被理解。大多数人没能穿过你的第一层，就以为你冷漠。<strong>等那个有耐心穿进来的人，值得。</strong></div></div>
+
+    <div class="ptip rose"><div class="pnum">02.</div><div class="ptitle">你最大的感情杀手不是遇不到人，而是遇到了不敢。</div><div class="pbody">月土合相给你装了一个内置的「感情刹车」——理智总是比感受先到达。你总在感觉「还没准备好」的时候错过真实的时机。<span class="dn">2025—2027年这个窗口，试着先出发，再在路上准备。</span>这一次，理智可以让步一次。</div></div>
+
+    <div class="ptip rose"><div class="pnum">03.</div><div class="ptitle">你的正缘多半不是一眼认出的，而是越看越对的那种。</div><div class="pbody">拉胡+木星的组合告诉你：对的人通常不是按剧本来的。可能是初识时觉得「有点奇怪」，或者相识方式很意外。<strong>不要用「感觉对了」作为唯一标准，给越看越对的人一点时间。</strong></div></div>
+
+    <div class="ptip rose"><div class="pnum">04.</div><div class="ptitle">婚姻里你最需要学的一件事：说出来，而不是等对方自己感受到。</div><div class="pbody">你的情感表达模式是把感受翻译成理性再输出——等翻译完，时机已过，对方以为你没事。在亲密关系里，<strong>「我需要你陪我」比任何分析都有效。开口，是你的婚姻功课里权重最高的一条。</strong></div></div>
+
+    <div class="ptip rose"><div class="pnum">05.</div><div class="ptitle">对的人不会要求你完美，但你要先放下对对方「必须完美」的执念。</div><div class="pbody">D9处女座上升是婚后最大的关系杀手——你会用分析和优化的眼光看伴侣，让他/她觉得「永远不够好」。第一次意识到自己在挑剔对方的时候，停下来，问问自己：<strong>我是在要求完美，还是在保护自己不受伤？</strong></div></div>
+
+    <div class="ptip rose"><div class="pnum">06.</div><div class="ptitle">最低谷：2030—2033年（29—32岁），婚姻最需要用心经营的三年。</div><div class="pbody">水星（6宫主）被拉胡激活，是命盘中沟通误解和关系摩擦最密集的窗口。<span class="dn">如果那时已婚，每一次冷处理都可能成为裂缝的起点。</span>提前知道，提前准备。</div></div>
+
+    <div class="ptip rose"><div class="pnum">07.</div><div class="ptitle">高光时期：2034—2037年（33—36岁），命盘感情最甜蜜的三年。</div><div class="pbody">拉胡-金星期，2宫主（财富与家庭）和7宫主（伴侣）同时被激活。<strong>前期所有的等待和磨合，在这段时间都会变成值得。</strong>所以即使中间有困难，不要轻易放弃走到这里的可能性。</div></div>
+
+    <div class="ptip rose"><div class="pnum">08.</div><div class="ptitle">不可抗力 vs 可以改变的区域。</div><div class="pbody">不可抗力：Punarphoo Dosha带来的晚婚趋势（无法消除，只能接受）；D9处女座上升带来的婚后磨合（是结构性的，但可以通过觉察减轻）。可以改变的区域：<strong>开口表达的习惯、选择合作对象的谨慎度（第7宫SAV=23提示）、以及在拉胡-水星期对沟通的刻意维护。</strong></div></div>
+
+    <div class="human-quote" style="color:var(--rose2);">
+      唯一能打败你的，是你自己放弃。<br>在感情里，你已经具备了比大多数人更深的爱的能力——<br>
+      <span style="font-size:13px;color:var(--text3);">剩下的，只是允许自己去爱。</span>
+    </div>
+
+    <div class="final-quote" style="border-top:1px solid rgba(212,96,122,0.1);">
+      <div class="fq-en" style="font-size:18px;">Atma ko prem ki zaroorat nahin —<br>atma khud hi prem hai.</div>
+      <div class="fq-cn">灵魂不是在寻找爱<br>灵魂本身就是爱，在另一个人身上寻找自己</div>
+    </div>
+  </div>
+</section>
+
+<div class="sdiv"><div class="sdiv-icon">◈</div></div>
+
+<!-- ══════════════════════════════════════
+     CHAPTER 2: WEALTH
+══════════════════════════════════════ -->
+
+<section id="wealth">
+  <div class="chapter-cover cc-wealth">
+    <div class="cc-eyebrow">Chapter Two · 第二大章节</div>
+    <div class="cc-art">🪙</div>
+    <div class="cc-num">Financial Intelligence</div>
+    <div class="cc-title">财富金融</div>
+    <div class="cc-title" style="font-size:clamp(16px,2vw,24px);background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">深度报告</div>
+    <div class="cc-sub">D1 × D-2 Hora × D-11 Rudramsa · SAV财务报表</div>
+    <div style="position:absolute;font-size:100px;opacity:0.04;bottom:-10px;right:20px;">₹</div>
+  </div>
+
+  <div class="sh c-gold">
+    <div class="sh-num">Part I · 01</div>
+    <div class="sh-title">财务基础配置 <em>· Financial DNA</em></div>
+    <div class="sh-sub">搞钱底色扫描 · 进水管与蓄水池诊断</div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card gold">
+      <div class="ct gold">2nd House / 存款池</div>
+      <div class="cn">第2宫：金牛座 · 月亮+土星 · SAV=30</div>
+      <div class="ce">Moon 134.89% · Saturn 94.44%（未达标）· Punarphoo</div>
+      <div class="cb">月亮（极近入旺）坐守第2宫，存钱的本能欲望极强。但11宫主土星（进账源头）Shadbala仅94.44%，唯一未达标行星，导致<span class="warn">收入增长比预期慢半拍</span>——进水管有些细。好消息是蓄水池质量不差（SAV=30，高于均值）：<strong>进来的钱沉得住，漏不快。</strong></div>
+    </div>
+    <div class="card gold">
+      <div class="ct gold">11th House / 进水管</div>
+      <div class="cn">第11宫：水瓶座 · 空宫 · SAV=31（高于均值）</div>
+      <div class="ce">11th Lord Saturn in 2nd · 经典Dhana Yoga结构</div>
+      <div class="cb">11宫主土星落第2宫，形成<strong>进账直接流入存款池</strong>的Dhana Yoga——每赚的钱有地方放。SAV=31，进账能量高于均值。减弱因素：土星体质偏弱，收入增速属于<strong>慢工出细活型</strong>，不是爆发式暴富，是稳健积累型。</div>
+    </div>
+    <div class="card gold">
+      <div class="ct gold">Venus & Jupiter / 财星</div>
+      <div class="cn">金星+木星 · 双星聚第3宫（传播/技能）</div>
+      <div class="ce">Venus Vimsopaka 78.13% · Jupiter 108.36%</div>
+      <div class="cb">两颗财星都在<strong>第3宫（传播/创意/技能/沟通宫位）</strong>，这是命盘最强烈的财富方向信号：<span class="up">靠表达能力、内容创作、技能输出、咨询顾问类变现</span>是这张命盘回报率最高的路线。金星Vimsopaka综合高达78.13%，才华变现的潜力极大。</div>
+    </div>
+    <div class="card gold">
+      <div class="ct gold">8th House / 暗财嗅觉</div>
+      <div class="cn">火星 · 天蝎本命宫 · IshtaPhala全盘最高</div>
+      <div class="ce">Mars IshtaPhala 42.91 · Vipareeta Raja Yoga（自驻型）</div>
+      <div class="cb">火星在天蝎8宫本命宫，IshtaPhala全盘之首（42.91）。<strong>危机中的逆势财富嗅觉是真实的</strong>——别人恐慌时你能找到机会，别人不敢碰的领域里往往有你的财路。这不是赌性，是<span class="up">危机处理与深度研究带来的真实回报</span>。</div>
+    </div>
+  </div>
+
+  <div class="verdict gold">
+    <div class="verdict-label">整盘搞钱底色 · Financial Archetype</div>
+    <div class="verdict-main">内容创作变现型 × 慢热积累型<br>靠才华开头，靠纪律守住，靠时机翻倍</div>
+    <div class="verdict-sub">SAV：进账（11宫=31）> 消耗（12宫=28）→ 净正向现金流 · 不是暴富格，是慢慢变富的格</div>
+  </div>
+
+  <!-- 财富格局判定 -->
+  <div class="sh c-gold" style="margin-top:40px;">
+    <div class="sh-num">Part II · 04.1</div>
+    <div class="sh-title">财富格局判定 <em>· Yoga Diagnosis</em></div>
+  </div>
+
+  <div class="yoga">
+    <div class="ybadge by">✓</div>
+    <div class="yb">
+      <div class="yn">Dhana Yoga · 大富格局</div>
+      <div class="yc">11th Lord Saturn in 2nd · Venus(2L)+Jupiter(9L) in 3rd</div>
+      <div class="yd"><strong>成立，经典型约70%效力。</strong> 11宫主落2宫（进账进存款池），2宫主金星与9宫主木星同宫，双Dhana Yoga结构。土星Shadbala不达标将格局打折——<span class="up">财富累积存在但属于「慢慢变富」</span>，不是突然暴富。比喻：水缓缓流进水池，底部没有大洞，是<strong>细水长流型财富</strong>。</div>
+    </div>
+  </div>
+
+  <div class="yoga">
+    <div class="ybadge bn">✗</div>
+    <div class="yb">
+      <div class="yn">Daridra Yoga · 破财格局</div>
+      <div class="yc">2nd/11th Lord in 6/8/12?</div>
+      <div class="yd">不成立。2宫主金星落第3宫（非凶宫），11宫主土星落第2宫（吉宫）。<span class="up">长期贫困/负债的命局结构不存在。</span>财务上有压力期，但属于「暂时性现金流紧张」而非「结构性破产」。</div>
+    </div>
+  </div>
+
+  <div class="yoga">
+    <div class="ybadge bp">△</div>
+    <div class="yb">
+      <div class="yn">Kemadruma Yoga · 孤月漏财</div>
+      <div class="yc">Moon in 2nd, 1st House empty, 3rd House has planets</div>
+      <div class="yd"><strong>部分成立，约5折效力。</strong> 月亮左侧第1宫空置，右侧第3宫有三星，构成半孤月。木星的保护相位打折一半。财务影响：<span class="warn">情绪低落时容易做出非理性的消费/投资决定（冲动购物、圈内借钱不拒绝）。</span> 情绪管理直接影响财务决策质量。</div>
+    </div>
+  </div>
+
+  <div class="yoga">
+    <div class="ybadge bp">△</div>
+    <div class="yb">
+      <div class="yn">Vipareeta Raja Yoga · 绝地反击暴富</div>
+      <div class="yc">8th Lord Mars in 8th · 自驻型VRY</div>
+      <div class="yd"><strong>自驻型成立，约50%效力。</strong> 8宫主在8宫本命宫，给予命主<span class="up">在别人最惨时找到逆势机会</span>的能量——危机中买入、别人恐慌时出手，有「低位抄底」的潜质。这不是日常财富，是特定窗口期的逆势财富爆发力。</div>
+    </div>
+  </div>
+
+  <!-- 财星力量表 -->
+  <div class="sh c-gold" style="margin-top:40px;">
+    <div class="sh-num">Part II · 04.2</div>
+    <div class="sh-title">核心财星力量 <em>· Planet Power</em></div>
+  </div>
+
+  <div style="overflow-x:auto;margin-bottom:24px;">
+  <table class="dt gold">
+    <thead>
+      <tr><th>行星</th><th>财务身份</th><th>Shadbala %</th><th>IshtaPhala</th><th>KashtaPhala</th><th>净效果</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>♀ 金星 Venus</th><td>2宫主·现金奢华</th><td><span class="mn">128.88%</span></th><td><span class="mn">28.10</span></th><td><span class="mn twarn">31.39⚠</span></th><td><span class="twarn">造富引擎（感情/审美渠道微漏）</span></th></tr>
+      <tr><td>♃ 木星 Jupiter</th><td>9/12宫主·财富指标</th><td><span class="mn">108.36%</span></th><td><span class="mn">29.72</span></th><td><span class="mn">17.53</span></th><td><span class="tok">正向（受Guru-Chandal轻微污染）</span></th></tr>
+      <tr><td>☽ 月亮 Moon</th><td>4宫主·存款意志力</th><td><span class="mn">134.89%</span></th><td><span class="mn tok">41.33</span></th><td><span class="mn">4.84</span></th><td><span class="tok">稳定收益·最强储蓄意志</span></th></tr>
+      <tr><td>♂ 火星 Mars</th><td>1/8宫主·暗财VRY</th><td><span class="mn">119.74%</span></th><td><span class="mn tok">42.91🔥全盘最高</span></th><td><span class="mn">16.52</span></th><td><span class="tok">逆势财富引擎</span></th></tr>
+      <tr><td>♄ 土星 Saturn</th><td>11宫主·收入来源</th><td><span class="mn tdn">94.44%✗唯一不达标</span></th><td><span class="mn">15.42</span></th><td><span class="mn tdn">42.70☠全盘最高</span></th><td><span class="tdn">收入增速黑洞·情绪漏财源头</span></th></tr>
+      <tr><td>☿ 水星 Mercury</th><td>3/6宫主·智识变现</th><td><span class="mn">102.21%</span></th><td><span class="mn">13.39</span></th><td><span class="mn twarn">27.62⚠</span></th><td><span class="twarn">技能变现可·投机操作慎</span></th></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- 大运财务窗口 -->
+  <div class="sh c-gold" style="margin-top:40px;">
+    <div class="sh-num">Part II · 04.3</div>
+    <div class="sh-title">未来财务大运窗口 <em>· Wealth Timing</em></div>
+    <div class="sh-sub">Vimshottari × Tribhagi × Yogini 多系统验证</div>
+  </div>
+
+  <div style="overflow-x:auto;margin-bottom:24px;">
+  <table class="dt gold">
+    <thead>
+      <tr><th>大运</th><th>精确起止</th><th>年龄</th><th>财务宫位激活</th><th>预期效果</th><th>策略</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Rahu–Jupiter<br>当前</td><td><span class="mn">2025.06—2027.11</span></td><td>24—26岁</td><td>12宫主+3宫技能</td><td>内容/技能变现机会集中。<strong>2025.08—2026.02财运最旺</strong>，来钱方向为创意输出类报酬。支出同步放大，Guru-Chandal幻象活跃。</td><td><span class="tok">开源·控支</span></td></tr>
+      <tr style="background:rgba(212,168,75,0.04)"><td>Rahu–Saturn</td><td><span class="mn">2027.11—2030.09</span></td><td>26—29岁</td><td>11宫主（土星）+2宫存款</td><td><strong>收入趋于稳定增长，存款开始有实质积累。</strong>适合建立长期储蓄计划。是命盘中财富积累最扎实的阶段之一。</td><td><span class="tok">蓄水为主</span></td></tr>
+      <tr><td>Rahu–Mercury</td><td><span class="mn">2030.09—2033.04</span></td><td>29—32岁</td><td>6宫主+3宫（竞争/合同）</td><td>技能型收入大幅提升，但<span class="tdn">合同纠纷和财务欺诈风险最高的窗口</span>。</td><td><span class="tdn">🚫防守</span></td></tr>
+      <tr><td>Rahu–Ketu</td><td><span class="mn">2033.04—2034.04</span></td><td>32—33岁</td><td>9宫净化期</td><td>业力结算，主动放下某项消耗性资产，收入可能短暂放缓。</td><td><span class="twarn">减法</span></td></tr>
+      <tr style="background:rgba(212,168,75,0.06)"><td>⭐ Rahu–Venus</td><td><span class="mn">2034.04—2037.04</span></td><td>33—36岁</td><td>2宫主+7宫主（双财星）</td><td><strong>命盘黄金财富期：存款+收入双轨爆发，可能有较大资产购置或商业合伙收益。</strong>Venus Vimsopaka 78.13%在此期完全激活。</td><td><span class="tok">⭐全力收割</span></td></tr>
+      <tr><td>Jupiter–Jupiter</td><td><span class="mn">2040.10—2042.11</span></td><td>39—41岁</td><td>9/12宫主</td><td>扩张机会大，但支出同步大。教育/海外相关收益可能出现。</td><td><span class="twarn">谨慎扩张</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="hl gold">
+    <div class="hl-tag">🚨 最高级别财务红线</div>
+    <div class="hl-title">2030年9月—2033年4月 · 绝对不能触碰的地雷区</div>
+    <div class="hl-body">水星（6宫主，官非/债务指标）在拉胡大运中被激活，同期Tribhagi进入危机模式。<strong>这三年是命盘中合同纠纷和财务欺诈风险最高的窗口。</strong><br>
+    红线清单：<span class="dn">① 不为任何人担保 ② 不借钱给朋友 ③ 不签没看清楚的合同 ④ 不做未经充分尽调的新投资 ⑤ 不涉足灰色地带。</span><br>就算对方说天花乱坠，就算你「感觉」很靠谱——这三年里，你的判断力在拉胡的影响下会出现系统性偏差。守住就是赢。</div>
+  </div>
+
+  <!-- SAV财务报表 -->
+  <div class="sh c-gold" style="margin-top:40px;">
+    <div class="sh-num">Part II · 04.5</div>
+    <div class="sh-title">SAV终极财务等式 <em>· Financial Balance Sheet</em></div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card gold">
+      <div class="ct gold">SAV关键财务宫位</div>
+      <div class="cn">进账 vs 消耗 vs 存款</div>
+      <div style="margin-top:16px;">
+        <div class="srow"><div class="slbl">2宫 存款池</div><div class="swrap"><div class="sfill f-em" style="width:64%"><span>30</span></div></div></div>
+        <div class="srow"><div class="slbl">5宫 投机⚠</div><div class="swrap"><div class="sfill f-red" style="width:47%"><span>24全盘最弱</span></div></div></div>
+        <div class="srow"><div class="slbl">8宫 暗财</div><div class="swrap"><div class="sfill f-blue" style="width:53%"><span>26</span></div></div></div>
+        <div class="srow"><div class="slbl">10宫 事业⭐</div><div class="swrap"><div class="sfill f-gold" style="width:72%"><span>33最高</span></div></div></div>
+        <div class="srow"><div class="slbl">11宫 进账</div><div class="swrap"><div class="sfill f-em" style="width:67%"><span>31▲</span></div></div></div>
+        <div class="srow"><div class="slbl">12宫 消耗</div><div class="swrap"><div class="sfill f-amber" style="width:58%"><span>28◼</span></div></div></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="hl gold">
+        <div class="hl-tag">📊 财务报表诊断</div>
+        <div class="hl-title">净正向型：11宫(31) > 12宫(28)</div>
+        <div class="hl-body">进账（31）减去消耗（28）= 净剩3分。<strong>「进多出少，但差值不悬殊」</strong>——不是暴富型（差值需>8才算），但也绝非入不敷出型。属于：<span class="up">稳中有富，长期积累可期。</span>D-2 Hora验证：2宫主金星和11宫主土星均落Cancer Hora（月亮守护，积蓄力强）——<strong>挣来的钱有相当比例能留住，不是过路财神。</strong></div>
+      </div>
+      <div class="hl red">
+        <div class="hl-tag">⚠ 最弱点警示</div>
+        <div class="hl-title">5宫SAV=24 · 投机宫全盘最弱</div>
+        <div class="hl-body">这是最直接的数字证据：<span class="dn">这个命盘不是靠投机暴富的格局。</span>炒短线、梭哈、玩币圈——赢少输多。<strong>正财（技能/事业）远优于偏财（投机/炒股）。</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 人文总结 -->
+  <div class="human-section" style="border-color:rgba(212,168,75,0.12);">
+    <div class="human-title" style="color:var(--gold2);">🪙 财富篇 · 大白话结论与建议</div>
+
+    <div class="ptip gold"><div class="pnum">01.</div><div class="ptitle">你不是靠投机暴富的命，但你能慢慢变有钱。</div><div class="pbody">投机宫（第5宫）SAV是全盘最低的24，<span class="dn">炒短线、梭哈、币圈梭哈——赢少输多，统计上是亏的。</span>但存款宫（30）和进账宫（31）都高于均值，<strong>只要你不乱凿窟窿，钱会越来越多。</strong>这是一个适合「闷声攒钱」的命盘，不适合「大开大合赌一把」。</div></div>
+
+    <div class="ptip gold"><div class="pnum">02.</div><div class="ptitle">你最大的漏财黑洞，是熟人圈子的「稳赚项目」。</div><div class="pbody">木星和金星都在社交/朋友圈宫位，且被拉胡（欺诈/幻象）同住。你在陌生人那里谨慎，在熟人那里放松——然后被熟人收割。<span class="dn">朋友推荐的项目、同学拉你入股、圈子里的「稳赚机会」——踩过坑的概率不低。</span>原则：圈内人找你投钱，先断后想。</div></div>
+
+    <div class="ptip gold"><div class="pnum">03.</div><div class="ptitle">你真正的赚钱赛道是你的嘴和脑，不是你的钱。</div><div class="pbody">事业宫全盘最高（SAV=33），两颗财星都在传播/技能/表达宫位。<strong>靠会说会写会表达来赚钱，是这张命盘里回报率最高的路线。</strong><span class="up">把自己花在用能力换钱上，比任何投资都靠谱。</span></div></div>
+
+    <div class="ptip gold"><div class="pnum">04.</div><div class="ptitle">2034—2037是你人生中财务爆发的关键三年，现在做的事是在给它铺路。</div><div class="pbody">拉胡-金星期（33—36岁），命盘最强财富子运。那三年能不能爆发，<strong>取决于2025—2030年你积累了多少真实的技能和存款。</strong>今天存下的每一分钱、学下的每一项技能，都会在那个时间窗口被乘以一个系数。现在投资自己，2034年收割。</div></div>
+
+    <div class="ptip gold"><div class="pnum">05.</div><div class="ptitle">2030—2033年，任何人叫你借钱或投资，就说不。</div><div class="pbody">这三年是合同纠纷和财务欺诈风险最高的窗口。<span class="dn">不签没看清楚的合同，不借钱给任何人，不做新的投资项目。</span>就算「感觉」很靠谱——拉胡在激活你的判断力盲区，让错误的东西看起来像机会。这段时间的策略就两个字：守住。</div></div>
+
+    <div class="ptip gold"><div class="pnum">06.</div><div class="ptitle">情绪稳时你的财务决策超强；情绪差时你是最容易花冤枉钱的那个。</div><div class="pbody">月土合相（Punarphoo）给了你强大的存钱意志力，也给了你情绪化消费的弱点。<strong>当你心情不好时，大脑会用消费来填补安全感的缺口。</strong>觉察到「我现在是因为情绪才想买东西吗」——这一个问题，比任何理财计划都有用。建议：设立72小时大额消费冷静期。</div></div>
+
+    <div class="human-quote" style="color:var(--gold2);">
+      唯一能打败你的，是你自己放弃积累的耐心。<br>
+      钱是有记忆的——你对它的态度，决定了它愿不愿意留下来。
+    </div>
+
+    <div class="final-quote" style="border-top:1px solid rgba(212,168,75,0.1);">
+      <div class="fq-en" style="font-size:16px;">Artha is not the enemy of the soul —<br>it is the vessel through which dharma flows when the mind is steady.</div>
+      <div class="fq-cn">财富不是灵魂的对立面<br>当心智平稳，财富是承载使命流淌的容器</div>
+    </div>
+  </div>
+</section>
+
+<div class="sdiv"><div class="sdiv-icon">◈</div></div>
+
+<!-- ══════════════════════════════════════
+     CHAPTER 3: CAREER
+══════════════════════════════════════ -->
+
+<section id="career">
+  <div class="chapter-cover cc-career">
+    <div class="cc-eyebrow">Chapter Three · 第三大章节</div>
+    <div class="cc-art">🏆</div>
+    <div class="cc-num">Career & Achievement</div>
+    <div class="cc-title">事业成就</div>
+    <div class="cc-title" style="font-size:clamp(16px,2vw,24px);background:linear-gradient(135deg,var(--sapphire2),var(--sapphire));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">深度报告</div>
+    <div class="cc-sub">D1 × D-10 Dasamsa · Bhava Bala 宫位力量分析</div>
+  </div>
+
+  <div class="sh c-blue">
+    <div class="sh-num">Part I · 01</div>
+    <div class="sh-title">事业底色 <em>· Career DNA</em></div>
+    <div class="sh-sub">第10宫SAV=33 全盘最高 · 事业是命盘最厚实的护城河</div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card blue">
+      <div class="ct blue">10th House / 事业宫</div>
+      <div class="cn">第10宫：摩羯座 · 空宫 · SAV=33（全盘最高）</div>
+      <div class="ce">Bhava Bala 346.27 · Lord Saturn in 2nd</div>
+      <div class="cb">SAV=33全盘第一，事业宫是这张命盘中<strong>最有潜力、最有底气的领域</strong>。10宫主土星落2宫（存款池），工作直接带来财富积累——干什么就存什么。<span class="up">事业是你的核心竞争力，比任何其他生命领域都更值得投入精力。</span></div>
+    </div>
+    <div class="card blue">
+      <div class="ct blue">3rd House Stellium / 核心才华宫</div>
+      <div class="cn">第3宫：双子座 · 木星+金星+拉胡三星聚首</div>
+      <div class="ce">Jupiter 9L + Venus 2/7L + Rahu · Gemini</div>
+      <div class="cb">最强的行星群落在第3宫（传播/表达/技能/沟通/媒体）——这是对事业赛道最直接的指示：<strong>媒体、传播、咨询、写作、内容创作、教育、跨文化领域</strong>，才华在这里最能发光。拉胡同宫进一步扩大了格局，但也带来需要辨别真实机会的挑战。</div>
+    </div>
+    <div class="card blue">
+      <div class="ct blue">Mercury in 5th / 智识输出</div>
+      <div class="cn">水星 · 狮子座 · 第5宫 · Magha星宿</div>
+      <div class="ce">Mercury GK · Shadbala 102.21% · Sabha（集会）状态</div>
+      <div class="cb">水星（GK，族亲指标）落第5宫（创造/智识/表达），处于Sabha（在集会中发言）活动状态——<strong>公开表达、写作、分析、授课的能力是真实的天赋</strong>。Sodhya Pinda高达200（全盘最高），智识变现能力是所有能力中最被命盘支持的。</div>
+    </div>
+    <div class="card blue">
+      <div class="ct blue">Mars in 8th / 深度研究力</div>
+      <div class="cn">火星 · 天蝎座 · 第8宫本命宫</div>
+      <div class="ce">AmK/BK · IshtaPhala 42.91全盘最高</div>
+      <div class="cb">火星（职业指标星之一）在天蝎8宫本命宫，IshtaPhala全盘最高（42.91）。暗示：<strong>深度研究、心理洞察、危机处理、金融分析、调查类工作</strong>是可以越干越好的方向。在别人不愿深入的地方，你有天生的深潜能力。</div>
+    </div>
+  </div>
+
+  <div class="hl blue">
+    <div class="hl-tag">✦ 最适合的事业赛道（数据支撑）</div>
+    <div class="hl-title">才华输出型 × 深度研究型 · 两条主赛道</div>
+    <div class="hl-body">
+      <strong>第一赛道（3宫Stellium + 水星5宫）：</strong>内容创作、媒体传播、咨询顾问、教育培训、写作、跨文化工作、公关、营销策略。来钱方式：靠表达能力直接换报酬。<br><br>
+      <strong>第二赛道（火星8宫本命宫）：</strong>深度研究、心理/行为分析、危机处理、投资分析、调查报道、神秘学/占星（有趣的是，星盘本身就支持这类工作）。来钱方式：靠解决别人不愿面对的问题。<br><br>
+      <span class="up">两条赛道的共同特征：需要深度、需要思考、需要独特视角——这些恰好是你天生擅长的。</span>
+    </div>
+  </div>
+
+  <div class="sh c-blue" style="margin-top:40px;">
+    <div class="sh-num">Part II · 04.3</div>
+    <div class="sh-title">事业大运关键节点 <em>· Career Timing</em></div>
+  </div>
+
+  <div class="tline blue">
+    <div class="ti">
+      <div class="tdot d-blue"></div>
+      <div class="tbadge tb-blue">当前进行中</div>
+      <div class="tp">Rahu–Jupiter · 2025.06.23—2027.11.18 · 24—26岁</div>
+      <div class="tt">事业能量扩展期 · 建立个人品牌和核心能力的关键两年</div>
+      <div class="td">木星（9宫主，扩展与机遇）被激活，拉胡放大了这一期的机会。<strong>这两年是命盘中事业能量最活跃的启动窗口</strong>——最适合建立个人品牌、开拓新的收入渠道、或进入新的职业赛道。Guru-Chandal提醒：辨别真实机会与夸大的幻象，不轻信「听起来很好」的合作邀请。</div>
+    </div>
+    <div class="ti">
+      <div class="tdot d-dim"></div>
+      <div class="tbadge tb-dim">蓄力期</div>
+      <div class="tp">Rahu–Saturn · 2027.11—2030.09 · 26—29岁</div>
+      <div class="tt">职业进入稳定成长期 · 不追求爆发，追求扎根</div>
+      <div class="td">土星（10宫主，事业之星）子运——事业由扩展转为深耕。<strong>这段时间的收入增速会放慢，但质量更高</strong>，适合在某个专业方向上建立真正的行业口碑和核心竞争力。这是「慢即是快」的时段。</div>
+    </div>
+    <div class="ti">
+      <div class="tdot d-blue"></div>
+      <div class="tbadge tb-blue">技能爆发期</div>
+      <div class="tp">Rahu–Mercury · 2030.09—2033.04 · 29—32岁</div>
+      <div class="tt">智识型收入大幅提升 · 但需警惕职场纠纷</div>
+      <div class="td">水星（3宫主，技能/表达）被激活，智识型收入可能出现较大幅度提升。<strong>这是职业发展的技能爆发期</strong>，可能通过培训、咨询、内容等形式有明显的收入跃升。同时，6宫主被激活带来职场竞争风险，不卷入是非，聚焦输出。</div>
+    </div>
+    <div class="ti">
+      <div class="tdot d-amber"></div>
+      <div class="tbadge tb-amber">收割期</div>
+      <div class="tp">Rahu–Venus · 2034.04—2037.04 · 33—36岁</div>
+      <div class="tt">命盘事业与财富双高峰期</div>
+      <div class="td">金星（2/7宫主）与拉胡在3宫的能量在此期完全释放。<strong>这三年是事业和财富同步爆发的黄金窗口</strong>，可能出现重要的商业合作、作品出版、或达到职业阶段性高峰。在此期之前做好积累，在此期大胆收获。</div>
+    </div>
+  </div>
+
+  <!-- 人文总结 -->
+  <div class="human-section" style="border-color:rgba(72,120,200,0.12);">
+    <div class="human-title" style="color:var(--sapphire2);">🏆 事业篇 · 大白话结论与建议</div>
+
+    <div class="ptip blue"><div class="pnum">01.</div><div class="ptitle">你的才华不是用来装饰的，是用来变现的。</div><div class="pbody">水星Sodhya Pinda全盘最高（200），事业宫SAV全盘最高（33）——这两个数字告诉你：<strong>你的表达能力和智识输出是命盘里最被支持的变现方式。</strong>不要把会说话、会写东西当成「没什么用」的技能，那是你最值钱的东西。</div></div>
+
+    <div class="ptip blue"><div class="pnum">02.</div><div class="ptitle">你适合做「让别人的生活更清晰」的工作。</div><div class="pbody">第3宫Stellium+8宫火星的组合，指向一种特殊的职业气质：<strong>你能把复杂的事情说清楚，能在别人一团雾水的地方找到线索。</strong>咨询、教育、写作、心理分析、研究——凡是需要洞察力和表达力的地方，都是你的舞台。</div></div>
+
+    <div class="ptip blue"><div class="pnum">03.</div><div class="ptitle">2025—2027是你事业起飞的窗口，别在犹豫里错过它。</div><div class="pbody">当前大运（拉胡-木星）是命盘中最活跃的机会期。<strong>这两年出现的职业机会，比之后几年都更有潜力。</strong>不要因为「感觉还没准备好」就推迟行动。你从来就没有完全准备好的时候，出发之后才准备好的。</div></div>
+
+    <div class="ptip blue"><div class="pnum">04.</div><div class="ptitle">职业上最需要警惕的是：被圈子里的人带偏了方向。</div><div class="pbody">Guru-Chandal（木星+拉胡同宫）在职业领域的具体表现是：<span class="dn">圈子里的导师/前辈/合伙人，有时候反而是带你走弯路的人。</span>辨别标准：那个人是在帮你成长，还是在利用你的资源？保持独立判断，信任但验证。</div></div>
+
+    <div class="ptip blue"><div class="pnum">05.</div><div class="ptitle">事业是你在这张命盘里最稳的地方，请认真对待它。</div><div class="pbody">感情可以慢，财富可以等，但事业上的每一天积累都是真实的。<strong>10宫SAV=33，这不是运气，是结构性的优势</strong>——老天把最好的底牌放在了你的事业上，你欠自己一个认真对待职业发展的决定。</div></div>
+
+    <div class="human-quote" style="color:var(--sapphire2);">
+      你的才华是你来这个世界时带来的礼物。<br>
+      辜负它，是你能对自己做的最大的事情。<br>
+      <span style="font-size:13px;color:var(--text3);">所以，认真点。</span>
+    </div>
+  </div>
+</section>
+
+<div class="sdiv"><div class="sdiv-icon">◈</div></div>
+
+<!-- ══════════════════════════════════════
+     CHAPTER 4: CRISIS DEFENSE
+══════════════════════════════════════ -->
+
+<section id="crisis">
+  <div class="chapter-cover cc-crisis">
+    <div class="cc-eyebrow">Chapter Four · 第四大章节</div>
+    <div class="cc-art">⚔</div>
+    <div class="cc-num">Crisis & Defense Intelligence</div>
+    <div class="cc-title">危机排雷</div>
+    <div class="cc-title" style="font-size:clamp(16px,2vw,24px);background:linear-gradient(135deg,var(--crimson2),var(--crimson));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">深度报告</div>
+    <div class="cc-sub">D6 Shashthamsa × D30 Trimsamsa · Trika宫位专项分析</div>
+  </div>
+
+  <div class="sh c-red">
+    <div class="sh-num">Part I · 01</div>
+    <div class="sh-title">危机指标器 <em>· Crisis Radar</em></div>
+    <div class="sh-sub">整盘「吸怪体质」速判 · 6/8/12宫三角危机宫位</div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card red">
+      <div class="ct red">6th Lord / 第6宫主</div>
+      <div class="cn">水星 Mercury · 落第5宫狮子座</div>
+      <div class="ce">GK（族亲指标）· 竞争/债务/疾病指标</div>
+      <div class="cb">6宫主水星远离凶宫，正面竞争压力可通过智识输出化解。但水星GK暗示：<span class="warn">来自同学/同事/朋友圈的隐性竞争不可忽视。</span>最常见的「小人」不是陌生对手，而是认识多年的圈内熟人。</div>
+    </div>
+    <div class="card red">
+      <div class="ct red">8th Lord / 第8宫主</div>
+      <div class="cn">火星 Mars · 天蝎本命宫（自驻）</div>
+      <div class="ce">AmK/BK · IshtaPhala 42.91全盘最高</div>
+      <div class="cb">8宫主在8宫本命宫，形成自驻型VRY。这不是纯粹的凶相，而是<strong>危机中逆势爆发的潜能</strong>——越是低谷，越能找到反击的力量。<span class="up">命盘的「不死鸟」属性在此处写得最清楚。</span></div>
+    </div>
+    <div class="card red">
+      <div class="ct red">12th Lord / 第12宫主</div>
+      <div class="cn">木星 Jupiter · 与拉胡同宫第3宫</div>
+      <div class="ce">Guru-Chandal Dosha · 近邻/合作/社交漏财</div>
+      <div class="cb">12宫主被拉胡同宫污染——漏财和隐藏损耗的形式是<strong>圈内社交消费、被熟人借走的钱、感觉靠谱但事后是坑的投资</strong>。木星的判断力被拉胡干扰，导致「每次都觉得这次不一样」。</div>
+    </div>
+    <div class="card red">
+      <div class="ct red">Rahu / 欺诈与突变</div>
+      <div class="cn">拉胡 · 双子座 · Ardra星宿 · 第3宫</div>
+      <div class="ce">PiK · Ardra = 风暴星宿 · Guru-Chandal三星雷区</div>
+      <div class="cb">拉胡落Ardra（风暴之宿，拉胡本身主宰），与木星、金星三星雷区聚首。<strong>信任危机、合作反目、网络世界的幻象、导师级别的背叛</strong>——这些是命盘中重复出现的主题。不是恐吓，是提醒。</div>
+    </div>
+  </div>
+
+  <div class="hl red">
+    <div class="hl-tag">⚠ 整盘「吸怪体质」定性</div>
+    <div class="hl-title">隐性暗雷型 · 不怕正面对手，怕的是枕边之刀</div>
+    <div class="hl-body">这个命盘属于<strong>【隐性暗雷型】</strong>——不是四面楚歌的正面冲突格局，而是在最信任的人身上踩雷的类型。Guru-Chandal Dosha（木星-拉胡合相第3宫）是全盘最核心的危险配置：导师、合作伙伴、亲密战友，往往是潜在的背刺者。<strong>这个命盘不怕正面的敌人，怕的是被信任的人出卖。</strong>第7宫SAV=23（全盘最低）进一步印证了这一结构——合作伙伴型的背刺风险，远高于正面竞争失败的风险。</div>
+  </div>
+
+  <!-- 格局判定 -->
+  <div class="sh c-red" style="margin-top:40px;">
+    <div class="sh-num">Part II · 04.1</div>
+    <div class="sh-title">冲突格局判定 <em>· Yoga Diagnosis</em></div>
+  </div>
+
+  <div class="yoga">
+    <div class="ybadge bp">△</div>
+    <div class="yb">
+      <div class="yn">Vipareeta Raja Yoga · 绝地反击格局</div>
+      <div class="yc">8th Lord Mars in 8th · 自驻型VRY</div>
+      <div class="yd"><strong>部分成立，约50%效力。</strong> 8宫主在8宫本命宫，赋予命主在危机最深处蓄力反弹的能量。完整三角型VRY未成立（需要6/8/12宫主互换）。实际含义：<span class="up">你允许在最低谷爆发出最强的反击力——这不是故事，这是星盘写进骨子里的底层代码。</span>每一次看起来最惨的时候，往往是你反转的前夜。</div>
+    </div>
+  </div>
+
+  <div class="yoga">
+    <div class="ybadge by">✓</div>
+    <div class="yb">
+      <div class="yn">Guru-Chandal Dosha · 背叛煞</div>
+      <div class="yc">Jupiter + Rahu in 3rd House (Gemini)</div>
+      <div class="yd"><strong>完全成立，高强度有效。</strong> 木星（12宫主，导师/信仰指标）与拉胡（欺诈/幻象）同宫第3宫（近邻/合作/沟通领域）。这是命盘中危害最大的单一配置：<span class="dn">命主极易在人生关键节点遭遇最信任的人的背叛——导师的伤害、合伙人突然翻脸、亲密朋友的出卖。</span>第3宫所代表的「近邻与同行圈子」是背叛高发区。</div>
+    </div>
+  </div>
+
+  <div class="yoga">
+    <div class="ybadge bp">△</div>
+    <div class="yb">
+      <div class="yn">Papakartari Yoga · 夹击受困格局</div>
+      <div class="yc">Sun (AK) in 4th House · flanked by Rahu(3rd) and Mercury(5th)</div>
+      <div class="yd"><strong>条件性成立。</strong> 太阳（AK灵魂指标）在第4宫，前方第3宫（拉胡）和后方第5宫（水星）形成半包围。现实表现：<span class="warn">内心世界经常感到「进退两难」，尤其在家庭和内心安宁的领域。感觉想安定，却总有什么东西阻止。</span></div>
+    </div>
+  </div>
+
+  <!-- 大运危机窗口 -->
+  <div class="sh c-red" style="margin-top:40px;">
+    <div class="sh-num">Part II · 04.3</div>
+    <div class="sh-title">危机大运时间窗 <em>· Crisis Windows</em></div>
+  </div>
+
+  <div class="tline red">
+    <div class="ti">
+      <div class="tdot d-amber"></div>
+      <div class="tbadge tb-amber">当前 · 机遇与信任危机并行</div>
+      <div class="tp">Rahu–Jupiter · 2025.06.23—2027.11.18 · 24—26岁</div>
+      <div class="tt">扩张期伴随Guru-Chandal最活跃阶段</div>
+      <div class="td">机遇真实，但Guru-Chandal效应在此期最为活跃——<strong>合作关系中最容易出现导师级人物的道德背叛，或合伙人突然翻脸。</strong>这一期「好事多磨」，需要在扩张的同时保持对合作对象的理性审查。不签重要合同，不轻信突然靠近的贵人。</div>
+    </div>
+    <div class="ti">
+      <div class="tdot d-red"></div>
+      <div class="tbadge tb-red">🔴 红色预警</div>
+      <div class="tp">Rahu–Saturn · 2027.11—2030.09 · 26—29岁</div>
+      <div class="tt">慢性消耗高峰期 · 土星KashtaPhala最高期</div>
+      <div class="td">拉胡（变数）+土星（KashtaPhala全盘最高=42.70）双重激活——<strong>这是命盘中最具消耗性的子运组合</strong>。可能表现为：职场压力骤增、财务意外缺口、感情考验，或慢性健康问题（颈椎、情绪低落）。<span class="dn">策略：收缩而非扩张，保现金流，绝对不为任何人担保。</span></div>
+    </div>
+    <div class="ti">
+      <div class="tdot d-red"></div>
+      <div class="tbadge tb-red">🚨 最高级别预警</div>
+      <div class="tp">Rahu–Mercury · 2030.09—2033.04 · 29—32岁</div>
+      <div class="tt">合同纠纷与财务欺诈高风险期</div>
+      <div class="td">水星（6宫主）在拉胡大运中被激活，6宫主入Trika是官非/债务的经典触发结构。<span class="dn"><strong>绝对红线：不签大额合同，不借钱给人，不做新投资，不涉灰色领域，不做口头协议。</strong></span>任何「感觉靠谱」的项目在这段时间都需要多一倍的尽调。</div>
+    </div>
+    <div class="ti">
+      <div class="tdot d-blue"></div>
+      <div class="tbadge tb-blue">✦ 逆风翻盘窗口</div>
+      <div class="tp">Rahu–Ketu · 2033.04—2034.04 · 32—33岁</div>
+      <div class="tt">业力结算与重新出发</div>
+      <div class="td">Ketu（9宫，精神净化）子运代表断舍离与业力偿还。此期适合<strong>主动放下过去的执念</strong>——离开一段错误的合作、从消耗性关系中抽身、开始灵性实践。短痛好过长痛，这是命盘给的「强制排毒期」。<span class="up">清空，才能重新装满。</span></div>
+    </div>
+  </div>
+
+  <!-- 人文总结 -->
+  <div class="human-section" style="border-color:rgba(184,48,40,0.12);">
+    <div class="human-title" style="color:var(--crimson2);">⚔ 危机篇 · 大白话结论与建议</div>
+
+    <div class="ptip red"><div class="pnum">01.</div><div class="ptitle">你不是容易被打倒的人，但你容易被信任的人背刺。</div><div class="pbody">火星天蝎本命宫（IshtaPhala全盘最高），说明你的韧性是真实的——外部打击很难彻底击垮你。但Guru-Chandal Dosha说明：<span class="dn">最危险的伤害往往来自你最信任的人。</span>越是关键的决策节点，越要保持独立判断，不要把全部的信任都给一个人。</div></div>
+
+    <div class="ptip red"><div class="pnum">02.</div><div class="ptitle">你的敌人不会正面来，会装成朋友。</div><div class="pbody">第3宫（近邻/同行圈子）是你最需要警惕的地方。潜在的威胁来自：<strong>认识多年但利益交叉的朋友、圈内推荐你「稳赚」项目的人、或自称「导师/引路人」且急于和你深度绑定的年长者。</strong>给自己设一个规则：越是对你「太好」且越急着深度绑定的，越需要观察更长时间。</div></div>
+
+    <div class="ptip red"><div class="pnum">03.</div><div class="ptitle">2027—2030年，守住就是赢。</div><div class="pbody">拉胡-土星期是最具消耗性的组合。<span class="dn">这段时间不爆发，不扩张，不冒险。</span>以现金流安全为第一优先级，把精力放在深耕现有能力上，而不是追求新的机会。<strong>熬过去，后面全是上坡路。</strong></div></div>
+
+    <div class="ptip red"><div class="pnum">04.</div><div class="ptitle">你人生中最深的低谷，往往是反转的前一秒。</div><div class="pbody">这是命盘中最值得记住的一句话。火星在8宫本命宫的VRY格局告诉你：<strong>你的命运结构不是「一直顺」，而是「在最险处反弹」。</strong>当你觉得一切都完了的时候，那往往不是终点，是转折点。所以不要在最低谷轻易放弃。</div></div>
+
+    <div class="ptip red"><div class="pnum">05.</div><div class="ptitle">化解危机最有效的方式不是防御，而是提前知道。</div><div class="pbody">你现在正在读这份报告，这本身就是最好的危机化解——<strong>知道了，就能提前准备。</strong>2030—2033年的合同风险，因为你现在知道了，到时候你会多一份警惕。这份报告存着，每隔几年回来看一次。</div></div>
+
+    <div class="human-quote" style="color:var(--crimson2);">
+      Was mich nicht umbringt, macht mich stärker.<br>
+      凡不能毁灭我的，必使我强大。<br>
+      <span style="font-size:13px;color:var(--text3);">— 尼采 · 这句话，是写给你的。</span>
+    </div>
+  </div>
+</section>
+
+<div class="sdiv"><div class="sdiv-icon">◈</div></div>
+
+<!-- ══════════════════════════════════════
+     CHAPTER 5: HEALTH
+══════════════════════════════════════ -->
+
+<section id="health">
+  <div class="chapter-cover cc-health">
+    <div class="cc-eyebrow">Chapter Five · 第五大章节</div>
+    <div class="cc-art">🌿</div>
+    <div class="cc-num">Health & Vitality</div>
+    <div class="cc-title">健康体质</div>
+    <div class="cc-title" style="font-size:clamp(16px,2vw,24px);background:linear-gradient(135deg,var(--amber2),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">深度报告</div>
+    <div class="cc-sub">上升星座 · 月亮状态 · 第6/8宫分析 · 行星健康信号</div>
+  </div>
+
+  <div class="sh c-amber">
+    <div class="sh-num">Part I · 01</div>
+    <div class="sh-title">体质基础评估 <em>· Constitutional Analysis</em></div>
+  </div>
+
+  <div class="grid g3">
+    <div class="card amber">
+      <div class="ct amber">Lagna / 上升体质</div>
+      <div class="cn">白羊座 · 火象 · Pitta体质</div>
+      <div class="cb">白羊座上升（火星主宰）赋予<strong>旺盛的生命力和快速的自愈能力</strong>，属于Pitta（火型）体质。热情、行动力强、代谢旺盛。容易过度消耗，需要主动节制。<span class="warn">头部、面部、血液循环、血压需定期关注。</span></div>
+    </div>
+    <div class="card amber">
+      <div class="ct amber">Moon / 月亮健康信号</div>
+      <div class="cn">月亮Mrita状态 · 第2宫 · 月土合相</div>
+      <div class="cb">月亮Mrita（死亡状态）+土星同宫：<strong>情绪系统长期处于压抑状态</strong>，情绪不容易流动，容易积压成为身体层面的慢性症状。<span class="warn">咽喉、颈椎、甲状腺区域需关注。</span>情绪出口的建立，是健康管理的核心。</div>
+    </div>
+    <div class="card amber">
+      <div class="ct amber">Mars in 8th / 体质韧性</div>
+      <div class="cn">火星天蝎本命宫 · Kuja Dosha部分</div>
+      <div class="cb">火星在8宫本命宫，<strong>身体的恢复力和抗打击能力非常强</strong>——生病或受伤后的复原速度往往超过预期。8宫也暗示可能有一到两次手术或意外的经历（非致命，但留下印象）。<span class="up">强大的自愈能力是你的健康底牌。</span></div>
+    </div>
+  </div>
+
+  <div class="hl amber">
+    <div class="hl-tag">🏥 健康重点区域速览</div>
+    <div class="hl-title">四个需要主动关注的身体系统</div>
+    <div class="hl-body">
+      <strong>1. 头颈系统（白羊上升+月土合第2宫）：</strong>颈椎劳损、头痛、甲状腺功能——长期低头工作或情绪压抑时尤其容易出问题。建议：每小时起身活动颈部，每年做甲状腺B超。<br><br>
+      <strong>2. 情绪-消化联动（月亮Mrita+土星压制）：</strong>情绪问题容易转化为消化系统症状（胀气、肠易激综合征）——这是心身医学中的经典路径。情绪出口管理 = 消化系统保护。<br><br>
+      <strong>3. 生殖系统（火星8宫天蝎座）：</strong>Kuja Dosha的健康维度。建议定期妇科检查，关注经期规律性。<br><br>
+      <strong>4. 精神健康（月亮Mrita+Jupiter在Ardra星宿）：</strong>Ardra（风暴星宿）的波动特征可能带来情绪的剧烈起伏期。拉胡大运期（2022—2040）整体情绪管理比平时更需要主动干预。建议：建立稳定的正念/冥想习惯，即便每天5分钟。
+    </div>
+  </div>
+
+  <div class="sh c-amber" style="margin-top:40px;">
+    <div class="sh-num">Part II · 健康大运节点</div>
+    <div class="sh-title">健康需特别关注的时段 <em>· Health Watch</em></div>
+  </div>
+
+  <div class="tline" style="padding-left:22px;">
+  <div style="padding-left:0;padding-right:0;border-left:1px solid rgba(200,120,40,0.4);">
+    <div class="ti">
+      <div class="tdot" style="background:var(--amber);box-shadow:0 0 10px rgba(200,120,40,0.5);position:absolute;left:-22px;top:5px;width:8px;height:8px;border-radius:50%;transform:translateX(50%);"></div>
+      <div class="tbadge tb-amber">中度关注</div>
+      <div class="tp">Rahu–Saturn · 2027.11—2030.09 · 26—29岁</div>
+      <div class="tt">慢性疲劳高峰期 · 情绪健康需主动干预</div>
+      <div class="td">土星KashtaPhala最高（42.70），在拉胡的放大下，慢性消耗达到顶峰。<strong>注意慢性疲劳、睡眠质量下降、情绪低落这三个早期预警信号。</strong>这段时间不要用工作麻痹，要主动休息。</div>
+    </div>
+    <div class="ti">
+      <div class="tdot" style="background:var(--amber);box-shadow:0 0 10px rgba(200,120,40,0.5);position:absolute;left:-22px;top:5px;width:8px;height:8px;border-radius:50%;transform:translateX(50%);"></div>
+      <div class="tbadge tb-dim">常规关注</div>
+      <div class="tp">Jupiter–Jupiter · 2040.10开始 · 39岁后</div>
+      <div class="tt">木星大运扩张期 · 体重/代谢需关注</div>
+      <div class="td">木星大运普遍带来扩张效应，包括体重。<strong>木星进入大运后需主动关注代谢健康，避免因「扩张」的能量转化为不健康的生活方式。</strong></div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Upayas -->
+  <div class="sh c-amber" style="margin-top:40px;">
+    <div class="sh-num">Upayas · 全方位化解建议</div>
+    <div class="sh-title">占星疗愈 <em>· Healing
