@@ -1,0 +1,1222 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Jyotish 命盘深度解析 | 2010.08.22</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+:root {
+  --gold: #F0C040;
+  --gold-light: #FFE08A;
+  --gold-dim: #A07820;
+  --deep-navy: #0B0F1E;
+  --navy: #111827;
+  --card-bg: #1A2035;
+  --card-border: #2A3550;
+  --accent-red: #E85555;
+  --accent-green: #4CAF80;
+  --accent-blue: #5B9BD5;
+  --accent-purple: #9B6CF5;
+  --text-primary: #F0EAD6;
+  --text-secondary: #B0A898;
+  --text-muted: #707880;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans SC', sans-serif;
+  background: var(--deep-navy);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* ── NAV DOTS ── */
+.nav-dots {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nav-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--card-border);
+  cursor: pointer;
+  transition: all .3s;
+  border: 2px solid transparent;
+}
+.nav-dot.active { background: var(--gold); border-color: var(--gold-light); }
+.nav-dot:hover { background: var(--gold-dim); }
+
+/* ── SLIDE BASE ── */
+.slide {
+  min-height: 100vh;
+  padding: 60px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--card-border);
+}
+
+/* Decorative corner star */
+.slide::before {
+  content: "✦";
+  position: absolute;
+  top: 24px; right: 40px;
+  color: var(--gold-dim);
+  font-size: 28px;
+  opacity: .4;
+}
+
+/* ── SLIDE 0: COVER ── */
+#slide-0 {
+  background: radial-gradient(ellipse at 30% 50%, #1B2650 0%, #0B0F1E 70%);
+  align-items: center;
+  text-align: center;
+}
+#slide-0 .mandala {
+  font-size: 90px;
+  line-height: 1;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 0 30px rgba(240,192,64,.5));
+  animation: pulse 4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { filter: drop-shadow(0 0 20px rgba(240,192,64,.4)); }
+  50%      { filter: drop-shadow(0 0 50px rgba(240,192,64,.8)); }
+}
+.cover-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 46px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 4px;
+  text-shadow: 0 0 40px rgba(240,192,64,.4);
+  margin-bottom: 12px;
+}
+.cover-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+}
+.birth-data {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.birth-data span {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: var(--gold-light);
+}
+
+/* ── SLIDE HEADERS ── */
+.slide-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.slide-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+.slide-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 36px;
+  border-left: 3px solid var(--gold-dim);
+  padding-left: 12px;
+}
+
+/* ── GRID LAYOUTS ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+
+/* ── CARD ── */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 14px 14px 0 0;
+}
+.card.gold::after  { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.card.red::after   { background: linear-gradient(90deg, var(--accent-red), #FF8A8A); }
+.card.green::after { background: linear-gradient(90deg, var(--accent-green), #80EFB0); }
+.card.blue::after  { background: linear-gradient(90deg, var(--accent-blue), #A0CFFF); }
+.card.purple::after{ background: linear-gradient(90deg, var(--accent-purple), #C0A0FF); }
+
+.card-icon { font-size: 28px; margin-bottom: 10px; }
+.card-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.card-body {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* ── TAG / PILL ── */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 3px 3px 3px 0;
+}
+.tag-gold   { background: rgba(240,192,64,.18); color: var(--gold-light); border: 1px solid rgba(240,192,64,.35); }
+.tag-red    { background: rgba(232,85,85,.18);  color: #FF9090; border: 1px solid rgba(232,85,85,.35); }
+.tag-green  { background: rgba(76,175,128,.18); color: #80EFC0; border: 1px solid rgba(76,175,128,.35); }
+.tag-blue   { background: rgba(91,155,213,.18); color: #A0CFFF; border: 1px solid rgba(91,155,213,.35); }
+.tag-purple { background: rgba(155,108,245,.18);color: #C0A0FF; border: 1px solid rgba(155,108,245,.35); }
+
+/* ── PLANET TABLE ── */
+.planet-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.planet-table th {
+  background: rgba(240,192,64,.1);
+  color: var(--gold);
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--card-border);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.planet-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(42,53,80,.6);
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+.planet-table tr:hover td { background: rgba(240,192,64,.04); }
+.planet-name { color: var(--text-primary); font-weight: 600; }
+
+/* ── HEALTH BARS ── */
+.bar-row { margin-bottom: 14px; }
+.bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: var(--text-secondary);
+}
+.bar-track {
+  height: 8px;
+  background: rgba(255,255,255,.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.bar-fill { height: 100%; border-radius: 4px; transition: width .6s; }
+
+/* ── DASHA TIMELINE ── */
+.dasha-timeline { position: relative; padding-left: 32px; }
+.dasha-timeline::before {
+  content: "";
+  position: absolute;
+  left: 10px; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), var(--card-border));
+}
+.dasha-item {
+  position: relative;
+  margin-bottom: 18px;
+}
+.dasha-item::before {
+  content: "";
+  position: absolute;
+  left: -26px; top: 5px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: var(--deep-navy);
+}
+.dasha-item.current::before { background: var(--gold); box-shadow: 0 0 10px var(--gold); }
+.dasha-period {
+  font-size: 11px;
+  color: var(--gold-dim);
+  margin-bottom: 2px;
+}
+.dasha-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+.dasha-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; }
+
+/* ── REMEDY BOX ── */
+.remedy-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(42,53,80,.5);
+}
+.remedy-item:last-child { border-bottom: none; }
+.remedy-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: rgba(240,192,64,.12);
+  border: 1px solid rgba(240,192,64,.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.remedy-text strong { color: var(--gold-light); font-size: 14px; display: block; margin-bottom: 3px; }
+.remedy-text span { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+/* ── DOSHA BADGE ── */
+.dosha-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.dosha-icon { font-size: 32px; flex-shrink: 0; }
+.dosha-verdict {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+.verdict-absent  { background: rgba(76,175,128,.2); color: #80EFC0; }
+.verdict-mild    { background: rgba(240,192,64,.2);  color: var(--gold-light); }
+.verdict-present { background: rgba(232,85,85,.2);   color: #FF9090; }
+
+.dosha-title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 5px; }
+.dosha-body  { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+/* ── HIGHLIGHT BOX ── */
+.highlight-box {
+  background: rgba(240,192,64,.07);
+  border: 1px solid rgba(240,192,64,.25);
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-top: 16px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.highlight-box strong { color: var(--gold-light); }
+
+/* ── VERDICT SUMMARY ── */
+.verdict-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.verdict-chip {
+  flex: 1;
+  min-width: 160px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-align: center;
+}
+.verdict-chip .big { font-size: 28px; margin-bottom: 4px; }
+.verdict-chip .label { font-size: 12px; color: var(--text-muted); }
+.verdict-chip .value { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-top: 4px; }
+
+/* ── STAR RATING ── */
+.star-rating { color: var(--gold); letter-spacing: 2px; }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 32px;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--card-border);
+}
+footer strong { color: var(--gold-dim); }
+
+@media (max-width: 900px) {
+  .slide { padding: 40px 24px; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .cover-title { font-size: 32px; }
+  .slide-title { font-size: 26px; }
+  .nav-dots { display: none; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV DOTS -->
+<div class="nav-dots" id="navDots"></div>
+
+<!-- ═══════════════════════════════════════════════
+     SLIDE 0 · COVER
+═══════════════════════════════════════════════ -->
+
+<div class="slide" id="slide-0">
+  <div class="mandala">🕉</div>
+  <div class="cover-title">Parashari Jyotish 命盘解析</div>
+  <div class="cover-subtitle">Vedic Astrology · Deep Analysis Report</div>
+  <div class="birth-data">
+    <span>📅 出生：2010年8月22日</span>
+    <span>⏰ 时间：11:18 AM（东八区）</span>
+    <span>📍 地点：庭湖区 120°E / 33°N</span>
+    <span>⬆️ 上升星座：天秤座（18°03'）</span>
+    <span>🌙 月亮：摩羯座（4宫）</span>
+    <span>☀️ 太阳：狮子座（11宫）</span>
+  </div>
+  <div class="highlight-box" style="max-width:680px;margin:28px auto 0;">
+    <strong>核心格局一览：</strong>天秤上升 · 月亮摩羯 · 太阳/水星（逆）狮子 · 金星（陷）+火星+土星处女 · 木星（逆）双鱼
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SLIDE 1 · 行星宫位速览
+═══════════════════════════════════════════════ -->
+
+<div class="slide" id="slide-1">
+  <div class="slide-num">SLIDE 01</div>
+  <div class="slide-title">行星宫位全景图</div>
+  <div class="slide-desc">以天秤座上升为第一宫，各行星实际落宫位置</div>
+
+  <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;overflow:hidden;">
+    <table class="planet-table">
+      <thead>
+        <tr>
+          <th>行星</th><th>星座 / 度数</th><th>落宫</th><th>状态</th><th>Shadbala 力量</th><th>核心意义</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="planet-name">☀️ 太阳 (DK)</span></td>
+          <td>狮子座 4°57'</th><td>第 11 宫</th>
+          <td><span class="tag tag-green">自旺</span></td>
+          <td>
+            <div class="bar-track" style="width:120px;display:inline-block;">
+              <div class="bar-fill" style="width:98%;background:linear-gradient(90deg,#4CAF80,#80EFB0)"></div>
+            </div> 196%
+           </th>
+          <td style="font-size:12px;">极强！收益、社交、名望旺盛</th>
+        </tr>
+        <tr>
+          <td><span class="planet-name">🌙 月亮 (GK)</span></td>
+          <td>摩羯座 6°50'</th><td>第 4 宫</th>
+          <td><span class="tag tag-gold">中性</span></td>
+          <td>
+            <div class="bar-track" style="width:120px;display:inline-block;">
+              <div class="bar-fill" style="width:59%;background:linear-gradient(90deg,#F0C040,#FFE08A)"></div>
+            </div> 118%
+           </th>
+          <td style="font-size:12px;">家庭/内心情绪有一定压力</th>
+        </tr>
+        <tr>
+          <td><span class="planet-name">♂️ 火星 (BK)</span></td>
+          <td>处女座 20°27'</th><td>第 12 宫</th>
+          <td><span class="tag tag-red">中等落</span></td>
+          <td>
+            <div class="bar-track" style="width:120px;display:inline-block;">
+              <div class="bar-fill" style="width:34%;background:linear-gradient(90deg,#E85555,#FF8A8A)"></div>
+            </div> 68% ⚠️
+           </th>
+          <td style="font-size:12px;">力量不足，12宫耗散能量</th>
+        </tr>
+        <tr>
+          <td><span class="planet-name">☿️ 水星 (AK) ®</span></td>
+          <td>狮子座 24°59'</th><td>第 11 宫</th>
+          <td><span class="tag tag-gold">逆行</span></td>
+          <td>
+            <div class="bar-track" style="width:120px;display:inline-block;">
+              <div class="bar-fill" style="width:55%;background:linear-gradient(90deg,#F0C040,#FFE08A)"></div>
+            </div> 111%
+           </th>
+          <td style="font-size:12px;">灵魂星(AK)逆行，内省深邃</th>
+        </tr>
+        <tr>
+          <td><span class="planet-name">♃ 木星 (PK) ®</span></td>
+          <td>双鱼座 8°00'</th><td>第 6 宫</th>
+          <td><span class="tag tag-blue">逆行自旺</span></td>
+          <td>
+            <div class="bar-track" style="width:120px;display:inline-block;">
+              <div class="bar-fill" style="width:60%;background:linear-gradient(90deg,#5B9BD5,#A0CFFF)"></div>
+            </div> 120%
+           </th>
+          <td style="font-size:12px;">6宫疾病宫，但自旺有保护</th>
+        </tr>
+        <tr>
+          <td><span class="planet-name">♀️ 金星 (AmK)</span></td>
+          <td>处女座 20°52'</th><td>第 12 宫</th>
+          <td><span class="tag tag-red">陷落 ⚠️</span></td>
+          <td>
+            <div class="bar-track" style="width:120px;display:inline-block;">
+              <div class="bar-fill" style="width:65%;background:linear-gradient(90deg,#E85555,#FF8A8A)"></div>
+            </div> 129%</th>
+          <td style="font-size:12px;">上升主星陷落12宫 — 重点关注</th>
+        </tr>
+        <tr>
+          <td><span class="planet-name">♄ 土星 (PiK)</span></td>
+          <td>处女座 9°01'</th><td>第 12 宫</th>
+          <td><span class="tag tag-red">弱</span></td>
+          <td>
+            <div class="bar-track" style="width:120px;display:inline-block;">
+              <div class="bar-fill" style="width:46%;background:linear-gradient(90deg,#E85555,#FF8A8A)"></div>
+            </div> 92%</th>
+          <td style="font-size:12px;">与金火同处12宫，消耗增加</th>
+        </tr>
+        <tr>
+          <td><span class="planet-name">☊ 罗睺</span></td>
+          <td>射手座 15°17'</th><td>第 3 宫</th>
+          <td><span class="tag tag-purple">中性</span></td>
+          <td>—</th>
+          <td style="font-size:12px;">沟通/勇气/兄弟，有扩张力</th>
+        </tr>
+        <tr>
+          <td><span class="planet-name">☋ 计都</span></td>
+          <td>双子座 15°17'</th><td>第 9 宫</th>
+          <td><span class="tag tag-purple">中性</span></td>
+          <td>—</th>
+          <td style="font-size:12px;">9宫高等教育/灵性，有出世倾向</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SLIDE 2 · 健康分析
+═══════════════════════════════════════════════ -->
+
+<div class="slide" id="slide-2">
+  <div class="slide-num">SLIDE 02 · 医疗占星</div>
+  <div class="slide-title">🏥 健康状况与潜在问题</div>
+  <div class="slide-desc">重点分析 6宫（疾病）· 8宫（慢性/死亡）· 12宫（住院/暗疾） · 上升主星</div>
+
+  <div class="grid-2" style="gap:20px;">
+    <!-- LEFT COLUMN -->
+    <div>
+      <div class="card red" style="margin-bottom:18px;">
+        <div class="card-icon">⚠️</div>
+        <div class="card-label">最高优先级警示</div>
+        <div class="card-title">上升主星金星陷落 12 宫</div>
+        <div class="card-body">
+          天秤上升的主星（金星）陷落于处女座，且位于<strong style="color:#FF9090;">第12宫</strong>（住院、隐性疾病宫）。这是命盘中最需关注的健康指征：<br><br>
+          • 体质先天较敏感，免疫/肾脏/生殖系统需护养<br>
+          • 金星代表腰肾、皮肤、静脉，处女座关联消化道<br>
+          • 12宫：疾病易隐而不发，需主动定期检查
+        </div>
+      </div>
+
+      <div class="card gold">
+        <div class="card-icon">🔥</div>
+        <div class="card-label">12宫三星聚集</div>
+        <div class="card-title">火星 + 金星（陷）+ 土星 → 处女座</div>
+        <div class="card-body">
+          三颗行星同处第12宫，能量高度集中于耗散宫：<br><br>
+          • <strong style="color:#FFE08A;">火星</strong>：炎症、受伤、手术风险（Shadbala 仅68%，力量不足）<br>
+          • <strong style="color:#FFE08A;">土星</strong>：慢性病、骨骼、关节，Vata失衡<br>
+          • <strong style="color:#FFE08A;">金星（陷）</strong>：肾脏、泌尿、内分泌弱化<br>
+          • 三星同处——需特别注意<em>慢性消化问题、腰背痛</em>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div>
+      <div class="card blue" style="margin-bottom:18px;">
+        <div class="card-icon">🛡️</div>
+        <div class="card-label">6宫保护因子</div>
+        <div class="card-title">木星（逆）自旺于双鱼 — 6宫</div>
+        <div class="card-body">
+          木星为自旺（双鱼为木星本命星座），位于6宫虽激活疾病主题，但<strong style="color:#A0CFFF;">木星守护6宫意味着疾病可被克服</strong>。<br><br>
+          • 木星逆行：康复力强，但需长期调养，不可急于求成<br>
+          • 木星主肝脏、脂肪代谢，逆行需防肝脏/胆囊积累性问题<br>
+          • 正面：Vimshopaka分数62%，护持力尚可
+        </div>
+      </div>
+
+      <div class="card green">
+        <div class="card-icon">💡</div>
+        <div class="card-label">重点身体部位</div>
+        <div class="card-title">需重点关注的系统</div>
+        <div class="card-body">
+          <div class="bar-row">
+            <div class="bar-label"><span>消化/肠胃（处女座+12宫）</span><span style="color:#FF9090;">高风险</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:85%;background:linear-gradient(90deg,#E85555,#FF8A8A)"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span>肾脏/腰部（金星陷12宫）</span><span style="color:#FF9090;">高风险</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:80%;background:linear-gradient(90deg,#E85555,#FF8A8A)"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span>骨骼/关节（土星12宫）</span><span style="color:#FFE08A;">中风险</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:60%;background:linear-gradient(90deg,#F0C040,#FFE08A)"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span>肝胆代谢（木星逆6宫）</span><span style="color:#FFE08A;">中风险</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:50%;background:linear-gradient(90deg,#F0C040,#FFE08A)"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span>眼睛/心脏（太阳狮子11宫）</span><span style="color:#80EFC0;">低风险</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:25%;background:linear-gradient(90deg,#4CAF80,#80EFB0)"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>🌙 4宫月亮在摩羯座：</strong>月亮在摩羯为弱位（摩羯为土星主管，与月亮寒冷之性相斥），情绪压抑、容易焦虑，青少年时期情绪健康需重视。建议培养规律作息与适度运动习惯，避免因情绪积压影响免疫。
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SLIDE 3 · Dosha 不利影响
+═══════════════════════════════════════════════ -->
+
+<div class="slide" id="slide-3">
+  <div class="slide-num">SLIDE 03</div>
+  <div class="slide-title">🔮 命盘 Dosha 与行星挑战</div>
+  <div class="slide-desc">全面扫描 Kaal Sarpa、Manglik、逆行/陷落行星，给出客观判定</div>
+
+  <div class="grid-2">
+    <div>
+      <div class="dosha-card">
+        <div class="dosha-icon">🐍</div>
+        <div>
+          <div class="dosha-verdict verdict-absent">✓ 不成立</div>
+          <div class="dosha-title">Kaal Sarpa Dosha（卡尔萨帕）</div>
+          <div class="dosha-body">
+            罗睺在射手（3宫），计都在双子（9宫）。<br>
+            检查所有行星是否全部落于罗睺→计都单侧：<br>
+            · 太阳、水星、火星、金星、土星 → 计都到罗睺侧 ✓<br>
+            · <strong style="color:#80EFC0;">月亮（摩羯）、木星（双鱼）→ 另一侧</strong><br>
+            行星位于两侧，<strong style="color:#80EFC0;">Kaal Sarpa 不成立。</strong> 无需此补救。
+          </div>
+        </div>
+      </div>
+
+      <div class="dosha-card">
+        <div class="dosha-icon">♂️</div>
+        <div>
+          <div class="dosha-verdict verdict-mild">⚡ 部分成立</div>
+          <div class="dosha-title">Manglik Dosha（火星煞）</div>
+          <div class="dosha-body">
+            检测宫位（1/2/4/7/8/12）：<br>
+            · 火星在<strong style="color:#FFE08A;">第12宫</strong>（Manglik 判定宫之一）✓ — 成立<br>
+            · 从月亮看：火星在9宫 — 不成立<br>
+            · 火星力量68%（偏低），12宫耗散，但<em>并非极度严重</em>。婚姻配对时需对方命盘对冲或做补救。
+          </div>
+        </div>
+      </div>
+
+      <div class="dosha-card">
+        <div class="dosha-icon">☿️</div>
+        <div>
+          <div class="dosha-verdict verdict-mild">⚡ 需关注</div>
+          <div class="dosha-title">水星逆行 · 灵魂星（Atmakaraka）®</div>
+          <div class="dosha-body">
+            水星是命盘中<strong style="color:#FFE08A;">Atmakaraka（灵魂星）</strong>，代表灵魂本质课题。逆行含义：<br>
+            · 思维深邃内省，但有时表达不畅或优柔寡断<br>
+            · 考试/表达场合易发挥失常（需配合补救）<br>
+            · 在狮子座11宫：社交/收益领域需额外努力但终有回报
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="dosha-card">
+        <div class="dosha-icon">♃</div>
+        <div>
+          <div class="dosha-verdict verdict-mild">⚡ 需关注</div>
+          <div class="dosha-title">木星逆行 · 6宫（疾病宫）</div>
+          <div class="dosha-body">
+            木星在自旺的双鱼座逆行，落入6宫：<br>
+            · 自旺保护：疾病可治愈，贵人出现在健康/服务领域<br>
+            · 逆行6宫：扩张主题内化，容易对健康过度焦虑或忽视<br>
+            · 建议定期瑜伽/冥想，主动与健康类老师/医生建立关系
+          </div>
+        </div>
+      </div>
+
+      <div class="dosha-card">
+        <div class="dosha-icon">♀️</div>
+        <div>
+          <div class="dosha-verdict verdict-present">🔴 重点</div>
+          <div class="dosha-title">金星陷落（Neecha）· 上升主星在12宫</div>
+          <div class="dosha-body">
+            <strong style="color:#FF9090;">最重要的命盘挑战：</strong><br>
+            · 金星为天秤上升的命主星（Lagna Lord），陷落处女<br>
+            · 位于12宫（耗散、隐性伤害）<br>
+            · 影响：整体活力、自我表达、人际魅力受限<br>
+            · 金星亦为8宫主（金牛座）：陷落影响长寿与慢性病<br>
+            · 但金星Shadbala仍有129%，受其他因素支持，非绝对凶
+          </div>
+        </div>
+      </div>
+
+      <div class="dosha-card">
+        <div class="dosha-icon">♄</div>
+        <div>
+          <div class="dosha-verdict verdict-mild">⚡ 需关注</div>
+          <div class="dosha-title">土星偏弱 · 92% · 12宫</div>
+          <div class="dosha-body">
+            土星为命盘4宫（摩羯）和5宫（水瓶）主星，处于12宫：<br>
+            · 4宫主在12宫：家庭环境/童年有隐性限制感<br>
+            · 5宫主在12宫：学习有时需独处才能发挥（适合自学型）<br>
+            · Shadbala 92%，低于标准值，需补强土星能量
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SLIDE 4 · 智慧与学业格局
+═══════════════════════════════════════════════ -->
+
+<div class="slide" id="slide-4">
+  <div class="slide-num">SLIDE 04 · 智慧分析</div>
+  <div class="slide-title">🎓 宇宙智商 · 学业与智慧格局</div>
+  <div class="slide-desc">5宫（领悟力）· 水星（逻辑）· 木星（高维智慧）· 4/9宫（教育）</div>
+
+  <div class="grid-3" style="margin-bottom:20px;">
+    <div class="card blue">
+      <div class="card-icon">⚡</div>
+      <div class="card-label">Yoga 分析</div>
+      <div class="card-title">Budha-Aditya Yoga ✓</div>
+      <div class="card-body">
+        太阳（狮子4°）与水星（狮子24°）同处11宫。虽水星逆行弱化效果，但 Yoga 成立：<br>
+        · 逻辑分析力强，适合学术与管理<br>
+        · 逆行修正：思维深刻但需更多时间整合
+      </div>
+    </div>
+
+    <div class="card purple">
+      <div class="card-icon">🎨</div>
+      <div class="card-label">Yoga 分析</div>
+      <div class="card-title">Saraswati Yoga ✗</div>
+      <div class="card-body">
+        需要金/木/水在四正或三合宫+木星强旺。<br>
+        金星12宫（非四正/三合）、木星6宫 → <span class="tag tag-red">不成立</span><br>
+        · 智慧类型偏向实用型而非学院型博学
+      </div>
+    </div>
+
+    <div class="card gold">
+      <div class="card-icon">📊</div>
+      <div class="card-label">SAV 运势评分</div>
+      <div class="card-title">关键宫位运势</div>
+      <div class="card-body">
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+          <span>4宫（基础教育）</span><span style="color:#FFE08A;font-weight:700;">30分</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+          <span>5宫（领悟力）</span><span style="color:#80EFC0;font-weight:700;">33分 ✓</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+          <span>9宫（高等教育）</span><span style="color:#80EFC0;font-weight:700;">36分 🔥</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:8px;">
+          9宫最强！高等教育/海外求学缘分深厚
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card green">
+      <div class="card-label">D-24 学识盘 | D-9 智慧根基</div>
+      <div class="card-title">📚 智慧类型判断</div>
+      <div class="card-body">
+        · <strong style="color:#80EFC0;">水星型（AK灵魂星）：</strong>逻辑、数据、语言、商业分析是天赋方向<br>
+        · 太阳极强（196%）：领导气质、自我意识强，适合独立研究<br>
+        · 月亮摩羯4宫：学习需要稳定环境，有结构的学习效率最高<br>
+        · <strong>计都在9宫</strong>：有出世/灵性研究倾向，或某些领域自带"前世记忆"式直觉
+      </div>
+    </div>
+
+    <div class="card red">
+      <div class="card-label">当前大运 · 2025–2026</div>
+      <div class="card-title">⚠️ 火星-水星大运期警示</div>
+      <div class="card-body">
+        · 火主运（力量仅68%）+ 水星小运（逆行）：2025.07–2026.07<br>
+        · 火星弱在12宫，水星逆行：<em>考试发挥可能低于实际水平</em><br>
+        · 不代表不聪明！是<strong style="color:#FF9090;">「高配CPU但内存通道受阻」</strong>的典型期<br>
+        · 建议：此期多用可视化学习法，减少硬背，重理解框架<br>
+        · 2026.07后进入火星-计都运，情况好转
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SLIDE 5 · 大运时间轴
+═══════════════════════════════════════════════ -->
+
+<div class="slide" id="slide-5">
+  <div class="slide-num">SLIDE 05</div>
+  <div class="slide-title">⏳ Vimsottari 大运时光机</div>
+  <div class="slide-desc">灵魂成长的时间地图 · 当前处于火星大运（2022–2029）</div>
+
+  <div class="grid-2">
+    <div class="dasha-timeline">
+
+      <div class="dasha-item">
+        <div class="dasha-period">2012–2022（已过）</div>
+        <div class="dasha-name">🌙 月亮大运</div>
+        <div class="dasha-desc">情感敏感期，家庭环境深刻塑造内心世界。月亮在摩羯（弱）：童年可能有内心孤独感，但奠定坚韧底色。</div>
+      </div>
+
+      <div class="dasha-item current">
+        <div class="dasha-period">🔴 当前 2022–2029（进行中）</div>
+        <div class="dasha-name">♂️ 火星大运（Mahadasha）</div>
+        <div class="dasha-desc">火星弱（68%）+12宫：精力旺盛但耗散，需防冲动。是行动期，可建立体育/技能基础。重点：避免急躁决策。</div>
+      </div>
+
+      <div class="dasha-item current" style="padding-left:20px;border-left:2px dashed var(--gold-dim);">
+        <div class="dasha-period">2025.07–2026.07 · 当前小运</div>
+        <div class="dasha-name" style="font-size:13px;">火星·水星（逆）小运</div>
+        <div class="dasha-desc" style="color:#FF9090;">⚠️ 学习发挥警示期，重理解轻死记硬背</div>
+      </div>
+
+      <div class="dasha-item current" style="padding-left:20px;border-left:2px dashed var(--gold-dim);">
+        <div class="dasha-period">2026.07–2026.12</div>
+        <div class="dasha-name" style="font-size:13px;">火星·计都小运</div>
+        <div class="dasha-desc">灵性觉醒，直觉增强，学习转机期</div>
+      </div>
+
+      <div class="dasha-item">
+        <div class="dasha-period">2029–2047（重要未来）</div>
+        <div class="dasha-name">☊ 罗睺大运</div>
+        <div class="dasha-desc">罗睺在射手座3宫（沟通/扩张）：野心勃发，社会突破期。这是命盘中最重要的世俗成就窗口期（18年）。</div>
+      </div>
+
+      <div class="dasha-item">
+        <div class="dasha-period">2047–2063</div>
+        <div class="dasha-name">♃ 木星大运</div>
+        <div class="dasha-desc">木星逆行双鱼6宫：精神成熟、服务社会。中年期智慧沉淀，可能转向哲学/教育/医疗方向。</div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="card gold" style="margin-bottom:18px;">
+        <div class="card-label">🏆 黄金学业窗口期</div>
+        <div class="card-title">关键时间节点</div>
+        <div class="card-body">
+          <div style="margin-bottom:12px;">
+            <span class="tag tag-red">⚠️ 2025.07–2026.07</span>
+            <div style="margin-top:4px;">火星-水星：容易发挥失常，多复习框架性知识，调整心态</div>
+          </div>
+          <div style="margin-bottom:12px;">
+            <span class="tag tag-gold">📚 2027–2029</span>
+            <div style="margin-top:4px;">火星-金星/火星尾段：情绪改善，求学运回升，适合备考冲刺</div>
+          </div>
+          <div style="margin-bottom:12px;">
+            <span class="tag tag-green">🚀 2029–2034（罗睺-罗睺）</span>
+            <div style="margin-top:4px;">射手座罗睺激活高等教育/海外：<strong style="color:#80EFC0;">最强出国/深造窗口期！</strong></div>
+          </div>
+          <div>
+            <span class="tag tag-blue">🌟 2031–2034（罗睺-木星）</span>
+            <div style="margin-top:4px;">罗睺+木星：遇贵人导师，高等学府机遇大增</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card purple">
+        <div class="card-label">D-24 学识盘综合结论</div>
+        <div class="card-title">最终学术天花板判断</div>
+        <div class="card-body">
+          · 9宫SAV 36分（极高）+ 计都在9宫：<strong style="color:#C0A0FF;">高等学历，研究生以上概率大</strong><br>
+          · 太阳196%+Budha-Aditya：适合学术研究、商科、理工领域<br>
+          · 海外求学缘分：罗睺大运（2029起）窗口明显<br>
+          · <em>水星逆行提醒：</em>你的智慧深于考场表现，勿以分数定义自我
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SLIDE 6 · 补救措施
+═══════════════════════════════════════════════ -->
+
+<div class="slide" id="slide-6">
+  <div class="slide-num">SLIDE 06 · Remedies</div>
+  <div class="slide-title">🌿 终身补救措施全方案</div>
+  <div class="slide-desc">针对金星陷落、火星弱、水星逆行、土星偏弱四大核心问题定制</div>
+
+  <div class="grid-2">
+    <div class="card" style="border-color:rgba(240,192,64,.3);">
+      <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:14px;letter-spacing:1px;">
+        ♀️ 金星补救（最高优先级）· 上升主星陷落
+      </div>
+
+      <div class="remedy-item">
+        <div class="remedy-icon">🙏</div>
+        <div class="remedy-text">
+          <strong>每周五念诵 Shukra Mantra</strong>
+          <span>「Om Shum Shukraya Namaha」108 遍。金曜日（周五）日出前或傍晚，面向东或东南方。</span>
+        </div>
+      </div>
+
+      <div class="remedy-item">
+        <div class="remedy-icon">💎</div>
+        <div class="remedy-text">
+          <strong>佩戴白珊瑚 / 白水晶（替代）</strong>
+          <span>白色宝石（白珍珠亦可）增强金星能量，嵌于银戒，戒于右手无名指，周五佩戴。注意请专业占星师确认适合性。</span>
+        </div>
+      </div>
+
+      <div class="remedy-item">
+        <div class="remedy-icon">🌸</div>
+        <div class="remedy-text">
+          <strong>崇拜拉克希米女神 / 供奉白色花卉</strong>
+          <span>每周五供白莲花、白米饭，点酥油灯于家中神龛，祈愿美丽与和谐。</span>
+        </div>
+      </div>
+
+      <div class="remedy-item">
+        <div class="remedy-icon">🍬</div>
+        <div class="remedy-text">
+          <strong>行善：周五给贫困女性布施白色食物</strong>
+          <span>米饭、白糖或白色衣物，激活金星慈悲能量，增强命主星力量。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:rgba(91,155,213,.3);">
+      <div style="font-size:13px;font-weight:700;color:#A0CFFF;margin-bottom:14px;letter-spacing:1px;">
+        ☿️ 水星补救（逆行 AK · 学业/智慧增强）
+      </div>
+
+      <div class="remedy-item">
+        <div class="remedy-icon">🟢</div>
+        <div class="remedy-text">
+          <strong>Budha Mantra · 每周三诵念</strong>
+          <span>「Om Bum Budhaya Namaha」108 遍，水曜日（周三）清晨。绿色系着装可增强效果。</span>
+        </div>
+      </div>
+
+      <div class="remedy-item">
+        <div class="remedy-icon">📿</div>
+        <div class="remedy-text">
+          <strong>佩戴绿玛瑙 / 翡翠（需确认适合性）</strong>
+          <span>右手小指，金属嵌绿色宝石，增强水星逻辑与沟通力，周三佩戴为佳。</span>
+        </div>
+      </div>
+
+      <div class="remedy-item">
+        <div class="remedy-icon">🦜</div>
+        <div class="remedy-text">
+          <strong>每日诵读神圣梵文 / 学习语言</strong>
+          <span>每日大声朗读（任何语言）15–20分钟，激活水星能量，改善水星逆行导致的表达障碍。</span>
+        </div>
+      </div>
+
+      <div class="remedy-item">
+        <div class="remedy-icon">🤝</div>
+        <div class="remedy-text">
+          <strong>行善：资助学生文具/书籍</strong>
+          <span>水星主教育，捐赠绿色文具或书籍，积累水星福报。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:18px;">
+    <div class="card" style="border-color:rgba(232,85,85,.3);">
+      <div style="font-size:13px;font-weight:700;color:#FF9090;margin-bottom:14px;">
+        ♂️ 火星补救（弱68% · 12宫 · 当前大运）
+      </div>
+      <div class="remedy-item">
+        <div class="remedy-icon">🔴</div>
+        <div class="remedy-text">
+          <strong>Mangala Mantra · 每周二</strong>
+          <span>「Om Kram Kreem Kraum Sah Bhaumaya Namaha」，火曜日（周二）念诵。红色珊瑚需谨慎使用（先确认）。</span>
+        </div>
+      </div>
+      <div class="remedy-item">
+        <div class="remedy-icon">🏃</div>
+        <div class="remedy-text">
+          <strong>每日规律运动（强力推荐）</strong>
+          <span>火星主精力与肌肉。武术、游泳、力量训练可直接激活并强化火星，减少12宫耗散效应。</span>
+        </div>
+      </div>
+      <div class="remedy-item">
+        <div class="remedy-icon">🛕</div>
+        <div class="remedy-text">
+          <strong>崇拜哈努曼（Hanuman）</strong>
+          <span>每周二诵读哈努曼神赞（Hanuman Chalisa），消除火星负面影响，增强勇气与意志力。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:rgba(155,108,245,.3);">
+      <div style="font-size:13px;font-weight:700;color:#C0A0FF;margin-bottom:14px;">
+        ♄ 土星补救（偏弱 · 12宫 · 长远健康）
+      </div>
+      <div class="remedy-item">
+        <div class="remedy-icon">🪐</div>
+        <div class="remedy-text">
+          <strong>Shani Mantra · 每周六</strong>
+          <span>「Om Sham Shanicharaya Namaha」，土曜日（周六）念诵108遍，穿深蓝或黑色衣服。</span>
+        </div>
+      </div>
+      <div class="remedy-item">
+        <div class="remedy-icon">🌙</div>
+        <div class="remedy-text">
+          <strong>每周六禁食 / 服务穷人</strong>
+          <span>土星主服务与业障，周六断食一餐（或全素），向老人/残障人士布施芝麻、铁器、黑豆。</span>
+        </div>
+      </div>
+      <div class="remedy-item">
+        <div class="remedy-icon">🧘</div>
+        <div class="remedy-text">
+          <strong>每日冥想10分钟</strong>
+          <span>土星主专注与纪律。冥想是最便宜的土星补救，同时改善月亮摩羯的情绪压力。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SLIDE 7 · 长寿与12宫规划
+═══════════════════════════════════════════════ -->
+
+<div class="slide" id="slide-7">
+  <div class="slide-num">SLIDE 07 · 长远规划</div>
+  <div class="slide-title">🌿 长寿规划 · 12宫与8宫深解</div>
+  <div class="slide-desc">12宫关联精神消耗与灵性解脱 · 8宫关联长寿与隐藏转化力</div>
+
+  <div class="grid-3" style="margin-bottom:22px;">
+    <div class="card red">
+      <div class="card-icon">♾️</div>
+      <div class="card-label">长寿指征（8宫）</div>
+      <div class="card-title">8宫 (Taurus) 分析</div>
+      <div class="card-body">
+        8宫主星金牛座 → 主星为金星（陷落12宫）：<br><br>
+        · 长寿指征受到挑战（非凶兆，但需护养）<br>
+        · 8宫本身为空（无行星），相对洁净<br>
+        · SAV评分约26分（中等），长寿基础可保，关键在后天生活方式<br>
+        · <span class="tag tag-gold">建议：</span>40岁后每年全身体检
+      </div>
+    </div>
+
+    <div class="card gold">
+      <div class="card-icon">🌌</div>
+      <div class="card-label">12宫三星聚集解读</div>
+      <div class="card-title">12宫的两面性</div>
+      <div class="card-body">
+        12宫（Virgo）有火星+金星+土星，强烈的12宫格局：<br><br>
+        · <strong style="color:#FFE08A;">挑战面：</strong>睡眠问题、隐性消耗、灵性混乱<br>
+        · <strong style="color:#80EFC0;">机遇面：</strong>天生具备冥想/灵修潜质，外国因缘，海外生活可激发12宫正面能量<br>
+        · 12宫外国因缘 + 罗睺大运：强烈建议考虑海外求学/工作
+      </div>
+    </div>
+
+    <div class="card green">
+      <div class="card-icon">🕊️</div>
+      <div class="card-label">灵性保护因子</div>
+      <div class="card-title">计都 9宫 · 灵魂智慧</div>
+      <div class="card-body">
+        计都在9宫（双子座）：<br><br>
+        · 9宫主高等智慧、宗教、前世积累<br>
+        · 计都带来出世智慧，天生对形而上话题敏感<br>
+        · 灵性修行是最强的12宫转化工具<br>
+        · 建议：选择一种修行体系（瑜伽/禅修/仁波切传承等）并坚持
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="background:linear-gradient(135deg,#1A2035,#0D1520);border:1px solid rgba(240,192,64,.3);">
+    <div class="card-label" style="text-align:center;margin-bottom:16px;">📋 终身健康与长寿行动清单</div>
+    <div class="verdict-row">
+      <div class="verdict-chip">
+        <div class="big">🏃</div>
+        <div class="label">每日运动</div>
+        <div class="value">30分钟</div>
+      </div>
+      <div class="verdict-chip">
+        <div class="big">🧘</div>
+        <div class="label">冥想</div>
+        <div class="value">每日10分钟</div>
+      </div>
+      <div class="verdict-chip">
+        <div class="big">🥗</div>
+        <div class="label">饮食</div>
+        <div class="value">清淡，护肾护肝</div>
+      </div>
+      <div class="verdict-chip">
+        <div class="big">🌙</div>
+        <div class="label">睡眠</div>
+        <div class="value">22:30前入睡</div>
+      </div>
+      <div class="verdict-chip">
+        <div class="big">🙏</div>
+        <div class="label">每周Mantra</div>
+        <div class="value">三、五、六日</div>
+      </div>
+      <div class="verdict-chip">
+        <div class="big">🏥</div>
+        <div class="label">体检</div>
+        <div class="value">每年全面检查</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SLIDE 8 · 总结与核心结论
+═══════════════════════════════════════════════ -->
+
+<div class="slide" id="slide-8" style="background:radial-gradient(ellipse at 70% 50%, #1B2650 0%, #0B0F1E 70%);">
+  <div class="slide-num">SLIDE 08 · 总结</div>
+  <div class="slide-title">🌟 命盘核心结论</div>
+  <div class="slide-desc">Parashari Jyotish 全方位解读终极摘要</div>
+
+  <div class="grid-2" style="margin-bottom:22px;">
+    <div>
+      <div class="card gold" style="margin-bottom:16px;">
+        <div class="card-label">🏆 智慧与学业</div>
+        <div class="card-title">水星型高智商 · 9宫炸裂</div>
+        <div class="card-body">
+          Budha-Aditya Yoga 成立 + 9宫SAV36分：<br>
+          <strong style="color:#FFE08A;">天花板：研究生/博士级别，海外深造高概率</strong><br>
+          最佳领域：理工、数据分析、商业、语言学<br>
+          黄金窗口：2029–2034 罗睺-木星大运
+        </div>
+      </div>
+
+      <div class="card red">
+        <div class="card-label">⚠️ 核心挑战</div>
+        <div class="card-title">金星陷落 · 12宫密集</div>
+        <div class="card-body">
+          上升主星金星陷落12宫是最大挑战，但：<br>
+          · 这是<strong style="color:#FF9090;">人生功课</strong>而非绝对宿命<br>
+          · 金星补救 + 规律作息可大幅改善<br>
+          · 12宫也是灵性修行的强大燃料
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card green" style="margin-bottom:16px;">
+        <div class="card-label">✅ 命盘正面指征</div>
+        <div class="card-title">强项与祝福</div>
+        <div class="card-body">
+          <div style="margin-bottom:6px;"><span class="tag tag-green">太阳196%</span> 极强太阳：领导力、自信、权威感出众</div>
+          <div style="margin-bottom:6px;"><span class="tag tag-blue">9宫SAV 36</span> 高等教育与海外因缘深厚</div>
+          <div style="margin-bottom:6px;"><span class="tag tag-gold">11宫活跃</span> 收益、人脉、社交网络自然丰盛</div>
+          <div style="margin-bottom:6px;"><span class="tag tag-purple">计都9宫</span> 天生灵性直觉与前世智慧积累</div>
+          <div><span class="tag tag-green">木星自旺</span> 6宫虽有疾病主题但有木星守护，可克服</div>
+        </div>
+      </div>
+
+      <div class="card blue">
+        <div class="card-label">🔮 人生主线建议</div>
+        <div class="card-title">给命主的话</div>
+        <div class="card-body">
+          你的命盘是一颗<strong style="color:#A0CFFF;">需要磨砺的钻石</strong>：<br><br>
+          · 当前（2025-2026）困难期：<em>不是你不够好，是大运在考验意志</em><br>
+          · 2029年后迎来18年罗睺黄金期<br>
+          · 海外/跨文化经历将是你最大的贵人<br>
+          · 灵性修行（冥想/瑜伽）是你最强的免疫系统
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box" style="text-align:center;border-left:none;border:1px solid rgba(240,192,64,.3);background:rgba(240,192,64,.05);">
+    <div style="font-size:20px;margin-bottom:8px;">✦</div>
+    <strong>「星盘是地图，不是牢笼。」</strong><br>
+    <span style="font-size:13px;">Jyotish 的补救措施让你成为自己命运的共同创造者。愿您光明！🙏</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Parashari Jyotish Analysis</strong> · 出生时间 2010.08.22 11:18 CST · 天秤座上升<br>
+  本报告仅供参考，不替代专业医疗建议。如有健康问题请咨询正规医生。
+</footer>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('navDots');
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    dot.title = `第 ${i} 页`;
+    dot.onclick = () => slides[i].scrollIntoView({ behavior: 'smooth' });
+    dotsContainer.appendChild(dot);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(slides).indexOf(entry.target);
+        document.querySelectorAll('.nav-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === idx);
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+
+  slides.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
+```
