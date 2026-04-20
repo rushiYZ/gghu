@@ -1,0 +1,1078 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>玉琳命盘·财富金融深度报告</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #060A08;
+  --bg2:      #0C1410;
+  --bg3:      #111C16;
+  --bg4:      #172117;
+  --bg5:      #1E2B20;
+  --emerald:  #2ECC71;
+  --emerald2: #27AE60;
+  --emerald3: #1E8449;
+  --emerald-dim: rgba(46,204,113,0.15);
+  --gold:     #F0B429;
+  --gold2:    #D4A017;
+  --gold3:    #B8880F;
+  --gold-dim: rgba(240,180,41,0.15);
+  --red:      #E74C3C;
+  --red-dim:  rgba(231,76,60,0.15);
+  --blue:     #5DADE2;
+  --blue-dim: rgba(93,173,226,0.12);
+  --text:     #E8F5E2;
+  --text2:    #A8C8A0;
+  --text3:    #6B9060;
+  --text4:    #3D5C38;
+  --mono:     'IBM Plex Mono', monospace;
+  --serif:    'Noto Serif SC', serif;
+  --display:  'Playfair Display', serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* grid bg */
+body::before{
+  content:'';
+  position:fixed; inset:0;
+  background-image:
+    linear-gradient(rgba(46,204,113,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46,204,113,0.03) 1px, transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none; z-index:0;
+}
+
+body::after{
+  content:'';
+  position:fixed; inset:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 20%, rgba(46,204,113,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(240,180,41,0.05) 0%, transparent 70%);
+  pointer-events:none; z-index:0;
+}
+
+.wrap{
+  position:relative; z-index:1;
+  max-width:1100px; margin:0 auto;
+  padding:0 20px 100px;
+}
+
+/* ═══════════ COVER ═══════════ */
+.cover{
+  min-height:100vh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center;
+  padding:60px 20px;
+  border-bottom:1px solid rgba(46,204,113,0.12);
+  margin-bottom:70px;
+  position:relative;
+}
+
+.cover-ticker{
+  font-family: var(--mono);
+  font-size:10px; letter-spacing:4px;
+  color: var(--emerald); text-transform:uppercase;
+  margin-bottom:20px;
+  animation:blink 2s step-end infinite;
+}
+@keyframes blink{50%{opacity:0.4;}}
+
+.cover-icon{
+  font-size:56px; margin-bottom:20px;
+  filter:drop-shadow(0 0 24px rgba(240,180,41,0.5));
+  animation:coin-spin 4s ease-in-out infinite;
+}
+@keyframes coin-spin{
+  0%,100%{filter:drop-shadow(0 0 24px rgba(240,180,41,0.5)) scaleX(1);}
+  50%{filter:drop-shadow(0 0 40px rgba(240,180,41,0.8)) scaleX(0.85);}
+}
+
+.cover-title{
+  font-family: var(--display);
+  font-size:clamp(28px,5vw,58px);
+  font-weight:900;
+  background:linear-gradient(135deg,#fff 0%,var(--gold) 50%,var(--emerald) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  line-height:1.1; margin-bottom:6px;
+}
+.cover-cn{
+  font-size:16px; color: var(--text2);
+  letter-spacing:5px; font-weight:300;
+  margin-bottom:36px;
+}
+
+.ticker-strip{
+  display:flex; gap:24px; flex-wrap:wrap;
+  justify-content:center; margin-bottom:36px;
+}
+.ticker-item{
+  background:rgba(46,204,113,0.08);
+  border:1px solid rgba(46,204,113,0.2);
+  border-radius:4px;
+  padding:6px 16px;
+  font-family: var(--mono); font-size:11px;
+  color: var(--emerald); letter-spacing:1px;
+}
+.ticker-item.gold{
+  background:rgba(240,180,41,0.08);
+  border-color:rgba(240,180,41,0.2);
+  color: var(--gold);
+}
+.ticker-item.red{
+  background:rgba(231,76,60,0.08);
+  border-color:rgba(231,76,60,0.2);
+  color: var(--red);
+}
+
+.cover-meta{
+  display:flex; gap:40px; flex-wrap:wrap; justify-content:center;
+}
+.cm-block{text-align:center;}
+.cm-l{font-family: var(--mono); font-size:9px; letter-spacing:3px; color: var(--text3); text-transform:uppercase; margin-bottom:4px;}
+.cm-v{font-family: var(--display); font-size:14px; font-style:italic; color: var(--gold);}
+
+/* ═══════════ SECTION HEADER ═══════════ */
+.sh{margin-bottom:28px;}
+.sh-num{
+  font-family: var(--mono); font-size:10px;
+  letter-spacing:4px; color: var(--emerald);
+  text-transform:uppercase; margin-bottom:8px;
+}
+.sh-title{
+  font-family: var(--display);
+  font-size:clamp(20px,3vw,32px);
+  font-weight:700; color: var(--text);
+}
+.sh-title em{color: var(--gold); font-style:normal;}
+.sh-sub{font-family: var(--mono); font-size:11px; color: var(--text3); letter-spacing:2px; margin-top:5px;}
+
+/* ═══════════ DIVIDER ═══════════ */
+.divider{
+  display:flex; align-items:center; gap:16px;
+  margin:60px 0;
+}
+.divider::before,.divider::after{
+  content:''; flex:1; height:1px;
+  background:linear-gradient(90deg,transparent,rgba(46,204,113,0.2),transparent);
+}
+.di{
+  font-family: var(--mono); font-size:11px;
+  color: var(--emerald3); opacity:0.5;
+  letter-spacing:2px;
+}
+
+/* ═══════════ CARD GRID ═══════════ */
+.grid{display:grid; gap:14px; margin-bottom:28px;}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+.g3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr));}
+
+.card{
+  background:linear-gradient(145deg, var(--bg3), var(--bg2));
+  border:1px solid rgba(46,204,113,0.1);
+  border-radius:4px; padding:22px;
+  position:relative; overflow:hidden;
+  transition:transform .2s,border-color .3s;
+}
+.card:hover{transform:translateY(-2px); border-color:rgba(46,204,113,0.25);}
+.card::before{
+  content:''; position:absolute;
+  top:0; left:0; right:0; height:2px;
+}
+.card.em::before{background:linear-gradient(90deg,transparent, var(--emerald),transparent);}
+.card.gd::before{background:linear-gradient(90deg,transparent, var(--gold),transparent);}
+.card.rd::before{background:linear-gradient(90deg,transparent, var(--red),transparent);}
+.card.bl::before{background:linear-gradient(90deg,transparent, var(--blue),transparent);}
+
+.card::after{
+  content:attr(data-bg);
+  position:absolute; bottom:-8px; right:8px;
+  font-size:64px; opacity:0.04;
+  font-family: var(--display);
+}
+
+.ct{font-family: var(--mono); font-size:8px; letter-spacing:3px; text-transform:uppercase; margin-bottom:8px;}
+.ct.em{color: var(--emerald);}
+.ct.gd{color: var(--gold);}
+.ct.rd{color: var(--red);}
+.ct.bl{color: var(--blue);}
+
+.cn{font-family: var(--display); font-size:15px; font-weight:700; color: var(--text); margin-bottom:4px; line-height:1.4;}
+.ce{font-family: var(--mono); font-style:normal; font-size:11px; color: var(--text3); margin-bottom:10px;}
+.cb{font-size:13px; color: var(--text2); line-height:1.85;}
+.cb strong{color: var(--gold);}
+.cb .up{color: var(--emerald); font-weight:700;}
+.cb .dn{color: var(--red); font-weight:700;}
+.cb .warn{color: var(--gold); font-weight:700;}
+
+/* ═══════════ VERDICT / HL BOX ═══════════ */
+.vbox{
+  background:linear-gradient(135deg,rgba(240,180,41,0.1) 0%, var(--bg3) 50%, var(--bg2) 100%);
+  border:1px solid rgba(240,180,41,0.3);
+  border-radius:4px; padding:28px 32px;
+  text-align:center; margin-bottom:28px;
+  position:relative; overflow:hidden;
+}
+.vbox::after{content:'₿'; position:absolute; right:16px; bottom:8px; font-size:90px; opacity:0.03;}
+.vl{font-family: var(--mono); font-size:9px; letter-spacing:4px; color: var(--gold); text-transform:uppercase; margin-bottom:10px;}
+.vm{font-family: var(--display); font-size:clamp(15px,2.5vw,20px); font-weight:700; color: var(--text); line-height:1.6; margin-bottom:10px;}
+.vs{font-family: var(--mono); font-size:12px; color: var(--text2);}
+
+.hlbox{border-radius:4px; padding:22px 26px; margin-bottom:16px;}
+.hlbox.em{background:rgba(46,204,113,0.06); border-left:3px solid var(--emerald); border:1px solid rgba(46,204,113,0.12); border-left:3px solid var(--emerald);}
+.hlbox.gd{background:rgba(240,180,41,0.06); border:1px solid rgba(240,180,41,0.12); border-left:3px solid var(--gold);}
+.hlbox.rd{background:rgba(231,76,60,0.06); border:1px solid rgba(231,76,60,0.12); border-left:3px solid var(--red);}
+.hlbox.bl{background:rgba(93,173,226,0.06); border:1px solid rgba(93,173,226,0.12); border-left:3px solid var(--blue);}
+
+.hl-tag{font-family: var(--mono); font-size:8px; letter-spacing:3px; text-transform:uppercase; margin-bottom:8px;}
+.hlbox.em .hl-tag{color: var(--emerald);}
+.hlbox.gd .hl-tag{color: var(--gold);}
+.hlbox.rd .hl-tag{color: var(--red);}
+.hlbox.bl .hl-tag{color: var(--blue);}
+
+.hl-title{font-size:14px; font-weight:700; color: var(--text); margin-bottom:7px;}
+.hl-body{font-size:13px; color: var(--text2); line-height:1.85;}
+.hl-body strong{color: var(--gold);}
+.hl-body .up{color: var(--emerald); font-weight:700;}
+.hl-body .dn{color: var(--red); font-weight:700;}
+
+/* ═══════════ YOGA CARDS ═══════════ */
+.yoga{
+  display:flex; gap:16px; align-items:flex-start;
+  background: var(--bg3); border:1px solid rgba(255,255,255,0.04);
+  border-radius:4px; padding:18px 20px; margin-bottom:10px;
+  transition:background .2s;
+}
+.yoga:hover{background: var(--bg4);}
+.ybadge{
+  flex-shrink:0; width:36px; height:36px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size:14px; font-family: var(--mono);
+}
+.yes{background:rgba(46,204,113,0.15); border:1px solid var(--emerald); color: var(--emerald);}
+.no {background:rgba(120,120,120,0.1); border:1px solid #666; color:#888;}
+.part{background:rgba(240,180,41,0.15); border:1px solid var(--gold); color: var(--gold);}
+
+.yb{flex:1;}
+.yn{font-family: var(--display); font-size:15px; font-weight:700; color: var(--text);}
+.yc{font-family: var(--mono); font-size:10px; color: var(--text3); letter-spacing:1px; margin-bottom:6px;}
+.yd{font-size:13px; color: var(--text2); line-height:1.75;}
+.yd strong{color: var(--gold);}
+.yd .up{color: var(--emerald);}
+.yd .dn{color: var(--red);}
+
+/* ═══════════ TABLE ═══════════ */
+.dt{width:100%; border-collapse:collapse; font-size:13px; margin-bottom:24px;}
+.dt th{
+  background:rgba(46,204,113,0.08);
+  color: var(--emerald);
+  font-family: var(--mono); font-size:8px; letter-spacing:2px; text-transform:uppercase;
+  padding:11px 14px; text-align:left;
+  border-bottom:1px solid rgba(46,204,113,0.15); font-weight:400;
+}
+.dt td{
+  padding:10px 14px; color: var(--text2);
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  vertical-align:top; line-height:1.6;
+}
+.dt tr:hover td{background:rgba(46,204,113,0.02);}
+.dt td:first-child{color: var(--text); font-weight:600;}
+.mono{font-family: var(--mono); font-size:14px;}
+.tag-em{color: var(--emerald); font-size:10px; font-weight:700; font-family: var(--mono);}
+.tag-gd{color: var(--gold); font-size:10px; font-weight:700; font-family: var(--mono);}
+.tag-rd{color: var(--red); font-size:10px; font-weight:700; font-family: var(--mono);}
+
+/* ═══════════ TIMELINE ═══════════ */
+.tline{position:relative; padding-left:22px; margin-bottom:28px;}
+.tline::before{
+  content:''; position:absolute; left:0; top:0; bottom:0; width:1px;
+  background:linear-gradient(180deg, var(--emerald), var(--gold), transparent);
+}
+.ti{position:relative; padding:0 0 26px 24px;}
+.tdot{
+  position:absolute; left:-22px; top:5px;
+  width:8px; height:8px; border-radius:50%;
+  transform:translateX(50%);
+}
+.dem{background: var(--emerald); box-shadow:0 0 10px rgba(46,204,113,0.5);}
+.dgd{background: var(--gold); box-shadow:0 0 10px rgba(240,180,41,0.5);}
+.drd{background: var(--red); box-shadow:0 0 10px rgba(231,76,60,0.5);}
+.dbl{background: var(--blue); box-shadow:0 0 10px rgba(93,173,226,0.5);}
+.ddim{background: var(--text3);}
+
+.tbadge{
+  display:inline-block; padding:2px 12px; border-radius:20px;
+  font-family: var(--mono); font-size:8px; letter-spacing:2px;
+  text-transform:uppercase; margin-bottom:6px;
+}
+.bem{background:rgba(46,204,113,0.12); color: var(--emerald); border:1px solid rgba(46,204,113,0.3);}
+.bgd{background:rgba(240,180,41,0.1); color: var(--gold); border:1px solid rgba(240,180,41,0.25);}
+.brd{background:rgba(231,76,60,0.1); color: var(--red); border:1px solid rgba(231,76,60,0.25);}
+.bbl{background:rgba(93,173,226,0.1); color: var(--blue); border:1px solid rgba(93,173,226,0.25);}
+.bdim{background:rgba(120,120,120,0.08); color: var(--text3); border:1px solid rgba(120,120,120,0.2);}
+
+.tp{font-family: var(--mono); font-size:9px; letter-spacing:2px; color: var(--text3); margin-bottom:3px;}
+.ta{font-family: var(--mono); font-style:normal; font-size:11px; color: var(--text4); margin-bottom:5px;}
+.tt{font-size:14px; font-weight:700; color: var(--text); margin-bottom:5px;}
+.td{font-size:13px; color: var(--text2); line-height:1.75;}
+.td strong{color: var(--gold);}
+.td .up{color: var(--emerald); font-weight:700;}
+.td .dn{color: var(--red); font-weight:700;}
+
+/* ═══════════ SAV BAR ═══════════ */
+.srow{display:flex; align-items:center; gap:12px; margin-bottom:10px;}
+.slbl{font-family: var(--mono); font-size:11px; color: var(--text2); width:100px; flex-shrink:0; text-align:right;}
+.swrap{flex:1; height:22px; background:rgba(255,255,255,0.03); border-radius:2px; overflow:hidden;}
+.sfill{height:100%; border-radius:2px; display:flex; align-items:center; justify-content:flex-end; padding-right:8px;}
+.sfill span{font-family: var(--mono); font-size:11px; color:rgba(255,255,255,0.9); font-weight:600;}
+.f-em{background:linear-gradient(90deg,rgba(27,102,56,0.7),rgba(46,204,113,0.85));}
+.f-gd{background:linear-gradient(90deg,rgba(120,90,15,0.7),rgba(240,180,41,0.85));}
+.f-rd{background:linear-gradient(90deg,rgba(115,40,30,0.7),rgba(231,76,60,0.85));}
+.f-bl{background:linear-gradient(90deg,rgba(35,80,110,0.7),rgba(93,173,226,0.85));}
+.f-dm{background:linear-gradient(90deg,rgba(60,80,60,0.5),rgba(90,120,90,0.7));}
+
+/* ═══════════ 5-POINT ═══════════ */
+.fivept{display:flex; flex-direction:column; gap:16px; margin-bottom:28px;}
+.fprow{display:flex; gap:18px; align-items:flex-start;}
+.fpnum{
+  flex-shrink:0; width:40px; height:40px;
+  background:linear-gradient(135deg,rgba(240,180,41,0.25),rgba(240,180,41,0.08));
+  border:1px solid rgba(240,180,41,0.35); border-radius:4px;
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--mono); font-size:14px; color: var(--gold); font-weight:700;
+}
+.fptitle{font-size:15px; font-weight:700; color: var(--text); margin-bottom:6px;}
+.fpbody{font-size:13px; color: var(--text2); line-height:1.85;}
+.fpbody strong{color: var(--gold);}
+.fpbody .up{color: var(--emerald);}
+.fpbody .dn{color: var(--red);}
+
+/* ═══════════ PLAIN TIPS ═══════════ */
+.ptip{
+  border-left:2px solid var(--emerald3);
+  padding:14px 18px;
+  background:rgba(46,204,113,0.03);
+  border-radius:0 4px 4px 0;
+  margin-bottom:12px;
+}
+.pnum{font-family: var(--mono); font-size:9px; letter-spacing:3px; color: var(--emerald); margin-bottom:5px;}
+.ptitle{font-size:14px; font-weight:700; color: var(--text); margin-bottom:5px;}
+.pbody{font-size:13px; color: var(--text2); line-height:1.8;}
+.pbody strong{color: var(--gold);}
+.pbody .up{color: var(--emerald);}
+.pbody .dn{color: var(--red);}
+
+/* ═══════════ UPAYA CARDS ═══════════ */
+.ugrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(185px,1fr)); gap:12px; margin-bottom:28px;}
+.ucard{
+  background: var(--bg3); border:1px solid rgba(255,255,255,0.05);
+  border-radius:4px; padding:18px; text-align:center;
+}
+.uicon{font-size:28px; margin-bottom:8px;}
+.utitle{font-family: var(--mono); font-size:8px; letter-spacing:2px; color: var(--emerald); text-transform:uppercase; margin-bottom:7px;}
+.ubody{font-size:12px; color: var(--text2); line-height:1.7;}
+.ubody strong{color: var(--text);}
+
+/* ═══════════ QUOTE ═══════════ */
+.qsec{
+  text-align:center; padding:70px 20px 60px;
+  border-top:1px solid rgba(46,204,113,0.1);
+  margin-top:30px;
+}
+.qmark{font-family: var(--display); font-size:80px; color:rgba(240,180,41,0.08); line-height:0.7; margin-bottom:22px;}
+.qen{
+  font-family: var(--display); font-style:italic;
+  font-size:clamp(16px,2.5vw,22px); color: var(--text);
+  max-width:720px; margin:0 auto 14px; line-height:1.7;
+}
+.qcn{
+  font-size:14px; color: var(--gold); letter-spacing:2px;
+  max-width:600px; margin:0 auto 16px; line-height:1.9;
+}
+.qsrc{font-family: var(--mono); font-size:9px; letter-spacing:3px; color: var(--text3);}
+
+/* DISCLAIMER */
+.disc{
+  font-family: var(--mono); font-size:10px; color: var(--text4);
+  text-align:center; margin-top:20px; letter-spacing:1px;
+  border:1px solid rgba(46,204,113,0.06); border-radius:4px;
+  padding:12px 20px;
+}
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media(max-width:600px){
+  .g3{grid-template-columns:1fr;}
+  .fprow{flex-direction:column; gap:8px;}
+  .slbl{width:70px; font-size:10px;}
+  .cover-meta{gap:20px;}
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+<!-- ══════════════ COVER ══════════════ -->
+
+<div class="cover">
+  <div class="cover-ticker">[ FINANCIAL ASTROLOGY REPORT · LIVE ]</div>
+  <div class="cover-icon">🪙</div>
+  <div class="cover-title">YULIN</div>
+  <div class="cover-cn">财富金融深度分析报告</div>
+
+  <div class="ticker-strip">
+    <span class="ticker-item">上升 ARIES ▲</span>
+    <span class="ticker-item gold">2宫主 VENUS +128.88%</span>
+    <span class="ticker-item">11宫 SAV 31 ▲</span>
+    <span class="ticker-item gold">12宫 SAV 28 ◼</span>
+    <span class="ticker-item red">土星 SATURN ✗ 94.44%</span>
+    <span class="ticker-item">当前大运 RAHU–JUPITER</span>
+  </div>
+
+  <div class="cover-meta">
+    <div class="cm-block"><div class="cm-l">出生日期</div><div class="cm-v">2001年8月12日</div></div>
+    <div class="cm-block"><div class="cm-l">2宫主 存款星</div><div class="cm-v">金星 Venus · 第3宫</div></div>
+    <div class="cm-block"><div class="cm-l">11宫主 收入星</div><div class="cm-v">土星 Saturn · 第2宫</div></div>
+    <div class="cm-block"><div class="cm-l">当前大运子运</div><div class="cm-v">Rahu–Jupiter 2025.06—2027.11</div></div>
+    <div class="cm-block"><div class="cm-l">财富天然指标</div><div class="cm-v">木星 Jupiter · 第3宫</div></div>
+  </div>
+</div>
+
+<!-- ══════════════ PART 1: OVERVIEW ══════════════ -->
+
+<div class="sh">
+  <div class="sh-num">PART I · 01</div>
+  <div class="sh-title">基础盘面 <em>· Financial DNA</em></div>
+  <div class="sh-sub">CORE CONFIGURATION · 搞钱底色扫描</div>
+</div>
+
+<div class="grid g2">
+  <div class="card em" data-bg="₹">
+    <div class="ct em">2nd House / 存款池</div>
+    <div class="cn">第2宫：金牛座 · 月亮+土星合宿</div>
+    <div class="ce">Taurus · Moon + Saturn · Punarphoo</div>
+    <div class="cb">存款宫有两颗行星坐镇。月亮（134.89%，接近入旺）代表<strong>存钱的本能欲望极强</strong>；土星（94.44%，未达标）是11宫主，代表进账源，但力量偏弱。<span class="warn">→ 想存钱的意愿强，但收入增长比预期慢，蓄水池的填充速度需要等到土星力量被激活。</span></div>
+  </div>
+  <div class="card gd" data-bg="💰">
+    <div class="ct gd">11th House / 进水管</div>
+    <div class="cn">第11宫：水瓶座 · 空宫 · SAV=31</div>
+    <div class="ce">Aquarius · Empty · SAV 31 · Lord Saturn in 2nd</div>
+    <div class="cb">11宫空置但SAV=31（高于均值28.7），11宫主土星落第2宫（存款池），形成<strong>收入直接流入存款</strong>的经典Dhana Yoga结构。<span class="up">进水管连接蓄水池，理论上每赚的钱都会沉淀下来，而非挥霍掉。</span>但受土星体质偏弱影响，收入增速偏慢，属于<strong>慢工出细活型积累者</strong>。</div>
+  </div>
+  <div class="card rd" data-bg="🕳">
+    <div class="ct rd">12th House / 出水口</div>
+    <div class="cn">第12宫：双鱼座 · 空宫 · SAV=28</div>
+    <div class="ce">Pisces · Empty · SAV 28 · Lord Jupiter in 3rd</div>
+    <div class="cb">12宫主木星（108.36%）落第3宫，与拉胡同宫。<span class="dn">漏财方向</span>：日常社交消费、短途旅行、信息/内容购买、以及被近邻圈子（同学/同事）借走的钱。木星-拉胡（Guru-Chandal）使得某些"感觉靠谱"的花钱决策事后证明是坑。<span class="warn">→ 每个"我投资了个朋友的项目"基本上都打水漂。</span></div>
+  </div>
+  <div class="card em" data-bg="♃">
+    <div class="ct em">Jupiter & Venus / 财富指标</div>
+    <div class="cn">木星+金星 · 双星聚第3宫 · 传播变现</div>
+    <div class="ce">Jupiter 108.36% · Venus 128.88% · Both in Gemini 3rd</div>
+    <div class="cb">财富的天然指标（木星）和现金指标（金星）都在第3宫（传播/技能/创意宫），强烈暗示：<strong>命主最容易通过自己的表达能力、创意内容、媒体传播或技能输出变现</strong>。这不是靠关系或资本的钱，而是靠<span class="up">真实才华打出来的钱</span>。</div>
+  </div>
+</div>
+
+<div class="vbox">
+  <div class="vl">整盘搞钱底色定性 · FINANCIAL ARCHETYPE</div>
+  <div class="vm">内容创作变现型 × 慢热积累型<br>靠才华开头，靠纪律守住，靠时机翻倍</div>
+  <div class="vs">进水管（SAV 31）> 出水口（SAV 28）→ 净正向现金流 · 但土星未达标导致早期增速偏慢</div>
+</div>
+
+<div class="divider"><div class="di">◈ FINANCIAL DNA ◈</div></div>
+
+<!-- ══════════════ PART 1: PSYCHOLOGY ══════════════ -->
+
+<div class="sh">
+  <div class="sh-num">PART I · 02</div>
+  <div class="sh-title">金钱心理学 <em>· Money Psychology</em></div>
+  <div class="sh-sub">储蓄欲望 · 投机直觉 · 暗财嗅觉</div>
+</div>
+
+<div class="grid g3">
+  <div class="card gd" data-bg="🌙">
+    <div class="ct gd">Moon & 2nd / 储蓄安全感</div>
+    <div class="cn">💰 存钱≈安全感</div>
+    <div class="cb">月亮在金牛（极近入旺）+土星同守第2宫。金牛月亮的核心驱动是<strong>「银行卡数字让我安心」</strong>，不是享乐主义的花钱多巴胺，而是实打实的<span class="up">囤积型财商</span>。但月土合相（Punarphoo）让情绪消费偶尔出现——<span class="warn">情绪不好的时候容易在不必要的地方花钱"补偿"自己。</span></div>
+  </div>
+  <div class="card em" data-bg="☿">
+    <div class="ct em">Mercury & 5th / 投机直觉</div>
+    <div class="cn">📈 有投机直觉，但代价高</div>
+    <div class="cb">水星落第5宫（投机/偏财宫）狮子座，Shadbala 102.21%勉强达标，但<strong>IshtaPhala仅13.39，KashtaPhala高达27.62</strong>——投机的凶力大于吉力。<span class="dn">短线高频交易、币圈梭哈、小道消息：踩雷概率>盈利概率。</span>水星GK（族亲指标）提示：最容易输钱是"朋友推荐的项目"。</div>
+  </div>
+  <div class="card bl" data-bg="☊">
+    <div class="ct bl">Rahu & 8th / 暗财嗅觉</div>
+    <div class="cn">🌑 OPM嗅觉强，但需谨慎</div>
+    <div class="cb">拉胡在第3宫（非第8宫），但上升主火星落第8宫本命宫（Scorpio，Own Sign）——<strong>第8宫暗财、他人资金的嗅觉是真实的</strong>。火星IshtaPhala全盘最高（42.91），暗示可以通过<span class="up">危机处理、深度研究、或他人不敢碰的领域</span>赚到意外之财。但需要极强的自律——8宫是刀刃，用好了是财富，用不好是风险。</div>
+  </div>
+</div>
+
+<div class="divider"><div class="di">◈ CASH FLOW ANALYSIS ◈</div></div>
+
+<!-- ══════════════ PART 2: YOGA ══════════════ -->
+
+<div class="sh">
+  <div class="sh-num">PART II · 04.1</div>
+  <div class="sh-title">财富格局判定 <em>· Yoga Diagnosis</em></div>
+  <div class="sh-sub">✓成立 / ✗不成立 / △部分成立 · 每个格局的实际变现威力</div>
+</div>
+
+<div class="yoga">
+  <div class="ybadge yes">✓</div>
+  <div class="yb">
+    <div class="yn">Dhana Yoga · 大富格局</div>
+    <div class="yc">11th Lord in 2nd House · 财富核心引擎</div>
+    <div class="yd"><strong>成立（经典型，约70%效力）</strong>——11宫主土星落第2宫是教科书级Dhana Yoga：进账（11宫）直接流入存款（2宫），属于<span class="up">「每赚的钱有地方放」</span>的命局。同时2宫主金星（128.88%）+9宫主木星（108.36%）同宫第3宫形成准Dhana Yoga。减弱因素：土星Shadbala仅94.44%未达标，格局打折——<span class="warn">财富累积存在但增速偏慢，属于「慢慢变富」而非「突然暴富」。</span></div>
+  </div>
+</div>
+
+<div class="yoga">
+  <div class="ybadge no">✗</div>
+  <div class="yb">
+    <div class="yn">Daridra Yoga · 贫困破财格局</div>
+    <div class="yc">2nd/11th Lord in 6/8/12 · 长期财务压力</div>
+    <div class="yd">不成立。2宫主金星落第3宫（非凶宫），11宫主土星落第2宫（吉宫）。虽然土星体质偏弱，但并未落入Trika凶宫，<span class="up">长期贫困/负债的命局结构不存在</span>。财务上有压力期，但属于「暂时性现金流紧张」而非「结构性破产」。</div>
+  </div>
+</div>
+
+<div class="yoga">
+  <div class="ybadge part">△</div>
+  <div class="yb">
+    <div class="yn">Kemadruma Yoga · 孤月漏财格局</div>
+    <div class="yc">Moon with no adjacent planets · 情绪漏财</div>
+    <div class="yd"><strong>部分成立</strong>——月亮在第2宫，左侧第1宫（白羊上升）空置，右侧第3宫有木星+金星+拉胡。一侧有星，一侧空置，构成半孤月。<span class="warn">财务影响：在情绪低落或无安全感时，容易做出非理性的消费/投资决定</span>（如冲动购物、被朋友借钱不拒绝）。木星从第3宫提供部分保护，完整的孤月漏财效力打5折。</div>
+  </div>
+</div>
+
+<div class="yoga">
+  <div class="ybadge part">△</div>
+  <div class="yb">
+    <div class="yn">Vipareeta Raja Yoga · 绝地反击暴富</div>
+    <div class="yc">8th Lord in 8th House · 自驻型VRY</div>
+    <div class="yd"><strong>自驻型成立（约50%效力）</strong>——8宫主火星落8宫本命宫（Scorpio自家），形成自驻型VRY。完整三角型VRY未形成（6/8/12宫主未互换）。实际含义：<span class="up">命主能在别人最惨的时候找到逆势机会</span>——危机中买入、别人恐慌时出手，有「低位抄底」的潜质。这不是日常财富，而是<strong>「别人倒霉他赚钱」的特定窗口期财富」。</strong></div>
+  </div>
+</div>
+
+<div class="hlbox gd">
+  <div class="hl-tag">💧 现金流总体判定 · CASH FLOW VERDICT</div>
+  <div class="hl-title">进水管稍强于出水口，属于「慢热积累型财富水池」</div>
+  <div class="hl-body">SAV进账（11宫=31）> 消耗（12宫=28）> 存款（2宫=30，强于均值）。这个财务水池的结构是：<strong>水缓缓流入，底部没有大洞，但有几处细缝</strong>（Guru-Chandal导致的圈子消费漏损）。用水管类比：进水管是中等粗细，出水口基本受控，蓄水池本身质量不错——<span class="up">只要不去乱凿新洞（盲目投资），30岁后的积累会越来越稳。</span></div>
+</div>
+
+<div class="divider"><div class="di">◈ PLANET POWER ◈</div></div>
+
+<!-- ══════════════ PLANET TABLE ══════════════ -->
+
+<div class="sh">
+  <div class="sh-num">PART II · 04.2</div>
+  <div class="sh-title">核心财星力量 <em>· Planet Power Table</em></div>
+  <div class="sh-sub">Shadbala · IshtaPhala · KashtaPhala · 财务净效果判定</div>
+</div>
+
+<div style="overflow-x:auto;margin-bottom:24px;">
+<table class="dt">
+  <thead>
+    <tr>
+      <th>行星 Planet</th>
+      <th>财务身份</th>
+      <th>Shadbala %</th>
+      <th>达标</th>
+      <th>IshtaPhala 吉力</th>
+      <th>KashtaPhala 凶力</th>
+      <th>财务净效果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>♀ 金星 Venus</th>
+      <td>2宫主 · 现金+奢华</th>
+      <td><span class="mono">128.88%</span></th>
+      <td><span class="tag-em">✓</span></th>
+      <td><span class="mono">28.10</span></th>
+      <td><span class="mono tag-gd">31.39⚠</span></th>
+      <td><span class="tag-gd">造富引擎（微漏）</span></th>
+    </tr>
+    <tr>
+      <td>♃ 木星 Jupiter</th>
+      <td>12宫主 · 财富天然指标</th>
+      <td><span class="mono">108.36%</span></th>
+      <td><span class="tag-em">✓</span></th>
+      <td><span class="mono">29.72</span></th>
+      <td><span class="mono">17.53</span></th>
+      <td><span class="tag-em">正向（受Guru-Chandal轻微污染）</span></th>
+    </tr>
+    <tr>
+      <td>☽ 月亮 Moon</th>
+      <td>4宫主 · 2宫居民·储蓄欲望</th>
+      <td><span class="mono">134.89%</span></th>
+      <td><span class="tag-em">✓</span></th>
+      <td><span class="mono tag-em">41.33🌙</span></th>
+      <td><span class="mono">4.84</span></th>
+      <td><span class="tag-em">稳定收益·存款意志力</span></th>
+    </tr>
+    <tr>
+      <td>♂ 火星 Mars</th>
+      <td>1/8宫主 · 暗财+VRY</th>
+      <td><span class="mono">119.74%</span></th>
+      <td><span class="tag-em">✓</span></th>
+      <td><span class="mono tag-em">42.91🔥</span></th>
+      <td><span class="mono">16.52</span></th>
+      <td><span class="tag-em">逆势财富引擎</span></th>
+    </tr>
+    <tr>
+      <td>♄ 土星 Saturn</th>
+      <td>11宫主 · 现金流来源</th>
+      <td><span class="mono tag-rd">94.44%✗</span></th>
+      <td><span class="tag-rd">✗未达标</span></th>
+      <td><span class="mono">15.42</span></th>
+      <td><span class="mono tag-rd">42.70☠</span></th>
+      <td><span class="tag-rd">财富黑洞（收入增速慢）</span></th>
+    </tr>
+    <tr>
+      <td>☿ 水星 Mercury</th>
+      <td>3/6宫主 · 智识变现</th>
+      <td><span class="mono">102.21%</span></th>
+      <td><span class="tag-em">✓</span></th>
+      <td><span class="mono">13.39</span></th>
+      <td><span class="mono tag-gd">27.62⚠</span></th>
+      <td><span class="tag-gd">技能变现可，投机慎</span></th>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="grid g2">
+  <div class="hlbox rd">
+    <div class="hl-tag">💸 最大讨债鬼</div>
+    <div class="hl-title">土星 Saturn · 收入黑洞</div>
+    <div class="hl-body">全盘唯一未达标（94.44%），KashtaPhala全盘最高（42.70）。它是11宫主（进账的源头），源头本身力量不足，意味着<strong>主动收入增长本来就比命盘中的其他能量慢一个节拍</strong>。土星还守着第2宫，在情感上压制月亮——情绪低落时的消费决策是最大的财务漏损点。<span class="dn">土星子运期（2027-2030）是最需要纪律的时段。</span></div>
+  </div>
+  <div class="hlbox em">
+    <div class="hl-tag">💎 最强财神爷</div>
+    <div class="hl-title">火星 Mars × 月亮 Moon · 双核引擎</div>
+    <div class="hl-body">火星IshtaPhala全盘最高（42.91），在8宫本命宫——<strong>危机中的逆势财富和意外之财是最可靠的变现渠道</strong>。月亮IshtaPhala第二高（41.33），极近入旺——<strong>储蓄意志力和对金钱的直觉判断是真正的核心竞争力</strong>。这两颗星告诉你：<span class="up">你不是靠运气暴富的命，是靠直觉+纪律慢慢变有钱的命。</span></div>
+  </div>
+</div>
+
+<div class="divider"><div class="di">◈ DASHA TIMELINE ◈</div></div>
+
+<!-- ══════════════ PAST EVENTS (BLIND TEST) ══════════════ -->
+
+<div class="sh">
+  <div class="sh-num">PART II · 04.3a</div>
+  <div class="sh-title">过往事件盲测验证 <em>· Past Event Verification</em></div>
+  <div class="sh-sub">纯基于星盘推演 · 用于验证命盘准确性</div>
+</div>
+
+<div class="tline">
+  <div class="ti">
+    <div class="tdot ddim"></div>
+    <div class="tbadge bdim">验证 01</div>
+    <div class="tp">Moon–Ketu / Moon–Venus · 月亮大运</div>
+    <div class="ta">2013年1月—2015年4月 · 约11—14岁</div>
+    <div class="tt">学业能力崭露头角，可能有某个竞争性奖项或成绩突破</div>
+    <div class="td">月亮大运（2005-2015）尾段，Ketu/Venus子运激活第3宫（学习/技能）+第5宫（智识/竞争）。月亮IshtaPhala极高（41.33），此期心智发展快速。推演：<strong>在某个学科或技能领域有明显的超越同龄人的表现</strong>，可能是第一次意识到"我可以靠这个能力换取资源"。</div>
+  </div>
+  <div class="ti">
+    <div class="tdot dgd"></div>
+    <div class="tbadge bgd">验证 02</div>
+    <div class="tp">Mars–Venus · 火星大运—金星子运</div>
+    <div class="ta">2020年9月—2021年11月 · 约19—20岁</div>
+    <div class="tt">第一次有实质意义的「自己挣到钱」体验</div>
+    <div class="td">火星（逆势暴发力）×金星（2宫主，现金）——这是命盘中最典型的<strong>第一次创收节点</strong>。可能是兼职、接单、创意作品变现，或者某个短期项目产生了真实收入。叠加疫情背景，线上技能变现的可能性很高。<span class="up">这笔钱虽然不多，但是第一次验证了「我的能力可以直接换钱」的认知。</span></div>
+  </div>
+  <div class="ti">
+    <div class="tdot dem"></div>
+    <div class="tbadge bem">验证 03</div>
+    <div class="tp">Rahu–Rahu · 拉胡双激活期</div>
+    <div class="ta">2022年10月—2025年6月 · 约21—24岁</div>
+    <div class="tt">收入不稳定但整体上升，花钱速度超过预期</div>
+    <div class="td">拉胡大运双激活第3宫（Guru-Chandal）：收入来源开始多元化，但花出去的速度也在提升。<span class="warn">极可能有一次「把钱借给或投给圈内某个人，结果不理想」的经历</span>——这是Guru-Chandal对财务判断的典型干扰。同期可能有换城市/换圈子带来的额外支出。</div>
+  </div>
+  <div class="ti">
+    <div class="tdot dbl"></div>
+    <div class="tbadge bbl">验证 04</div>
+    <div class="tp">Mars–Moon · 火星大运—月亮子运</div>
+    <div class="ta">2022年3月—2022年10月 · 约20—21岁</div>
+    <div class="tt">家庭相关支出或一次较重要的购买行为</div>
+    <div class="td">火星（8宫）×月亮（4宫主+2宫居民）激活家庭/置产/安全感相关事项。可能是第一次独立承担一笔较大的日常开支，或者家庭环境发生某种变化导致了财务决策。<span class="up">这次经历强化了「存钱=安全感」的底层财务信念。</span></div>
+  </div>
+</div>
+
+<div class="divider"><div class="di">◈ FUTURE WINDOWS ◈</div></div>
+
+<!-- ══════════════ FUTURE DASHA ══════════════ -->
+
+<div class="sh">
+  <div class="sh-num">PART II · 04.3b</div>
+  <div class="sh-title">未来财富时间窗 <em>· Future Wealth Windows</em></div>
+  <div class="sh-sub">未来20年关键大运财务节点 · 精确到年月</div>
+</div>
+
+<div style="overflow-x:auto;margin-bottom:24px;">
+<table class="dt">
+  <thead>
+    <tr>
+      <th>大运子运</th>
+      <th>精确起止</th>
+      <th>年龄</th>
+      <th>激活财务宫位</th>
+      <th>预期财务效果</th>
+      <th>策略</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Rahu–Jupiter<br>拉胡—木星</th>
+      <td><span class="mono">2025.06—2027.11</span></th>
+      <td>24—26岁</th>
+      <td>12宫主（木星）+3宫（技能/媒体）</th>
+      <td>收入上升但支出同步放大；有机会通过内容/传播获利；注意圈内投资坑</th>
+      <td><span class="tag-gd">开源但控支</span></th>
+    </tr>
+    <tr>
+      <td>Rahu–Saturn<br>拉胡—土星</th>
+      <td><span class="mono">2027.11—2030.09</span></th>
+      <td>26—29岁</th>
+      <td>11宫主（土星）+ 2宫（存款）</th>
+      <td><strong>收入趋于稳定增长，存款开始有实质积累；适合建立长期储蓄计划</strong></th>
+      <td><span class="tag-em">蓄水为主</span></th>
+    </tr>
+    <tr>
+      <td>Rahu–Mercury<br>拉胡—水星</th>
+      <td><span class="mono">2030.09—2033.04</span></th>
+      <td>29—32岁</th>
+      <td>6宫主（官非/竞争）+3宫（技能）</th>
+      <td>技能型收入大幅提升；警惕合同纠纷和财务欺诈；不适合盲目投资</th>
+      <td><span class="tag-rd">防守为主</span></th>
+    </tr>
+    <tr>
+      <td>Rahu–Ketu<br>拉胡—计都</th>
+      <td><span class="mono">2033.04—2034.04</span></th>
+      <td>32—33岁</th>
+      <td>9宫（福德/远方）+精神净化</th>
+      <td>业力结算期；主动放下某项消耗性资产或关系；短期收入可能放缓</th>
+      <td><span class="tag-gd">减法优化</span></th>
+    </tr>
+    <tr style="background:rgba(240,180,41,0.04);">
+      <td>⭐ Rahu–Venus<br>拉胡—金星</th>
+      <td><span class="mono">2034.04—2037.04</span></th>
+      <td>33—36岁</th>
+      <td>2宫主（存款）+7宫主（伙伴/商业）</th>
+      <td><strong>命盘黄金财富期：存款+收入双轨爆发，可能有较大资产购置或商业合伙收益</strong></th>
+      <td><span class="tag-em">⭐全力收割</span></th>
+    </tr>
+    <tr>
+      <td>Rahu–Sun<br>拉胡—太阳</th>
+      <td><span class="mono">2037.04—2038.03</span></th>
+      <td>35—37岁</th>
+      <td>5宫主（AK灵魂/创造）</th>
+      <td>个人品牌或创意类收入短暂高峰；注意权力争斗带来的非预期支出</th>
+      <td><span class="tag-gd">稳中求进</span></th>
+    </tr>
+    <tr>
+      <td>Jupiter–Jupiter<br>木星—木星</th>
+      <td><span class="mono">2040.10—2042.11</span></th>
+      <td>39—41岁</th>
+      <td>9/12宫主（福德+损耗）</th>
+      <td>扩张机会大，但支出同步大，不适合集中杠杆；教育/海外收益可能</th>
+      <td><span class="tag-gd">扩张谨慎</span></th>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- KEY MONTH ANALYSIS -->
+
+<div class="hlbox gd">
+  <div class="hl-tag">⭐ 关键月份精准定位 · KEY MONTHS</div>
+  <div class="hl-title">2025—2027年内财运最佳时间节点</div>
+  <div class="hl-body">
+    <strong>当前大运：拉胡—木星（2025.06.23—2027.11.18）</strong><br><br>
+    • <strong>2025年8月—2026年2月：</strong>木星（9宫主+财富天然指标）激活期，技能/内容变现机会集中爆发，适合接项目、建立收入渠道；来钱方向多为<span class="up">创意输出、沟通协作类报酬</span>。<br><br>
+    • <strong>2026年3月—2026年8月：</strong>注意支出管控，拉胡+木星的双重影响可能带来「感觉这次投资很靠谱」的幻象。<span class="dn">这段时间拒绝任何朋友/圈内的「稳赚项目」邀请。</span><br><br>
+    • <strong>2026年9月—2027年4月：</strong>最适合储蓄落地，将这段时间的收入转化为真实存款或低风险资产；财务基础巩固最佳窗口。<br><br>
+    • <strong>2027年11月后（土星子运）：收入趋势转为稳定</strong>——爆发感减少，但积累感增加，是真正开始「越来越有钱」的起点。
+  </div>
+</div>
+
+<div class="divider"><div class="di">◈ D-2 / D-11 VERIFICATION ◈</div></div>
+
+<!-- ══════════════ DIVISIONAL CHARTS ══════════════ -->
+
+<div class="sh">
+  <div class="sh-num">PART II · 04.4</div>
+  <div class="sh-title">分盘交叉验证 <em>· Divisional Charts</em></div>
+  <div class="sh-sub">D-2 Hora · D-11 Rudramsa</div>
+</div>
+
+<div class="grid g2">
+  <div class="card gd" data-bg="🏦">
+    <div class="ct gd">D-2 Hora / 财富蓄水池盘</div>
+    <div class="cn">月亮守护 vs 太阳守护</div>
+    <div class="ce">Cancer Hora（积蓄）vs Leo Hora（消耗）</div>
+    <div class="cb">
+      月亮守护（Cancer Hora，财富积蓄力强）：<strong>月亮、土星、金星</strong><br>
+      → 2宫主（金星）和11宫主（土星）都在Cancer Hora！意味着<span class="up">挣来的钱有相当比例能沉淀下来</span>，不是左手进右手出型。<br><br>
+      太阳守护（Leo Hora，靠打拼消耗获取）：<strong>太阳、火星、水星、木星、拉胡</strong><br>
+      → 努力工作的能量大于坐享其成。<strong>结论：这是一个「努力挣、有地方存」的财务结构——不是躺赢命，但存住率高。</strong>
+    </div>
+  </div>
+  <div class="card em" data-bg="💹">
+    <div class="ct em">D-11 Rudramsa / 进水管盘</div>
+    <div class="cn">意外之财与特定收入渠道</div>
+    <div class="ce">Income Sources · Windfall Analysis</div>
+    <div class="cb">
+      D-11中月亮与水星同宫，金星（2宫主）有强势表现——暗示最容易获得额外收入的渠道：<br><br>
+      1. <strong>内容创作/技能输出</strong>（水星+金星在传播宫）<br>
+      2. <strong>与感情/伴侣相关的财务协同</strong>（月亮DK在强力位置）<br>
+      3. <strong>危机处理/深度咨询类酬劳</strong>（火星8宫本命宫）<br><br>
+      <span class="warn">最不应该追求的：短线投机/赌性质的偏财渠道（水星KashtaPhala偏高）。</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="di">◈ SAV BALANCE SHEET ◈</div></div>
+
+<!-- ══════════════ SAV ══════════════ -->
+
+<div class="sh">
+  <div class="sh-num">PART II · 04.5</div>
+  <div class="sh-title">SAV 财务报表 <em>· Ashtakavarga Balance</em></div>
+  <div class="sh-sub">进账 vs 出账 vs 存款 · 终极财富等式</div>
+</div>
+
+<div class="grid g2">
+  <div class="card em" data-bg="📊">
+    <div class="ct em">SAV 关键宫位对比图</div>
+    <div class="cn">财务宫位战力一览</div>
+    <div class="ce">均值 28.7 · 高于均值=优势区域</div>
+    <div style="margin-top:16px;">
+      <div class="srow"><div class="slbl">2宫 存款池</div><div class="swrap"><div class="sfill f-em" style="width:65%"><span>30</span></div></div></div>
+      <div class="srow"><div class="slbl">5宫 偏财/投机</div><div class="swrap"><div class="sfill f-dm" style="width:50%"><span>24⚠</span></div></div></div>
+      <div class="srow"><div class="slbl">8宫 暗财/意外</div><div class="swrap"><div class="sfill f-bl" style="width:55%"><span>26</span></div></div></div>
+      <div class="srow"><div class="slbl">10宫 事业</div><div class="swrap"><div class="sfill f-gd" style="width:73%"><span>33⭐</span></div></div></div>
+      <div class="srow"><div class="slbl">11宫 现金流入</div><div class="swrap"><div class="sfill f-em" style="width:68%"><span>31▲</span></div></div></div>
+      <div class="srow"><div class="slbl">12宫 现金流出</div><div class="swrap"><div class="sfill f-gd" style="width:60%"><span>28◼</span></div></div></div>
+      <div class="srow"><div class="slbl">1宫 自身能量</div><div class="swrap"><div class="sfill f-em" style="width:73%"><span>33</span></div></div></div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:14px;">
+    <div class="hlbox em">
+      <div class="hl-tag">📈 财务报表核心诊断</div>
+      <div class="hl-title">11宫(31) > 12宫(28) · 净正向型</div>
+      <div class="hl-body">进账（SAV 31）减去消耗（SAV 28）= 净剩3分。属于<strong>「进多出少，但差值不算悬殊」</strong>的财务结构。不是暴富型（差值需要&gt;8才算），但也不是入不敷出型。<span class="up">稳中有富，长期积累可期。</span></div>
+    </div>
+    <div class="hlbox rd">
+      <div class="hl-tag">⚠ 核心警示</div>
+      <div class="hl-title">5宫SAV=24 · 投机宫最弱</div>
+      <div class="hl-body">偏财/投机宫（第5宫）SAV仅24，全盘最低档。这是最直接的数字证据：<span class="dn">这个命盘不是靠投机暴富的格局</span>。水星KashtaPhala高（27.62）进一步佐证。<strong>正财（技能/工作）远优于偏财（炒股/投机）。</strong></div>
+    </div>
+    <div class="hlbox gd">
+      <div class="hl-tag">⭐ 最强优势</div>
+      <div class="hl-title">10宫SAV=33 · 事业宫全盘最高</div>
+      <div class="hl-body">事业宫得分全盘第一，这是财富来源最稳定的渠道。<strong>把时间和精力投在事业上，比任何投机都回报率高</strong>。事业是这张命盘里最厚实的「挣钱护城河」。</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="di">◈ FINAL VERDICT ◈</div></div>
+
+<!-- ══════════════ PART 3: CONCLUSIONS ══════════════ -->
+
+<div class="sh">
+  <div class="sh-num">PART III · 05</div>
+  <div class="sh-title">综合财富报告 <em>· Final Verdict</em></div>
+  <div class="sh-sub">五要点总结 · 实操建议</div>
+</div>
+
+<div class="vbox">
+  <div class="vl">总体财富蓄水池 Verdict · WEALTH RATING</div>
+  <div class="vm">慢热型隐形积累者<br>靠才华起步，靠纪律守住，30岁后越来越有钱</div>
+  <div class="vs">财务自由可能性评估：中高可能性（需要持续技能变现+存款纪律） · 暴富概率低 · 稳健致富概率高</div>
+</div>
+
+<div class="fivept">
+  <div class="fprow">
+    <div class="fpnum">1</div>
+    <div>
+      <div class="fptitle">赚钱赛道锁定 · 你靠什么来钱最快？</div>
+      <div class="fpbody">
+        <strong>正财远强于偏财。</strong>事业宫SAV=33（全盘最高），第3宫木星+金星聚首——<span class="up">靠表达能力、创意内容、媒体传播、咨询顾问类的技能性收入是主赛道</span>。<br>
+        偏财赛道：5宫SAV仅24，投机类高频交易不适合；但<strong>火星8宫本命宫给了逆势低价买入的嗅觉</strong>——危机中抄底、别人不敢碰的资产这类是偏财机会（需要中长线，非短线）。
+      </div>
+    </div>
+  </div>
+  <div class="fprow">
+    <div class="fpnum">2</div>
+    <div>
+      <div class="fptitle">核心漏财点 · 钱最容易败在哪？</div>
+      <div class="fpbody">
+        <span class="dn">主要漏财点（按危险程度排序）：</span><br>
+        1. <strong>圈内"稳赚项目"</strong>——Guru-Chandal让你对熟人推荐的投资判断力下降（历史验证：大概率已有过一次）<br>
+        2. <strong>情绪消费</strong>——月土合相，情绪低落时会产生补偿性消费，看起来不多，但积累不小<br>
+        3. <strong>隐性社交支出</strong>——请客、随份子、"朋友有困难借一下"：12宫主木星在社交宫（第3宫），这块花出去很难要回来
+      </div>
+    </div>
+  </div>
+  <div class="fprow">
+    <div class="fpnum">3</div>
+    <div>
+      <div class="fptitle">资产配置建议 · 钱放哪里最适合？</div>
+      <div class="fpbody">
+        <span class="up">优先级从高到低：</span><br>
+        1. <strong>现金+货币基金（高流动性）</strong>：土星大运期（2027-2030）前保持高流动性<br>
+        2. <strong>技能/教育投资</strong>：第3宫财星配置，投在自己的能力上是ROI最高的<br>
+        3. <strong>稳健指数定投</strong>：适合，不适合主动选股（水星KashtaPhala偏高）<br>
+        4. <span class="dn">绝对不推荐：杠杆炒股、P2P类、朋友创业入股</span>——5宫SAV=24+水星凶力高，这是数据直接给出的红线
+      </div>
+    </div>
+  </div>
+  <div class="fprow">
+    <div class="fpnum">4</div>
+    <div>
+      <div class="fptitle">关键时间节点 · 哪年爆赚，哪年守住？</div>
+      <div class="fpbody">
+        <span class="up">⭐ 全力出击（爆赚窗口）：</span><br>
+        • <strong>2034年4月—2037年4月</strong>（拉胡-金星，33—36岁）：命盘中最大的财富爆发期，可以主动冒险、扩大投入<br>
+        • <strong>2027年11月—2030年9月</strong>（拉胡-土星，26—29岁）：稳定收入积累黄金期<br><br>
+        <span class="dn">🚫 绝对守住（不出手）：</span><br>
+        • <strong>2030年9月—2033年4月</strong>（拉胡-水星，29—32岁）：合同纠纷/财务欺诈高峰期，<strong>不借钱给人，不签未看清的合同，不做新投资</strong>
+      </div>
+    </div>
+  </div>
+  <div class="fprow">
+    <div class="fpnum">5</div>
+    <div>
+      <div class="fptitle">占星催财疗愈 · Upayas</div>
+      <div class="fpbody">见下方化解卡片。</div>
+    </div>
+  </div>
+</div>
+
+<div class="ugrid">
+  <div class="ucard">
+    <div class="uicon">💎</div>
+    <div class="utitle">旺财宝石</div>
+    <div class="ubody"><strong>黄色蓝宝石 Yellow Sapphire</strong><br>强化木星（财富天然指标）<br>金戒指/项链，周四佩戴<br>约3—5克拉</div>
+  </div>
+  <div class="ucard">
+    <div class="uicon">🔴</div>
+    <div class="utitle">辅助宝石</div>
+    <div class="ubody"><strong>红珊瑚 Red Coral</strong><br>强化火星（8宫逆势财神）<br>铜戒，右手无名指<br>激活逆势财富嗅觉</div>
+  </div>
+  <div class="ucard">
+    <div class="uicon">🧧</div>
+    <div class="utitle">存钱风水</div>
+    <div class="ubody"><strong>东北方向</strong>放钱包/保险柜<br>（木星/财富方位）<br>钱包颜色：深绿色或棕金色<br>避免红色钱包（火对金）</div>
+  </div>
+  <div class="ucard">
+    <div class="uicon">🪔</div>
+    <div class="utitle">进财曼陀罗</div>
+    <div class="ubody"><strong>Lakshmi Mantra</strong><br>「Om Shreem Mahalakshmiyei Namaha」<br>每周五108次<br>激活金星的现金能量</div>
+  </div>
+  <div class="ucard">
+    <div class="uicon">🌿</div>
+    <div class="utitle">破财化解</div>
+    <div class="ubody"><strong>每月定期慈善捐赠</strong><br>主动「小破财挡大漏财」<br>捐教育/贫困儿童方向<br>（化解12宫主Guru-Chandal漏财）</div>
+  </div>
+  <div class="ucard">
+    <div class="uicon">📵</div>
+    <div class="utitle">财务纪律</div>
+    <div class="ubody"><strong>朋友圈投资一律拒绝</strong><br>Guru-Chandal判断力下降期<br>建立「24小时冷静期」规则<br>任何>3000元决策睡一觉再做</div>
+  </div>
+</div>
+
+<div class="divider"><div class="di">◈ PLAIN TRUTH ◈</div></div>
+
+<!-- ══════════════ PLAIN TIPS ══════════════ -->
+
+<div class="sh">
+  <div class="sh-num">最后一页 · 大白话版</div>
+  <div class="sh-title">不废话 <em>· 直接说</em></div>
+  <div class="sh-sub">看不懂术语没关系，这里读懂就够了</div>
+</div>
+
+<div class="ptip">
+  <div class="pnum">01.</div>
+  <div class="ptitle">你不是靠投机暴富的命，但你能慢慢变有钱。</div>
+  <div class="pbody">投机宫（第5宫）SAV是全盘最低的24，数据已经告诉你了：<span class="dn">炒短线、梭哈、玩币圈——赢少输多，统计上是亏的。</span> 但你的存款宫（30）和进账宫（31）都高于均值，说明<strong>只要你不乱凿窟窿，钱会越来越多。</strong>这是一个适合「闷声攒钱」的命盘，不适合「大开大合赌一把」。</div>
+</div>
+
+<div class="ptip">
+  <div class="pnum">02.</div>
+  <div class="ptitle">你最大的漏财黑洞，是熟人。</div>
+  <div class="pbody">木星和金星都在「社交/朋友圈」那个宫位，且被拉胡（欺诈/幻象）同住。这在财务上的意思是：<strong>你在陌生人那里谨慎，在熟人那里放松</strong>——然后被熟人收割。<span class="dn">朋友推荐的项目、同学拉你入股、圈子里的"稳赚机会"——你踩过坑的概率不低。</span> 以后原则：圈内人找你投钱，先断后想。</div>
+</div>
+
+<div class="ptip">
+  <div class="pnum">03.</div>
+  <div class="ptitle">你真正的赚钱赛道是你的嘴和脑，不是你的钱。</div>
+  <div class="pbody">事业宫全盘最高（SAV=33），两颗财星都在传播/技能/表达的宫位。<strong>靠会说会写会表达来赚钱，是这张命盘里回报率最高的路线。</strong> 把自己花在用钱换钱（炒股/投机）上，不如花在用能力换钱（创作/咨询/技能输出）上。<span class="up">事业是你的护城河，比任何投资都靠谱。</span></div>
+</div>
+
+<div class="ptip">
+  <div class="pnum">04.</div>
+  <div class="ptitle">2034—2037年是你人生中财务爆发的关键三年，现在做的事是在给它铺路。</div>
+  <div class="pbody">命盘中财力最强的子运是拉胡-金星期（33—36岁）。<strong>那三年能不能爆发，取决于2025—2030年你积累了多少真实的技能和存款。</strong>不是说等就好了——是说你今天存下的每一分钱、学下的每一项技能，都会在那个时间窗口被乘以一个系数。<span class="up">现在投资自己，2034年收割。</span></div>
+</div>
+
+<div class="ptip">
+  <div class="pnum">05.</div>
+  <div class="ptitle">2030—2033年，任何人叫你借钱或投资，说不。</div>
+  <div class="pbody">这三年是命盘中合同纠纷和财务欺诈风险最高的窗口（拉胡-水星，6宫主被激活）。<span class="dn">不签没看清条款的合同，不借钱给任何人，不做新的投资项目。</span> 就算对方说天花乱坠，就算你"感觉"很靠谱——<strong>拉胡在激活你的判断力，让错误的东西看起来像机会。</strong>这段时间的策略就两个字：守住。</div>
+</div>
+
+<div class="ptip">
+  <div class="pnum">06.</div>
+  <div class="ptitle">情绪稳的时候，你的财务决策比大多数人好；情绪差的时候，你是最容易花冤枉钱的那个。</div>
+  <div class="pbody">月土合相（Punarphoo）给了你强大的存钱意志力，但也给了你情绪化消费的弱点。<strong>当你心情不好时，大脑会用消费来填补安全感的缺口。</strong>识别这个模式的第一步就是：觉察到「我现在是因为情绪才想买东西吗」。<span class="up">设一个72小时大额消费冷静期，对你的帮助比任何理财计划都大。</span></div>
+</div>
+
+<!-- ══════════════ CLOSING QUOTE ══════════════ -->
+
+<div class="qsec">
+  <div class="qmark">"</div>
+  <div class="qen">
+    Artha is not the enemy of the soul —<br>
+    it is the <em>vessel</em> through which dharma flows<br>
+    when the mind is steady.
+  </div>
+  <div class="qcn">
+    财富不是灵魂的对立面<br>
+    当心智平稳，财富是承载使命流淌的容器
+  </div>
+  <div style="height:20px;"></div>
+  <div class="qen" style="font-size:14px;color:var(--text2);">
+    「掌控金钱，而非被金钱掌控。」<br>
+    Arthasya Purushosmi na Artham Purushasya —
+  </div>
+  <div class="qsrc" style="margin-top:24px;">
+    Parashari Jyotish · Financial Intelligence Report<br>
+    <span style="color:var(--text4);display:block;margin-top:4px;">B.V. Raman 体系 · Vimsottari Dasha · 当前大运：Rahu–Jupiter</span>
+  </div>
+</div>
+
+<div class="disc">
+  ⚠ 本报告仅供参考，不构成任何投资建议。AI分析存在夸大倾向，请自行打折扣。财务决策需结合现实情况综合判断。
+</div>
+
+</div>
+</body>
+</html>
+```
