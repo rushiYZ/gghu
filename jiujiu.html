@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>九九 · 印度星盘深度命理报告</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Noto+Serif+SC:wght@300;400;600;700;900&family=IM+Fell+English:ital@0;1&family=Italianno&family=Tangerine:wght@400;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --obsidian: #080810; --void: #0C0C18; --midnight: #10101E;
+  --deep: #151528; --surface: #1A1A30; --surface2: #22223A;
+  --gold: #C9A84C; --gold-light: #E8C870; --gold-bright: #F5D98A;
+  --gold-dim: rgba(201,168,76,0.15); --gold-glow: rgba(201,168,76,0.4);
+  --love-rose: #C87090; --love-rose-light: #E898B0; --love-dark: #180C14;
+  --wealth-emerald: #1E7A4A; --wealth-emerald-light: #38A868;
+  --career-blue: #2850A8; --career-blue-light: #5888E0; --career-silver: #B8C8E8;
+  --crisis-crimson: #A82828; --crisis-crimson-light: #D84848;
+  --health-cyan: #1878A8; --health-cyan-light: #38A8D8; --health-dawn: #D8E8F0;
+  /* Chapter 1 purple */
+  --ch1-purple: #8860C8; --ch1-purple-light: #A888E0; --ch1-purple-dim: rgba(136,96,200,0.15);
+  --font-display: 'Cormorant Unicase', serif; --font-hero: 'Tangerine', cursive;
+  --font-script: 'Italianno', cursive; --font-italic: 'Cormorant Garamond', serif;
+  --font-fell: 'IM Fell English', serif; --font-cn: 'Noto Serif SC', serif;
+  --font-small-caps: 'Cinzel', serif;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--obsidian); color: #D8D0C0; font-family: var(--font-cn); line-height: 1.8; overflow-x: hidden; }
+#starfield { position: fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+.cosmos-wrap { position: relative; z-index:1; max-width:1100px; margin:0 auto; padding:0 24px 120px; }
+.reveal { opacity:0; transform:translateY(28px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px;position:relative;border-bottom:1px solid rgba(201,168,76,0.08)}
+.hero-composition{position:relative;width:100%;max-width:640px;margin:0 auto 40px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+.astrolabe-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;pointer-events:none}
+.astrolabe-svg{width:100%;height:100%;animation:astrolabe-spin 60s linear infinite;filter:drop-shadow(0 0 40px rgba(201,168,76,0.25))}
+.astrolabe-inner{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60%;height:60%;animation:astrolabe-spin 40s linear infinite reverse}
+.astrolabe-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:18%;height:18%;animation:pulse-glow 4s ease-in-out infinite}
+@keyframes astrolabe-spin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes pulse-glow{0%,100%{filter:drop-shadow(0 0 8px rgba(201,168,76,0.5))}50%{filter:drop-shadow(0 0 28px rgba(201,168,76,0.95))}}
+.hero-title-overlay{position:relative;z-index:10;text-align:center;pointer-events:none}
+.hero-eyebrow{font-family:var(--font-small-caps);font-size:10px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;text-shadow:0 0 20px rgba(201,168,76,0.6)}
+.hero-name{font-family:var(--font-hero);font-size:clamp(96px,18vw,200px);font-weight:700;background:linear-gradient(135deg,#FFF7E0 0%,var(--gold-bright) 35%,var(--gold-light) 55%,var(--gold) 75%,#FFF7E0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:0.85;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.6))}
+.hero-name-zh{font-family:var(--font-cn);font-size:clamp(32px,6vw,56px);font-weight:300;color:var(--gold-light);letter-spacing:0.5em;margin-top:-8px;text-shadow:0 0 30px rgba(201,168,76,0.5);padding-left:0.5em}
+.hero-subtitle{font-family:var(--font-script);font-size:clamp(20px,3vw,32px);color:var(--gold-light);letter-spacing:2px;margin-top:8px;margin-bottom:40px;text-shadow:0 0 20px rgba(201,168,76,0.5)}
+.hero-subtitle-cn{font-family:var(--font-cn);font-size:13px;color:rgba(216,208,192,0.7);letter-spacing:4px;margin-top:-4px;margin-bottom:40px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px;position:relative;z-index:5}
+.badge{padding:6px 18px;border:1px solid rgba(201,168,76,0.25);border-radius:20px;font-family:var(--font-small-caps);font-size:9px;letter-spacing:2px;color:var(--gold);background:rgba(12,12,24,0.7);backdrop-filter:blur(8px);transition:all .3s}
+.badge:hover{border-color:rgba(201,168,76,0.5);background:rgba(201,168,76,0.08);box-shadow:0 0 12px rgba(201,168,76,0.25)}
+
+/* NAV */
+#nav{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;gap:16px}
+.nav-dot{width:8px;height:8px;border-radius:50%;border:1px solid rgba(201,168,76,0.4);cursor:pointer;transition:all .3s;text-decoration:none;display:block}
+.nav-dot:hover,.nav-dot.active{background:var(--gold);box-shadow:0 0 8px var(--gold-glow)}
+.nav-dot[data-chapter="love"]{border-color:rgba(200,112,144,0.4)}.nav-dot[data-chapter="love"]:hover,.nav-dot[data-chapter="love"].active{background:var(--love-rose);box-shadow:0 0 8px rgba(200,112,144,0.4)}
+.nav-dot[data-chapter="personality"]{border-color:rgba(136,96,200,0.4)}.nav-dot[data-chapter="personality"]:hover,.nav-dot[data-chapter="personality"].active{background:var(--ch1-purple);box-shadow:0 0 8px rgba(136,96,200,0.4)}
+.nav-dot[data-chapter="career"]{border-color:rgba(88,136,224,0.4)}.nav-dot[data-chapter="career"]:hover,.nav-dot[data-chapter="career"].active{background:var(--career-blue);box-shadow:0 0 8px rgba(88,136,224,0.4)}
+.nav-dot[data-chapter="health"]{border-color:rgba(56,168,216,0.4)}.nav-dot[data-chapter="health"]:hover,.nav-dot[data-chapter="health"].active{background:var(--health-cyan);box-shadow:0 0 8px rgba(56,168,216,0.4)}
+
+/* DIVIDERS */
+.ornament-divider{display:flex;align-items:center;gap:20px;margin:70px 0}
+.ornament-divider::before,.ornament-divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2),transparent)}
+.ornament-diamond{width:10px;height:10px;background:var(--gold);transform:rotate(45deg);opacity:0.4}
+.sec-num{font-family:var(--font-display);font-size:9px;letter-spacing:4px;text-transform:uppercase;margin-bottom:10px}
+.sec-title{font-family:var(--font-display);font-size:clamp(20px,3vw,32px);font-weight:700;line-height:1.2;margin-bottom:6px}
+.sec-cn{font-family:var(--font-cn);font-size:12px;letter-spacing:2px;opacity:0.5;margin-top:6px}
+.c-gold{color:var(--gold)}.c-purple{color:var(--ch1-purple-light)}.c-love{color:var(--love-rose-light)}
+
+/* CHAPTER COVERS */
+.chapter-cover{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px;position:relative;border-radius:4px;overflow:hidden;margin:80px 0 60px}
+.chapter-cover::after{content:attr(data-symbol);position:absolute;font-size:300px;opacity:0.03;bottom:-40px;right:-20px;font-family:var(--font-display);line-height:1;pointer-events:none}
+.cover-personality{background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(100,60,160,0.2) 0%,rgba(12,10,20,0.95) 60%,rgba(8,6,14,0.98) 100%);border:1px solid rgba(136,96,200,0.12)}
+.cover-love{background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(168,48,72,0.25) 0%,rgba(24,12,20,0.95) 60%,rgba(8,0,8,0.98) 100%);border:1px solid rgba(200,112,144,0.12)}
+.cover-career{background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(20,50,120,0.2) 0%,rgba(8,12,24,0.95) 60%,rgba(4,6,14,0.98) 100%);border:1px solid rgba(40,80,168,0.12)}
+.career-grad{background:linear-gradient(135deg,#fff,var(--career-silver),var(--career-blue-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.chapter-eyebrow{font-family:var(--font-display);font-size:9px;letter-spacing:5px;text-transform:uppercase;margin-bottom:24px;opacity:0.7}
+.chapter-icon{font-size:64px;margin-bottom:28px;display:block}
+.chapter-icon.personality-icon{animation:pulse-glow 4s ease-in-out infinite;filter:drop-shadow(0 0 20px rgba(136,96,200,0.5))}
+.chapter-icon.love-icon{animation:heartbeat 2.5s ease-in-out infinite;filter:drop-shadow(0 0 20px rgba(200,112,144,0.5))}
+@keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.08)}28%{transform:scale(1)}42%{transform:scale(1.06)}}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes orbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.chapter-num{font-family:var(--font-display);font-size:10px;letter-spacing:4px;text-transform:uppercase;margin-bottom:12px;opacity:0.6}
+.chapter-title{font-family:var(--font-display);font-size:clamp(32px,6vw,64px);font-weight:900;line-height:1.1;margin-bottom:8px}
+.chapter-sub{font-family:var(--font-italic);font-style:italic;font-size:16px;opacity:0.6;letter-spacing:2px}
+.personality-grad{background:linear-gradient(135deg,#fff,var(--ch1-purple-light),var(--ch1-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.love-grad{background:linear-gradient(135deg,#fff,var(--love-rose-light),var(--love-rose));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* CARDS */
+.card{background:linear-gradient(145deg,var(--surface) 0%,var(--midnight) 100%);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:24px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.3}
+.card:hover{transform:translateY(-3px);border-color:rgba(201,168,76,0.2);box-shadow:0 12px 40px rgba(0,0,0,0.4),0 0 20px rgba(201,168,76,0.06)}
+.card.love-card::before{background:linear-gradient(90deg,transparent,var(--love-rose),transparent)}
+.card.love-card:hover{border-color:rgba(200,112,144,0.3);box-shadow:0 12px 40px rgba(0,0,0,0.4),0 0 20px rgba(200,112,144,0.08)}
+.card.career-card::before{background:linear-gradient(90deg,transparent,var(--career-blue-light),transparent)}
+.card.career-card:hover{border-color:rgba(88,136,224,0.3);box-shadow:0 12px 40px rgba(0,0,0,0.4),0 0 20px rgba(88,136,224,0.08)}
+.card.purple-card::before{background:linear-gradient(90deg,transparent,var(--ch1-purple),transparent)}
+.card.purple-card:hover{border-color:rgba(136,96,200,0.3);box-shadow:0 12px 40px rgba(0,0,0,0.4),0 0 20px rgba(136,96,200,0.08)}
+.grid{display:grid;gap:16px;margin-bottom:28px}.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}.g3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.card-tag{font-family:var(--font-display);font-size:8px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.card-head{font-size:14px;font-weight:700;color:#F0E8D8;margin-bottom:5px;line-height:1.4}
+.card-en{font-family:var(--font-display);font-size:10px;color:rgba(216,208,192,0.4);letter-spacing:1px;margin-bottom:10px}
+.card-body{font-size:13px;color:rgba(216,208,192,0.75);line-height:1.85}
+.card-body strong{color:var(--gold-light)}.card-body .g{color:#68C880;font-weight:700}.card-body .r{color:#E07070;font-weight:700}.card-body .w{color:#E0A040;font-weight:700}
+
+/* HL */
+.hl{border-radius:4px;padding:24px 28px;margin-bottom:20px;position:relative}
+.hl::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;border-radius:4px 0 0 4px}
+.hl.gold{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.12)}.hl.gold::before{background:var(--gold)}
+.hl.purple{background:rgba(136,96,200,0.06);border:1px solid rgba(136,96,200,0.12)}.hl.purple::before{background:var(--ch1-purple)}
+.hl.love{background:rgba(200,112,144,0.06);border:1px solid rgba(200,112,144,0.12)}.hl.love::before{background:var(--love-rose)}
+.hl.career{background:rgba(40,80,168,0.06);border:1px solid rgba(40,80,168,0.12)}.hl.career::before{background:var(--career-blue-light)}
+.hl-tag{font-family:var(--font-display);font-size:8px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.hl-title{font-size:14px;font-weight:700;color:#F0E8D8;margin-bottom:8px}
+.hl-body{font-size:13px;color:rgba(216,208,192,0.8);line-height:1.85}
+.hl-body strong{color:var(--gold-light)}.hl-body .g{color:#68C880;font-weight:700}.hl-body .r{color:#E07070;font-weight:700}.hl-body .w{color:#E0A040;font-weight:700}
+
+/* VERDICT */
+.verdict{border-radius:4px;padding:32px 36px;text-align:center;margin:28px 0;position:relative;overflow:hidden}
+.verdict.gold{background:linear-gradient(135deg,rgba(201,168,76,0.12),var(--surface));border:1px solid rgba(201,168,76,0.25)}
+.verdict.purple{background:linear-gradient(135deg,rgba(100,60,160,0.15),var(--surface));border:1px solid rgba(136,96,200,0.25)}
+.verdict.love{background:linear-gradient(135deg,rgba(168,48,72,0.15),var(--surface));border:1px solid rgba(200,112,144,0.25)}
+.verdict-label{font-family:var(--font-display);font-size:8px;letter-spacing:5px;text-transform:uppercase;opacity:.6;margin-bottom:12px}
+.verdict-main{font-family:var(--font-cn);font-size:clamp(14px,2.5vw,19px);font-weight:700;color:#F0E8D8;line-height:1.65;margin-bottom:10px}
+.verdict-sub{font-family:var(--font-italic);font-style:italic;font-size:14px;color:rgba(216,208,192,0.65)}
+
+/* YOGA */
+.yoga{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid rgba(255,255,255,0.05);border-radius:4px;padding:18px 22px;margin-bottom:10px;transition:background .2s}
+.yoga:hover{background:var(--surface2)}
+.ybadge{flex-shrink:0;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+.by{background:rgba(104,200,128,0.12);border:1px solid #68C880;color:#68C880}
+.bn{background:rgba(120,120,120,0.08);border:1px solid #666;color:#888}
+.bp{background:rgba(224,160,64,0.12);border:1px solid #E0A040;color:#E0A040}
+.yb{flex:1}.yn{font-family:var(--font-italic);font-size:16px;font-weight:600;color:#F0E8D8;margin-bottom:2px}
+.yc{font-family:var(--font-display);font-size:9px;color:rgba(216,208,192,0.4);letter-spacing:1px;margin-bottom:7px}
+.yd{font-size:13px;color:rgba(216,208,192,0.75);line-height:1.75}.yd strong{color:var(--gold-light)}.yd .g{color:#68C880}.yd .r{color:#E07070}
+
+/* DATA TABLE */
+.dt{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:24px}
+.dt th{padding:10px 14px;text-align:left;font-family:var(--font-display);font-size:8px;letter-spacing:2px;text-transform:uppercase;font-weight:400;border-bottom:1px solid}
+.dt td{padding:10px 14px;color:rgba(216,208,192,0.75);border-bottom:1px solid rgba(255,255,255,0.03);vertical-align:top;line-height:1.6}
+.dt tr:hover td{background:rgba(255,255,255,0.015)}.dt td:first-child{color:#F0E8D8;font-weight:600}
+.dt.gold th{background:rgba(201,168,76,0.07);color:var(--gold);border-color:rgba(201,168,76,0.15)}
+.dt.purple th{background:rgba(136,96,200,0.07);color:var(--ch1-purple-light);border-color:rgba(136,96,200,0.15)}
+.dt.love th{background:rgba(200,112,144,0.07);color:var(--love-rose-light);border-color:rgba(200,112,144,0.15)}
+.tok{color:#68C880;font-weight:700;font-family:var(--font-display);font-size:9px}
+.twarn{color:#E0A040;font-weight:700;font-family:var(--font-display);font-size:9px}
+.tdn{color:#E07070;font-weight:700;font-family:var(--font-display);font-size:9px}
+
+/* SAV BARS */
+.srow{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.slbl{font-family:var(--font-display);font-size:10px;color:rgba(216,208,192,0.6);width:88px;flex-shrink:0;text-align:right;letter-spacing:0.5px}
+.swrap{flex:1;height:20px;background:rgba(255,255,255,0.03);border-radius:2px;overflow:hidden;position:relative}
+.sfill{height:100%;border-radius:2px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px}
+.sfill span{font-family:var(--font-display);font-size:11px;color:rgba(255,255,255,0.9);font-weight:600}
+.f-gold{background:linear-gradient(90deg,rgba(140,100,20,0.5),rgba(201,168,76,0.85))}
+.f-purple{background:linear-gradient(90deg,rgba(80,40,140,0.5),rgba(136,96,200,0.85))}
+.f-love{background:linear-gradient(90deg,rgba(120,40,60,0.5),rgba(200,112,144,0.85))}
+.f-dim{background:linear-gradient(90deg,rgba(40,50,40,0.4),rgba(80,90,80,0.6))}
+
+/* PLAIN TIPS */
+.plain-list{margin:28px 0}.plain-item{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.plain-num{font-family:var(--font-display);font-size:24px;color:var(--gold);opacity:0.4;flex-shrink:0;width:40px;text-align:center}
+.plain-text{font-size:13px;color:rgba(216,208,192,0.8);line-height:1.85}
+.plain-text strong{color:var(--gold-light)}.plain-text .r{color:#E07070;font-weight:700}.plain-text .g{color:#68C880;font-weight:700}
+
+/* CHAPTER QUOTE */
+.chapter-quote{text-align:center;padding:60px 24px;margin:40px 0;border-top:1px solid rgba(201,168,76,0.08);border-bottom:1px solid rgba(201,168,76,0.08)}
+.cq-en{font-family:var(--font-italic);font-style:italic;font-size:clamp(15px,2.2vw,22px);color:rgba(216,208,192,0.6);line-height:1.8;margin-bottom:16px}
+.cq-cn{font-family:var(--font-cn);font-size:13px;color:rgba(216,208,192,0.5);line-height:1.8;margin-bottom:12px}
+.cq-src{font-family:var(--font-display);font-size:9px;letter-spacing:3px;color:var(--gold);opacity:0.5}
+
+/* PROLOGUE */
+.prologue{max-width:780px;margin:0 auto;padding:80px 0}
+.prologue p{font-size:14px;color:rgba(216,208,192,0.75);line-height:2;margin-bottom:24px;text-indent:2em}
+.prologue p:first-child{text-indent:0}
+.prologue .pull{font-family:var(--font-italic);font-style:italic;font-size:17px;color:var(--gold-light);text-align:center;text-indent:0;padding:20px 0;letter-spacing:1px}
+.prologue .sig{text-align:right;font-size:12px;color:rgba(216,208,192,0.4);letter-spacing:2px;text-indent:0;margin-top:40px}
+</style>
+</head>
+<body>
+<canvas id="starfield"></canvas>
+
+<nav id="nav">
+  <a class="nav-dot active" href="#hero" title="封面"></a>
+  <a class="nav-dot" href="#prologue" title="卷首语"></a>
+  <a class="nav-dot" href="#ch-personality" data-chapter="personality" title="性格"></a>
+  <a class="nav-dot" href="#ch-love" data-chapter="love" title="感情"></a>
+  <a class="nav-dot" href="#ch-career" data-chapter="career" title="事业"></a>
+  <a class="nav-dot" href="#ch-health" data-chapter="health" title="身心"></a>
+  <a class="nav-dot" href="#finale" title="终章"></a>
+</nav>
+
+<div class="cosmos-wrap">
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-composition">
+    <div class="astrolabe-wrap">
+      <svg class="astrolabe-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="300" cy="300" r="280" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
+        <circle cx="300" cy="300" r="260" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="0.5"/>
+        <circle cx="300" cy="300" r="220" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="0.5"/>
+        <circle cx="300" cy="300" r="180" fill="none" stroke="rgba(201,168,76,0.08)" stroke-width="0.5"/>
+        <g stroke="rgba(201,168,76,0.2)" stroke-width="0.5"><line x1="300" y1="20" x2="300" y2="40"/><line x1="300" y1="560" x2="300" y2="580"/><line x1="20" y1="300" x2="40" y2="300"/><line x1="560" y1="300" x2="580" y2="300"/><line x1="102" y1="102" x2="116" y2="116"/><line x1="498" y1="102" x2="484" y2="116"/><line x1="102" y1="498" x2="116" y2="484"/><line x1="498" y1="498" x2="484" y2="484"/></g>
+        <path d="M 160 300 A 140 140 0 0 1 300 160" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="0.5"/>
+        <path d="M 440 300 A 140 140 0 0 1 300 440" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="0.5"/>
+        <polygon points="300,30 310,70 350,70 318,95 330,135 300,110 270,135 282,95 250,70 290,70" fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.15)" stroke-width="0.5"/>
+      </svg>
+      <svg class="astrolabe-inner" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="200" cy="200" r="180" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="0.5" stroke-dasharray="4 8"/>
+        <circle cx="200" cy="200" r="140" fill="none" stroke="rgba(201,168,76,0.08)" stroke-width="0.5"/>
+        <circle cx="200" cy="200" r="90" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="0.5" stroke-dasharray="2 6"/>
+        <line x1="200" y1="20" x2="200" y2="380" stroke="rgba(201,168,76,0.06)" stroke-width="0.5"/>
+        <line x1="20" y1="200" x2="380" y2="200" stroke="rgba(201,168,76,0.06)" stroke-width="0.5"/>
+      </svg>
+      <svg class="astrolabe-center" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="40" fill="rgba(201,168,76,0.05)" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+        <circle cx="50" cy="50" r="4" fill="var(--gold)"/>
+      </svg>
+    </div>
+    <div class="hero-title-overlay">
+      <div class="hero-eyebrow">Parashari Jyotish · Deep Analysis</div>
+      <div class="hero-name">Jiu Jiu</div>
+      <div class="hero-name-zh">九九</div>
+      <div class="hero-subtitle">Vedic Astrology Portrait</div>
+    </div>
+  </div>
+  <div class="hero-subtitle-cn">印度占星 · 深度命理报告</div>
+  <div class="hero-badges">
+    <span class="badge">2000.11.10</span>
+    <span class="badge">Sagittarius Asc 22°31'</span>
+    <span class="badge">Ashwini Moon</span>
+    <span class="badge">Venus MD → Sun MD</span>
+  </div>
+</section>
+
+<!-- ══ PROLOGUE ══ -->
+<section id="prologue">
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal" style="text-align:center;margin-bottom:40px;">
+    <div class="sec-num c-gold">Prologue · 卷首语</div>
+  </div>
+
+  <div class="prologue">
+    <p class="reveal">不知道你有没有过这种时候——坐在电脑前，该干活了，手放在键盘上，但就是不动。不是不想做，是脑子里突然冒出来一个念头：我现在做的这些事，到底通向哪里？这个念头闪了一下就过去了，你继续干活。但它会回来。隔几天就回来一次。</p>
+
+    <p class="reveal">这种时刻不常发生。但每次发生你都会想起来——你好像一直在等什么。不是等一个人，不是等一个机会。是等一种感觉。一种你站在某个地方，低头看看脚下，觉得踩得很实的感觉。你现在踩的地方不是不实，只是总觉得还差一点。差的那一点是什么，你说不上来。</p>
+
+    <p class="reveal">大部分人活到二十五岁，已经学会了一件重要的事：假装知道自己在干什么。开会的时候假装有方向，恋爱的时候假装有把握，发朋友圈的时候假装有生活。你没怎么学会这一套。不是因为你比别人诚实，是因为你假装的时候自己会不舒服。那种不舒服不是道德层面的，是生理层面的——像穿了一件不合身的衣服，一整天都在想把它脱掉。</p>
+
+    <p class="reveal">所以你来看命盘了。但你来看命盘的真正原因，可能不是你以为的那个。你以为你想知道的是未来会怎样。其实你想确认的是另一件事——我现在这种状态，是不是正常的。这种不急不慌但也不踏实的状态，是暂时的还是永久的。如果是暂时的，它什么时候会过去。如果是永久的，我能不能跟它相处。</p>
+
+    <p class="pull reveal">荣格说：你没有意识到的东西，会变成你的命运。<br>反过来说——你一旦看见了它，它就只是一个条件，不再是一个判决。</p>
+
+    <p class="reveal">看命盘这件事，有一个常见的误解。大多数人以为它是算命——告诉你哪天发财、嫁谁、几岁生孩子。不是的。它更接近于一张X光片。X光片不会告诉你明天会不会生病，但它会告诉你，你的骨骼结构是什么样的，哪些地方天生结实，哪些地方受力不均，哪些地方迟早会酸。知道这些不能让你不受伤，但可以让你在该护住的地方提前垫一层东西。</p>
+
+    <p class="reveal">你心里有一个问题一直没问出来。你问的是事业和感情的关系，是主观能动性的空间——但这些问题底下还垫着一个更深的东西。你害怕的不是命运不好。你害怕的是：万一命运真的写好了，那我这些年的挣扎算什么？如果结局已经定了，过程还有没有意义？</p>
+
+    <p class="reveal">有。过程就是全部的意义。结局是过程的副产品，不是反过来。这份报告不会给你一个结局。它会告诉你，你手里有什么牌，哪些牌打出去会疼，哪些时间段风大不适合出门，哪些年份你可以跑起来。剩下的，你自己来。</p>
+
+    <p class="sig reveal">——写在分析之前</p>
+  </div>
+</section>
+
+<!-- ══ CHAPTER 1 · 性格特质 (紫色主题) ══ -->
+<section id="ch-personality">
+  <div class="chapter-cover cover-personality reveal" data-symbol="☉">
+    <div class="chapter-eyebrow" style="color:var(--ch1-purple-light);">Chapter I</div>
+    <span class="chapter-icon personality-icon">◎</span>
+    <div class="chapter-num" style="color:var(--ch1-purple-light);">Part I · 01</div>
+    <div class="chapter-title personality-grad">性格特质</div>
+    <div class="chapter-sub">Who You Are · Before the World Touches You</div>
+  </div>
+
+  <div class="reveal">
+    <div class="sec-num c-purple">Part I · 01.1</div>
+    <div class="sec-title" style="color:var(--ch1-purple-light);">核心配置卡片</div>
+    <div class="sec-cn">Core Configuration · 你这张盘的基本参数</div>
+  </div>
+
+  <div class="grid g3 reveal">
+    <div class="card purple-card"><div class="card-tag" style="color:var(--ch1-purple-light);">Ascendant · 上升点</div><div class="card-head">射手座 22°31'</div><div class="card-en">Sagittarius · Purva Ashadha Pada 3 · 箕宿第三区间</div><div class="card-body">上升主星木星逆行落6宫金牛座。射手上升的人天然往远处看——关心意义多于利益。但木星落6宫，<strong>你的理想主义最终要通过服务、竞争和解决具体问题来兑现</strong>。空谈让你内耗，动手干活反而通顺。</div></div>
+    <div class="card purple-card"><div class="card-tag" style="color:var(--ch1-purple-light);">Atmakaraka · 灵魂指标</div><div class="card-head">太阳（落陷天秤 · 11宫）</div><div class="card-en">Sun 25°17' Libra · Vishakha Pada 2 · Mrita · Kashta 50.31</div><div class="card-body">灵魂指标星太阳落陷天秤，Mrita死亡态，Kashta 50.31。<strong>你的自我价值感极度依赖外部反馈。</strong>不是虚荣——你不在乎表面的夸。你在乎的是更深的东西：有没有人真正理解你做了什么。Sodhya 92全盘最低——自我认同是你这辈子需要花最大力气去建设的部分。</div></div>
+    <div class="card purple-card"><div class="card-tag" style="color:var(--ch1-purple-light);">DaraKaraka · 配偶指标</div><div class="card-head">月亮（白羊 · 5宫）</div><div class="card-en">Moon 2°31' Aries · Ashwini Pada 1 · Baala · Ishta 51.11</div><div class="card-body">配偶指标月亮落在白羊5宫。Ishta 51.11全盘最高，月亮是你最舒服的行星。<strong>你选人的第一标准不是条件，是这个人让不让你松弛。</strong>白羊月亮的人情绪来得快走得快——你需要的伴侣是能接住你的速度、不被你的直接吓跑的那种。</div></div>
+  </div>
+
+  <div class="grid g2 reveal">
+    <div class="card purple-card"><div class="card-tag" style="color:var(--ch1-purple-light);">Lagna Lord · 命主星</div><div class="card-head">木星逆行 · 金牛6宫 · 与土星同宫</div><div class="card-en">Jupiter(R) 15°46' Taurus · Rohini Pada 2 · Yuva · Shadbala 8.26 (127%)</div><div class="card-body">命主星木星Shadbala 8.26全盘最高——你的底盘很稳，扛得住事。但Sushupta沉睡态：<strong>有力气但不太知道该往哪使</strong>。木星落6宫，跟日常劳作绑定——你不是躺着就有运气的人，你的运气藏在你愿不愿意动手干活里。木星Yuva青年态是好的，正在产出最旺盛的生命阶段。</div></div>
+    <div class="card purple-card"><div class="card-tag" style="color:var(--ch1-purple-light);">Ketu Conjunction · 计都合相上升</div><div class="card-head">计都 24°37' 射手 · 与上升度数仅差2°</div><div class="card-en">Ketu conjunct Lagna · Purva Ashadha Pada 4 · Mrita</div><div class="card-body">计都紧贴上升点——<strong>你身上有一种旁人很难模仿的淡然感</strong>。别人拼命想得到的东西，你有时候看一眼就觉得没意思了。不是装的，是你在某些事上天生缺少执念。问题在于：有些执念是必要的，比如对一段关系的坚持，对一个目标的持续追逐。你太容易放手。</div></div>
+  </div>
+
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num c-purple">Part I · 01.2</div><div class="sec-title" style="color:var(--ch1-purple-light);">你是谁</div><div class="sec-cn">Personality Deep Dive · 走进一个房间，别人看到什么</div></div>
+
+  <div class="grid g2 reveal">
+    <div class="card purple-card"><div class="card-tag" style="color:var(--ch1-purple-light);">第一印象 / First Impression</div><div class="card-head">别人觉得你好说话，但不太容易真正走近你</div><div class="card-en">Sagittarius Asc + Ketu合相 + Venus 1宫</div><div class="card-body">射手上升+金星1宫，第一感觉是开朗、不装。但计都也在1宫，靠得越近越感觉到一层看不见的屏障——不是冷淡，更接近<strong>自带边界感的松弛</strong>。有没有过这种反馈：别人觉得跟你聊得很开心，但事后想想发现你其实什么都没说。</div></div>
+    <div class="card purple-card"><div class="card-tag" style="color:var(--ch1-purple-light);">内在驱动 / Core Drive</div><div class="card-head">你想要的不是成功，你想要的是被真正看见</div><div class="card-en">Sun(AK) Debilitated Libra 11H · Mrita · Kashta 50.31 >> Ishta 8.42</div><div class="card-body">太阳Kashta是Ishta的六倍。<strong>你每做一件事都在等一个回应。</strong>不需要鼓掌，需要的是一双看懂了的眼睛。如果长时间得不到这种回应，你会慢慢失去做事的动力——不是偷懒，是引擎熄火了。太阳Mrita+Sushupta：你内心有一团火，但那团火不太会自己烧起来，需要外界的风来吹。</div></div>
+  </div>
+
+  <div class="grid g2 reveal">
+    <div class="card purple-card"><div class="card-tag" style="color:var(--ch1-purple-light);">情绪运作 / Emotional OS</div><div class="card-head">感受很快、很猛，但表达出来的不到十分之一</div><div class="card-en">Moon Aries 5H · Baala · Ishta 51.11 · Duhkhita+Khala</div><div class="card-body">月亮Ishta 51.11全盘最高——情绪系统是整张盘运转最顺畅的部分。感受力强、反应快、直觉准。<strong>问题不是感受太少，是出口太窄。</strong><br><br>① Baala婴儿态——心里装着十分的东西，说出来带着一种稚拙感。想表达复杂的感受但找不到合适的词<br><br>② Duhkhita+Khala——内心有不太容易被看到的痛苦感，同时伴随一点调皮和反叛。有没有过这种时候：明明心里不好受，嘴上冒出来的是一句笑话</div></div>
+    <div class="card purple-card"><div class="card-tag" style="color:var(--ch1-purple-light);">思维模式 / How You Think</div><div class="card-head">脑子很快，但更擅长替别人想</div><div class="card-en">Mercury 7°34' Libra 11H · Kumara · Mudita · Ishta 44.22 · Shadbala 7.86</div><div class="card-body">全盘唯一Mudita愉悦的行星。<strong>你想问题的过程本身会让你开心。</strong>天秤座水星天然擅长看到事情两面、理解别人立场——分析和沟通的好配置。缺点：选择困难。能看到A的好和B的好，然后卡住。<br><br>水星与太阳构成日水瑜伽（Budha-Aditya Yoga）——思考能力是你在社会上立足的核心资本。你帮别人想问题的时候特别清醒，轮到自己就犯糊涂。</div></div>
+  </div>
+
+  <div class="grid g2 reveal">
+    <div class="card purple-card"><div class="card-tag" style="color:var(--ch1-purple-light);">行动模式 / How You Act</div><div class="card-head">你的执行力不差，差的是启动速度</div><div class="card-en">Mars 10°59' Virgo 10H · Vriddha · Sushupta · Kashta 43.13 · Sodhya 216</div><div class="card-body">火星落10宫（事业宫），有韧性，能承受高压。但Kashta 43.13远大于Ishta 16.62——做事的过程伴随大量消耗。<strong>每次动手之前要先说服自己十分钟，这十分钟比实际做事还累。</strong>火星在处女座（敌方星座）——行动力被细节绑架。一件事如果不想清楚每个步骤，你不敢开始。Sodhya 216全盘最高——一旦启动，产出量会非常惊人。</div></div>
+    <div class="card purple-card"><div class="card-tag" style="color:var(--ch1-purple-light);">欲望与追求 / What You Want</div><div class="card-head">想要的很多，说出口的很少</div><div class="card-en">Venus 3°42' Sagittarius 1H · GnatiKaraka · Baala · Kashta 35.61</div><div class="card-body">金星在1宫射手座。你的核心气质里天然带着一层对美、品质、关系的敏感。但金星是GnatiKaraka（障碍指标星）——<strong>你想要的东西本身经常成为你的障碍</strong>。想要被爱，但怕被爱之后失去自由。想要好东西，但觉得自己配不上。Kashta 35.61 > Ishta 24.23——追求美好事物的过程，对你来说伴随明显的不舒适感。</div></div>
+  </div>
+
+  <div class="hl purple reveal">
+    <div class="hl-tag" style="color:var(--ch1-purple-light);">⚡ Fear Map · 恐惧地图</div>
+    <div class="hl-title">这三件事会触发你的防御机制</div>
+    <div class="hl-body">
+      <strong>① 失去意义感。</strong>太阳落陷Mrita+Kashta 50.31——如果你觉得自己做的事完全没有意义，精神状态会断崖式下跌。你能忍受辛苦，忍受不了无意义。<br><br>
+      <strong>② 被看穿之后不被接受。</strong>计都合相上升+金星GK——你心里有一个很深的假设：如果别人真正看到了完整的我，他们会失望。所以你下意识只展示安全的那部分。<br><br>
+      <strong>③ 无法启动。</strong>火星Vriddha+Sushupta——不是怕做不好，是怕根本做不动。你有过躺在床上明知道该起来但身体和大脑都不配合的时候。那种无力感是你最不愿意承认的弱点。
+    </div>
+  </div>
+
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num c-purple">Part I · 01.3</div><div class="sec-title" style="color:var(--ch1-purple-light);">心性深层结构</div><div class="sec-cn">Inner Architecture · 操作系统连线图</div></div>
+
+  <div class="grid g2 reveal">
+    <div class="card purple-card"><div class="card-tag" style="color:var(--ch1-purple-light);">Inner Peace · 内心安宁</div><div class="card-head">你心里一直有一个声音在说：我还不够好</div><div class="card-en">4H SAV=35 · 4H Lord Jupiter in 6H(R) · Sun(AK) Kashta 50.31</div><div class="card-body">4宫SAV=35全盘第二高——<strong>你的内心本来有非常丰沛的资源</strong>。但4宫主木星落6宫逆行，内心平静感被日常忙碌不断消耗。你心里有一个自动评分系统，打分很严格。太阳落陷的人不是不够好，是给自己设的标准太高了。别人做到80分就满意，你做到90分还觉得差点意思。<br><br>4宫SAV 35说明你的幸福感容量本身很大。你不需要去找幸福感，你需要<strong>停止自动扣分</strong>。</div></div>
+    <div class="card purple-card"><div class="card-tag" style="color:var(--ch1-purple-light);">Relationships · 关系中的你</div><div class="card-head">你给得出温暖，但不太擅长收</div><div class="card-en">Venus 1H + Moon 5H · 7H Lord Mercury 11H · Rahu 7H · 7H SAV=26</div><div class="card-body">金星1宫、月亮5宫——你在关系中有温度。但罗睺落7宫（关系宫），7宫主水星跑到11宫——<strong>你的关系模式很容易从一对一滑向一群人</strong>。跟一个人深入到某个程度之后，你会不自觉地引入更多社交元素来稀释亲密感。<br><br>罗睺在7宫放大一件事：<strong>你在关系中很容易高估对方</strong>。不是对方真的那么好，是罗睺给你加了滤镜。等滤镜褪了，落差会让你觉得看错了人——其实不是看错，是你看到的那一面确实存在，只是不是全部。</div></div>
+  </div>
+
+  <div class="grid g2 reveal">
+    <div class="card purple-card"><div class="card-tag" style="color:var(--ch1-purple-light);">Saturn · 土星纪律码</div><div class="card-head">你内心有一套极严的规矩，但从来不说出来</div><div class="card-en">Saturn(R) 5°31' Taurus 6H · Mrita · Shadbala 4.89 · 2/3宫主</div><div class="card-body">土星管你的2宫（钱和嘴）和3宫（沟通和努力）。Mrita死亡态，全盘最低Shadbala。<br><br>① <strong>你对钱的态度很矛盾。</strong>知道钱重要，但很难用放松的方式去挣<br>② <strong>不太会主动表达需求。</strong>谈薪水、提要求、说不——这些场景你会回避<br>③ 土星逆行6宫——你对自律有很高标准，但执行起来很拧巴。用一种让自己很累的方式在自律</div></div>
+    <div class="card purple-card"><div class="card-tag" style="color:var(--ch1-purple-light);">Jupiter · 木星智慧引擎</div><div class="card-head">你的判断力比你的自信走得快</div><div class="card-en">Jupiter(R) 15°46' Taurus 6H · Yuva · Ishta 48.81 · Shadbala 8.26</div><div class="card-body">命主星木星全盘Shadbala最高，Ishta 48.81——<strong>你的判断力、学习能力、对大局的把握，都远超你自己的认知</strong>。但Sushupta沉睡+Duhkhita痛苦——有力使不出来。看问题看得准，要做判断时犹豫。不是看不清，是看清之后不敢相信自己看到的。<br><br><strong>你帮别人出主意特别清醒，轮到自己就犯糊涂。</strong>朋友找你商量事的时候一针见血，自己的事能纠结三天三夜。木星逆行的标准配置——智慧本能地向内转，面朝别人时反而正常发挥。<br><br>Yuva青年态是好的。<strong>现在到35岁之间是建立核心判断力和职业方向的黄金窗口。</strong></div></div>
+  </div>
+
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num c-purple">Part I · 01.4</div><div class="sec-title" style="color:var(--ch1-purple-light);">量化力量表</div></div>
+
+  <div style="overflow-x:auto;margin-bottom:24px;" class="reveal">
+    <table class="dt purple">
+      <thead><tr><th>行星</th><th>Shadbala</th><th>Ishta</th><th>Kashta</th><th>Sodhya</th><th>状态</th><th>判定</th></tr></thead>
+      <tbody>
+        <tr><td>☉ 太阳 (AK)</td><td>6.20 <span class="twarn">124%</span></td><td>8.42</td><td class="r">50.31</td><td>92</td><td>Mrita · 沉睡 · 悲伤</td><td><span class="tdn">✗ 痛苦之源</span></td></tr>
+        <tr><td>☽ 月亮 (DK)</td><td>5.82 <span class="twarn">97%</span></td><td class="g">51.11</td><td>8.78</td><td>126</td><td>Baala · 梦境 · 痛苦/调皮</td><td><span class="tok">✓ 舒适之源</span></td></tr>
+        <tr><td>♂ 火星 (BK)</td><td>5.44 <span class="twarn">109%</span></td><td>16.62</td><td class="r">43.13</td><td class="w">216</td><td>Vriddha · 沉睡 · 悲伤</td><td><span class="tdn">⚡ 高消耗引擎</span></td></tr>
+        <tr><td>☿ 水星 (MK)</td><td>7.86 <span class="tok">112%</span></td><td class="g">44.22</td><td>13.08</td><td>147</td><td>Kumara · 梦境 · 愉悦</td><td><span class="tok">✓ 核心武器</span></td></tr>
+        <tr><td>♃ 木星 (AmK)</td><td class="g">8.26</td><td class="g">48.81</td><td>9.37</td><td>139</td><td>Yuva · 沉睡 · 痛苦</td><td><span class="tok">✓ 底盘之王</span></td></tr>
+        <tr><td>♀ 金星 (GK)</td><td>6.97 <span class="tok">127%</span></td><td>24.23</td><td class="r">35.61</td><td>145</td><td>Baala · 梦境 · 痛苦</td><td><span class="twarn">△ 甜蜜的刺</span></td></tr>
+        <tr><td>♄ 土星 (PiK)</td><td class="r">4.89</td><td>17.16</td><td>12.95</td><td>171</td><td>Mrita · 梦境 · 悲伤</td><td><span class="twarn">△ 沉默压力</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="hl purple reveal">
+    <div class="hl-tag" style="color:var(--ch1-purple-light);">Quantitative Summary · 量化总结</div>
+    <div class="hl-title">内在系统运转良好，对外表达系统严重受阻</div>
+    <div class="hl-body">一句话概括：你想得比做得快，懂得比说得多。核心瓶颈不是能力，是<span class="r">输出端口太窄</span>。有才华但不擅长表现，有判断力但不敢下注，有感受但不习惯表达。<br><br>全盘七颗行星只有水星Mudita愉悦，其余全部Deena或Duhkhita。Alertness没有一颗Jaagrita清醒。<strong>你的默认状态是安静、内收的，需要外界刺激或明确目标来激活。</strong><br><br><span class="g">好消息：</span>火星Sodhya 216全盘最高。你不是没油的车，你是冷启动慢的柴油机——一旦热起来，续航比谁都长。</div>
+  </div>
+
+  <div class="reveal" style="margin-bottom:28px;">
+    <div class="sec-num c-purple" style="margin-top:30px;">SAV · 宫位资源分布</div>
+    <div class="srow"><div class="slbl">1H 自我</div><div class="swrap"><div class="sfill f-purple" style="width:55%"><span>31</span></div></div></div>
+    <div class="srow"><div class="slbl">2H 财富</div><div class="swrap"><div class="sfill f-dim" style="width:39%"><span>22</span></div></div></div>
+    <div class="srow"><div class="slbl">3H 沟通</div><div class="swrap"><div class="sfill f-purple" style="width:61%"><span>34</span></div></div></div>
+    <div class="srow"><div class="slbl">4H 内心</div><div class="swrap"><div class="sfill f-purple" style="width:63%"><span>35</span></div></div></div>
+    <div class="srow"><div class="slbl">5H 创造</div><div class="swrap"><div class="sfill f-dim" style="width:38%"><span>21</span></div></div></div>
+    <div class="srow"><div class="slbl">6H 竞争</div><div class="swrap"><div class="sfill f-purple" style="width:50%"><span>28</span></div></div></div>
+    <div class="srow"><div class="slbl">7H 关系</div><div class="swrap"><div class="sfill f-dim" style="width:46%"><span>26</span></div></div></div>
+    <div class="srow"><div class="slbl">8H 危机</div><div class="swrap"><div class="sfill f-purple" style="width:52%"><span>29</span></div></div></div>
+    <div class="srow"><div class="slbl">9H 运气</div><div class="swrap"><div class="sfill f-purple" style="width:54%"><span>30</span></div></div></div>
+    <div class="srow"><div class="slbl">10H 事业</div><div class="swrap"><div class="sfill f-purple" style="width:54%"><span>30</span></div></div></div>
+    <div class="srow"><div class="slbl">11H 收入</div><div class="swrap"><div class="sfill f-purple" style="width:59%"><span>33</span></div></div></div>
+    <div class="srow"><div class="slbl">12H 消耗</div><div class="swrap"><div class="sfill f-dim" style="width:32%"><span>18</span></div></div></div>
+  </div>
+
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num c-purple">Part I · 01.5</div><div class="sec-title" style="color:var(--ch1-purple-light);">性格总结 · 五条判断</div></div>
+
+  <div class="plain-list">
+    <div class="plain-item reveal"><div class="plain-num">01</div><div class="plain-text"><strong>你的实际能力 > 你以为的自己。差距不在能力，在自信。</strong><br>木星8.26+水星7.86给了你扎实的底盘，太阳Mrita+Kashta 50.31让你永远觉得差一点。你不需要变强，你需要承认自己已经够强了。</div></div>
+    <div class="plain-item reveal"><div class="plain-num">02</div><div class="plain-text"><strong>你最大的消耗不是外界压力，是自己的内部审查。</strong><br>太阳Kashta 50.31+火星Kashta 43.13——每天有大量精力花在自我怀疑和反复确认上。省下十分之一，产出翻倍。</div></div>
+    <div class="plain-item reveal"><div class="plain-num">03</div><div class="plain-text"><strong>你是一台冷启动慢但续航强的柴油机。</strong><br>火星Vriddha+Sodhya 216——启动慢，进入状态后持久力和产出量远超大多数人。找一个允许你慢慢加速的环境。</div></div>
+    <div class="plain-item reveal"><div class="plain-num">04</div><div class="plain-text"><strong>你在关系里给得出温暖但收不进反馈。</strong><br>金星1宫+月亮5宫有温度，计都合相上升+金星GK+太阳Mrita让你接收善意时本能后退。学会收下别人的好，不是亏欠，是信任。</div></div>
+    <div class="plain-item reveal"><div class="plain-num">05</div><div class="plain-text"><strong>你的情绪是你最强的燃料，但你一直没给它找到出口。</strong><br>月亮Ishta 51.11全盘最高。感受力、直觉、敏锐度是你最大天赋。<strong>写作、表达、创造——不是选修课，是你的情绪必须有的排气阀。</strong></div></div>
+  </div>
+
+  <div class="verdict purple reveal">
+    <div class="verdict-label">Personality Verdict · 性格总判定</div>
+    <div class="verdict-main">内核：判断力极强但自我评价偏低<br>外壳：友善淡然。内里：敏锐深沉<br>最大的敌人不是世界，是你自己对自己的苛刻</div>
+    <div class="verdict-sub">The sharpest blade in the drawer — that keeps doubting if it's sharp enough.</div>
+  </div>
+
+  <div class="chapter-quote reveal">
+    <div class="cq-en">"The privilege of a lifetime<br>is to become who you truly are."</div>
+    <div class="cq-cn">一个人一生最大的特权<br>是成为他真正的自己</div>
+    <div class="cq-src">— Carl Gustav Jung</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CHAPTER 2 · 感情婚姻
+══════════════════════════════════════════ -->
+<section id="ch-love">
+
+  <div class="chapter-cover cover-love reveal" data-symbol="♀">
+    <div class="chapter-eyebrow" style="color:var(--love-rose-light);">Chapter II</div>
+    <span class="chapter-icon love-icon">❦</span>
+    <div class="chapter-num" style="color:var(--love-rose-light);">Part II · 02</div>
+    <div class="chapter-title love-grad">感情婚姻</div>
+    <div class="chapter-sub">Love & Marriage · The Hardest Exam You Never Studied For</div>
+  </div>
+
+  <!-- 02.1 婚姻核心配置 -->
+  <div class="reveal"><div class="sec-num c-love">Part II · 02.1</div><div class="sec-title" style="color:var(--love-rose-light);">婚姻核心配置</div><div class="sec-cn">Marriage Configuration · 你的感情基本面</div></div>
+
+  <div class="grid g3 reveal">
+    <div class="card love-card"><div class="card-tag" style="color:var(--love-rose-light);">7th Lord · 7宫主</div><div class="card-head">水星 · 天秤11宫 · 友方星座</div><div class="card-en">Mercury 7°34' Libra · Swati Pada 1 · Kumara · Mudita · Shadbala 7.86</div><div class="card-body">7宫主水星状态不错——Kumara少年态，全盘唯一愉悦行星，Ishta 44.22远大于Kashta 13.08。<strong>你的婚姻宫本身硬件没问题。</strong>水星落11宫（社交圈/愿望宫），说明你的伴侣大概率来自社交网络、朋友圈、或者某种目标导向的群体。不太可能是相亲认识的，更可能是日常生活中自然碰到的。</div></div>
+    <div class="card love-card"><div class="card-tag" style="color:var(--love-rose-light);">Husband Karaka · 丈夫指标</div><div class="card-head">木星逆行 · 金牛6宫</div><div class="card-en">Jupiter(R) 15°46' Taurus · Rohini Pada 2 · Yuva · Shadbala 8.26</div><div class="card-body">女命看木星判断丈夫。木星落6宫金牛座逆行——你丈夫这个人大概率是<strong>务实、固执、有职业能力但不太浪漫的类型</strong>。6宫代表日常工作和服务，他很可能是在工作场景中被你注意到的。木星逆行说明这段关系的建立过程不太走常规路线——反复、犹豫、或者先认识后来断了再接上。</div></div>
+    <div class="card love-card"><div class="card-tag" style="color:var(--love-rose-light);">DaraKaraka · 配偶征象星</div><div class="card-head">月亮 · 白羊5宫 · Ishta 51.11</div><div class="card-en">Moon 2°31' Aries · Ashwini Pada 1 · Baala</div><div class="card-body">DK是月亮。月亮的天然属性是照顾、情绪、安全感。你在伴侣身上要学的灵魂课题是：<strong>如何让自己被照顾</strong>。注意不是如何照顾别人——你那个本来就会。月亮在白羊座5宫：伴侣关系中你需要的是一种带有孩子气的、直接的、不用猜的温暖。Ishta 51.11——<strong>这段关系一旦建立，主观体验会非常正向</strong>。</div></div>
+  </div>
+
+  <div class="grid g2 reveal">
+    <div class="card love-card"><div class="card-tag" style="color:var(--love-rose-light);">7th House · 第7宫状态</div><div class="card-head">双子座 · 罗睺独守 · SAV 26</div><div class="card-en">Gemini 7H · Rahu 24°37' · Punarvasu Pada 2 · SAV=26</div><div class="card-body">7宫双子座被罗睺单独占据。罗睺在7宫是感情领域最典型的迷雾配置：<strong>你对伴侣的第一印象经常跟这个人的真实面目有偏差</strong>。不是被骗——是罗睺天然会放大你想看到的那一面，隐藏你不想看到的那一面。等到关系稳定之后，滤镜慢慢褪掉，你才看到完整的人。<br><br>7宫SAV=26，不差但不算强——关系领域的资源池属于中等水平。不会极度困难，但也不是那种随便一抓就能抓到好的。需要耐心筛选。</div></div>
+    <div class="card love-card"><div class="card-tag" style="color:var(--love-rose-light);">UL · Upapada Lagna · 婚姻现实点</div><div class="card-head">摩羯座 · 2宫 · 主星土星(R)落6宫</div><div class="card-en">UL in Capricorn 2H · Lord Saturn(R) Taurus 6H · Mrita</div><div class="card-body">UL代表婚姻的外在现实面——别人怎么看你的婚姻、婚姻的物质基础。UL在摩羯座：<strong>你的婚姻会给外界一种踏实、务实、低调的印象</strong>。不是那种轰轰烈烈的爱情故事，是那种让旁人觉得靠谱的结合。<br><br>但UL主星土星Mrita落6宫——婚姻的建立过程会有阻碍。不是没人要你，是你自己在婚姻这件事上启动特别慢。UL从上升算在2宫（家庭和积累宫），UL的2宫（即从UL起算第2宫是水瓶座）无行星——婚姻维持的后劲需要双方主动经营，不是自动续航型。</div></div>
+  </div>
+
+  <!-- 概述 -->
+  <div class="hl love reveal">
+    <div class="hl-tag" style="color:var(--love-rose-light);">Overview · 感情基本面概述</div>
+    <div class="hl-title">罗睺-计都轴线贯穿1-7宫——感情是这辈子的核心课题之一</div>
+    <div class="hl-body">
+      Rahu-Ketu轴线精确落在1宫-7宫（自我-关系轴）。这是所有轴线位置中<strong>对感情影响最大的一种</strong>——你的灵魂层面被要求在这辈子深度处理自我与关系的平衡。计都在1宫说明你的前世课题是独立和自我修行，罗睺在7宫说明这辈子的生长方向是走向关系、走向合作。<br><br>
+      矛盾在这里：<strong>你骨子里是个独行侠，但命运要你学会跟人绑在一起</strong>。这不是一个你可以绕过去的课题。你越回避关系，罗睺就越会用各种方式把人送到你面前——只是送来的人不一定是对的人。
+    </div>
+  </div>
+
+  <!-- 02.2 关系人格画像 -->
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num c-love">Part II · 02.2</div><div class="sec-title" style="color:var(--love-rose-light);">关系人格画像</div><div class="sec-cn">Relationship Personality · 你在感情里是什么人</div></div>
+
+  <div class="grid g2 reveal">
+    <div class="card love-card"><div class="card-tag" style="color:var(--love-rose-light);">依附模式 / Attachment Style</div><div class="card-head">你在感情里的角色是：投入很深但嘴上不说的回避者</div><div class="card-en">Ketu 1H + Venus 1H + Moon 5H(Baala) + Saturn(R) 6H Mrita</div><div class="card-body">计都在1宫给了你一层天然的情感隔离膜。金星GK在1宫让你对亲密关系既渴望又警惕。月亮Baala态让你的情感表达方式偏稚嫩。土星Mrita管着3宫（沟通）——<strong>你在感情中最大的bug是：心里已经翻江倒海了，嘴上还在说没事、随便、都行。</strong><br><br>你不是不投入。你是投入了之后开始害怕，然后本能地用淡然来保护自己。对方会觉得你不在乎。但你在乎。你只是不知道怎么用一种不丢脸的方式说出来。<br><br>有没有过这种时候——对方问你怎么了，你说没事。对方就真的信了。然后你心里想：你怎么就信了呢。</div></div>
+    <div class="card love-card"><div class="card-tag" style="color:var(--love-rose-light);">吸引模式 / Attraction Pattern</div><div class="card-head">你容易被聪明的、话多的、不按套路出牌的人吸引</div><div class="card-en">7H Gemini + Rahu · 7L Mercury Libra · DK Moon Aries</div><div class="card-body">7宫双子座+罗睺——你被吸引的人通常具备这些特征：<strong>嘴皮子利索、脑子转得快、有点不靠谱但有趣</strong>。双子座的主题是沟通和变化，罗睺放大了对非常规事物的好奇。你不太容易被稳重老实型打动——太安全了反而让你没感觉。<br><br>7宫主水星在天秤11宫——你会被一种平衡感好的、社交能力强的、在朋友圈里有存在感的人吸引。这类人的优点是跟他们在一起不无聊，缺点是<strong>他们的注意力不太容易被一个人独占</strong>。<br><br>DK月亮在白羊5宫——你的灵魂层面需要的伴侣其实是一个直接的、不绕弯的、情绪清晰的人。跟上面罗睺的喜好有冲突——你想要的和你需要的不是同一种人。<span class="r">这是你在感情中反复踩坑的根源之一。</span></div></div>
+  </div>
+
+  <!-- 02.3 婚姻格局判定 -->
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num c-love">Part II · 02.3</div><div class="sec-title" style="color:var(--love-rose-light);">婚姻格局判定</div><div class="sec-cn">Marriage Yoga & Dosha · 你的感情盘面写了什么</div></div>
+
+  <div class="yoga reveal">
+    <div class="ybadge bn">✗</div>
+    <div class="yb">
+      <div class="yn">Kuja Dosha · 火星煞（Manglik）</div>
+      <div class="yc">Mars in 10H from Lagna · 6H from Moon · 10H from Venus</div>
+      <div class="yd"><strong>不成立。</strong>火星不在1/2/4/7/8/12宫（从上升算），不构成经典火星煞。从月亮算火星在6宫是Upachaya位置反而有利于竞争——<strong>你在感情中有战斗力，不是被动等人来追的类型</strong>，只是你的战斗力藏得深。</div>
+    </div>
+  </div>
+
+  <div class="yoga reveal">
+    <div class="ybadge bn">✗</div>
+    <div class="yb">
+      <div class="yn">Punarphoo Dosha · 土月结合（延迟婚姻煞）</div>
+      <div class="yc">Saturn Taurus 6H · Moon Aries 5H · No conjunction or direct aspect</div>
+      <div class="yd"><strong>不成立。</strong>土星和月亮不在同一宫位，土星的7th相位打到12宫（不是5宫），不构成经典Punarphoo。你的晚婚倾向不是来自这个dosha，是来自计都合相上升+罗睺在7宫——<strong>是你自己不着急，不是命盘卡着你</strong>。</div>
+    </div>
+  </div>
+
+  <div class="yoga reveal">
+    <div class="ybadge by">✓</div>
+    <div class="yb">
+      <div class="yn">Rahu-Ketu 1-7轴线 · 关系业力主轴</div>
+      <div class="yc">Ketu 24°37' Sagittarius 1H · Rahu 24°37' Gemini 7H</div>
+      <div class="yd"><strong>完全成立，高强度。</strong>这是你感情领域最核心的配置。罗睺在7宫=<span class="w">对伴侣的期待被放大、容易理想化对方、关系中容易出现非常规情况</span>（异地、异族、年龄差、或者关系定义模糊的阶段比正常人长）。计都在1宫=你的本能是独处和独立，走向关系需要克服内在阻力。<br><br><strong>这组轴线不是阻碍你结婚，是让你在结婚之前多经历几次看走眼的过程。</strong>每次看走眼都在帮你校准你到底需要什么样的人。</div>
+    </div>
+  </div>
+
+  <div class="yoga reveal">
+    <div class="ybadge bp">△</div>
+    <div class="yb">
+      <div class="yn">7宫主参与Budha-Aditya Yoga · 日水瑜伽</div>
+      <div class="yc">Mercury + Sun in Libra 11H · Raja/Solar Yoga involving 7th Lord</div>
+      <div class="yd"><strong>条件性成立。</strong>7宫主水星与灵魂指标太阳同宫于11宫，构成日水瑜伽。这意味着<strong>你的婚姻跟你的社会目标和收入有关联</strong>——结婚这件事对你来说不只是找一个人过日子，它同时会影响你的社会位置和财务状况。你问的事业和感情是否绑定——<span class="g">是的，水星同时管你的7宫和10宫，感情和事业在你的盘里共享一个引擎</span>。</div>
+    </div>
+  </div>
+
+  <div class="yoga reveal">
+    <div class="ybadge bp">△</div>
+    <div class="yb">
+      <div class="yn">DharmaKarmadhipati Yoga 涉及7宫主</div>
+      <div class="yc">Mercury (7L/10L) Libra 11H · connects career-marriage axis</div>
+      <div class="yd"><strong>条件性成立。</strong>水星同时管7宫（婚姻）和10宫（事业），落在11宫（目标实现/收入）。这构成了一个三角绑定：<strong>你在事业上的突破、你在关系中的进展、你的收入增长——这三件事会在同一个时间窗口里同时发生</strong>。不是先搞好事业再谈感情，也不是先结婚再拼事业。它们是同一条河里的水，同涨同落。</div>
+    </div>
+  </div>
+
+  <!-- Marriage Verdict -->
+  <div class="verdict love reveal">
+    <div class="verdict-label">Marriage Pattern Verdict · 婚姻格局总判定</div>
+    <div class="verdict-main">晚婚但非硬性障碍 · 感情与事业强绑定<br>罗睺7宫主导前期试错 · 真命大概率在28-32岁窗口出现<br>婚后稳定性中等偏上 · 需要主动经营而非自动续航</div>
+    <div class="verdict-sub">Not a late bloomer by fate — a careful chooser by nature.</div>
+  </div>
+
+  <!-- 02.4 量化 -->
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num c-love">Part II · 02.4</div><div class="sec-title" style="color:var(--love-rose-light);">婚姻行星力量对比</div></div>
+
+  <div style="overflow-x:auto;margin-bottom:24px;" class="reveal">
+    <table class="dt love">
+      <thead><tr><th>行星</th><th>婚姻角色</th><th>Shadbala</th><th>Ishta</th><th>Kashta</th><th>Sodhya</th><th>判定</th></tr></thead>
+      <tbody>
+        <tr><td>☿ 水星</td><td>7宫主+10宫主</td><td>7.86 <span class="tok">112%</span></td><td class="g">44.22</td><td>13.08</td><td>147</td><td><span class="tok">✓ 婚姻主引擎 · 状态良好</span></td></tr>
+        <tr><td>♃ 木星</td><td>女命丈夫指标+命主星</td><td class="g">8.26</td><td class="g">48.81</td><td>9.37</td><td>139</td><td><span class="tok">✓ 支撑者 · 高战力</span></td></tr>
+        <tr><td>☽ 月亮</td><td>DaraKaraka配偶征象</td><td>5.82</td><td class="g">51.11</td><td>8.78</td><td>126</td><td><span class="tok">✓ 体验正向 · 全盘最高Ishta</span></td></tr>
+        <tr><td>♀ 金星</td><td>6/11宫主+天然感情星</td><td>6.97</td><td>24.23</td><td class="r">35.61</td><td>145</td><td><span class="twarn">△ 欲望>满足 · Kashta偏高</span></td></tr>
+        <tr><td>♄ 土星</td><td>2/3宫主+UL主星</td><td class="r">4.89</td><td>17.16</td><td>12.95</td><td>171</td><td><span class="tdn">✗ 婚姻软肋 · 启动端口最弱</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="hl love reveal">
+    <div class="hl-tag" style="color:var(--love-rose-light);">Key Finding · 关键发现</div>
+    <div class="hl-title">婚姻的引擎很好，刹车也很好——问题在于你踩刹车比踩油门多</div>
+    <div class="hl-body">
+      <strong>支撑者（引擎）：水星+木星+月亮。</strong>三颗婚姻相关行星全部Ishta > Kashta，状态良好。<span class="g">你的婚姻一旦建立，主观体验会是正向的。</span>不是那种苦哈哈的关系，是那种虽然偶尔吵架但整体让你觉得值的关系。<br><br>
+      <strong>软肋（刹车）：土星+金星。</strong>土星Mrita管着2宫（家庭形成）和3宫（主动沟通），是婚姻启动端最弱的环节——不是找不到人，是<span class="r">你自己在迈向婚姻的那一步上会反复犹豫</span>。金星Kashta 35.61 > Ishta 24.23——你在追求爱情的过程中会体验到明显的不舒适感。想要但不好意思要。<br><br>
+      <strong>SAV婚姻相关宫位：</strong>5宫（恋爱）21极低 → 恋爱期体验不太轻松；7宫（婚姻）26中等 → 关系资源够用但不丰盛；8宫（婚姻深度/亲密）29不错 → 婚后的深层连接反而比婚前好；12宫（床笫/精神连接）18极低 → <strong>你不太容易在身体层面完全放开自己。</strong>
+    </div>
+  </div>
+
+  <!-- 02.5 D9分盘验证 -->
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num c-love">Part II · 02.5</div><div class="sec-title" style="color:var(--love-rose-light);">D9 Navamsha · 婚姻果实盘</div><div class="sec-cn">The Marriage Fruit · D1是树，D9是果实</div></div>
+
+  <div class="grid g2 reveal">
+    <div class="card love-card"><div class="card-tag" style="color:var(--love-rose-light);">D9 Lagna · 婚后基调</div><div class="card-head">D9上升天秤座——婚后生活的关键词是平衡和协商</div><div class="card-en">D9 Asc Libra 24°08' · Vishakha Pada 2</div><div class="card-body">D9上升天秤说明你的婚后状态整体偏向和谐、讲道理、注重美感和公平。你不太可能嫁进一个混乱的、让你觉得粗糙的环境。<strong>你的婚姻会有一种文明感</strong>——即使吵架，也不太会失控到撕破脸。但天秤座的阴影面是优柔和回避冲突。婚后你要学的一课是：有些问题不是靠维持表面和平就能解决的。</div></div>
+    <div class="card love-card"><div class="card-tag" style="color:var(--love-rose-light);">7H in D9 · 伴侣的真实内在</div><div class="card-head">D9第7宫火星+月亮合相白羊——伴侣内在性格直接、有行动力、情绪化</div><div class="card-en">D9 7H Aries · Mars 8°56' + Moon 22°47' · Mars own sign</div><div class="card-body">D9的7宫白羊座有火星（旺相，自己星座）和月亮合相。你的伴侣在关系建立之后展现出来的真实面目：<strong>直接、有主见、脾气不小、但情感浓度很高</strong>。火星旺相在自己星座说明这个人行动力强、做事不拖泥带水。月亮在白羊说明情绪来得快、表达直接——跟你正好互补。<br><br>你是那种心里翻江倒海嘴上说没事的人，你的伴侣大概率是那种一不开心整个房间都知道的人。<strong>他/她的直接会让你不舒服，但也恰好是你需要学的东西。</strong></div></div>
+  </div>
+
+  <div class="grid g2 reveal">
+    <div class="card love-card"><div class="card-tag" style="color:var(--love-rose-light);">Venus in D9 · 金星的婚后状态</div><div class="card-head">金星落D9金牛座8宫——旺相！婚后的深层体验远好于婚前</div><div class="card-en">Venus 3°22' Taurus D9 8H · Exalted/Moolatrikona · with Jupiter & Sun & Rahu</div><div class="card-body">金星在D9落入自己最强的位置——金牛座（Moolatrikona/旺相区域），而且在8宫。8宫是深层转化、亲密关系的深度、以及婚姻的持久度。<strong>你在D1中金星Kashta偏高、追求爱情的过程很拧巴，但D9告诉你：一旦进入婚姻，金星的能力会被完全释放。</strong><br><br>D9的8宫同时有木星和太阳——婚后你的自我认同（太阳）和智慧（木星）都会因为这段关系而发生深层蜕变。<span class="g">D9显著升级了D1的婚姻承诺。婚前的纠结和试错不是白费的，它们是在为一段质量很高的婚姻做准备。</span></div></div>
+    <div class="card love-card"><div class="card-tag" style="color:var(--love-rose-light);">D9 Verdict · D9总判</div><div class="card-head">D9升级了D1的婚姻承诺——果实比树好</div><div class="card-en">D9 upgrades D1 marriage promise significantly</div><div class="card-body">D1里的感情有迷雾（罗睺7宫）、有启动障碍（土星Mrita管UL）、有表达困难（金星GK+计都1宫）。但D9给了三个非常正向的信号：<br><br>① 金星D9旺相8宫——婚姻深层体验质量高<br>② 火星D9旺相7宫——伴侣有实力、有行动力<br>③ D9上升天秤——婚后环境文明有序<br><br><strong>结论：你的婚前阶段会比较磨人，但婚姻本身的质量远好于你在恋爱阶段的体验。</strong>恋爱是考试，婚姻是领奖。前提是你得考过去。</div></div>
+  </div>
+
+  <!-- 02.5b 感情时间线 -->
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num c-love">Part II · 02.5b</div><div class="sec-title" style="color:var(--love-rose-light);">感情时间线</div><div class="sec-cn">Love Timeline · 什么时候可能遇到人，什么时候关系容易出事</div></div>
+
+  <div class="hl love reveal">
+    <div class="hl-tag" style="color:var(--love-rose-light);">⚡ Dasha × Love · 大运与感情</div>
+    <div class="hl-title">金星大运收官 → 太阳大运探索期 → 月亮大运定型期</div>
+    <div class="hl-body">
+      <strong>当前：Venus-Ketu（2025.05—2026.07）</strong>——金星大运最后一段计都子运。计都是切断。<strong>如果你现在有一段模糊的关系，这14个月会逼你做一个选择：要么确认，要么清场。</strong>计都不允许暧昧存在。你现在说不算一任——到2026年7月之前，这个定义会变清楚。不是你主动选的，是局势会推着你选。<br><br>
+
+      <strong>Sun-Moon（2026.10.31—2027.05.01，26-27岁）：<span class="g">最值得关注的感情窗口。</span></strong>月亮是DaraKaraka（配偶指标），落5宫（恋爱宫），Ishta 51.11全盘最高。太阳大运里月亮子运=配偶指标被直接激活。<br>
+      ▸ <strong>精确月份锁定：</strong>这段子运里最关键的微运（Pratyantara）是<span class="g">Sun-Moon-Mercury（2026.11.25—12.21）</span>——水星管7宫+10宫，月亮管8宫，三颗星同时激活婚姻和深层转化的主题。如果你在12月前后遇到一个让你心动的人，概率很高是真的。紧接着<span class="g">Sun-Moon-Jupiter微运（2026.12.21—2027.01.14）</span>——丈夫指标木星加入，进一步放大婚姻信号。<br>
+      ▸ <strong>过境叠加：</strong>2026年下半年土星在双鱼座过境4宫（内心/家庭），土星的第7相位（Drishti）打到10宫处女座——精确碰到你本命火星10°59'。火星是Yogakaraka。这意味着事业上会有压力但同时感情场景被激活。木星2026年下半年在双子座过境你的7宫（婚姻宫）——<span class="g">木星直接过境7宫+月亮DK子运=高强度的感情信号。</span><br><br>
+
+      <strong>Sun-Rahu（2027.09.06—2028.07.31，27-28岁）：<span class="r">迷雾期，容易看走眼。</span></strong>罗睺子运激活7宫——非常规的人或关系。<br>
+      ▸ <strong>精确危险窗口：</strong>Sun-Rahu-Venus微运（约2028.01—02月）——金星GK（障碍星）被罗睺子运激活，这一个月你最容易被一个不靠谱但极有吸引力的人迷住。<span class="r">如果在2028年1-2月遇到一个让你觉得千载难逢的人，慢三拍。</span><br>
+      ▸ <strong>过境：</strong>2027-2028年Rahu-Ketu轴过境双鱼-处女（4宫-10宫），罗睺过境叠加Dasha罗睺子运=双重放大效应。这段时间你对关系的判断力会明显打折。<br><br>
+
+      <strong>Sun-Jupiter（2028.07.31—2029.05.19，28-29岁）：<span class="g">贵人+感情双窗口。</span></strong>木星是女命丈夫指标+命主星+AmK。<br>
+      ▸ <strong>精确月份锁定：</strong><span class="g">Sun-Jupiter-Venus微运（2028.09.07—10.26）</span>——金星管11宫（收入/社交），在木星子运里被激活，这7周是通过社交场景遇到重要异性的最高概率窗口。<span class="g">Sun-Jupiter-Moon微运（2029.02.25—03.21）</span>——DK月亮在木星（丈夫指标）子运中再次出现。如果你在2028年秋天认识了一个人，2029年3月前后是确认关系的好时机。<br>
+      ▸ <strong>Double Transit确认：</strong>2028-2029年木星过境双子座→巨蟹座，过境7宫和8宫。土星在双鱼座4宫，第10相位打到1宫射手座——触及你的上升度数22°31'和计都24°37'。<span class="g">Jupiter过7宫+Saturn相位1宫=Double Transit命中婚姻轴线。这是整个太阳大运中婚姻概率最高的窗口。</span><br><br>
+
+      <strong>Sun-Saturn（2029.05.19—2030.05.01，29-30岁）：<span class="r">关系压力测试期。</span></strong>土星管UL+2宫，Mrita状态。<br>
+      ▸ <strong>最难的月份：</strong>Sun-Saturn-Saturn微运（2029.05.19—07.12）——土星在自己的子运和微运里都出场，Mrita态双重叠加。这两个月感情会非常拧巴——想说说不出来，想靠近又本能后退。<span class="r">不要在这两个月做分手决定，你的判断力在这个窗口里是失准的。</span><br>
+      ▸ <strong>转机：</strong>Sun-Saturn-Mercury微运（2029.11.28—2030.01.16）——7宫主水星进场，关系中的沟通会改善，你能说出一些之前一直憋着的话。<br><br>
+
+      <strong>Sun-Mercury（2030.05.01—2031.03.08，30-31岁）：<span class="g">婚姻窗口。</span></strong>水星管7宫+10宫。<br>
+      ▸ <strong>最佳婚姻月份：</strong><span class="g">Sun-Mercury-Mercury微运（2030.05.01—06.14）</span>——7宫主在自己的子运和微运里同时出场，这44天是整个太阳大运中婚姻信号最集中的窗口。如果你已经确认了一个人，这段时间定下来。<span class="g">Sun-Mercury-Jupiter微运（2030.06.14—07.25）</span>——丈夫指标木星紧跟登场，进一步确认。<br>
+      ▸ <strong>过境确认：</strong>2030年土星进白羊座过境5宫（恋爱宫），第7相位打到11宫天秤座——精确碰到你的本命水星7°34'和太阳25°17'。木星在狮子座9宫。<span class="g">Saturn相位触及7宫主水星+Jupiter在9宫（运气宫）=Double Transit再次命中。2030年中是第二个高置信度婚姻触发窗口。</span>
+    </div>
+  </div>
+
+  <div class="hl love reveal">
+    <div class="hl-tag" style="color:var(--love-rose-light);">🔮 Double Transit · 婚姻触发确认</div>
+    <div class="hl-title">Jupiter + Saturn 同时影响7宫才能确认婚姻窗口</div>
+    <div class="hl-body">
+      婚姻不只需要Dasha信号，还需要木星和土星的过境同时触及7宫或7宫主（Double Transit双过境确认）。<br><br>
+      <strong>2028-2029年：</strong>木星过境双子座（你的7宫）——直接过境婚姻宫。同时土星在双鱼座过境你的4宫，土星的7th相位打到10宫（水星管的宫位）。<span class="g">构成Double Transit。2028-2029年是高置信度的婚姻/确认关系窗口。</span><br><br>
+      <strong>2030-2031年：</strong>木星过境狮子座/处女座，分别影响9宫和10宫（水星管的宫位）。土星在白羊座过境5宫，土星7th相位打到11宫（水星所在宫位）。<span class="g">同样构成对7宫主水星的Double Transit。2030年中到2031年初是第二个高置信度婚姻窗口。</span><br><br>
+      <strong>综合判断：</strong>28-31岁之间有两个强婚姻窗口。第一个（2028-2029）更可能是遇到人+确认关系，第二个（2030-2031）更可能是正式结婚或同居。如果你在28岁之前已经有了稳定对象，婚姻会在30-31岁自然发生。如果28岁还没有，29岁大概率会遇到。<strong>不管怎样，你不会是那种35岁还在焦虑有没有人要的人。</strong>
+    </div>
+  </div>
+
+  <div class="grid g2 reveal">
+    <div class="card love-card"><div class="card-tag" style="color:var(--love-rose-light);">Near-term · 近12个月</div><div class="card-head">2025.05—2026.07 · 计都子运 · 清场期</div><div class="card-en">Venus-Ketu AD · Ketu conjunct Asc · 切断与清理</div><div class="card-body">你现在的感情状态处于一个被计都强制清理的阶段。<strong>模糊的东西会变清楚，不值得的东西会自动脱落。</strong>不需要你主动做什么——计都会替你做。你要做的是：当某个关系开始松动的时候，不要硬拉。如果它要走，让它走。空出来的位置是给下一段准备的。</div></div>
+    <div class="card love-card"><div class="card-tag" style="color:var(--love-rose-light);">Golden Window · 黄金窗口</div><div class="card-head">2026.10—2029.05 · 月亮+木星子运 · 遇人期</div><div class="card-en">Sun MD · Moon AD → Rahu AD → Jupiter AD</div><div class="card-body">太阳大运前三年是感情最活跃的时段。月亮DK子运打开恋爱窗口，罗睺子运增加认识新人的机会（虽然带滤镜），木星子运带来最靠谱的相遇概率。<strong>如果你在26-29岁之间认真投入一段关系，30岁结婚的概率很高。</strong>关键词：认真投入。不是等它自己发展，是你主动往前走一步。你的计都1宫会让你习惯后退——这一次试试不后退。</div></div>
+  </div>
+
+  <!-- 02.6 伴侣画像 + 相处雷区 -->
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num c-love">Part II · 02.6</div><div class="sec-title" style="color:var(--love-rose-light);">伴侣画像与相处雷区</div></div>
+
+  <div class="hl love reveal">
+    <div class="hl-tag" style="color:var(--love-rose-light);">Partner Profile · 伴侣画像</div>
+    <div class="hl-title">综合D1和D9——你的伴侣大概率长这样</div>
+    <div class="hl-body">
+      <strong>① 性格：</strong>直接、有主见、脾气不小但来得快去得也快。不太会跟你绕弯子，说话可能有点冲。内在有一种你很难在别人身上找到的真诚和行动力——他/她说到就会做到。（D9火星旺相白羊7宫+DK月亮白羊）<br><br>
+      <strong>② 职业方向：</strong>务实型。大概率从事跟服务、管理、技术、或者某种需要动手解决问题的工作。不太可能是纯文艺型。（木星金牛6宫+7宫主水星Swati星宿，Swati主管商业和独立运作）<br><br>
+      <strong>③ 认识场景：</strong>社交网络或工作场景中自然碰到。不太可能是相亲，更可能是某个共同目标或共同圈子里慢慢接触到的。（7宫主落11宫+木星6宫）<br><br>
+      <strong>④ 年龄：</strong>水星作为7宫主+月亮DK，两颗都是年轻型行星——伴侣给人的感觉会比实际年龄年轻。不太可能差距很大。<br><br>
+      <strong>⑤ 高置信度：</strong>①②③。<strong>中等置信度：</strong>④。
+    </div>
+  </div>
+
+  <div class="hl love reveal">
+    <div class="hl-tag" style="color:var(--love-rose-light);">⚠ Conflict Zones · 相处雷区</div>
+    <div class="hl-title">你们最可能吵架的三个点</div>
+    <div class="hl-body">
+      <strong>① 沟通温差。</strong>你闷，对方直。你说没事，对方信了。你生气对方信了。对方说你怎么不早说，你说你怎么就不能自己感受到。——这个死循环会反复出现，直到你学会先开口。（土星Mrita管3宫 vs D9火星白羊7宫）<br><br>
+      <strong>② 罗睺滤镜退散后的落差期。</strong>恋爱初期你对这个人的印象会偏高。关系稳定后滤镜褪掉，你会经历一段心理落差期——觉得他/她变了。其实没变，是你终于看到了完整的人。<span class="r">这个阶段是最危险的分手窗口。</span>如果你能扛过这段落差，后面会越来越好。（罗睺7宫）<br><br>
+      <strong>③ 自由vs.亲密的拉扯。</strong>计都在1宫让你天然需要独处空间。对方如果是D9火星白羊那种热烈型，你的需要独处会被理解为不在乎。你需要早点跟对方说清楚：我需要自己的时间，不是因为不爱你，是因为我这个人就是这样充电的。
+    </div>
+  </div>
+
+  <!-- 02.7 感情总结 -->
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num c-love">Part II · 02.7</div><div class="sec-title" style="color:var(--love-rose-light);">感情总结 · 五条判断</div></div>
+
+  <div class="plain-list">
+    <div class="plain-item reveal"><div class="plain-num" style="color:var(--love-rose);">01</div><div class="plain-text"><strong>你的感情和事业绑在一起，这是事实。</strong><br>水星同时管7宫和10宫。你不需要先搞定一个再搞定另一个——它们会在同一个时间窗口里同时动。把它当成效率优势，不是负担。</div></div>
+    <div class="plain-item reveal"><div class="plain-num" style="color:var(--love-rose);">02</div><div class="plain-text"><strong>你的恋爱期会比一般人难受，但婚姻本身的质量很高。</strong><br>D1有迷雾和障碍，D9显著升级。恋爱是通关游戏，婚姻是通关奖励。前提是你得在恋爱阶段学会一件事：说出你想要的。</div></div>
+    <div class="plain-item reveal"><div class="plain-num" style="color:var(--love-rose);">03</div><div class="plain-text"><strong>你最容易在罗睺滤镜褪掉的那个阶段弄丢一段好的关系。</strong><br>认识初期觉得完美，稳定后看到缺点就动摇。<span class="r">每次到这个阶段，给自己三个月缓冲期再做决定。</span>三个月之后如果还是觉得不行，再走。</div></div>
+    <div class="plain-item reveal"><div class="plain-num" style="color:var(--love-rose);">04</div><div class="plain-text"><strong>你在感情中的核心课题是学会说出需求。</strong><br>想说我需要你，出口变成你随便吧。想说你刚才那句话伤到我了，出口变成没事。——这个模式不改，换谁来结果都一样。</div></div>
+    <div class="plain-item reveal"><div class="plain-num" style="color:var(--love-rose);">05</div><div class="plain-text"><strong>不可抗力：罗睺7宫的滤镜效应 / 计都1宫的独处需求 / 5宫SAV=21的恋爱期资源匮乏。</strong><br><span class="g">可控区域：表达习惯 / 滤镜退散后的三个月冷静期 / 主动向对方解释你的独处需求。</span></div></div>
+  </div>
+
+  <div class="verdict love reveal">
+    <div class="verdict-label">Love & Marriage Final Verdict</div>
+    <div class="verdict-main">恋爱是考试，婚姻是领奖<br>你这张盘的感情不是困难模式，是延迟满足模式<br>前面的路不好走，但终点值得</div>
+    <div class="verdict-sub">The one who stays after the filter fades — that's the one.</div>
+  </div>
+
+  <div class="chapter-quote reveal">
+    <div class="cq-en">"Love is not about finding the right person,<br>but creating a right relationship."</div>
+    <div class="cq-cn">爱不是找到那个对的人<br>而是跟一个人一起，把关系变成对的</div>
+    <div class="cq-src">— 改编自 Rajneesh</div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════
+     CHAPTER 3 · 事业财富
+══════════════════════════════════════════ -->
+<section id="ch-career">
+
+  <div class="chapter-cover cover-career reveal" data-symbol="♄">
+    <div class="chapter-eyebrow" style="color:var(--career-blue-light);">Chapter III</div>
+    <span class="chapter-icon" style="font-size:64px;animation:orbit 6s linear infinite;filter:drop-shadow(0 0 20px rgba(88,136,224,0.5));">⚙</span>
+    <div class="chapter-num" style="color:var(--career-blue-light);">Part III · 03</div>
+    <div class="chapter-title career-grad">事业财富</div>
+    <div class="chapter-sub">Career & Wealth · The Long Game You Didn't Know You Were Playing</div>
+  </div>
+
+  <!-- 03.1 事业核心配置 -->
+  <div class="reveal"><div class="sec-num c-career">Part III · 03.1</div><div class="sec-title" style="color:var(--career-blue-light);">事业基本面</div><div class="sec-cn">Core Career Configuration · 你的赚钱系统长什么样</div></div>
+
+  <div class="grid g3 reveal">
+    <div class="card career-card"><div class="card-tag" style="color:var(--career-blue-light);">10th Lord · 10宫主</div><div class="card-head">水星 · 天秤11宫 · 同时管7宫</div><div class="card-en">Mercury 7°34' Libra · Kumara · Mudita · Shadbala 7.86 · Sodhya 147</div><div class="card-body"><strong>10宫主水星同时管7宫和10宫——你的事业和关系共享一个引擎。</strong>水星落11宫（目标实现/收入），状态是全盘唯一愉悦的行星。翻译：你做事的过程让你开心，而且你做的事天然朝着能挣到钱的方向走。水星在天秤座，你适合做需要平衡多方利益、分析对比、沟通协调的工作。</div></div>
+    <div class="card career-card"><div class="card-tag" style="color:var(--career-blue-light);">Mars in 10H · 火星在事业宫</div><div class="card-head">处女座10宫 · Yogakaraka</div><div class="card-en">Mars 10°59' Virgo · BK · Vriddha · Sodhya 216 · Kashta 43.13</div><div class="card-body">火星是射手上升的Yogakaraka（5+8宫主），落在10宫。<strong>你在事业宫放了一颗带刺的发动机——产出能力惊人但过程很累。</strong>火星处女座=你做事极度注重细节和流程，半成品让你焦虑。Sodhya 216全盘最高——一旦进入状态，你的工作产出量远超同龄人。但Kashta 43.13意味着每一份产出都伴随消耗。</div></div>
+    <div class="card career-card"><div class="card-tag" style="color:var(--career-blue-light);">AmK · 事业征象星</div><div class="card-head">木星逆行 · 金牛6宫 · 命主星</div><div class="card-en">Jupiter(R) 15°46' Taurus · Yuva · Shadbala 8.26 · Ishta 48.81</div><div class="card-body">事业征象星和命主星是同一颗——木星。你的职业方向跟你的人生方向完全绑定，不存在事业是事业、生活是生活这种划分。木星落6宫=<strong>你的事业路径是服务型的，通过解决具体问题来建立价值</strong>。木星金牛座=偏向务实、可落地、有积累性的工作，不适合风口型赛道。</div></div>
+  </div>
+
+  <div class="hl career reveal" style="background:rgba(40,80,168,0.06);border:1px solid rgba(40,80,168,0.12);">
+    <div class="hl-tag" style="color:var(--career-blue-light);">Overview · 事业底色</div>
+    <div class="hl-title">你是技能驱动型，不是运气驱动型。大器晚成是结构性的，不是因为你慢</div>
+    <div class="hl-body">
+      这张盘的事业逻辑非常清晰：<strong>10宫有火星（Yogakaraka），10宫主水星状态良好落11宫，命主星木星Shadbala全盘最高落6宫。</strong>三个核心事业行星全部达标或超标。你不是没有事业天赋的人——恰恰相反，你的事业配置比大多数人都好。<br><br>
+      但你有两个结构性瓶颈：① 火星Vriddha老年态+Kashta 43.13——启动慢、过程累 ② 太阳AK落陷Mrita——自我定位模糊，不太知道自己适合做什么。<strong>你的问题从来不是能力不够，是方向不清+启动障碍。</strong><br><br>
+      SAV事业相关宫位：10宫30（好）、11宫33（很好）、2宫22（偏低）、12宫18（极低）。<span class="g">进水远大于出水（11宫33 >> 12宫18），长期看你不会缺钱。</span>但2宫22说明钱到手之后的蓄水池偏浅——<span class="r">不是挣不到，是留不住。需要有意识地管理支出。</span>
+    </div>
+  </div>
+
+  <!-- 03.2 Yoga判定 -->
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num c-career">Part III · 03.2</div><div class="sec-title" style="color:var(--career-blue-light);">事业格局判定</div></div>
+
+  <div class="yoga reveal">
+    <div class="ybadge by">✓</div><div class="yb">
+      <div class="yn">Yogakaraka Mars in 10th · 最佳单体配置</div>
+      <div class="yc">Mars rules 5H(Aries) + 8H(Scorpio) · placed in 10H Virgo</div>
+      <div class="yd"><strong>成立。</strong>火星同时管5宫（创造力/智慧产出）和8宫（深度研究/转型/他人资金），落在10宫事业宫。这是射手上升最有力的事业配置：<strong>你靠深度思考、专业技能和解决复杂问题来立足</strong>。不是靠关系，不是靠运气，是靠你比别人想得深、做得细。</div>
+    </div>
+  </div>
+
+  <div class="yoga reveal">
+    <div class="ybadge bp">△</div><div class="yb">
+      <div class="yn">DharmaKarmadhipati Yoga · 法业瑜伽</div>
+      <div class="yc">Mercury (7L/10L) + Sun (9L) in Libra 11H</div>
+      <div class="yd"><strong>条件性成立。</strong>9宫主太阳与10宫主水星同宫于11宫。9（运气）+10（事业）的主星联动，落在11宫（收入/目标）。<strong>你的事业一旦走上正轨，会有一种连锁反应——做对了一件事，后面的门会接连打开。</strong>但太阳落陷Mrita拖低了整体效力，约60%。你需要主动去敲门，不能等门自己开。</div>
+    </div>
+  </div>
+
+  <div class="yoga reveal">
+    <div class="ybadge bp">△</div><div class="yb">
+      <div class="yn">Budha-Aditya Yoga · 日水瑜伽（涉及10宫主）</div>
+      <div class="yc">Mercury + Sun in Libra 11H · 智力与事业绑定</div>
+      <div class="yd"><strong>成立但打折。</strong>水星和太阳在11宫构成日水瑜伽——<strong>你的思考能力和表达能力是你在职场上立足的核心资本</strong>。但太阳落陷让这个格局的亮度减半：你有实力但不太会展示实力。有没有过这种时候——做了一个很好的方案，但汇报的时候说得磕磕巴巴，别人以为你没准备好。</div>
+    </div>
+  </div>
+
+  <div class="yoga reveal">
+    <div class="ybadge bn">✗</div><div class="yb">
+      <div class="yn">Daridra Yoga · 贫困格局</div>
+      <div class="yc">Check: 2L/11L in Dusthana?</div>
+      <div class="yd"><strong>不成立。</strong>2宫主土星落6宫（Upachaya位置，不构成Daridra），11宫主金星落1宫。<strong>你不会穷。</strong>这张盘的财务底线很高——11宫SAV 33+12宫SAV 18的组合保证了进账远大于支出。问题不在于能不能赚到钱，在于赚到钱之后怎么留住。</div>
+    </div>
+  </div>
+
+  <!-- 03.3 DASHA时间轴 · 全文最重要的部分 -->
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num c-career">Part III · 03.3</div><div class="sec-title" style="color:var(--career-blue-light);">Dasha时间轴 · 你的事业时间表</div><div class="sec-cn">The Timeline · 什么时候蹲着，什么时候跑</div></div>
+
+  <div class="hl career reveal" style="background:rgba(40,80,168,0.06);border:1px solid rgba(40,80,168,0.12);">
+    <div class="hl-tag" style="color:var(--career-blue-light);">⚡ Dasha Overview · 大运全景</div>
+    <div class="hl-title">你正站在一个大运交接点上——金星20年大运收官，太阳6年大运即将启动</div>
+    <div class="hl-body">
+      <strong>Venus MD 金星大运（2006.07—2026.07，6-26岁）：</strong>你的整个青少年和大学时代都在金星大运里。金星是你的6宫主（工作/竞争）和11宫主（收入/目标）——功能上偏混合，不纯吉也不纯凶。金星Kashta > Ishta，这20年你的整体体感是：该做的都在做，但过程伴随一种说不清的拧巴感。<br><br>
+      <strong>当前子运：Venus-Ketu（2025.05—2026.07）</strong>——大运收尾阶段。计都子运是切断和清理的时期。<span class="w">你现在正在经历的状态——对过去的东西提不起兴趣，但新的方向还没出现——这就是计都在做的事。</span>这不是你迷茫，是宇宙在帮你清场，给下一幕腾地方。<br><br>
+      <strong>Sun MD 太阳大运（2026.07—2032.07，26-32岁）：</strong>太阳是你的9宫主（运气/贵人/高等教育/远方），但落陷天秤Mrita。6年。这段时间的主题是<span class="r">你的自我定位和社会身份会经历一次根本性的重建</span>。过程不轻松——太阳Kashta 50.31是全盘最高值。但9宫主管运气和贵人，太阳大运期间你会遇到对你职业方向有决定性影响的人或机会。<br><br>
+      <strong>Moon MD 月亮大运（2032.07—2042.07，32-42岁）：</strong>月亮是你的8宫主，落5宫白羊，Ishta 51.11全盘最高。<span class="g">这是你事业的黄金十年。</span>8宫主管转型和深度蜕变，5宫管创造力和智慧产出——32-42岁之间，你会经历一次或多次职业赛道的重大转型，而且转型之后比之前好得多。月亮Ishta最高说明这十年你的主观体验是正向的——虽然有挑战，但你会觉得值。
+    </div>
+  </div>
+
+  <!-- 近期子运逐段展开 -->
+  <div class="reveal"><div class="sec-num c-career" style="margin-top:40px;">Part III · 03.3.1</div><div class="sec-title" style="color:var(--career-blue-light);">近期子运深度分析（2026—2032）</div></div>
+
+  <div class="grid g2 reveal">
+    <div class="card career-card"><div class="card-tag" style="color:var(--career-blue-light);">Sun-Sun · 太阳子运</div><div class="card-head">2026.07—2026.10 · 26岁 · 新大运启动期</div><div class="card-en">9L Sun · Debilitated Libra 11H · Mrita · Kashta 50.31</div><div class="card-body">大运刚换，前三个月是适应期。<strong>会有一种突然不知道该干什么的感觉。</strong>金星大运的惯性还在，但新的方向还没出来。这三个月不要做重大决策。感觉迷茫是正常的——新的操作系统正在安装，进度条还没跑完。</div></div>
+    <div class="card career-card"><div class="card-tag" style="color:var(--career-blue-light);">Sun-Moon · 月亮子运</div><div class="card-head">2026.10.31—2027.05.01 · 26-27岁 · 情绪松动期</div><div class="card-en">8L Moon · Aries 5H · Baala · Ishta 51.11</div><div class="card-body">月亮管8宫（转型），落5宫（创造力）。月亮Ishta全盘最高——<strong>这段时间的心情在整个太阳大运里是最好的。</strong>你会对某个新方向突然产生强烈的兴趣。<br><br>▸ <strong>精确月份：</strong><span class="g">Sun-Moon-Mercury微运（2026.11.25—12.21）</span>——10宫主水星进场，事业方向的新线索最可能在这26天里出现。可能是一次谈话、一个项目邀约、或者你偶然看到的一个机会。<span class="g">Sun-Moon-Jupiter微运（2026.12.21—2027.01.14）</span>——命主星+AmK进场，你的自我定位在年末到年初这三周会有一次跳跃式的清晰感。<br><br>▸ <strong>过境：</strong>2026年底木星在双子座过境7宫（合作宫），第5相位打到11宫天秤座——精确碰到本命水星7°34'。<span class="g">木星相位碰到10宫主=事业方向的信息通过合作关系传来。</span>土星在双鱼座4宫，给内心加压但同时逼出行动力。</div></div>
+  </div>
+
+  <div class="grid g2 reveal">
+    <div class="card career-card"><div class="card-tag" style="color:var(--career-blue-light);">Sun-Mars · 火星子运</div><div class="card-head">2027.05.01—2027.09.06 · 27岁 · 执行力爆发窗口</div><div class="card-en">5/8L Mars(Yogakaraka) · Virgo 10H · Sodhya 216</div><div class="card-body">火星是你的Yogakaraka，落在事业宫。<strong>这4个月是太阳大运里事业产出最高的窗口。</strong><br><br>▸ <strong>精确月份：</strong><span class="g">Sun-Mars-Mercury微运（2027.05.08—05.26）</span>——火星子运开始后第一周，7宫主/10宫主水星就进场。这18天是提交重要方案、面试、或者推动关键项目的最佳时间。<span class="g">Sun-Mars-Venus微运（2027.06.12—07.04）</span>——11宫主金星激活收入端，这三周最容易拿到涨薪或新的收入来源。<br><br>▸ <strong>过境叠加：</strong>2027年中木星在巨蟹座过境8宫（入旺！），木星第5相位打到12宫、第7相位打到2宫（钱）、第9相位打到4宫。木星入旺过境期间事件规模放大。同时土星在双鱼座4宫，第10相位碰到1宫——<strong>事业压力大但成果也大，属于那种累但值的阶段。</strong></div></div>
+    <div class="card career-card"><div class="card-tag" style="color:var(--career-blue-light);">Sun-Rahu · 罗睺子运</div><div class="card-head">2027.09—2028.07 · 27-28岁 · 迷雾期</div><div class="card-en">Rahu Gemini 7H · 放大效应 · 非常规机会</div><div class="card-body">罗睺在7宫——这段时间的事业变动跟人际关系强相关。<strong>可能通过某个合作关系或商业伙伴接触到一个你之前不知道的领域。</strong>罗睺的特点是放大和迷惑——这个机会看起来会非常诱人，但你需要花时间验证它是真金还是镀金。<span class="r">不要在这段时间签长期合约或做大额投资。</span>先试水，不要All in。</div></div>
+  </div>
+
+  <div class="grid g2 reveal">
+    <div class="card career-card"><div class="card-tag" style="color:var(--career-blue-light);">Sun-Jupiter · 木星子运</div><div class="card-head">2028.07.31—2029.05.19 · 28-29岁 · 贵人窗口</div><div class="card-en">1/4L Jupiter(R) · Taurus 6H · Yuva · Shadbala 8.26</div><div class="card-body">木星是命主星+AmK，Shadbala全盘最高。<strong>太阳大运里最重要的一段子运。</strong><br><br>▸ <strong>精确月份：</strong><span class="g">Sun-Jupiter-Venus微运（2028.09.07—10.26）</span>——11宫主金星在命主星子运中被激活，这7周是收入跃升和社交扩展的最佳窗口。通过社交场景结识的人（不限于异性）可能改变你的职业路径。<span class="g">Sun-Jupiter-Mercury微运（2029.04.07—05.19）</span>——10宫主水星在木星子运收尾时登场，这6周适合确认方向、签合同、或正式进入一个新岗位。<br><br>▸ <strong>过境叠加：</strong>2028年下半年木星从巨蟹（8宫，入旺）过渡到狮子座（9宫），木星入旺过境8宫=他人资金/深层合作的好窗口。2029年初木星进入狮子座9宫（运气宫）——<span class="g">木星过境9宫+9宫主太阳的大运=Double Transit命中9宫，运气和贵人信号极强。</span>土星仍在双鱼座4宫——内心有压力，但外部资源在涌入。<br><br>▸ <strong>事件预判：</strong>两颗星管辖宫位的交集——太阳管9宫（贵人/远方/高等教育），木星管1宫+4宫。最可能的场景：<strong>通过一个来自远方或更高平台的人的引荐，进入一个之前接触不到的圈子或职位。</strong></div></div>
+    <div class="card career-card"><div class="card-tag" style="color:var(--career-blue-light);">Sun-Saturn · 土星子运</div><div class="card-head">2029.05.19—2030.05.01 · 29-30岁 · 压力测试期</div><div class="card-en">2/3L Saturn(R) · Taurus 6H · Mrita · Shadbala 4.89</div><div class="card-body">土星管2宫（钱）和3宫（沟通/努力），Mrita死亡态，全盘最低Shadbala。<strong>这一年会感觉特别累。</strong><br><br>▸ <strong>最难的月份：</strong><span class="r">Sun-Saturn-Saturn微运（2029.05.19—07.12）</span>——土星子运+微运双叠加，Mrita×Mrita。这55天是整个太阳大运里最艰难的时段，工作没动力、钱的压力最大、沟通全面失灵。<strong>不要在这段时间辞职或做任何重大决定。</strong>挺过7月就好。Sun-Saturn-Rahu微运（2029.07.12—09.02）——罗睺带来迷惑，<span class="r">可能有人给你一个看起来很好的投资或换工作机会，别信。</span><br><br>▸ <strong>转机月份：</strong><span class="g">Sun-Saturn-Mercury微运（2029.11.28—2030.01.16）</span>——10宫主水星在土星子运里终于进场，这49天会让你在半年的混沌中看到一条路。工作上会有一件具体的事让你重新找到方向感。<span class="g">Sun-Saturn-Jupiter微运（2030.01.16—03.04）</span>——命主星木星登场，自我定位恢复。这段时间虽然还在土星子运里，但最坏的时候已经过去了。<br><br>▸ <strong>过境：</strong>2029-2030年土星从双鱼座4宫过渡到白羊座5宫。土星进白羊=过境你的恋爱宫，第3相位碰到本命月亮白羊2°31'（DK）——感情和财务同时承压。木星2029年在狮子座9宫——<span class="g">木星在9宫是唯一的缓冲，运气方面还有底。</span><br><br><span class="r">铁律：这12个月不借钱给任何人，不做新投资，不冲动辞职。</span>扛过去就行。</div></div>
+  </div>
+
+  <div class="grid g2 reveal">
+    <div class="card career-card"><div class="card-tag" style="color:var(--career-blue-light);">Sun-Mercury · 水星子运</div><div class="card-head">2030.05.01—2031.03.08 · 30-31岁 · 事业起飞预备期</div><div class="card-en">7/10L Mercury · Libra 11H · Kumara · Mudita · Ishta 44.22</div><div class="card-body"><strong>太阳大运里事业质量最高的窗口。</strong>水星同管7宫+10宫落11宫，Mudita愉悦态。<br><br>▸ <strong>精确月份：</strong><span class="g">Sun-Mercury-Mercury微运（2030.05.01—06.14）</span>——10宫主在自己的子运和微运里双重出场，这44天是事业成果最集中的窗口。升职、涨薪、或赛道确认最可能在这里。<span class="g">Sun-Mercury-Jupiter微运（2030.06.14—07.25）</span>——命主星+AmK木星紧接登场，如果水星微运给了你一个机会，木星微运会帮你抓住它。Sun-Mercury-Venus微运（2030.07.25—09.15）——11宫主金星激活收入，<span class="g">这52天收入上升最明显。</span><br><br>▸ <strong>过境叠加：</strong>2030年木星在狮子座（9宫）→处女座（10宫），<span class="g">木星直接过境事业宫！</span>木星过境10宫+10宫主水星的子运=双重事业激活信号。木星过境处女座时会精确碰到本命火星10°59'（Yogakaraka）——<strong>事件规模被木星过境Yogakaraka进一步放大。</strong>土星在白羊座5宫，第7相位打到11宫天秤座——碰到本命水星7°34'。<span class="g">Jupiter过境10宫+Saturn相位11宫7宫主=Double Transit精确命中事业-收入轴线。这是整个太阳大运中事业能量最集中的时段。</span><br><br>▸ <strong>策略：</strong>如果你一直在犹豫要不要转型、跳槽或确认一个方向，<strong>2030年5月到9月是决定的最佳窗口</strong>——Dasha、微运、Transit三层信号全部对齐。水星Mudita会给你足够的信息和清晰的判断力。错过这个窗口，下一个同等级别的事业窗口要等到月亮大运的Moon-Mars子运（2033年）。</div></div>
+    <div class="card career-card"><div class="card-tag" style="color:var(--career-blue-light);">Sun-Venus · 金星子运</div><div class="card-head">2031.07—2032.07 · 31-32岁 · 大运收尾</div><div class="card-en">6/11L Venus · Sagittarius 1H · GK · Baala · Kashta 35.61</div><div class="card-body">金星管6宫（工作）和11宫（收入），但同时是GnatiKaraka（障碍星）。<strong>这一年的工作不会有大问题，但会有一种微妙的不满足感。</strong>挣到钱了但觉得不够，做了事但觉得不是自己真正想做的。这种不满足感不是坏事——它在为下一个月亮大运（32-42岁的黄金十年）做情绪上的铺垫。</div></div>
+  </div>
+
+  <!-- 中期预览 -->
+  <div class="reveal"><div class="sec-num c-career" style="margin-top:40px;">Part III · 03.3.2</div><div class="sec-title" style="color:var(--career-blue-light);">中期关键窗口（2032—2042 月亮大运）</div></div>
+
+  <div class="hl career reveal" style="background:rgba(40,80,168,0.06);border:1px solid rgba(40,80,168,0.12);">
+    <div class="hl-tag" style="color:var(--career-blue-light);">🔥 Golden Decade · 黄金十年预览</div>
+    <div class="hl-title">32-42岁：你的事业天花板在这十年里被拉高</div>
+    <div class="hl-body">
+      <strong>Moon-Moon（2032.07—2033.05，32-33岁）：</strong>大运开局。月亮Ishta 51.11全盘最高——心情好，直觉准。这一年你会对自己的职业方向产生前所未有的清晰感。信任你的直觉。<br><br>
+      <strong>Moon-Mars（2033.05—2033.12，33岁）：</strong>火星Yogakaraka再次被激活——<span class="g">短短7个月但产出量极大。大项目交付、职位跃升、或者开始自己的事业，最可能发生在这个窗口。</span><br><br>
+      <strong>Moon-Jupiter（2035.06—2036.10，35-36岁）：</strong>命主星+AmK被月亮大运激活。<strong>35-36岁是你整个命盘中事业能量最集中的时间段之一。</strong>如果说前面所有的积累都是在铺路，这一段就是开始收割的时候。<br><br>
+      <strong>Moon-Saturn（2036.10—2038.05，36-38岁）：</strong>土星Mrita再次出场——<span class="r">这段时间可能遇到职场政治或财务压力。不是崩盘，是考验。</span>扛过去之后你在行业里的位置会更稳。<br><br>
+      <strong>Moon-Mercury（2038.05—2039.10，38-40岁）：</strong>水星Mudita+月亮Ishta——<span class="g">这是整个月亮大运里主观体验最好的时段。事业有成+内心满足。</span>
+    </div>
+  </div>
+
+  <!-- 03.4 职业方向 -->
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num c-career">Part III · 03.4</div><div class="sec-title" style="color:var(--career-blue-light);">职业赛道与财务诊断</div></div>
+
+  <div class="grid g2 reveal">
+    <div class="card career-card"><div class="card-tag" style="color:var(--career-blue-light);">Career Track · 适合的赛道</div><div class="card-head">分析型/内容型/服务型——需要动脑子的活</div><div class="card-en">10L Mercury(Libra) + Mars(Virgo)10H + AmK Jupiter(Taurus)6H</div><div class="card-body">
+      ① <strong>分析/咨询/策略类</strong>——水星天秤+火星处女=你天然擅长拆解复杂问题、对比方案、给出判断。管理咨询、数据分析、市场研究、用户研究都合适<br><br>
+      ② <strong>内容/传播/教育类</strong>——日水瑜伽在11宫+木星AmK在6宫=你的智力产出能转化为收入。写作、课程开发、知识付费、媒体策划<br><br>
+      ③ <strong>不适合的：</strong>纯销售型（太阳Mrita撑不住高强度社交）、体制内（计都1宫天然不适应官僚体系）、纯体力型（火星Vriddha续航靠脑不靠身）<br><br>
+      <strong>打工vs创业：</strong>先打工后创业。6宫有木星+土星=前10年靠打工建立专业壁垒。35岁之后考虑独立或合伙——但不要独立创业，找一个执行力强的合伙人（你出脑子，对方出手脚）
+    </div></div>
+    <div class="card career-card"><div class="card-tag" style="color:var(--career-blue-light);">Money Flow · 财务诊断</div><div class="card-head">进水强但蓄水池浅——挣得到，留不太住</div><div class="card-en">11H SAV=33 >> 12H SAV=18 · 2H SAV=22 · Saturn(2L) Mrita</div><div class="card-body">
+      <strong>进水管（11宫SAV 33）：</strong>粗。你的收入来源不会少，挣钱能力不是问题。<br><br>
+      <strong>排水口（12宫SAV 18）：</strong>极窄。你不是一个大手大脚的人，日常消耗低。<br><br>
+      <strong>蓄水池（2宫SAV 22）：</strong>偏浅。2宫主土星Mrita——你存钱的意识有，但执行力不足。有没有过这种时候：月初说好这个月要存钱，月底一看又没剩多少，钱花在哪了自己也说不清楚。<br><br>
+      <strong>结论：</strong><span class="g">你不会穷，但如果不主动管理，你会一直停留在挣多少花多少的状态。</span>30岁之前建立一个自动储蓄机制（工资到账直接转走一部分，不过手），你的财务状况会比同龄人好很多。
+    </div></div>
+  </div>
+
+  <!-- 03.5 总结 -->
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num c-career">Part III · 03.5</div><div class="sec-title" style="color:var(--career-blue-light);">事业财富总结 · 五条判断</div></div>
+
+  <div class="plain-list">
+    <div class="plain-item reveal"><div class="plain-num" style="color:var(--career-blue-light);">01</div><div class="plain-text"><strong>你的事业天花板比你现在看到的高得多。</strong><br>10宫有Yogakaraka火星，10宫SAV=30，10宫主水星是全盘唯一愉悦行星——事业硬件没问题。问题出在软件：太阳Mrita导致你对自己的定位始终偏保守。你以为自己是中等水平，实际上你在前20%。</div></div>
+    <div class="plain-item reveal"><div class="plain-num" style="color:var(--career-blue-light);">02</div><div class="plain-text"><strong>2027年夏天和2030年中是太阳大运里两个关键节点。</strong><br>2027.05—2027.09火星子运=事业产出最高的窗口，适合跳槽或推动重大项目。2030.05—2031.03水星子运=事业质量最高的窗口，适合确认赛道和谈升职。两个窗口之间的土星子运（2029-2030）要收着走。</div></div>
+    <div class="plain-item reveal"><div class="plain-num" style="color:var(--career-blue-light);">03</div><div class="plain-text"><strong>32-42岁是你的黄金十年，现在做的一切都是铺垫。</strong><br>月亮大运Ishta 51.11全盘最高+火星Yogakaraka再次被激活。你现在觉得迷茫、觉得方向不清是正常的——太阳大运本来就是探索期，不是收割期。种子在26-32岁种下，33-42岁开花。</div></div>
+    <div class="plain-item reveal"><div class="plain-num" style="color:var(--career-blue-light);">04</div><div class="plain-text"><strong>你的钱从脑子里来。</strong><br>水星Mudita+日水瑜伽+木星AmK=你的核心赚钱能力是思考和表达。任何能让你深度思考并把思考结果转化为可交付成果的工作，都是你的财路。任何不让你动脑子只让你执行的工作，都是在浪费你的配置。</div></div>
+    <div class="plain-item reveal"><div class="plain-num" style="color:var(--career-blue-light);">05</div><div class="plain-text"><strong>不可抗力：启动慢（火星Vriddha） / 自我定位偏低（太阳Mrita） / 存钱困难（2宫主Saturn Mrita）。</strong><br><span class="g">可控区域：选对赛道（分析/内容/服务型） / 建立自动储蓄机制 / 在2027和2030两个窗口主动出击 / 不要在2029土星子运期间冒险。</span></div></div>
+  </div>
+
+  <div class="verdict career reveal" style="background:linear-gradient(135deg,rgba(20,50,120,0.15),var(--surface));border:1px solid rgba(88,136,224,0.25);">
+    <div class="verdict-label">Career & Wealth Final Verdict</div>
+    <div class="verdict-main">你不是跑不快的人，你是起跑慢的人<br>一旦找到方向进入状态，续航力和产出量远超同龄人<br>32岁之前是播种期，32岁之后是收割期</div>
+    <div class="verdict-sub">The engine is powerful. The problem was never horsepower — it was finding the right road.</div>
+  </div>
+
+  <div class="chapter-quote reveal">
+    <div class="cq-en">"Vocation is where your deep gladness<br>meets the world's deep need."</div>
+    <div class="cq-cn">天职是你内心深处的喜悦<br>与世界迫切的需求相遇的地方</div>
+    <div class="cq-src">— Frederick Buechner</div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════
+     CHAPTER 4 · 身心健康
+══════════════════════════════════════════ -->
+<section id="ch-health">
+
+  <div class="chapter-cover" style="background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(18,90,130,0.2) 0%,rgba(8,16,24,0.95) 60%,rgba(4,8,14,0.98) 100%);border:1px solid rgba(24,120,168,0.12);min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px;border-radius:4px;margin:80px 0 60px;" class="reveal" data-symbol="♃">
+    <div class="chapter-eyebrow" style="color:var(--health-cyan-light);">Chapter IV</div>
+    <span style="font-size:64px;margin-bottom:28px;display:block;animation:breathe 4s ease-in-out infinite;filter:drop-shadow(0 0 20px rgba(56,168,216,0.5));">☤</span>
+    <div class="chapter-num" style="color:var(--health-cyan-light);">Part IV · 04</div>
+    <div class="chapter-title" style="background:linear-gradient(135deg,#fff,var(--health-dawn),var(--health-cyan-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">身心图谱</div>
+    <div class="chapter-sub">Body & Mind · The Machine That Carries You</div>
+  </div>
+
+  <!-- 04.1 身体底色 -->
+  <div class="reveal"><div class="sec-num" style="color:var(--health-cyan-light);">Part IV · 04.1</div><div class="sec-title" style="color:var(--health-cyan-light);">身体基本面</div><div class="sec-cn">Physical Constitution · 你的身体硬件配置</div></div>
+
+  <div class="grid g2 reveal">
+    <div class="card" style="border-top:1px solid rgba(56,168,216,0.15);"><div class="card-tag" style="color:var(--health-cyan-light);">1H体质 · Constitution</div><div class="card-head">底子不差，但不是铁打的——慢性消耗型体质</div><div class="card-en">Lagna Lord Jupiter Shadbala 8.26(127%) · 1H SAV=31 · Ketu conjunct Asc</div><div class="card-body">命主星木星Shadbala全盘最高——<strong>你的体质底盘是结实的，不是那种动不动就倒下的类型</strong>。但计都紧贴上升点，给体质加了一层不稳定因素：你不会大病，但小毛病会以一种反复、磨人的方式出现。<br><br>金星也在1宫，Baala婴儿态+Duhkhita——你的身体对情绪的敏感度非常高。心情不好的时候，身体一定跟着出状况。这不是矫情，是你的神经系统和情绪系统天生绑在一起。</div></div>
+    <div class="card" style="border-top:1px solid rgba(56,168,216,0.15);"><div class="card-tag" style="color:var(--health-cyan-light);">6H疾病宫 · Disease House</div><div class="card-head">6宫金牛座双星驻扎——消化系统和代谢是长期课题</div><div class="card-en">6H Taurus · Jupiter(R)+Saturn(R) · 6H SAV=28</div><div class="card-body">6宫有木星和土星同宫，都逆行。金牛座管喉咙、甲状腺和消化系统。<strong>你最容易出问题的区域：肠胃、甲状腺功能、代谢速度。</strong><br><br>① 木星在6宫逆行=消化系统的吸收效率不稳定。同样的东西别人吃了没事，你吃了可能胀气或者不舒服<br><br>② 土星在6宫Mrita=慢性、低烈度、反复出现的健康问题。不是一刀切的大病，是那种查不出什么但就是不舒服的状态<br><br>③ 6宫SAV=28刚好及格——你跟疾病的战斗力是够的，扛得住，但过程拧巴</div></div>
+  </div>
+
+  <div class="grid g2 reveal">
+    <div class="card" style="border-top:1px solid rgba(56,168,216,0.15);"><div class="card-tag" style="color:var(--health-cyan-light);">心理底色 · Mental Health Baseline</div><div class="card-head">全盘情绪底色偏沉——不是抑郁，是默认灰色</div><div class="card-en">6/7 planets Deena/Duhkhita · 0 planets Jaagrita · Sun Kashta 50.31</div><div class="card-body">七颗行星里六颗情绪状态是悲伤或痛苦，没有一颗处于清醒状态。这不是说你有抑郁症——<strong>而是你的情绪默认值比大多数人低一档</strong>。别人的默认状态是中性偏好，你的默认状态是中性偏安静。<br><br>你不需要治疗，但你需要建立一套自己的情绪补给系统。别人可能不需要刻意维护心情，你需要。运动、写东西、跟懂你的人聊天——这些不是锦上添花，是刚需。<br><br>太阳Kashta 50.31——<strong>你的自我消耗是全盘最大的健康风险</strong>。不是外界给你的压力，是你自己给自己的内部审查。</div></div>
+    <div class="card" style="border-top:1px solid rgba(56,168,216,0.15);"><div class="card-tag" style="color:var(--health-cyan-light);">Sleep · 睡眠</div><div class="card-head">睡眠是你的健康晴雨表</div><div class="card-en">12H SAV=18(极低) · Moon Swapna(梦境态) · Mars Sushupta(沉睡)</div><div class="card-body">12宫管睡眠和休息，SAV=18全盘最低。月亮Swapna梦境态——<strong>你的睡眠质量天然不高</strong>。不一定是失眠，更多是睡了但不解乏、梦多、半夜醒来、或者入睡前脑子关不掉。<br><br>你的睡眠直接反映你的整体状态。如果连续一周睡不好，不要硬扛——这是你的身体在发信号，说明最近情绪或压力超标了。先处理情绪，睡眠自然会好。</div></div>
+  </div>
+
+  <!-- 04.2 健康时间线 -->
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num" style="color:var(--health-cyan-light);">Part IV · 04.2</div><div class="sec-title" style="color:var(--health-cyan-light);">健康风险时间窗</div><div class="sec-cn">Risk Windows · 哪些年份身体要收着走</div></div>
+
+  <div class="hl" style="background:rgba(24,120,168,0.06);border:1px solid rgba(24,120,168,0.12);position:relative;" class="reveal">
+    <div style="content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--health-cyan-light);border-radius:4px 0 0 4px;"></div>
+    <div class="hl-tag" style="color:var(--health-cyan-light);">⚠ Health Risk Timeline</div>
+    <div class="hl-title">需要特别注意身体的年份</div>
+    <div class="hl-body">
+      <strong>2026.07—2026.10（太阳-太阳子运）：</strong>大运切换期，身体会有一个适应反应。可能表现为持续疲劳、免疫力下降、容易感冒。不是大问题，但这段时间不要透支。太阳Mrita+Kashta 50.31——大运刚开始时你的生命力在最低点。<br><br>
+      <strong>2029.05—2030.05（太阳-土星子运，29-30岁）：<span class="r">中等风险期。</span></strong>土星Mrita管2宫（饮食习惯）和3宫，落6宫（疾病宫）。这12个月关节、骨骼、牙齿、皮肤容易出问题。<strong>慢性的东西会在这段时间冒头——如果之前有什么一直拖着没看的小毛病，这段时间它会逼你去面对。</strong>情绪上这也是整个太阳大运最压抑的一段，注意调节。<br><br>
+      <strong>2033.12—2035.06（月亮-罗睺子运，33-35岁）：<span class="r">需要警惕。</span></strong>罗睺在7宫，月亮大运期间被激活——罗睺的特点是突发性和不可预测性。这段时间要注意：过敏体质加重、不明原因的身体不适、误诊风险。<strong>看病的时候多问一个医生的意见。</strong>罗睺制造的健康问题经常一开始被误判。<br><br>
+      <strong>2036.10—2038.05（月亮-土星子运，36-38岁）：<span class="r">高压期。</span></strong>土星再次被激活。月亮管8宫（慢性病/深层转化），土星管2宫落6宫Mrita——<strong>这段时间是整个命盘中身体最需要保养的窗口之一。</strong>如果30岁之前没有建立好的运动和饮食习惯，这段时间的消耗会加倍。骨骼、关节、消化系统是重点。心理上可能经历一段低谷期——不要硬扛，该寻求帮助就寻求帮助。<br><br>
+      <strong>长期关注：</strong>火星Vriddha+Kashta 43.13在10宫处女座——<span class="w">长期高压工作导致的职业倦怠是你的终身健康课题</span>。火星管的区域：头部（偏头痛）、血液（贫血风险）、炎症体质。处女座对应肠道和神经系统。你的身体会用这些方式告诉你：够了，该停一停了。
+    </div>
+  </div>
+
+  <!-- 04.3 身心总结 -->
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+  <div class="reveal"><div class="sec-num" style="color:var(--health-cyan-light);">Part IV · 04.3</div><div class="sec-title" style="color:var(--health-cyan-light);">身心总结 · 四条判断</div></div>
+
+  <div class="plain-list">
+    <div class="plain-item reveal"><div class="plain-num" style="color:var(--health-cyan-light);">01</div><div class="plain-text"><strong>你的身体底子比你以为的好，但你的消耗方式比你以为的凶。</strong><br>木星Shadbala 8.26保底，但太阳Kashta 50.31+火星Kashta 43.13在持续透支。你不会突然倒下，你会慢慢磨损。等你发现的时候已经欠了很多债。</div></div>
+    <div class="plain-item reveal"><div class="plain-num" style="color:var(--health-cyan-light);">02</div><div class="plain-text"><strong>肠胃和情绪在你身上是同一件事。</strong><br>6宫金牛双星+月亮管8宫——你心情不好的时候，肚子最先知道。反过来也成立：肚子不舒服的时候去查查最近有没有什么情绪没消化。</div></div>
+    <div class="plain-item reveal"><div class="plain-num" style="color:var(--health-cyan-light);">03</div><div class="plain-text"><strong>29-30岁和36-38岁是两个必须收着走的窗口。</strong><br>土星子运期间身体和心理同时承压。提前建立运动习惯和睡眠纪律，是你能给30岁以后的自己准备的最好的礼物。</div></div>
+    <div class="plain-item reveal"><div class="plain-num" style="color:var(--health-cyan-light);">04</div><div class="plain-text"><strong>你的情绪排气阀不是可选项，是必需品。</strong><br>写作、运动、跟信任的人聊天——至少选一样，变成习惯。你的情绪如果长期堵在里面，它会从身体找出口。偏头痛、肠胃问题、莫名的疲劳——都是情绪的变装。</div></div>
+  </div>
+
+  <div class="verdict" style="background:linear-gradient(135deg,rgba(18,90,130,0.15),var(--surface));border:1px solid rgba(56,168,216,0.25);border-radius:4px;padding:32px 36px;text-align:center;margin:28px 0;" class="reveal">
+    <div class="verdict-label">Health Verdict · 身心总判定</div>
+    <div class="verdict-main">底盘结实但消耗模式凶猛<br>不会突然倒下，会慢慢磨损<br>情绪管理 = 健康管理 · 这在你身上不是比喻</div>
+    <div class="verdict-sub">Your body doesn't lie — it just speaks in a language you haven't learned to read yet.</div>
+  </div>
+
+  <div class="chapter-quote reveal">
+    <div class="cq-en">"The wound is the place<br>where the light enters you."</div>
+    <div class="cq-cn">伤口是光进入你的地方</div>
+    <div class="cq-src">— Rumi</div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════
+     白话实录 · 15+ 条
+══════════════════════════════════════════ -->
+<section id="finale">
+  <div class="ornament-divider reveal"><div class="ornament-diamond"></div></div>
+
+  <div class="reveal" style="text-align:center;margin-bottom:60px;">
+    <div class="sec-num c-gold">Epilogue · 终章</div>
+    <div style="font-family:var(--font-display);font-size:clamp(20px,3vw,32px);font-weight:700;color:var(--gold-light);line-height:1.2;">白话实录</div>
+    <div class="sec-cn" style="margin-top:10px;">写给此刻的你</div>
+  </div>
+
+  <div style="max-width:860px;margin:0 auto;">
+    <div class="plain-item reveal"><div class="plain-num">01</div><div class="plain-text"><strong>有没有过这种时候——忙了一整天，躺下来却觉得今天什么都没做。</strong><br>这不是你效率低。是你心里有一把尺，量出来的永远是不够。太阳落陷Mrita的人不是做得少，是做完之后的满足感被自动过滤掉了。你做了十件事，脑子里记住的是那一件没做好的。试一个笨办法：睡前在手机备忘录里写三件今天做完了的事。不用是大事。洗了碗、回了邮件、出门走了一圈。写下来。你会发现你的一天比你以为的满。</div></div>
+
+    <div class="plain-item reveal"><div class="plain-num">02</div><div class="plain-text"><strong>你有一种能力是你自己不知道的：你能让身边的人觉得被理解。</strong><br>月亮Ishta 51.11+水星Mudita——你的感受力和思维力是这张盘里最顺畅的两个系统。别人跟你聊完天会觉得舒服，因为你真的在听，而且你听到的比他们说出来的多。这个能力不只是社交优势，它可以变成职业资本。任何需要你理解人、分析人、替人梳理问题的工作——咨询、用户研究、内容策划、心理相关——你都会比大多数人做得好。因为你不是在分析，你是在感受。</div></div>
+
+    <div class="plain-item reveal"><div class="plain-num">03</div><div class="plain-text"><strong>你问事业和感情是不是绑在一起。是的。但这对你来说是好事。</strong><br>很多人的事业和感情是两条线——一条好的时候另一条不一定跟着好。你的水星同管7宫+10宫，两条线接在同一个引擎上。现实意义是：当你在事业上找到方向的时候，感情的清晰感也会跟着来。不用分开想，不用分开解决。你只需要找到一件让你觉得"对"的事，其他的会自己排列。</div></div>
+
+    <div class="plain-item reveal"><div class="plain-num">04</div><div class="plain-text"><strong>你大概已经发现了——你帮别人想问题特别清楚，轮到自己就转不动。</strong><br>这不是你的问题，是木星逆行6宫的标准表现。你的智慧天然朝外转，面朝自己的时候反而卡壳。所以给你一个具体的方法：下次你在自己的事上纠结的时候，假装这是朋友的事。朋友来找你说了同样的情况，你会怎么建议她？你给她的建议，就是你应该听的答案。</div></div>
+
+    <div class="plain-item reveal"><div class="plain-num">05</div><div class="plain-text"><strong>你问人在命运中能发挥多少主观能动性——这个问题本身就是你的主观能动性在发挥作用。</strong><br>大多数人不问这个问题。不问不是因为他们已经知道答案了，是因为他们不敢问。你敢问，说明你已经走在了前面。具体的能动性空间在哪里？在你的每一个子运转换期。太阳大运里你有两个明确的好窗口（2027年夏天、2030年中），和一个必须守住的坏窗口（2029-2030土星子运）。知道窗口在哪里，就知道什么时候踩油门、什么时候踩刹车。这就是能动性。</div></div>
+
+    <div class="plain-item reveal"><div class="plain-num">06</div><div class="plain-text"><strong>有没有过这种时候——做了一件事，没人看见，你就开始怀疑这件事有没有意义。</strong><br>这是太阳落陷在你身上最具体的表现。你的自我价值感和外部反馈之间有一根看不见的线。线断了，你就断电。你改不了这根线的存在，但你可以做一件事：找到一个你愿意在没人看见的时候也继续做的东西。不是因为有人会看见，是因为做它本身让你觉得踏实。当你找到这个东西的时候，那根线就不再是你唯一的电源了。</div></div>
+
+    <div class="plain-item reveal"><div class="plain-num">07</div><div class="plain-text"><strong>你的淡然是真的，不是装的。但淡然和不投入之间只隔着一步。</strong><br>计都合相上升给了你一种天然的超脱感——别人看重的东西你可以很轻地放下。这是天赋。但要警惕它变成惯性：因为放下太容易了，所以你可能在不该放下的时候也放下了。一段值得经营的关系、一个需要坚持的方向、一次应该争取的机会。在你想要放手之前问自己一个问题：我是真的觉得不值得了，还是因为继续下去需要我付出更多而我懒得付出？如果是后者，那就再撑一下。</div></div>
+
+    <div class="plain-item reveal"><div class="plain-num">08</div><div class="plain-text"><strong>你不需要现在就找到方向。但你需要现在就开始动手做点什么。</strong><br>火星Vriddha老年态在10宫的意思是：你的行动力不是不存在，是需要一个启动推力。而最好的启动推力不是想清楚了，是先做起来。哪怕做的不是最终的那件事。你在做的过程中会比在想的过程中更快找到方向。你的水星Mudita会在你动手做事的时候给你反馈——做着做着你会突然知道哪条路是对的。但前提是你得先上路。</div></div>
+
+    <div class="plain-item reveal"><div class="plain-num">09</div><div class="plain-text"><strong>你身边可能有人觉得你冷淡。你不冷淡。你只是把温度放在了别人看不到的地方。</strong><br>金星1宫+月亮5宫——你心里有很多温度，但计都合相上升+土星Mrita管3宫让你的温度表达系统出了点问题。你不需要变成一个外向的、热烈的人。但你可以试一件小事：下次你心里对一个人有好感、感激、或者觉得温暖的时候，把它说出来。不用长篇大论，一句话就行。你会发现，说出来之后你自己也会觉得轻松。</div></div>
+
+    <div class="plain-item reveal"><div class="plain-num">10</div><div class="plain-text"><strong>最后说一句不太好听的。你看完这份报告，知道了自己的牌面，知道了窗口在哪里——然后最可能发生的事是：你把它存起来，偶尔翻一翻，但该纠结的还是纠结，该拖的还是拖。</strong><br>这不是你的错。你的盘就是这样设定的——知道和做到之间隔着一整个火星Vriddha+太阳Mrita的距离。但知道了总比不知道好。因为下次你又在某个深夜开始怀疑自己的时候，你至少可以翻开这份报告看一眼：哦，原来这不是我的问题，是盘面写好的。然后你会轻一点。轻一点就够了。</div></div>
+  </div>
+
+  <!-- 金刚经 -->
+  <div class="reveal" style="text-align:center;padding:80px 24px 40px;margin-top:60px;border-top:1px solid rgba(201,168,76,0.08);">
+    <div style="font-family:var(--font-display);font-size:10px;letter-spacing:4px;color:rgba(201,168,76,0.4);text-transform:uppercase;margin-bottom:32px;">
+      《金刚经》· Diamond Sutra · 终极句号
+    </div>
+    <div style="font-family:var(--font-cn);font-size:clamp(18px,3vw,28px);font-weight:700;color:var(--gold-light);line-height:2.2;letter-spacing:4px;">
+      一切有为法，如梦幻泡影，<br>
+      如露亦如电，应作如是观。
+    </div>
+    <div style="margin-top:24px;font-family:var(--font-italic);font-style:italic;font-size:18px;color:rgba(201,168,76,0.5);letter-spacing:3px;line-height:1.9;">
+      All conditioned phenomena<br>
+      are like dreams, illusions, bubbles, and shadows,<br>
+      like dewdrops and a lightning flash.<br>
+      Contemplate them thus.
+    </div>
+  </div>
+
+  <div class="reveal" style="text-align:center;padding:40px 24px 20px;font-size:11px;color:rgba(216,208,192,0.3);line-height:1.8;max-width:700px;margin:0 auto;">
+    ⚠ 本报告仅供参考，不构成任何投资、医疗、婚姻决策建议。AI分析存在系统性偏差，建议将所有预测的确定性折半理解。命盘分析基于古典Parashari Jyotish体系，分析结果需结合实际情况综合判断。人生掌握在自己手中，星图是导航仪，不是判决书。
+  </div>
+
+</section>
+
+</div>
+
+<script>
+(function(){const c=document.getElementById('starfield'),x=c.getContext('2d');let W,H,s=[],n=[];function r(){W=c.width=innerWidth;H=c.height=innerHeight}function i(){s=[];n=[];for(let j=0;j<220;j++)s.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+.1,o:Math.random()*.7+.1,speed:Math.random()*.15+.02,pulse:Math.random()*Math.PI*2,ps:Math.random()*.008+.003,g:Math.random()>.85});for(let j=0;j<5;j++)n.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*200+80,o:Math.random()*.04+.01,dx:(Math.random()-.5)*.08,dy:(Math.random()-.5)*.08})}function d(){x.clearRect(0,0,W,H);n.forEach(e=>{const g=x.createRadialGradient(e.x,e.y,0,e.x,e.y,e.r);g.addColorStop(0,`rgba(201,168,76,${e.o*1.5})`);g.addColorStop(.5,`rgba(80,30,100,${e.o})`);g.addColorStop(1,'transparent');x.fillStyle=g;x.beginPath();x.arc(e.x,e.y,e.r,0,Math.PI*2);x.fill();e.x+=e.dx;e.y+=e.dy;if(e.x<-e.r)e.x=W+e.r;if(e.x>W+e.r)e.x=-e.r;if(e.y<-e.r)e.y=H+e.r;if(e.y>H+e.r)e.y=-e.r});s.forEach(e=>{e.pulse+=e.ps;const o=e.o*(.6+.4*Math.sin(e.pulse));x.beginPath();x.arc(e.x,e.y,e.r,0,Math.PI*2);if(e.g){x.fillStyle=`rgba(201,168,76,${o})`;if(e.r>.8){const gg=x.createRadialGradient(e.x,e.y,0,e.x,e.y,e.r*3);gg.addColorStop(0,`rgba(201,168,76,${o*.3})`);gg.addColorStop(1,'transparent');x.fillStyle=gg;x.beginPath();x.arc(e.x,e.y,e.r*3,0,Math.PI*2);x.fill();x.fillStyle=`rgba(201,168,76,${o})`;x.beginPath();x.arc(e.x,e.y,e.r,0,Math.PI*2)}}else x.fillStyle=`rgba(200,210,255,${o})`;x.fill();e.y+=e.speed;if(e.y>H){e.y=0;e.x=Math.random()*W}});requestAnimationFrame(d)}r();i();d();addEventListener('resize',()=>{r();i()})})();
+(function(){const r=document.querySelectorAll('.reveal');new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting)t.target.classList.add('visible')})},{threshold:.08}).observe&&r.forEach(t=>new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting)t.target.classList.add('visible')})},{threshold:.08}).observe(t))})();
+(function(){const s=document.querySelectorAll('section[id]'),d=document.querySelectorAll('.nav-dot');const io=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting){d.forEach(x=>x.classList.remove('active'));const a=document.querySelector(`.nav-dot[href="#${t.target.id}"]`);if(a)a.classList.add('active')}})},{threshold:.3});s.forEach(x=>io.observe(x))})();
+document.querySelectorAll('.card').forEach(c=>{c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%')})});
+</script>
+</body>
+</html>
