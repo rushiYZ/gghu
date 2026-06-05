@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>印度占星 · 健康分析速查表</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0f;
+    color: #e8e0d0;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    padding: 40px 20px;
+    line-height: 1.8;
+  }
+  .page {
+    max-width: 800px;
+    margin: 0 auto 80px;
+    background: linear-gradient(135deg, #12121a 0%, #0d0d14 100%);
+    border: 1px solid #2a2535;
+    border-radius: 16px;
+    padding: 50px 40px;
+  }
+  .page-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #d4af37;
+    margin-bottom: 8px;
+    letter-spacing: 4px;
+  }
+  .page-subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #d4af37;
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2a2535;
+  }
+  .section-title:first-of-type { margin-top: 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 30px;
+  }
+  th {
+    background: #1a1525;
+    color: #d4af37;
+    font-weight: 600;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 14px;
+    border: 1px solid #2a2535;
+  }
+  td {
+    padding: 10px 16px;
+    font-size: 14px;
+    border: 1px solid #1e1a28;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #0f0e16; }
+  tr:nth-child(odd) td { background: #13121c; }
+  .planet-icon { font-size: 18px; margin-right: 4px; }
+  .tag-strong {
+    display: inline-block;
+    background: #1a3a1a;
+    color: #6fcf6f;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin: 2px;
+  }
+  .tag-good {
+    display: inline-block;
+    background: #1a2a3a;
+    color: #6fb3cf;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin: 2px;
+  }
+  .tag-neutral {
+    display: inline-block;
+    background: #2a2a1a;
+    color: #b0a870;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin: 2px;
+  }
+  .tag-weak {
+    display: inline-block;
+    background: #3a2a1a;
+    color: #cf8f4f;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin: 2px;
+  }
+  .tag-worst {
+    display: inline-block;
+    background: #3a1a1a;
+    color: #cf5f5f;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin: 2px;
+  }
+  .note {
+    font-size: 13px;
+    color: #777;
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: #0d0c14;
+    border-left: 3px solid #d4af37;
+    border-radius: 4px;
+  }
+  .footer {
+    text-align: center;
+    color: #444;
+    font-size: 12px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== 表一：行星-身体系统 ==================== -->
+<div class="page">
+  <div class="page-title">表一 · 行星与身体系统</div>
+  <div class="page-subtitle">每颗行星天然管辖的身体领域</div>
+
+  <table>
+    <tr>
+      <th style="width:100px;">行星</th>
+      <th>管辖的身体系统</th>
+      <th style="width:140px;">疾病性质</th>
+    </tr>
+    <tr>
+      <td><span class="planet-icon">☀️</span> 太阳</td>
+      <td>心脏、脊椎、眼睛（尤其右眼）、骨骼</td>
+      <td>血压、发热、心脏病、视力衰退</td>
+    </tr>
+    <tr>
+      <td><span class="planet-icon">🌙</span> 月亮</td>
+      <td>胃、体液、乳腺、子宫、内分泌系统</td>
+      <td>消化不良、浮肿、激素失调、情绪病</td>
+    </tr>
+    <tr>
+      <td><span class="planet-icon">♂️</span> 火星</td>
+      <td>血液、肌肉、头部、红细胞</td>
+      <td>急性炎症、外伤、手术、烧伤、高热</td>
+    </tr>
+    <tr>
+      <td><span class="planet-icon">☿</span> 水星</td>
+      <td>神经系统、皮肤、肺/支气管、手指</td>
+      <td>神经衰弱、皮肤病、呼吸道、口吃</td>
+    </tr>
+    <tr>
+      <td><span class="planet-icon">♃</span> 木星</td>
+      <td>肝脏、血糖、脂肪代谢、耳朵、大腿</td>
+      <td>脂肪肝、糖尿病、肥胖、胆固醇高</td>
+    </tr>
+    <tr>
+      <td><span class="planet-icon">♀️</span> 金星</td>
+      <td>肾脏、生殖系统、面部、咽喉</td>
+      <td>肾病、生殖系统炎症、面部痤疮、糖类代谢</td>
+    </tr>
+    <tr>
+      <td><span class="planet-icon">♄</span> 土星</td>
+      <td>骨骼关节、牙齿、膝盖、皮肤（老化）</td>
+      <td>慢性病、关节炎、骨质疏松、抑郁、衰老</td>
+    </tr>
+    <tr>
+      <td><span class="planet-icon">☊</span> 罗睺</td>
+      <td>免疫异常、毒素积累、心理</td>
+      <td>过敏、中毒、误诊、疑难杂症、心理异常</td>
+    </tr>
+    <tr>
+      <td><span class="planet-icon">☋</span> 计都</td>
+      <td>免疫系统、病毒防御</td>
+      <td>不明原因的病、病毒感染、反复发作的怪病</td>
+    </tr>
+  </table>
+
+  <div class="note">
+    <strong>用法：</strong>看某颗星坐在健康相关的宫位里（1/2/6/8宫），查这张表就知道它带来的是什么性质的健康问题。
+  </div>
+</div>
+
+<!-- ==================== 表二：星座-身体部位 ==================== -->
+<div class="page">
+  <div class="page-title">表二 · 星座与身体部位</div>
+  <div class="page-subtitle">十二星座从头到脚的身体对应</div>
+
+  <table>
+    <tr>
+      <th style="width:100px;">星座</th>
+      <th>对应身体区域</th>
+      <th style="width:100px;">守护星</th>
+    </tr>
+    <tr><td>♈ 白羊座</td><td>头部、面部、大脑</td><td>火星</td></tr>
+    <tr><td>♉ 金牛座</td><td>颈部、咽喉、甲状腺、面部下半</td><td>金星</td></tr>
+    <tr><td>♊ 双子座</td><td>肩膀、手臂、手指、肺/支气管</td><td>水星</td></tr>
+    <tr><td>♋ 巨蟹座</td><td>胸部、胃、食管、乳腺</td><td>月亮</td></tr>
+    <tr><td>♌ 狮子座</td><td>心脏、上背部、脊椎</td><td>太阳</td></tr>
+    <tr><td>♍ 处女座</td><td>腹部、肠道、消化系统</td><td>水星</td></tr>
+    <tr><td>♎ 天秤座</td><td>腰部、肾脏、皮肤</td><td>金星</td></tr>
+    <tr><td>♏ 天蝎座</td><td>生殖系统、排泄系统、膀胱</td><td>火星</td></tr>
+    <tr><td>♐ 射手座</td><td>臀部、大腿、坐骨神经、肝脏</td><td>木星</td></tr>
+    <tr><td>♑ 摩羯座</td><td>膝盖、骨骼、关节</td><td>土星</td></tr>
+    <tr><td>♒ 水瓶座</td><td>小腿、脚踝、循环系统</td><td>土星</td></tr>
+    <tr><td>♓ 双鱼座</td><td>双脚、淋巴系统、免疫系统</td><td>木星</td></tr>
+  </table>
+
+  <div class="note">
+    <strong>用法：</strong>看健康相关的宫位落在什么星座，查这张表就知道问题出在身体的哪个区域。
+  </div>
+</div>
+
+<!-- ==================== 表三：宫位-身体部位 ==================== -->
+<div class="page">
+  <div class="page-title">表三 · 宫位与身体部位</div>
+  <div class="page-subtitle">十二宫位从头到脚的身体对应</div>
+
+  <table>
+    <tr>
+      <th style="width:80px;">宫位</th>
+      <th>对应身体区域</th>
+      <th style="width:160px;">健康意义</th>
+    </tr>
+    <tr><td>第1宫</td><td>头部、整体体质、外貌</td><td>身体底子、免疫总开关</td></tr>
+    <tr><td>第2宫</td><td>脸、嘴、牙齿、咽喉、颈椎、甲状腺、右眼</td><td>饮食习惯、颈部疾病</td></tr>
+    <tr><td>第3宫</td><td>肩膀、手臂、手指、耳朵</td><td>上肢与听力</td></tr>
+    <tr><td>第4宫</td><td>胸腔、心肺、乳房</td><td>心肺功能</td></tr>
+    <tr><td>第5宫</td><td>上腹部、胃、心智/精神</td><td>消化与精神状态</td></tr>
+    <tr><td>第6宫</td><td>下腹部、肠道、免疫系统</td><td>疾病的入口</td></tr>
+    <tr><td>第7宫</td><td>腰部、肾脏、膀胱</td><td>泌尿与腰部</td></tr>
+    <tr><td>第8宫</td><td>生殖系统、排泄系统</td><td>慢性病与突发病</td></tr>
+    <tr><td>第9宫</td><td>臀部、大腿</td><td>下肢上段</td></tr>
+    <tr><td>第10宫</td><td>膝盖、骨骼、关节</td><td>骨骼系统</td></tr>
+    <tr><td>第11宫</td><td>小腿、脚踝、循环系统</td><td>血液循环</td></tr>
+    <tr><td>第12宫</td><td>双脚、左眼、睡眠</td><td>住院、睡眠障碍</td></tr>
+  </table>
+
+  <div class="note">
+    <strong>用法：</strong>跟表二叠加使用。星座和宫位同时指向同一区域=高确定性。指向不同区域=两个方向都留意但优先级降低。
+  </div>
+</div>
+
+<!-- ==================== 表四：行星强弱位置 ==================== -->
+<div class="page">
+  <div class="page-title">表四 · 行星尊贵度速查</div>
+  <div class="page-subtitle">每颗行星从最强到最弱的位置</div>
+
+  <!-- 太阳 -->
+  <div class="section-title">☀️ 太阳 Sun</div>
+  <table>
+    <tr>
+      <th style="width:120px;">状态</th>
+      <th>所在星座</th>
+    </tr>
+    <tr><td><span class="tag-strong">入旺·最强</span></td><td>白羊座</td></tr>
+    <tr><td><span class="tag-strong">自宫·很强</span></td><td>狮子座</td></tr>
+    <tr><td><span class="tag-good">友方·舒服</span></td><td>射手座、巨蟹座、天蝎座</td></tr>
+    <tr><td><span class="tag-neutral">中性·一般</span></td><td>双子座</td></tr>
+    <tr><td><span class="tag-weak">敌方·不适</span></td><td>金牛座、天秤座、摩羯座、水瓶座</td></tr>
+    <tr><td><span class="tag-worst">落陷·最弱</span></td><td>天秤座</td></tr>
+  </table>
+
+  <!-- 月亮 -->
+  <div class="section-title">🌙 月亮 Moon</div>
+  <table>
+    <tr>
+      <th style="width:120px;">状态</th>
+      <th>所在星座</th>
+    </tr>
+    <tr><td><span class="tag-strong">入旺·最强</span></td><td>金牛座</td></tr>
+    <tr><td><span class="tag-strong">自宫·很强</span></td><td>巨蟹座</td></tr>
+    <tr><td><span class="tag-good">友方·舒服</span></td><td>狮子座、双子座、处女座</td></tr>
+    <tr><td><span class="tag-neutral">中性·一般</span></td><td>白羊座、射手座、双鱼座、天秤座、摩羯座、水瓶座</td></tr>
+    <tr><td><span class="tag-worst">落陷·最弱</span></td><td>天蝎座</td></tr>
+  </table>
+  <div class="note">月亮天然没有敌人，大多数位置是中性。但落陷在天蝎座时情绪和身体都会很挣扎。</div>
+
+  <!-- 火星 -->
+  <div class="section-title">♂️ 火星 Mars</div>
+  <table>
+    <tr>
+      <th style="width:120px;">状态</th>
+      <th>所在星座</th>
+    </tr>
+    <tr><td><span class="tag-strong">入旺·最强</span></td><td>摩羯座</td></tr>
+    <tr><td><span class="tag-strong">自宫·很强</span></td><td>白羊座、天蝎座</td></tr>
+    <tr><td><span class="tag-good">友方·舒服</span></td><td>狮子座、巨蟹座、射手座、双鱼座</td></tr>
+    <tr><td><span class="tag-neutral">中性·一般</span></td><td>金牛座、天秤座、水瓶座</td></tr>
+    <tr><td><span class="tag-weak">敌方·不适</span></td><td>双子座、处女座</td></tr>
+    <tr><td><span class="tag-worst">落陷·最弱</span></td><td>巨蟹座</td></tr>
+  </table>
+  <div class="note">巨蟹座既是火星的友方（月亮是朋友），又是火星的落陷位。落陷优先——位置再好，落陷就是落陷。</div>
+
+  <!-- 水星 -->
+  <div class="section-title">☿ 水星 Mercury</div>
+  <table>
+    <tr>
+      <th style="width:120px;">状态</th>
+      <th>所在星座</th>
+    </tr>
+    <tr><td><span class="tag-strong">入旺·最强</span></td><td>处女座</td></tr>
+    <tr><td><span class="tag-strong">自宫·很强</span></td><td>双子座、处女座</td></tr>
+    <tr><td><span class="tag-good">友方·舒服</span></td><td>金牛座、天秤座、狮子座</td></tr>
+    <tr><td><span class="tag-neutral">中性·一般</span></td><td>白羊座、天蝎座、射手座、摩羯座、水瓶座</td></tr>
+    <tr><td><span class="tag-weak">敌方·不适</span></td><td>巨蟹座</td></tr>
+    <tr><td><span class="tag-worst">落陷·最弱</span></td><td>双鱼座</td></tr>
+  </table>
+
+  <!-- 木星 -->
+  <div class="section-title">♃ 木星 Jupiter</div>
+  <table>
+    <tr>
+      <th style="width:120px;">状态</th>
+      <th>所在星座</th>
+    </tr>
+    <tr><td><span class="tag-strong">入旺·最强</span></td><td>巨蟹座</td></tr>
+    <tr><td><span class="tag-strong">自宫·很强</span></td><td>射手座、双鱼座</td></tr>
+    <tr><td><span class="tag-good">友方·舒服</span></td><td>白羊座、狮子座、天蝎座</td></tr>
+    <tr><td><span class="tag-neutral">中性·一般</span></td><td>摩羯座、水瓶座</td></tr>
+    <tr><td><span class="tag-weak">敌方·不适</span></td><td>双子座、处女座、金牛座、天秤座</td></tr>
+    <tr><td><span class="tag-worst">落陷·最弱</span></td><td>摩羯座</td></tr>
+  </table>
+
+  <!-- 金星 -->
+  <div class="section-title">♀️ 金星 Venus</div>
+  <table>
+    <tr>
+      <th style="width:120px;">状态</th>
+      <th>所在星座</th>
+    </tr>
+    <tr><td><span class="tag-strong">入旺·最强</span></td><td>双鱼座</td></tr>
+    <tr><td><span class="tag-strong">自宫·很强</span></td><td>金牛座、天秤座</td></tr>
+    <tr><td><span class="tag-good">友方·舒服</span></td><td>摩羯座、水瓶座、双子座、处女座</td></tr>
+    <tr><td><span class="tag-neutral">中性·一般</span></td><td>白羊座、天蝎座、射手座、双鱼座</td></tr>
+    <tr><td><span class="tag-weak">敌方·不适</span></td><td>巨蟹座、狮子座</td></tr>
+    <tr><td><span class="tag-worst">落陷·最弱</span></td><td>处女座</td></tr>
+  </table>
+
+  <!-- 土星 -->
+  <div class="section-title">♄ 土星 Saturn</div>
+  <table>
+    <tr>
+      <th style="width:120px;">状态</th>
+      <th>所在星座</th>
+    </tr>
+    <tr><td><span class="tag-strong">入旺·最强</span></td><td>天秤座</td></tr>
+    <tr><td><span class="tag-strong">自宫·很强</span></td><td>摩羯座、水瓶座</td></tr>
+    <tr><td><span class="tag-good">友方·舒服</span></td><td>金牛座、天秤座、双子座、处女座</td></tr>
+    <tr><td><span class="tag-neutral">中性·一般</span></td><td>射手座、双鱼座</td></tr>
+    <tr><td><span class="tag-weak">敌方·不适</span></td><td>白羊座、巨蟹座、狮子座、天蝎座</td></tr>
+    <tr><td><span class="tag-worst">落陷·最弱</span></td><td>白羊座</td></tr>
+  </table>
+
+  <!-- 罗睺计都 -->
+  <div class="section-title">☊ 罗睺 Rahu ＆ ☋ 计都 Ketu</div>
+  <table>
+    <tr>
+      <th style="width:80px;">行星</th>
+      <th>舒服的位置</th>
+      <th>不舒服的位置</th>
+    </tr>
+    <tr>
+      <td>☊ 罗睺</td>
+      <td><span class="tag-good">双子</span> <span class="tag-good">处女</span> <span class="tag-good">金牛</span> <span class="tag-good">水瓶</span></td>
+      <td><span class="tag-weak">射手</span> <span class="tag-weak">双鱼</span> <span class="tag-weak">天蝎</span> <span class="tag-weak">狮子</span></td>
+    </tr>
+    <tr>
+      <td>☋ 计都</td>
+      <td><span class="tag-good">射手</span> <span class="tag-good">双鱼</span> <span class="tag-good">天蝎</span></td>
+      <td><span class="tag-weak">双子</span> <span class="tag-weak">处女</span> <span class="tag-weak">金牛</span></td>
+    </tr>
+  </table>
+  <div class="note">罗睺和计都的尊贵度在不同流派中有争议，以上为较通用的版本。罗睺偏土星+水星属性，计都偏火星+木星属性。</div>
+</div>
+
+<!-- ==================== 表五：健康分析流程 ==================== -->
+<div class="page">
+  <div class="page-title">表五 · 健康分析流程卡</div>
+  <div class="page-subtitle">看自己 + 看父母的完整步骤</div>
+
+  <div class="section-title">看自己的健康</div>
+  <table>
+    <tr>
+      <th style="width:80px;">步骤</th>
+      <th>操作</th>
+    </tr>
+    <tr><td>第一步</td><td>找到你的 <strong>1宫、2宫、6宫、8宫</strong></td></tr>
+    <tr><td>第二步</td><td>看每个宫里有没有星。有星 → 第三步。空宫 → 第四步</td></tr>
+    <tr><td>第三步</td><td>有星的宫位，三表叠加：<br/>表一（行星）= 什么性质的病<br/>表二（星座）= 什么部位<br/>表三（宫位）= 再确认什么部位</td></tr>
+    <tr><td>第四步</td><td>空宫 → 找宫主星跑到哪了、状态好不好</td></tr>
+    <tr><td>第五步</td><td>单独查 <strong>土星、火星、罗睺、计都</strong> 各自坐在哪个宫位，那个宫位自动多一个健康标记</td></tr>
+    <tr><td>第六步</td><td>数每个身体方向有几层指向。<strong>≥3层优先查，2层留意，1层先不管</strong></td></tr>
+  </table>
+
+  <div class="section-title">看父母的健康</div>
+  <table>
+    <tr>
+      <th style="width:80px;">步骤</th>
+      <th>操作</th>
+    </tr>
+    <tr><td>第一步</td><td>母亲 = <strong>4宫</strong>，父亲 = <strong>9宫</strong><br/>找到宫主星 = 代表星<br/>天然星：太阳 = 父亲，月亮 = 母亲（所有人通用）</td></tr>
+    <tr><td>第二步</td><td>看代表星 <strong>强不强</strong>（查表四）、旁边 <strong>有没有凶星</strong></td></tr>
+    <tr><td>第三步</td><td>看代表星的 <strong>定位星</strong>（代表星所在星座的守护星）状态好不好</td></tr>
+    <tr><td>第四步</td><td>算衍生宫位：<br/>疾病宫 = 从父/母宫位数第 <strong>6</strong> 个<br/>寿命宫 = 数第 <strong>8</strong> 个<br/>危险位 = 数第 <strong>2</strong> 个和第 <strong>7</strong> 个</td></tr>
+    <tr><td>第五步</td><td>疾病宫里有什么星 → 三表叠加，跟看自己一样</td></tr>
+    <tr><td>第六步</td><td>数层数。≥3层优先查，2层留意，1层先放</td></tr>
+  </table>
+
+  <div class="section-title">衍生宫位速算表</div>
+  <table>
+    <tr>
+      <th></th>
+      <th>疾病宫<br/><small>（数第6个）</small></th>
+      <th>寿命宫<br/><small>（数第8个）</small></th>
+      <th>危险位①<br/><small>（数第2个）</small></th>
+      <th>危险位②<br/><small>（数第7个）</small></th>
+    </tr>
+    <tr>
+      <td><strong>母亲（4宫起）</strong></td>
+      <td>= 9宫</td>
+      <td>= 11宫</td>
+      <td>= 5宫</td>
+      <td>= 10宫</td>
+    </tr>
+    <tr>
+      <td><strong>父亲（9宫起）</strong></td>
+      <td>= 2宫</td>
+      <td>= 4宫</td>
+      <td>= 10宫</td>
+      <td>= 3宫</td>
+    </tr>
+  </table>
+</div>
+
+<div class="footer">
+  印度占星 · 健康分析速查表 · 仅供学习参考
+</div>
+
+</body>
+</html>
