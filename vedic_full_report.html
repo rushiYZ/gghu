@@ -1,0 +1,1054 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vedic Astro Full Report - Pushya</title>
+<style>
+:root {
+  --ink: #1d2430;
+  --muted: #687386;
+  --line: #d9dee7;
+  --soft: #f5f7fa;
+  --paper: #ffffff;
+  --accent: #2f6f73;
+  --accent-2: #8a5b2e;
+  --code: #f0f3f6;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+  color: var(--ink);
+  background: #eef1f4;
+  line-height: 1.72;
+}
+.layout { display: grid; grid-template-columns: 292px minmax(0, 1fr); min-height: 100vh; }
+aside {
+  position: sticky; top: 0; height: 100vh; overflow: auto;
+  padding: 28px 20px; background: #17212b; color: #eef5f5;
+  border-right: 1px solid rgba(255,255,255,.08);
+}
+.brand { font-size: 20px; font-weight: 700; line-height: 1.25; margin-bottom: 8px; }
+.meta { font-size: 12px; color: #b9c6ca; margin-bottom: 22px; }
+.toc-group { margin: 18px 0; }
+.toc-label { color: #8ed1ca; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+aside a { display: block; color: #eef5f5; text-decoration: none; padding: 6px 0; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,.06); }
+aside a:hover { color: #b5ebe5; }
+main { padding: 36px; }
+.cover, .report-section {
+  max-width: 1040px; margin: 0 auto 22px; background: var(--paper);
+  border: 1px solid var(--line); border-radius: 8px; padding: 34px 40px;
+  box-shadow: 0 12px 32px rgba(22,31,42,.07);
+}
+.cover h1 { font-size: 32px; line-height: 1.2; margin: 0 0 12px; }
+.cover p { color: var(--muted); margin: 6px 0; }
+.cover-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
+.stat { background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 14px; }
+.stat b { display: block; font-size: 22px; color: var(--accent); }
+.section-kicker { color: var(--accent-2); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+h1 { font-size: 28px; line-height: 1.25; margin: 8px 0 22px; }
+h2 { font-size: 22px; margin-top: 30px; border-top: 1px solid var(--line); padding-top: 22px; }
+h3 { font-size: 18px; margin-top: 24px; }
+h4, h5, h6 { font-size: 15px; margin-top: 20px; color: var(--accent); }
+p { margin: 12px 0; }
+a { color: var(--accent); }
+blockquote { margin: 14px 0; padding: 10px 14px; background: #f7f1ea; border-left: 4px solid var(--accent-2); color: #44382e; }
+pre { overflow: auto; background: var(--code); border: 1px solid var(--line); border-radius: 8px; padding: 14px; line-height: 1.45; }
+code { font-family: Consolas, "Cascadia Mono", monospace; font-size: .92em; background: var(--code); padding: 1px 4px; border-radius: 4px; }
+pre code { padding: 0; background: transparent; }
+ul { padding-left: 22px; }
+.table-wrap { overflow: auto; margin: 16px 0 20px; border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; }
+th, td { border-bottom: 1px solid var(--line); padding: 9px 10px; text-align: left; vertical-align: top; }
+th { background: #edf4f3; color: #213d40; font-weight: 700; position: sticky; top: 0; }
+tr:nth-child(even) td { background: #fafbfc; }
+.print-note { margin-top: 18px; font-size: 13px; color: var(--muted); }
+@media (max-width: 860px) {
+  .layout { display: block; }
+  aside { position: relative; height: auto; padding: 22px; }
+  main { padding: 16px; }
+  .cover, .report-section { padding: 24px 18px; }
+  .cover-grid { grid-template-columns: 1fr; }
+  table { min-width: 720px; }
+}
+@media print {
+  body { background: white; }
+  .layout { display: block; }
+  aside { display: none; }
+  main { padding: 0; }
+  .cover, .report-section { box-shadow: none; border: 0; page-break-after: always; margin: 0; max-width: none; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside>
+  <div class="brand">Vedic Astro<br>Full Report</div>
+  <div class="meta">Pushya report ? Generated 2026-06-18 11:24<br>21 source files</div>
+  <nav><div class="toc-group"><div class="toc-label">Data</div>
+<a href="#1-structured-data-md">元信息</a>
+</div>
+<div class="toc-group"><div class="toc-label">Core</div>
+<a href="#2-p1-overview-md">P1 Overview - Pushya Core Snapshot</a>
+<a href="#3-p2a-planets-md">P2A Planets - Sun And Moon</a>
+<a href="#4-p2b-planets-md">P2B Planets - Mars And Mercury</a>
+<a href="#5-p2c-planets-md">P2C Planets - Jupiter And Venus</a>
+<a href="#6-p2d-planets-md">P2D Planets - Saturn, Rahu, Ketu</a>
+<a href="#7-p3a-d9-md">P3A D9 Audit</a>
+<a href="#8-p3b-divisional-md">P3B Divisional Cross-Check</a>
+<a href="#9-p4a-houses-md">P4A Houses 1-6</a>
+<a href="#10-p4b-houses-md">P4B Houses 7-12</a>
+<a href="#11-p5a-life-md">P5A Life Synthesis - Blocks 1-5</a>
+<a href="#12-p5b-life-md">P5B Life Synthesis - Blocks 6-10</a>
+</div>
+<div class="toc-group"><div class="toc-label">Career</div>
+<a href="#13-career-phase12-md">Career Phase 1-2 - Field Position And Talent Structure</a>
+<a href="#14-career-phase3-md">Career Phase 3 - D9 Deep Audit</a>
+<a href="#15-career-phase4a-md">Career Phase 4A - Career Image And Narrative</a>
+<a href="#16-career-phase4b-md">Career Phase 4B - Strategic Decision</a>
+<a href="#17-career-phase4c-md">Career Phase 4C - Risks And Architect Notes</a>
+</div>
+<div class="toc-group"><div class="toc-label">Love</div>
+<a href="#18-love-step1-md">Love Step 1 - 原盘感情代码</a>
+<a href="#19-love-step2-md">Love Step 2 - 时间窗口</a>
+<a href="#20-love-step3-md">Love Step 3 - 建议与风险</a>
+</div>
+<div class="toc-group"><div class="toc-label">Appendix</div>
+<a href="#21-appendix-md">Appendix - Technical Notes</a>
+</div></nav>
+</aside>
+<main>
+  <section class="cover">
+    <h1>Vedic Astro Full Report</h1>
+    <p>?????D:\Codex\vedic-astro</p>
+    <p>?????? Markdown ???????????????????????????????????????</p>
+    <div class="cover-grid">
+      <div class="stat"><b>21</b>????</div>
+      <div class="stat"><b>Pushya</b>Ayanamsa</div>
+      <div class="stat"><b>HTML</b>??????</div>
+    </div>
+    <p class="print-note">??????????? Ctrl+P ?????? PDF?</p>
+  </section>
+  <section class="report-section" id="1-structured-data-md">
+  <div class="section-kicker">Data ? structured_data.md</div>
+  <h1>元信息</h1>
+  <h3 id="元信息">元信息</h3>
+<pre><code>出生日期: 2001-08-12
+出生时间: 23:14
+出生地点: Fugu, China (111.05, 39.0166667)
+时间精度: PDF exact to seconds; stored as minute-level 23:14
+时间来源: JHora PDF: hyf23.14.pdf
+有效精度: ±分钟级
+验证轨道: 轨道1-标准
+读盘方式: vedic-calculator直接计算
+Ayanamsa: Pushya (22.7390°)
+Node模式: Mean Node</code></pre>
+<h3 id="用户信息">用户信息</h3>
+<pre><code>性别: unknown
+感情状态: unknown</code></pre>
+<h3 id="d1基础数据">D1基础数据</h3>
+<h4 id="行星位置">行星位置</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>行星</th><th>星座</th><th>宫位</th><th>度数</th><th>逆行</th></tr></thead>
+<tbody>
+<tr><td>Lagna</td><td>Aries</td><td>1</td><td>24°49&#x27;</td><td>—</td></tr>
+<tr><td>Sun</td><td>Cancer</td><td>4</td><td>27°14&#x27;</td><td>D</td></tr>
+<tr><td>Moon</td><td>Taurus</td><td>2</td><td>0°53&#x27;</td><td>D</td></tr>
+<tr><td>Mars</td><td>Scorpio</td><td>8</td><td>26°04&#x27;</td><td>D</td></tr>
+<tr><td>Mercury</td><td>Leo</td><td>5</td><td>4°15&#x27;</td><td>D</td></tr>
+<tr><td>Jupiter</td><td>Gemini</td><td>3</td><td>13°42&#x27;</td><td>D</td></tr>
+<tr><td>Venus</td><td>Gemini</td><td>3</td><td>20°08&#x27;</td><td>D</td></tr>
+<tr><td>Saturn</td><td>Taurus</td><td>2</td><td>20°27&#x27;</td><td>D</td></tr>
+<tr><td>Rahu</td><td>Gemini</td><td>3</td><td>11°07&#x27;</td><td>R</td></tr>
+<tr><td>Ketu</td><td>Sagittarius</td><td>9</td><td>11°07&#x27;</td><td>R</td></tr>
+</tbody>
+</table></div>
+<h4 id="chara-karakas">Chara Karakas</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>排名</th><th>Karaka</th><th>行星</th><th>有效度数</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>AK</td><td>Sun</td><td>27.2°</td><td>灵魂指示星</td></tr>
+<tr><td>2</td><td>AmK</td><td>Mars</td><td>26.1°</td><td>事业指示星</td></tr>
+<tr><td>3</td><td>BK</td><td>Saturn</td><td>20.4°</td><td>兄弟指示星</td></tr>
+<tr><td>4</td><td>MK</td><td>Venus</td><td>20.1°</td><td>母亲指示星</td></tr>
+<tr><td>5</td><td>PK</td><td>Jupiter</td><td>13.7°</td><td>子女指示星</td></tr>
+<tr><td>6</td><td>GK</td><td>Mercury</td><td>4.3°</td><td>障碍指示星</td></tr>
+<tr><td>7</td><td>DK</td><td>Moon</td><td>0.9°</td><td>配偶指示星</td></tr>
+</tbody>
+</table></div>
+<blockquote>KN Rao 7K体系：Sun~Saturn共7颗参与排序</blockquote>
+<h4 id="dk-配偶指示星">DK (配偶指示星)</h4>
+<pre><code>DK = Moon（7K主用）
+8K参考 DK = Moon</code></pre>
+<h4 id="nakshatra">Nakshatra</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>行星</th><th>Nakshatra</th><th>Pada</th><th>Nakshatra主</th></tr></thead>
+<tbody>
+<tr><td>Lagna</td><td>Bharani</td><td>4</td><td>Venus</td></tr>
+<tr><td>Sun</td><td>Ashlesha</td><td>4</td><td>Mercury</td></tr>
+<tr><td>Moon</td><td>Krittika</td><td>2</td><td>Sun</td></tr>
+<tr><td>Mars</td><td>Jyeshtha</td><td>3</td><td>Mercury</td></tr>
+<tr><td>Mercury</td><td>Magha</td><td>2</td><td>Ketu</td></tr>
+<tr><td>Jupiter</td><td>Ardra</td><td>3</td><td>Rahu</td></tr>
+<tr><td>Venus</td><td>Punarvasu</td><td>1</td><td>Jupiter</td></tr>
+<tr><td>Saturn</td><td>Rohini</td><td>4</td><td>Moon</td></tr>
+<tr><td>Rahu</td><td>Ardra</td><td>2</td><td>Rahu</td></tr>
+<tr><td>Ketu</td><td>Moola</td><td>4</td><td>Ketu</td></tr>
+</tbody>
+</table></div>
+<h4 id="特殊点位">特殊点位</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>点位</th><th>星座</th><th>宫位</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>AL (Arudha Lagna)</td><td>Gemini</td><td>3</td><td>外在形象/世人眼中的你</td></tr>
+<tr><td>UL (Upapada Lagna)</td><td>Gemini</td><td>3</td><td>婚姻/伴侣宫</td></tr>
+</tbody>
+</table></div>
+<h3 id="量化数据">量化数据</h3>
+<h4 id="shadbala">Shadbala</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>行星</th><th>Rupas</th><th>百分比</th><th>排名</th><th>强弱</th><th>IshtaPhala</th><th>KashtaPhala</th><th>calc基准</th><th>数据来源/校验</th></tr></thead>
+<tbody>
+<tr><td>Moon</td><td>8.0</td><td>133.3%</td><td>1</td><td>中</td><td>41.31</td><td>4.71</td><td>8.0 / 133.3%</td><td>calc</td></tr>
+<tr><td>Venus</td><td>7.75</td><td>140.9%</td><td>2</td><td>中</td><td>28.06</td><td>31.41</td><td>7.75 / 140.9%</td><td>calc</td></tr>
+<tr><td>Mercury</td><td>7.24</td><td>103.4%</td><td>3</td><td>中</td><td>13.47</td><td>27.6</td><td>7.24 / 103.4%</td><td>calc</td></tr>
+<tr><td>Jupiter</td><td>7.1</td><td>109.2%</td><td>4</td><td>中</td><td>29.69</td><td>17.54</td><td>7.1 / 109.2%</td><td>calc</td></tr>
+<tr><td>Sun</td><td>6.81</td><td>136.2%</td><td>5</td><td>中</td><td>34.45</td><td>19.89</td><td>6.81 / 136.2%</td><td>calc</td></tr>
+<tr><td>Mars</td><td>6.22</td><td>124.4%</td><td>6</td><td>中</td><td>42.8</td><td>16.66</td><td>6.22 / 124.4%</td><td>calc</td></tr>
+<tr><td>Saturn</td><td>5.36</td><td>107.2%</td><td>7</td><td>中</td><td>15.41</td><td>42.71</td><td>5.36 / 107.2%</td><td>calc</td></tr>
+</tbody>
+</table></div>
+<blockquote>来源: vedic-calculator引擎 (PyJHora + 9项修正)</blockquote>
+<blockquote>如导入同一出生时间的JHora PDF，逐行对照Shadbala；有PDF的行展示PDF值，不一致时标注“calc与PDF不一致；当前采用PDF”。</blockquote>
+<blockquote>强: ≥150% | 中: 100-149% | 弱: &lt;100%</blockquote>
+<h4 id="sav-sarvashtakavarga">SAV (Sarvashtakavarga)</h4>
+<h5 id="原始值-按星座-用于校验">原始值（按星座，用于校验）</h5>
+<div class="table-wrap"><table>
+<thead><tr><th>Ar</th><th>Ta</th><th>Ge</th><th>Cn</th><th>Le</th><th>Vi</th><th>Li</th><th>Sc</th><th>Sg</th><th>Cp</th><th>Aq</th><th>Pi</th><th>总计</th></tr></thead>
+<tbody>
+<tr><td>33</td><td>30</td><td>27</td><td>28</td><td>24</td><td>28</td><td>26</td><td>23</td><td>26</td><td>33</td><td>31</td><td>28</td><td>337</td></tr>
+</tbody>
+</table></div>
+<h5 id="宫位映射-按宫位-供core-career-love直接使用">宫位映射（按宫位，供core/career/love直接使用）</h5>
+<blockquote>Lagna星座: Aries</blockquote>
+<div class="table-wrap"><table>
+<thead><tr><th>1宫</th><th>2宫</th><th>3宫</th><th>4宫</th><th>5宫</th><th>6宫</th><th>7宫</th><th>8宫</th><th>9宫</th><th>10宫</th><th>11宫</th><th>12宫</th></tr></thead>
+<tbody>
+<tr><td>33</td><td>30</td><td>27</td><td>28</td><td>24</td><td>28</td><td>26</td><td>23</td><td>26</td><td>33</td><td>31</td><td>28</td></tr>
+</tbody>
+</table></div>
+<h4 id="bav-bhinnashtakavarga">BAV (Bhinnashtakavarga)</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>行星</th><th>Ar</th><th>Ta</th><th>Ge</th><th>Cn</th><th>Le</th><th>Vi</th><th>Li</th><th>Sc</th><th>Sg</th><th>Cp</th><th>Aq</th><th>Pi</th><th>行和</th></tr></thead>
+<tbody>
+<tr><td>Sun</td><td>3</td><td>5</td><td>4</td><td>5</td><td>3</td><td>2</td><td>4</td><td>4</td><td>4</td><td>4</td><td>6</td><td>4</td><td>48</td></tr>
+<tr><td>Moon</td><td>4</td><td>3</td><td>3</td><td>3</td><td>3</td><td>6</td><td>4</td><td>2</td><td>5</td><td>5</td><td>5</td><td>6</td><td>49</td></tr>
+<tr><td>Mars</td><td>4</td><td>5</td><td>3</td><td>1</td><td>2</td><td>3</td><td>2</td><td>5</td><td>4</td><td>4</td><td>3</td><td>3</td><td>39</td></tr>
+<tr><td>Mercury</td><td>4</td><td>6</td><td>6</td><td>4</td><td>5</td><td>3</td><td>3</td><td>5</td><td>5</td><td>5</td><td>5</td><td>3</td><td>54</td></tr>
+<tr><td>Jupiter</td><td>6</td><td>4</td><td>4</td><td>5</td><td>5</td><td>7</td><td>4</td><td>4</td><td>4</td><td>5</td><td>4</td><td>4</td><td>56</td></tr>
+<tr><td>Venus</td><td>6</td><td>3</td><td>5</td><td>5</td><td>4</td><td>4</td><td>4</td><td>1</td><td>4</td><td>6</td><td>6</td><td>4</td><td>52</td></tr>
+<tr><td>Saturn</td><td>6</td><td>4</td><td>2</td><td>5</td><td>2</td><td>3</td><td>5</td><td>2</td><td>0</td><td>4</td><td>2</td><td>4</td><td>39</td></tr>
+</tbody>
+</table></div>
+<h4 id="vimsottari-dasha">Vimsottari Dasha</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>大运</th><th>行星</th><th>起始</th><th>结束</th><th>年数</th></tr></thead>
+<tbody>
+<tr><td></td><td>Sun</td><td>1999-09</td><td>2005-09</td><td>6</td></tr>
+<tr><td></td><td>Moon</td><td>2005-09</td><td>2015-09</td><td>10</td></tr>
+<tr><td></td><td>Mars</td><td>2015-09</td><td>2022-09</td><td>7</td></tr>
+<tr><td>→当前</td><td>Rahu</td><td>2022-09</td><td>2040-09</td><td>18</td></tr>
+<tr><td></td><td>Jupiter</td><td>2040-09</td><td>2056-09</td><td>16</td></tr>
+<tr><td></td><td>Saturn</td><td>2056-09</td><td>2075-09</td><td>19</td></tr>
+<tr><td></td><td>Mercury</td><td>2075-09</td><td>2092-09</td><td>17</td></tr>
+<tr><td></td><td>Ketu</td><td>2092-09</td><td>2099-09</td><td>7</td></tr>
+<tr><td></td><td>Venus</td><td>2099-09</td><td>2119-09</td><td>20</td></tr>
+</tbody>
+</table></div>
+<h4 id="sun大运-antardasha">Sun大运 Antardasha</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>小运</th><th>起始</th><th>结束</th></tr></thead>
+<tbody>
+<tr><td>Sun-Sun</td><td>1999-09-20</td><td>2000-01-07</td></tr>
+<tr><td>Sun-Moon</td><td>2000-01-07</td><td>2000-07-08</td></tr>
+<tr><td>Sun-Mars</td><td>2000-07-08</td><td>2000-11-13</td></tr>
+<tr><td>Sun-Rahu</td><td>2000-11-13</td><td>2001-10-07</td></tr>
+<tr><td>Sun-Jupiter</td><td>2001-10-07</td><td>2002-07-27</td></tr>
+<tr><td>Sun-Saturn</td><td>2002-07-27</td><td>2003-07-09</td></tr>
+<tr><td>Sun-Mercury</td><td>2003-07-09</td><td>2004-05-14</td></tr>
+<tr><td>Sun-Ketu</td><td>2004-05-14</td><td>2004-09-19</td></tr>
+<tr><td>Sun-Venus</td><td>2004-09-19</td><td>2005-09-19</td></tr>
+</tbody>
+</table></div>
+<h4 id="moon大运-antardasha">Moon大运 Antardasha</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>小运</th><th>起始</th><th>结束</th></tr></thead>
+<tbody>
+<tr><td>Moon-Moon</td><td>2005-09-19</td><td>2006-07-21</td></tr>
+<tr><td>Moon-Mars</td><td>2006-07-21</td><td>2007-02-19</td></tr>
+<tr><td>Moon-Rahu</td><td>2007-02-19</td><td>2008-08-20</td></tr>
+<tr><td>Moon-Jupiter</td><td>2008-08-20</td><td>2009-12-20</td></tr>
+<tr><td>Moon-Saturn</td><td>2009-12-20</td><td>2011-07-21</td></tr>
+<tr><td>Moon-Mercury</td><td>2011-07-21</td><td>2012-12-19</td></tr>
+<tr><td>Moon-Ketu</td><td>2012-12-19</td><td>2013-07-20</td></tr>
+<tr><td>Moon-Venus</td><td>2013-07-20</td><td>2015-03-21</td></tr>
+<tr><td>Moon-Sun</td><td>2015-03-21</td><td>2015-09-20</td></tr>
+</tbody>
+</table></div>
+<h4 id="mars大运-antardasha">Mars大运 Antardasha</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>小运</th><th>起始</th><th>结束</th></tr></thead>
+<tbody>
+<tr><td>Mars-Mars</td><td>2015-09-20</td><td>2016-02-16</td></tr>
+<tr><td>Mars-Rahu</td><td>2016-02-16</td><td>2017-03-05</td></tr>
+<tr><td>Mars-Jupiter</td><td>2017-03-05</td><td>2018-02-09</td></tr>
+<tr><td>Mars-Saturn</td><td>2018-02-09</td><td>2019-03-21</td></tr>
+<tr><td>Mars-Mercury</td><td>2019-03-21</td><td>2020-03-17</td></tr>
+<tr><td>Mars-Ketu</td><td>2020-03-17</td><td>2020-08-14</td></tr>
+<tr><td>Mars-Venus</td><td>2020-08-14</td><td>2021-10-14</td></tr>
+<tr><td>Mars-Sun</td><td>2021-10-14</td><td>2022-02-18</td></tr>
+<tr><td>Mars-Moon</td><td>2022-02-18</td><td>2022-09-20</td></tr>
+</tbody>
+</table></div>
+<h4 id="rahu大运-antardasha-当前">Rahu大运 Antardasha（当前）</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>小运</th><th>起始</th><th>结束</th></tr></thead>
+<tbody>
+<tr><td>Rahu-Rahu</td><td>2022-09-20</td><td>2025-06-02</td></tr>
+<tr><td>Rahu-Jupiter</td><td>2025-06-02</td><td>2027-10-26</td></tr>
+<tr><td>Rahu-Saturn</td><td>2027-10-26</td><td>2030-09-01</td></tr>
+<tr><td>Rahu-Mercury</td><td>2030-09-01</td><td>2033-03-21</td></tr>
+<tr><td>Rahu-Ketu</td><td>2033-03-21</td><td>2034-04-08</td></tr>
+<tr><td>Rahu-Venus</td><td>2034-04-08</td><td>2037-04-08</td></tr>
+<tr><td>Rahu-Sun</td><td>2037-04-08</td><td>2038-03-03</td></tr>
+<tr><td>Rahu-Moon</td><td>2038-03-03</td><td>2039-09-02</td></tr>
+<tr><td>Rahu-Mars</td><td>2039-09-02</td><td>2040-09-19</td></tr>
+</tbody>
+</table></div>
+<h4 id="jupiter大运-antardasha-下一">Jupiter大运 Antardasha（下一）</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>小运</th><th>起始</th><th>结束</th></tr></thead>
+<tbody>
+<tr><td>Jupiter-Jupiter</td><td>2040-09-19</td><td>2042-11-07</td></tr>
+<tr><td>Jupiter-Saturn</td><td>2042-11-07</td><td>2045-05-21</td></tr>
+<tr><td>Jupiter-Mercury</td><td>2045-05-21</td><td>2047-08-27</td></tr>
+<tr><td>Jupiter-Ketu</td><td>2047-08-27</td><td>2048-08-01</td></tr>
+<tr><td>Jupiter-Venus</td><td>2048-08-01</td><td>2051-04-02</td></tr>
+<tr><td>Jupiter-Sun</td><td>2051-04-02</td><td>2052-01-20</td></tr>
+<tr><td>Jupiter-Moon</td><td>2052-01-20</td><td>2053-05-21</td></tr>
+<tr><td>Jupiter-Mars</td><td>2053-05-21</td><td>2054-04-27</td></tr>
+<tr><td>Jupiter-Rahu</td><td>2054-04-27</td><td>2056-09-19</td></tr>
+</tbody>
+</table></div>
+<h4 id="saturn大运-antardasha">Saturn大运 Antardasha</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>小运</th><th>起始</th><th>结束</th></tr></thead>
+<tbody>
+<tr><td>Saturn-Saturn</td><td>2056-09-19</td><td>2059-09-23</td></tr>
+<tr><td>Saturn-Mercury</td><td>2059-09-23</td><td>2062-06-02</td></tr>
+<tr><td>Saturn-Ketu</td><td>2062-06-02</td><td>2063-07-12</td></tr>
+<tr><td>Saturn-Venus</td><td>2063-07-12</td><td>2066-09-11</td></tr>
+<tr><td>Saturn-Sun</td><td>2066-09-11</td><td>2067-08-24</td></tr>
+<tr><td>Saturn-Moon</td><td>2067-08-24</td><td>2069-03-24</td></tr>
+<tr><td>Saturn-Mars</td><td>2069-03-24</td><td>2070-05-03</td></tr>
+<tr><td>Saturn-Rahu</td><td>2070-05-03</td><td>2073-03-09</td></tr>
+<tr><td>Saturn-Jupiter</td><td>2073-03-09</td><td>2075-09-20</td></tr>
+</tbody>
+</table></div>
+<h4 id="mercury大运-antardasha">Mercury大运 Antardasha</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>小运</th><th>起始</th><th>结束</th></tr></thead>
+<tbody>
+<tr><td>Mercury-Mercury</td><td>2075-09-20</td><td>2078-02-16</td></tr>
+<tr><td>Mercury-Ketu</td><td>2078-02-16</td><td>2079-02-13</td></tr>
+<tr><td>Mercury-Venus</td><td>2079-02-13</td><td>2081-12-14</td></tr>
+<tr><td>Mercury-Sun</td><td>2081-12-14</td><td>2082-10-20</td></tr>
+<tr><td>Mercury-Moon</td><td>2082-10-20</td><td>2084-03-21</td></tr>
+<tr><td>Mercury-Mars</td><td>2084-03-21</td><td>2085-03-18</td></tr>
+<tr><td>Mercury-Rahu</td><td>2085-03-18</td><td>2087-10-05</td></tr>
+<tr><td>Mercury-Jupiter</td><td>2087-10-05</td><td>2090-01-10</td></tr>
+<tr><td>Mercury-Saturn</td><td>2090-01-10</td><td>2092-09-20</td></tr>
+</tbody>
+</table></div>
+<h4 id="ketu大运-antardasha">Ketu大运 Antardasha</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>小运</th><th>起始</th><th>结束</th></tr></thead>
+<tbody>
+<tr><td>Ketu-Ketu</td><td>2092-09-19</td><td>2093-02-16</td></tr>
+<tr><td>Ketu-Venus</td><td>2093-02-16</td><td>2094-04-18</td></tr>
+<tr><td>Ketu-Sun</td><td>2094-04-18</td><td>2094-08-23</td></tr>
+<tr><td>Ketu-Moon</td><td>2094-08-23</td><td>2095-03-25</td></tr>
+<tr><td>Ketu-Mars</td><td>2095-03-25</td><td>2095-08-21</td></tr>
+<tr><td>Ketu-Rahu</td><td>2095-08-21</td><td>2096-09-07</td></tr>
+<tr><td>Ketu-Jupiter</td><td>2096-09-07</td><td>2097-08-14</td></tr>
+<tr><td>Ketu-Saturn</td><td>2097-08-14</td><td>2098-09-23</td></tr>
+<tr><td>Ketu-Mercury</td><td>2098-09-23</td><td>2099-09-20</td></tr>
+</tbody>
+</table></div>
+<h4 id="venus大运-antardasha">Venus大运 Antardasha</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>小运</th><th>起始</th><th>结束</th></tr></thead>
+<tbody>
+<tr><td>Venus-Venus</td><td>2099-09-20</td><td>2103-01-21</td></tr>
+<tr><td>Venus-Sun</td><td>2103-01-21</td><td>2104-01-21</td></tr>
+<tr><td>Venus-Moon</td><td>2104-01-21</td><td>2105-09-21</td></tr>
+<tr><td>Venus-Mars</td><td>2105-09-21</td><td>2106-11-21</td></tr>
+<tr><td>Venus-Rahu</td><td>2106-11-21</td><td>2109-11-21</td></tr>
+<tr><td>Venus-Jupiter</td><td>2109-11-21</td><td>2112-07-22</td></tr>
+<tr><td>Venus-Saturn</td><td>2112-07-22</td><td>2115-09-21</td></tr>
+<tr><td>Venus-Mercury</td><td>2115-09-21</td><td>2118-07-22</td></tr>
+<tr><td>Venus-Ketu</td><td>2118-07-22</td><td>2119-09-20</td></tr>
+</tbody>
+</table></div>
+<p>当前状态:</p>
+<pre><code>Mahadasha: Rahu (2022-09 ~ 2040-09)
+Antardasha: Rahu-Jupiter (2025-06-02 ~ 2027-10-26)</code></pre>
+<h3 id="预分析-calculator计算-core直接引用">预分析（calculator计算，core直接引用）</h3>
+<h4 id="行星尊贵度-compound-dignity-panchadha-maitri">行星尊贵度（Compound Dignity / Panchadha Maitri）</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>行星</th><th>落座</th><th>座主</th><th>复合尊贵度</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>Sun</td><td>Cancer</td><td>Moon</td><td>great_friend</td><td></td></tr>
+<tr><td>Moon</td><td>Taurus</td><td>Venus</td><td>exalted</td><td></td></tr>
+<tr><td>Mars</td><td>Scorpio</td><td>Mars</td><td>own_sign</td><td></td></tr>
+<tr><td>Mercury</td><td>Leo</td><td>Sun</td><td>great_friend</td><td></td></tr>
+<tr><td>Jupiter</td><td>Gemini</td><td>Mercury</td><td>neutral</td><td></td></tr>
+<tr><td>Venus</td><td>Gemini</td><td>Mercury</td><td>great_friend</td><td></td></tr>
+<tr><td>Saturn</td><td>Taurus</td><td>Venus</td><td>great_friend</td><td></td></tr>
+</tbody>
+</table></div>
+<h4 id="主要相位关系">主要相位关系</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>行星A</th><th>行星B</th><th>关系</th><th>度数差</th><th>影响</th></tr></thead>
+<tbody>
+<tr><td>Rahu</td><td>Ketu</td><td>对冲(180°)</td><td>180.0°</td><td></td></tr>
+<tr><td>Sun</td><td>Mars</td><td>三合(120°)</td><td>118.84°</td><td></td></tr>
+<tr><td>Jupiter</td><td>Rahu</td><td>合相</td><td>2.6°</td><td></td></tr>
+<tr><td>Jupiter</td><td>Ketu</td><td>对冲(180°)</td><td>177.4°</td><td></td></tr>
+<tr><td>Moon</td><td>Mercury</td><td>刑(90°)</td><td>93.37°</td><td></td></tr>
+<tr><td>Sun</td><td>Moon</td><td>刑(90°)</td><td>86.35°</td><td></td></tr>
+<tr><td>Mars</td><td>Saturn</td><td>对冲(180°)</td><td>174.37°</td><td></td></tr>
+<tr><td>Jupiter</td><td>Venus</td><td>合相</td><td>6.43°</td><td></td></tr>
+</tbody>
+</table></div>
+<h4 id="宫主表">宫主表</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>宫位</th><th>领域</th><th>宫主</th><th>宫主落宫</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>自我</td><td>Mars</td><td>8</td></tr>
+<tr><td>2</td><td>财富</td><td>Venus</td><td>3</td></tr>
+<tr><td>3</td><td>兄弟</td><td>Mercury</td><td>5</td></tr>
+<tr><td>4</td><td>家庭</td><td>Moon</td><td>2</td></tr>
+<tr><td>5</td><td>子女</td><td>Sun</td><td>4</td></tr>
+<tr><td>6</td><td>疾病</td><td>Mercury</td><td>5</td></tr>
+<tr><td>7</td><td>婚姻</td><td>Venus</td><td>3</td></tr>
+<tr><td>8</td><td>变故</td><td>Mars</td><td>8</td></tr>
+<tr><td>9</td><td>运势</td><td>Jupiter</td><td>3</td></tr>
+<tr><td>10</td><td>事业</td><td>Saturn</td><td>2</td></tr>
+<tr><td>11</td><td>收入</td><td>Saturn</td><td>2</td></tr>
+<tr><td>12</td><td>损耗</td><td>Jupiter</td><td>3</td></tr>
+</tbody>
+</table></div>
+<h3 id="分盘数据">分盘数据</h3>
+<h4 id="分盘可信度声明">分盘可信度声明</h4>
+<pre><code>D1  ✅ 可信（直接计算）
+D9  ✅ 可信（直接计算）
+D10 ✅ 可信（直接计算）
+D4  ✅ 可信（直接计算）
+D5  ✅ 可信（直接计算）</code></pre>
+<h4 id="d9-navamsha">D9 Navamsha</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>行星</th><th>D9星座</th><th>D9宫位</th><th>Vargottama</th></tr></thead>
+<tbody>
+<tr><td>Lagna</td><td>Scorpio</td><td>1</td><td>—</td></tr>
+<tr><td>Sun</td><td>Pisces</td><td>5</td><td>否</td></tr>
+<tr><td>Moon</td><td>Capricorn</td><td>3</td><td>否</td></tr>
+<tr><td>Mars</td><td>Aquarius</td><td>4</td><td>否</td></tr>
+<tr><td>Mercury</td><td>Taurus</td><td>7</td><td>否</td></tr>
+<tr><td>Jupiter</td><td>Aquarius</td><td>4</td><td>否</td></tr>
+<tr><td>Venus</td><td>Aries</td><td>6</td><td>否</td></tr>
+<tr><td>Saturn</td><td>Cancer</td><td>9</td><td>否</td></tr>
+<tr><td>Rahu</td><td>Capricorn</td><td>3</td><td>否</td></tr>
+<tr><td>Ketu</td><td>Cancer</td><td>9</td><td>否</td></tr>
+</tbody>
+</table></div>
+<h4 id="d10-dasamsha">D10 Dasamsha</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>行星</th><th>D10星座</th><th>D10宫位</th></tr></thead>
+<tbody>
+<tr><td>Lagna</td><td>Sagittarius</td><td>1</td></tr>
+<tr><td>Sun</td><td>Sagittarius</td><td>1</td></tr>
+<tr><td>Moon</td><td>Capricorn</td><td>2</td></tr>
+<tr><td>Mars</td><td>Pisces</td><td>4</td></tr>
+<tr><td>Mercury</td><td>Virgo</td><td>10</td></tr>
+<tr><td>Jupiter</td><td>Libra</td><td>11</td></tr>
+<tr><td>Venus</td><td>Sagittarius</td><td>1</td></tr>
+<tr><td>Saturn</td><td>Cancer</td><td>8</td></tr>
+<tr><td>Rahu</td><td>Virgo</td><td>10</td></tr>
+<tr><td>Ketu</td><td>Pisces</td><td>4</td></tr>
+</tbody>
+</table></div>
+<h4 id="d4-chaturthamsha">D4 Chaturthamsha</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>行星</th><th>D4星座</th><th>D4宫位</th></tr></thead>
+<tbody>
+<tr><td>Lagna</td><td>Capricorn</td><td>1</td></tr>
+<tr><td>Sun</td><td>Aries</td><td>4</td></tr>
+<tr><td>Moon</td><td>Taurus</td><td>5</td></tr>
+<tr><td>Mars</td><td>Leo</td><td>8</td></tr>
+<tr><td>Mercury</td><td>Leo</td><td>8</td></tr>
+<tr><td>Jupiter</td><td>Virgo</td><td>9</td></tr>
+<tr><td>Venus</td><td>Sagittarius</td><td>12</td></tr>
+<tr><td>Saturn</td><td>Scorpio</td><td>11</td></tr>
+<tr><td>Rahu</td><td>Virgo</td><td>9</td></tr>
+<tr><td>Ketu</td><td>Pisces</td><td>3</td></tr>
+</tbody>
+</table></div>
+<h4 id="d5-panchamsha">D5 Panchamsha</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>行星</th><th>D5星座</th><th>D5宫位</th></tr></thead>
+<tbody>
+<tr><td>Lagna</td><td>Libra</td><td>1</td></tr>
+<tr><td>Sun</td><td>Scorpio</td><td>2</td></tr>
+<tr><td>Moon</td><td>Taurus</td><td>8</td></tr>
+<tr><td>Mars</td><td>Scorpio</td><td>2</td></tr>
+<tr><td>Mercury</td><td>Aries</td><td>7</td></tr>
+<tr><td>Jupiter</td><td>Sagittarius</td><td>3</td></tr>
+<tr><td>Venus</td><td>Gemini</td><td>9</td></tr>
+<tr><td>Saturn</td><td>Capricorn</td><td>4</td></tr>
+<tr><td>Rahu</td><td>Aquarius</td><td>5</td></tr>
+<tr><td>Ketu</td><td>Aquarius</td><td>5</td></tr>
+</tbody>
+</table></div>
+<h3 id="校验结果">校验结果</h3>
+<pre><code> 1. SAV=337          ✅
+ 2. BAV行常量        ✅ 
+ 3. 行星完整性(10)   ✅
+ 4. 度数唯一性        ✅
+ 5. Ra-Ke差180°      ✅
+ 6. 逆行标记完整      ✅
+ 6b. 燃烧检测        ✅ [Mercury]
+ 7. Ayanamsa一致     ✅ Pushya
+ 7c. 盈月/亏月       亏月 (距Sun 273.7°)
+ 8. Nakshatra↔度数   ✅
+ 9. Chara Karaka排序 ✅
+10. Dasha时长常数    ✅
+11. D9公式交叉       ✅（直接计算，无需交叉验证）
+12. Ra-Ke分盘校验    ✅（直接计算）</code></pre>
+<h3 id="当前过运位置-transit-data">当前过运位置（Transit Data）</h3>
+<blockquote>数据来源：vedic-calculator直接计算</blockquote>
+<blockquote>提取时间点：2026-06-18</blockquote>
+<h4 id="慢行星过运">慢行星过运</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>行星</th><th>过运星座</th><th>过运宫位(从Lagna数)</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>Saturn</td><td>Pisces</td><td>12</td><td>~2.5年/星座</td></tr>
+<tr><td>Jupiter</td><td>Cancer</td><td>4</td><td>~1年/星座</td></tr>
+<tr><td>Rahu</td><td>Aquarius</td><td>11</td><td>~1.5年/星座</td></tr>
+<tr><td>Ketu</td><td>Leo</td><td>5</td><td>自动取Rahu对冲</td></tr>
+</tbody>
+</table></div>
+<h4 id="sade-sati初判">Sade Sati初判</h4>
+<pre><code>Moon本命星座: Taurus
+Saturn过运星座: Pisces
+相对位置: 非Sade Sati
+Sade Sati状态: 未激活</code></pre>
+<h4 id="双过运触发检查-saturn-jupiter-double-transit">双过运触发检查（Saturn-Jupiter Double Transit）</h4>
+<pre><code>Saturn过运相位覆盖宫位: [2, 6, 9, 12]
+Jupiter过运相位覆盖宫位: [4, 8, 10, 12]
+双过运激活宫位: [12]</code></pre>
+<h3 id="pdf-cross-check-notes">PDF Cross-Check Notes</h3>
+<p>Source PDF: <code>C:\Users\Lenovo\Desktop\hyf23.14.pdf</code></p>
+<p>PDF ayanamsa confirmed by user: Pushya.</p>
+<p>Pushya spot-check:</p>
+<ul><li>PDF Lagna: Aries 24°57&#x27;02.69&quot;; calculator Pushya: Aries 24°49&#x27;</li><li>PDF Sun: Cancer 27°14&#x27;06.48&quot;; calculator Pushya: Cancer 27°14&#x27;</li><li>PDF Moon: Taurus 0°53&#x27;06.48&quot;; calculator Pushya: Taurus 0°53&#x27;</li><li>PDF Mars: Scorpio 26°04&#x27;01.82&quot;; calculator Pushya: Scorpio 26°04&#x27;</li></ul>
+<p>This file was regenerated from a temporary Pushya copy of the calculator scripts. The original installed skill remains unchanged.</p>
+</section><section class="report-section" id="2-p1-overview-md">
+  <div class="section-kicker">Core ? p1_overview.md</div>
+  <h1>P1 Overview - Pushya Core Snapshot</h1>
+  <h2 id="p1-overview-pushya-core-snapshot">P1 Overview - Pushya Core Snapshot</h2>
+<blockquote>分析范围：Pushya ayanamsa 版 <code>structured_data.md</code>。出生时间来自 JHora PDF：2001-08-12 23:14:25，Fugu, China。</blockquote>
+<blockquote>出生时间精度：PDF 精确到秒，本报告按 23:14 分钟级处理。</blockquote>
+<blockquote>盘面初验：Pushya spot-check 已与 PDF 的 Lagna/Sun/Moon/Mars 对齐；SAV=337 校验通过。</blockquote>
+<p>这张盘的主角是白羊上升。白羊上升的人，人生底色不是“等局势清楚了再动”，而是先把自己放进场里，用行动试出答案。命主星火星落在天蝎 8 宫，而且火星又是事业指示星 AmK，这一点很关键：你的路不是轻飘飘的社交型路线，而是带有深挖、拆解、危机处理、研究、技术攻坚、隐性系统识别的味道。简单说，这张盘不怕复杂，反而需要复杂。</p>
+<p>太阳是 AK，落在巨蟹 4 宫。太阳作为灵魂指示星，说明人生核心课题和“内在安全感、家族根基、情绪归属、个人主权”绑得很紧。它不只是讲家庭，也讲你最终要建立一种属于自己的内在秩序：不是别人给你位置，而是你自己把位置坐稳。</p>
+<p>月亮落金牛 2 宫，力量排名第一，Shadbala 133.3%。月亮在这里是很有分量的牌，说明你对资源、语言、稳定感、价值感很敏感。别人可能只看到你行动快、判断直接，但你的内在其实很看重“落地以后能不能稳定、能不能长期养活自己、能不能形成可持续的资源池”。</p>
+<p>当前处在 Rahu 大运，且 2025-06-02 到 2027-10-26 为 Rahu-Jupiter 小运。Rahu 落双子 3 宫，和 Jupiter、Venus 同宫，主题会非常明显：学习、表达、传播、技能化、跨领域、网络化、信息密度。Rahu 会把事情推快，但也会带来噪音；Jupiter 小运则要求你把散乱的信息变成体系。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>排名</th><th>行星</th><th>Shadbala</th><th>盘中角色</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Moon</td><td>133.3%</td><td>资源感、表达底色、稳定需求</td></tr>
+<tr><td>2</td><td>Venus</td><td>140.9%</td><td>关系、审美、协作与变现柔性</td></tr>
+<tr><td>3</td><td>Mercury</td><td>103.4%</td><td>学习、分析、表达、技术接口</td></tr>
+<tr><td>4</td><td>Jupiter</td><td>109.2%</td><td>知识体系、判断框架、导师性</td></tr>
+<tr><td>5</td><td>Sun</td><td>136.2%</td><td>AK，身份核心与内在主权</td></tr>
+<tr><td>6</td><td>Mars</td><td>124.4%</td><td>AmK，事业发动机，深度攻坚</td></tr>
+<tr><td>7</td><td>Saturn</td><td>107.2%</td><td>结构、延迟、压力管理</td></tr>
+</tbody>
+</table></div>
+<p>一句话总览：这不是一张靠轻松顺流吃饭的盘，而是一张靠“把复杂系统拆开、重新组织、再输出成可用能力”来打开人生的盘。</p>
+</section><section class="report-section" id="3-p2a-planets-md">
+  <div class="section-kicker">Core ? p2a_planets.md</div>
+  <h1>P2A Planets - Sun And Moon</h1>
+  <h2 id="p2a-planets-sun-and-moon">P2A Planets - Sun And Moon</h2>
+<h3 id="sun-内在主权与身份骨架">Sun - 内在主权与身份骨架</h3>
+<p>太阳在这张盘里是 AK，也就是灵魂指示星。它落在巨蟹 4 宫，位置讲得很直：你这一生不是只为了外面看起来成功，而是要解决“我在哪里才真正有根”的问题。4 宫管家、内在安全感、母体环境、居住基础，也管一个人最深处的心理地基。太阳放在这里，会让人对“被看见”和“被接纳”同时敏感。</p>
+<p>太阳在巨蟹，不是那种冷硬的权力太阳。它更像一个保护壳里的核心火种：外表可能不总是高调，但内在有很强的自我主张。你不适合长期处在完全被人定义的位置里，尤其是当环境要求你压住真实意志、只做配合角色时，内耗会明显。</p>
+<p>事业上，太阳不是 AmK，但它是 AK，所以它决定的是“你为什么要做这件事”。如果一份工作只有技术难度，却完全不给你主权感、归属感、作品感，你会很快觉得空。相反，能让你建立自己的系统、自己的空间、自己的专业身份的事情，才会有长期吸引力。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>参数</th><th>值</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>位置</td><td>Cancer 4 宫</td><td>身份核心落在内在根基、家宅、心理安全感</td></tr>
+<tr><td>Karaka</td><td>AK</td><td>灵魂主线与自我定义</td></tr>
+<tr><td>Nakshatra</td><td>Ashlesha 4</td><td>观察力强，能缠绕细节，也容易想得深</td></tr>
+<tr><td>Shadbala</td><td>136.2%</td><td>可用度高，但表达方式偏内向保护型</td></tr>
+</tbody>
+</table></div>
+<h3 id="moon-资源感与稳定需求">Moon - 资源感与稳定需求</h3>
+<p>月亮落金牛 2 宫，是全盘力量排名第一的行星。2 宫管钱、语言、饮食、家庭资源、价值观。月亮在这里并不轻，它说明你对“稳定的资源”和“可持续的生活结构”非常敏感。你不是只要刺激感的人，哪怕外在走的是高变化路线，内在也需要一个能存放安全感的容器。</p>
+<p>月亮也是 DK，配偶指示星。感情层面，你会被稳定、有生活感、有资源意识的人吸引；但月亮度数很早，说明关系议题容易带着不成熟期的试错。不是说感情弱，而是说感情需要时间慢慢长成，不宜太早用理想化期待把关系定死。</p>
+<p>月亮强的好处是直觉、语言、情绪感知和资源嗅觉都不错。问题是，月亮强也会让环境波动直接进入身体和心情。你需要建立稳定作息、稳定现金流、稳定学习节奏，因为这些不是鸡汤，而是这张盘的发动机保养。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>参数</th><th>值</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>位置</td><td>Taurus 2 宫</td><td>资源、语言、稳定感是核心支点</td></tr>
+<tr><td>Karaka</td><td>DK</td><td>关系课题与稳定需求相连</td></tr>
+<tr><td>Nakshatra</td><td>Krittika 2</td><td>有切割力，语言可锋利</td></tr>
+<tr><td>Shadbala</td><td>133.3%</td><td>全盘最强之一，情绪与资源感影响大</td></tr>
+</tbody>
+</table></div>
+</section><section class="report-section" id="4-p2b-planets-md">
+  <div class="section-kicker">Core ? p2b_planets.md</div>
+  <h1>P2B Planets - Mars And Mercury</h1>
+  <h2 id="p2b-planets-mars-and-mercury">P2B Planets - Mars And Mercury</h2>
+<h3 id="mars-事业发动机">Mars - 事业发动机</h3>
+<p>火星是这张盘的事业指示星 AmK，同时也是白羊上升的命主星。它落在天蝎 8 宫，等于人生发动机跑进了深水区。8 宫不是轻松宫，它管危机、隐藏资源、研究、心理深层、风险、手术式拆解、债务与转化。火星在这里不怕难题，怕的是太浅、太重复、太没有挑战。</p>
+<p>这颗火星很适合处理别人不愿碰的复杂问题。技术排错、数据安全、金融风险、医学研究、心理机制、战略情报、系统重构、深度内容研究，都属于它能发力的方向。它的代价是压力感强，容易把人生当成一场持续攻坚。如果没有明确出口，火星会转成焦虑、急躁或对环境的不信任。</p>
+<p>火星在 D10 事业盘落 Pisces 4 宫，说明事业最终不只是硬碰硬，还要落到“系统底层、平台、基础设施、内部架构”上。你适合在后台深处解决关键问题，而不一定非要站在前台卖力表演。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>参数</th><th>值</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>位置</td><td>Scorpio 8 宫</td><td>深度、危机、研究、转化</td></tr>
+<tr><td>Karaka</td><td>AmK</td><td>事业指示星</td></tr>
+<tr><td>Nakshatra</td><td>Jyeshtha 3</td><td>控制复杂局面的能力强</td></tr>
+<tr><td>Shadbala</td><td>124.4%</td><td>够用且有韧性，但压力代价明显</td></tr>
+</tbody>
+</table></div>
+<h3 id="mercury-技术接口与表达系统">Mercury - 技术接口与表达系统</h3>
+<p>水星落狮子 5 宫，管学习、分析、表达、模型化和技能包装。它在这张盘里不是最强，但位置很有用：5 宫是智力创造、策略、教育、内容、代码逻辑、投机判断的位置。水星放在这里，说明你适合把复杂东西讲清楚、做成工具、课程、模型、产品或可复制的方法。</p>
+<p>更关键的是 D10 事业盘里水星落 Virgo 10 宫，和 Rahu 同在事业宫。这个信息对职业判断很重：事业层面的水星被放大了，而且在 Virgo 这种重细节、重系统、重分析的位置。它指向数据分析、工程逻辑、产品策略、研究助理、咨询分析、量化、内容系统、知识管理、AI 工具链等方向。</p>
+<p>水星的短板是容易过度拆解。你会看见太多变量，然后一度卡在“还要再完善一下”。这张盘真正需要的是：先搭框架，再迭代细节，而不是等所有细节完美才动。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>参数</th><th>值</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>D1 位置</td><td>Leo 5 宫</td><td>创造性表达、策略、学习</td></tr>
+<tr><td>D10 位置</td><td>Virgo 10 宫</td><td>职业上强烈指向分析与系统化</td></tr>
+<tr><td>Nakshatra</td><td>Magha 2</td><td>带身份感和传统/权威框架</td></tr>
+<tr><td>Shadbala</td><td>103.4%</td><td>中等可用，靠训练放大</td></tr>
+</tbody>
+</table></div>
+</section><section class="report-section" id="5-p2c-planets-md">
+  <div class="section-kicker">Core ? p2c_planets.md</div>
+  <h1>P2C Planets - Jupiter And Venus</h1>
+  <h2 id="p2c-planets-jupiter-and-venus">P2C Planets - Jupiter And Venus</h2>
+<h3 id="jupiter-知识框架与判断系统">Jupiter - 知识框架与判断系统</h3>
+<p>木星落双子 3 宫，和 Venus、Rahu 同宫。木星在这里不是传统意义上安静坐镇的导师，而像一个信息网络里的框架搭建者。3 宫管学习、写作、技能、沟通、短途迁移、手艺和主动争取。木星落这里，说明你不是靠单一学科吃饭的人，更适合把多类知识组织起来。</p>
+<p>因为 Rahu 同宫，木星会被推向新领域、网络化、跨文化或非传统知识路径。好处是学习速度快，能接触边界领域；问题是信息噪音也大。当前正走 Rahu-Jupiter 小运，这段时间的核心不是“再看更多”，而是把已经吸收的东西整理成一套能讲、能做、能交付的体系。</p>
+<p>木星在 D10 事业盘落 Libra 11 宫，事业兑现往往来自网络、人群、合作关系、平台收益。它不太像孤立闭门型配置，更像需要通过社群、团队、客户、读者、用户，把知识变成影响力。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>参数</th><th>值</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>位置</td><td>Gemini 3 宫</td><td>学习、表达、技能网络</td></tr>
+<tr><td>Karaka</td><td>PK</td><td>教育、创造和成果延展</td></tr>
+<tr><td>D10</td><td>Libra 11 宫</td><td>通过人群与平台兑现</td></tr>
+<tr><td>Shadbala</td><td>109.2%</td><td>稳定中等，适合体系化使用</td></tr>
+</tbody>
+</table></div>
+<h3 id="venus-变现柔性与审美连接">Venus - 变现柔性与审美连接</h3>
+<p>金星也在双子 3 宫，力量排名第二，Shadbala 140.9%。这让它成为全盘很重要的润滑剂。火星和 Rahu 会让人生节奏偏硬、偏快、偏刺激；金星则提供表达的柔性、关系的连接能力、审美包装和商业化的亲和力。</p>
+<p>金星在 3 宫，不是单纯享乐，而是“把东西做得可传播、可理解、可被喜欢”。内容、设计、品牌、语言、社交媒体、课程包装、用户体验、咨询表达，这些都能借金星发力。你不应该只靠硬技术或硬分析，也需要学会包装、呈现和关系运营。</p>
+<p>D10 里金星落 Sagittarius 1 宫，事业形象带有传播、教育、观点输出的味道。它说明职业身份不宜太窄，最好能让别人感到你有方法、有审美、有视野，而不是只是一个执行技术点的人。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>参数</th><th>值</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>位置</td><td>Gemini 3 宫</td><td>表达、传播、协作</td></tr>
+<tr><td>D10</td><td>Sagittarius 1 宫</td><td>职业形象带观点和教学感</td></tr>
+<tr><td>Nakshatra</td><td>Punarvasu 1</td><td>能复盘、重启、修复</td></tr>
+<tr><td>Shadbala</td><td>140.9%</td><td>强润滑剂，适合变现包装</td></tr>
+</tbody>
+</table></div>
+</section><section class="report-section" id="6-p2d-planets-md">
+  <div class="section-kicker">Core ? p2d_planets.md</div>
+  <h1>P2D Planets - Saturn, Rahu, Ketu</h1>
+  <h2 id="p2d-planets-saturn-rahu-ketu">P2D Planets - Saturn, Rahu, Ketu</h2>
+<h3 id="saturn-压力结构与长期纪律">Saturn - 压力结构与长期纪律</h3>
+<p>土星落金牛 2 宫，和月亮同宫。2 宫是资源宫，土星放这里，说明资源安全感不是天然轻松得来，而是要靠长期结构、预算、纪律、稳定技能来建立。它不一定代表贫乏，但代表你对钱、家庭资源、语言表达会带有压力感和现实感。</p>
+<p>土星和月亮同宫，会让心里有一种“必须稳住”的底层声音。它适合长期主义，也容易让人早熟。你不能只靠短期冲刺，需要有储蓄、证书、作品集、长期技能栈这些硬东西。土星在 D10 落 Cancer 8 宫，事业上也会反复遇到深层系统、组织压力、风险处理的问题。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>参数</th><th>值</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>位置</td><td>Taurus 2 宫</td><td>资源纪律、语言克制、现实压力</td></tr>
+<tr><td>Karaka</td><td>BK</td><td>同辈/协作与长期结构</td></tr>
+<tr><td>D10</td><td>Cancer 8 宫</td><td>职业压力来自深层系统与风险</td></tr>
+<tr><td>Shadbala</td><td>107.2%</td><td>中等，靠时间积累成优势</td></tr>
+</tbody>
+</table></div>
+<h3 id="rahu-当前大运的放大器">Rahu - 当前大运的放大器</h3>
+<p>Rahu 落双子 3 宫，当前又走 Rahu 大运。这个配置会把学习、表达、技能、网络、信息、短视频/媒体/互联网/AI 工具这些主题放大。Rahu 在 3 宫有行动力，不怕试新东西，也敢越界。</p>
+<p>但 Rahu 的问题是噪音和欲望。它会让你同时想抓很多方向，容易被新概念、新赛道、新工具吸走注意力。真正好的用法，是把 Rahu 当作雷达，而不是方向盘：它负责发现机会，最后要交给 Jupiter 和 Mercury 去整理成方法。</p>
+<p>Rahu 在 D10 落 Virgo 10 宫，和 Mercury 同处职业宫，这是事业分析里非常重要的信号。它把职业推向技术化、数据化、工具化、系统化，也可能推向非传统职业路径。AI、数据、产品、研究、增长、内容系统、跨平台运营，都可以纳入考虑。</p>
+<h3 id="ketu-信念切割与远方课题">Ketu - 信念切割与远方课题</h3>
+<p>Ketu 落 Sagittarius 9 宫。9 宫管信仰、导师、高等教育、远行、世界观。Ketu 在这里会让你对现成权威有天然的疏离感：你可以学习传统，但不容易盲信传统。你需要自己验证，自己拆解，自己形成方法。</p>
+<p>这也解释了为什么盘里有很强的研究和系统化倾向。Ketu 让你不满足于表层答案，Rahu 让你不断吸收新东西，Mars 让你愿意挖深。三者合起来，像一个会不断拆旧地图、画新地图的人。</p>
+</section><section class="report-section" id="7-p3a-d9-md">
+  <div class="section-kicker">Core ? p3a_d9.md</div>
+  <h1>P3A D9 Audit</h1>
+  <h2 id="p3a-d9-audit">P3A D9 Audit</h2>
+<p>D9 是品质盘，主要看一件事：D1 里看起来能做的东西，成熟以后是否真的站得住。此盘 D9 上升 Scorpio，说明成熟后的内核会比外在更深、更克制、更有防御性。白羊 D1 是冲锋，Scorpio D9 是深潜；这不是轻浮配置，而是越长大越倾向于掌握底层规律。</p>
+<p>太阳在 D9 Pisces 5 宫。AK 太阳进入 5 宫，说明灵魂主线最终会落在创造、教育、表达、知识传承、作品化上。Pisces 让太阳不那么硬，更偏向把个人主权放进意义感里。你不是只想赢，而是想知道“这件事为什么值得做”。</p>
+<p>火星 AmK 在 D9 Aquarius 4 宫。事业发动机在成熟盘里进入 Aquarius，说明职业并不只靠个人蛮力，而要进入系统、平台、群体、技术网络。4 宫则强调底层基础设施：你适合构建框架、平台、数据库、模型、方法论，而不只是做一次性任务。</p>
+<p>水星在 D9 Taurus 7 宫。职业表达成熟后需要面对客户、合作者、用户或公开交流场景。Taurus 给水星稳定性，说明最终能把复杂表达落成可交付、可收费、可复用的形式。它也提醒你：真正的专业不是讲得多，而是让别人听得懂并愿意持续使用。</p>
+<p>金星在 D9 Aries 6 宫，关系与审美能力会进入服务、竞争、解决问题的场景。你不适合只做“好看但不解决问题”的表达；金星要和任务、效率、痛点、服务绑定，才会变成事业资产。</p>
+<p>D9 结论：D1 的深度攻坚不是孤立成立的。D9 把它导向“系统化知识 + 技术平台 + 可传播表达”。这对后续 career 很重要：职业方向不能只选研究，也不能只选表达，最好是研究之后形成工具、产品、课程、咨询、内容系统或分析框架。</p>
+</section><section class="report-section" id="8-p3b-divisional-md">
+  <div class="section-kicker">Core ? p3b_divisional.md</div>
+  <h1>P3B Divisional Cross-Check</h1>
+  <h2 id="p3b-divisional-cross-check">P3B Divisional Cross-Check</h2>
+<h3 id="d10-career">D10 - Career</h3>
+<p>D10 上升 Sagittarius，说明职业外壳带有教学、传播、观点、远景、跨领域的味道。事业不是只在一个封闭小格子里做执行，而是需要更大的知识地图和方向感。</p>
+<p>D10 的 10 宫是 Virgo，里面有 Mercury 和 Rahu。这个组合非常清楚：事业核心落在分析、系统、工具、数据、流程、技术、细节优化，也带有非传统路径和快速变化。Mercury 在 Virgo 是职业盘里的强信号，Rahu 同宫则把它推向互联网、AI、跨平台、增长、自动化、复杂信息处理。</p>
+<p>Sun 和 Venus 在 D10 1 宫，职业形象需要被看见，也需要有表达和审美。你不能只在后台做无名处理器，最终要形成自己的方法、风格、作品或个人标签。</p>
+<h3 id="d4-assets-and-foundation">D4 - Assets And Foundation</h3>
+<p>D4 上升 Capricorn，财产和基础盘偏现实主义。Sun 在 Aries 4 宫，说明建立自己的居住/资产/基础空间有强动力；Moon 在 Taurus 5 宫，也支持通过稳定资源、长期积累和创造性技能来形成资产。</p>
+<p>Venus 在 D4 Sagittarius 12 宫，提醒钱和舒适感容易流向远方、学习、审美、旅行、精神消费或跨地域主题。不是不能花，而是要给消费设置框架，否则金星会把资源变成体验，而不是资产。</p>
+<h3 id="d5-power-and-creative-authority">D5 - Power And Creative Authority</h3>
+<p>D5 上升 Libra，Sun 和 Mars 在 Scorpio 2 宫，说明权力感来自资源控制、深度表达和锋利判断。Moon 在 Taurus 8 宫，又一次强调深层资源与情绪韧性。这个 D5 支持研究型、策略型、金融/数据/风控/心理洞察型创造力。</p>
+<p>分盘总评：D10 给出职业主线是 Mercury-Rahu 的技术系统化；D4 提醒资产需要纪律；D5 说明创造力来自深度和资源洞察。三者合起来，职业应避免太浅的泛社交岗位，也不宜只做重复执行。</p>
+</section><section class="report-section" id="9-p4a-houses-md">
+  <div class="section-kicker">Core ? p4a_houses.md</div>
+  <h1>P4A Houses 1-6</h1>
+  <h2 id="p4a-houses-1-6">P4A Houses 1-6</h2>
+<h3 id="1-宫-自我与身体">1 宫 - 自我与身体</h3>
+<p>白羊上升让人生启动方式偏主动。1 宫 SAV=33，属于高值，自我驱动力足，遇到问题时倾向于先行动、再校准。命主火星在 8 宫，说明行动不是走平路，而是经常进入复杂、隐性、需要承压的领域。</p>
+<p>健康上，火星主导的盘要注意炎症、急躁、睡眠节律和过度消耗。不是说一定有问题，而是身体系统不适合长期高压无恢复。</p>
+<h3 id="2-宫-金钱-语言-家庭资源">2 宫 - 金钱、语言、家庭资源</h3>
+<p>2 宫 Taurus，有 Moon 和 Saturn。月亮带来资源敏感和稳定需求，土星带来延迟、纪律和压力感。2 宫 SAV=30，不弱，说明资源不是空的；但土星同宫意味着钱需要结构化管理，不能只靠感觉。</p>
+<p>语言上，这个组合有两面：月亮让表达有感染力，土星让表达克制、谨慎甚至有时显得冷。适合把话讲成体系，不适合情绪上头时立刻输出。</p>
+<h3 id="3-宫-技能-表达-主动争取">3 宫 - 技能、表达、主动争取</h3>
+<p>3 宫 Gemini 聚集 Jupiter、Venus、Rahu，是全盘最热闹的位置。这里强调技能密度、信息能力、写作传播、网络化、自媒体、工具学习、短周期实验。3 宫 SAV=27，中等，说明机会需要主动争取，不会完全自动落下。</p>
+<p>Rahu 在此会带来跨界欲望，Jupiter 要求你把它变成体系，Venus 负责包装和传播。用得好，就是知识产品、内容系统、技术表达；用得乱，就是信息过载和方向频繁变动。</p>
+<h3 id="4-宫-内在根基">4 宫 - 内在根基</h3>
+<p>4 宫 Cancer 有 AK Sun。4 宫 SAV=28，中等偏稳。太阳在这里说明内在安全感是人生主轴之一。你需要建立自己的基地感，不一定只是房子，也可以是稳定的专业领域、长期作品库、自己的方法系统。</p>
+<h3 id="5-宫-学习-创造-策略">5 宫 - 学习、创造、策略</h3>
+<p>5 宫 Leo 有 Mercury。5 宫 SAV=24，偏低一些，说明创造力不是没有，而是需要训练和框架。水星在这里适合学习、写作、策略、模型化，但不要完全靠灵感。越是建立模板和复盘机制，5 宫越能用。</p>
+<h3 id="6-宫-工作压力与竞争">6 宫 - 工作压力与竞争</h3>
+<p>6 宫 Virgo 无主星落入，SAV=28。6 宫不弱，说明你能处理竞争、任务和问题，但不宜把自己长期放在纯消耗岗位。职业上适合“解决问题”，不适合“无止境背锅”。当工作能沉淀技能时，6 宫变成训练场；当工作只是重复救火时，它会变成消耗源。</p>
+</section><section class="report-section" id="10-p4b-houses-md">
+  <div class="section-kicker">Core ? p4b_houses.md</div>
+  <h1>P4B Houses 7-12</h1>
+  <h2 id="p4b-houses-7-12">P4B Houses 7-12</h2>
+<h3 id="7-宫-关系与合作">7 宫 - 关系与合作</h3>
+<p>7 宫 Libra，SAV=26，中等。DK 是 Moon，落 2 宫 Taurus，说明关系里最重要的是稳定、生活感、价值观和资源观。你需要的是能一起落地生活的人，而不是只有情绪刺激或理念漂亮的人。</p>
+<p>合作上，7 宫不算弱，但也不是全盘最强。你可以合作，但最好职责清楚、利益清楚、边界清楚。</p>
+<h3 id="8-宫-深度转化">8 宫 - 深度转化</h3>
+<p>8 宫 Scorpio 有 Mars，SAV=23，偏低。这里是全盘最需要谨慎使用的能量。火星在本质上适合 8 宫的深挖和危机处理，但 SAV 偏低，说明这个领域有代价：压力、突发、信任问题、恢复成本。</p>
+<p>好用法是研究、风控、技术排障、心理/金融/医学/安全等深度领域；坏用法是长期把自己放在高危、无保护、无边界的位置里。</p>
+<h3 id="9-宫-世界观与远方">9 宫 - 世界观与远方</h3>
+<p>9 宫 Sagittarius 有 Ketu，SAV=26。Ketu 在 9 宫会让你对传统权威保持距离。你可以学习老师、体系、经典，但最终会自己拆解再重组。适合跨学科，但不适合盲从。</p>
+<h3 id="10-宫-事业舞台">10 宫 - 事业舞台</h3>
+<p>10 宫 Capricorn，SAV=33，高值。事业宫硬件不弱，说明你不是没事业承载力的人。10 宫主 Saturn 落 2 宫 Taurus，事业最后要回到资源、收入、稳定价值、语言表达和长期积累。</p>
+<p>D10 进一步确认：事业盘 10 宫 Virgo 有 Mercury 和 Rahu，职业主题明显偏向分析、技术、系统、AI/数据、产品化、工具化。你适合做能沉淀方法的事，而不是纯体力式执行。</p>
+<h3 id="11-宫-收益与人脉">11 宫 - 收益与人脉</h3>
+<p>11 宫 Aquarius，SAV=31，偏强。收益来自网络、人群、平台、社群、技术共同体或跨圈层连接。Jupiter 在 D10 11 宫也支持这一点：不是只靠单个老板，而是靠更大的网络兑现。</p>
+<h3 id="12-宫-消耗-远方与隐退">12 宫 - 消耗、远方与隐退</h3>
+<p>12 宫 Pisces，SAV=28。12 宫中等，说明远方、海外、隐性空间、闭关学习、幕后研究都有价值，但不能失控。它适合作为补充场景，不适合作为无底洞。花钱、熬夜、逃避现实都要设边界。</p>
+</section><section class="report-section" id="11-p5a-life-md">
+  <div class="section-kicker">Core ? p5a_life.md</div>
+  <h1>P5A Life Synthesis - Blocks 1-5</h1>
+  <h2 id="p5a-life-synthesis-blocks-1-5">P5A Life Synthesis - Blocks 1-5</h2>
+<h3 id="1-人格核心">1. 人格核心</h3>
+<p>你这张盘最醒目的地方，是外在像白羊，内里像天蝎。白羊上升让你对世界的第一反应是行动，火星命主落 8 宫又让这种行动不走浅层路线。你不是只为了热闹而动的人，你真正感兴趣的是复杂、隐蔽、有风险、有深度的东西。</p>
+<p>太阳作为 AK 落在 4 宫，说明你这一生要解决的是“自己的根在哪里”。这可能表现为对家庭、居住、归属、安全感、心理地基的强关注。你的自我不是靠别人夸出来的，而是靠自己建立一套稳定的内在秩序。</p>
+<h3 id="2-财富与资源">2. 财富与资源</h3>
+<p>月亮和土星同在 2 宫，钱对你来说不是抽象数字，而是安全感。月亮给你资源嗅觉，土星要求你纪律化。你适合长期积累、预算管理、技能变现，而不是大起大落式赌博。</p>
+<p>11 宫 SAV=31，收益宫不弱，说明未来有平台、人脉、社群收益的空间。真正适合你的赚钱方式，是把深度能力包装成别人能理解、能使用、能持续购买的东西。</p>
+<h3 id="3-事业方向">3. 事业方向</h3>
+<p>事业方向最清楚的信号是：火星 AmK 在 8 宫，D10 里 Mercury+Rahu 在 10 宫 Virgo。前者说你适合深度攻坚，后者说职业落点是分析、系统、技术、数据、工具、流程优化。把两者合起来，就是“复杂系统分析者”。</p>
+<p>具体行业可以落在数据分析、AI 工具链、产品策略、量化/金融风控、网络安全、医学/心理/社会研究、内容知识产品、咨询分析、技术运营等方向。关键不是行业名，而是工作必须包含：高信息密度、深度拆解、模型化输出。</p>
+<h3 id="4-感情与合作">4. 感情与合作</h3>
+<p>DK 是 Moon，落金牛 2 宫。关系里你需要稳定感、生活感和价值观一致。你不适合长期处在高不确定、只靠情绪拉扯的关系里。关系对你来说不是装饰，它会直接影响安全感和资源状态。</p>
+<p>合作也一样。你可以合作，但要有清晰边界。Rahu 在 3 宫会带来很多连接机会，但不是每个连接都值得深入。你要筛选能共同沉淀作品、资源、长期价值的人。</p>
+<h3 id="5-健康提醒">5. 健康提醒</h3>
+<p>火星在 8 宫，土星与月亮同在 2 宫，这张盘需要注意压力进入身体的方式。火星管炎症、急性消耗、焦躁；土星月亮管长期紧绷、睡眠、饮食和情绪压抑。你不能长期用意志力硬扛。</p>
+<p>最实际的建议是：规律睡眠、力量训练但不过量、减少高压期刺激物、给学习和工作设置恢复周期。你的盘不是弱，而是发动机转速高，需要保养。</p>
+</section><section class="report-section" id="12-p5b-life-md">
+  <div class="section-kicker">Core ? p5b_life.md</div>
+  <h1>P5B Life Synthesis - Blocks 6-10</h1>
+  <h2 id="p5b-life-synthesis-blocks-6-10">P5B Life Synthesis - Blocks 6-10</h2>
+<h3 id="6-教育与学习">6. 教育与学习</h3>
+<p>Mercury 在 5 宫，Jupiter/Rahu/Venus 在 3 宫，学习方式偏“自己拆、自己试、自己串联”。你不适合只听课不实践，也不适合只实践不总结。最有效的学习模式是：输入一点，马上做成笔记、模型、代码、案例或输出。</p>
+<p>适合学习的方向包括数据、编程、AI 工具、金融/风控、心理机制、写作传播、产品分析、研究方法。学习越能和实际项目绑定，越容易沉淀。</p>
+<h3 id="7-家庭与居住">7. 家庭与居住</h3>
+<p>太阳 AK 在 4 宫，家庭和居住不是背景板，而是人生主线的一部分。你需要一个能让自己稳定下来的空间。这个空间可以是住所，也可以是自己的专业领域。只要长期处在没有掌控感的环境里，你的状态会被拖慢。</p>
+<p>D4 上升 Capricorn，说明资产与居住最终要走现实主义路线：规划、预算、长期积累，而不是只靠冲动。</p>
+<h3 id="8-社交与声誉">8. 社交与声誉</h3>
+<p>AL 在 Gemini 3 宫，外界看你会更像一个会表达、会学习、会连接信息的人。真实的你比外界看到的更深、更紧张、更有防备；外界更容易先看到你的沟通、技能、信息敏锐度。</p>
+<p>11 宫偏强，未来声誉和机会来自网络、人群、平台。你不必把自己包装成社交达人，但需要有稳定输出窗口。</p>
+<h3 id="9-灵性成长">9. 灵性成长</h3>
+<p>Ketu 在 9 宫，让你对现成信念有距离。你适合研究传统，但不适合盲从传统。你的成长方式是“验证后相信”，不是“因为权威所以相信”。</p>
+<p>太阳 AK 在 4 宫又提醒你，真正的成长不是跑得多远，而是能不能把内在根基安顿好。外部成就如果不能服务于内在稳定，你会觉得它不够真。</p>
+<h3 id="10-赛道优势地图">10. 赛道优势地图</h3>
+<p>你的优势赛道不是单一职业名，而是一组能力结构：深度拆解、信息整合、系统化表达、技术/数据工具化、风险识别、知识产品化。</p>
+<p>时间上，当前 Rahu-Jupiter 小运从 2025-06 到 2027-10。Rahu 给信息扩张，Jupiter 给体系化，这是学习、建立方法论、形成作品集、进入更大平台的窗口。2027-10 后进入 Rahu-Saturn，小运会更重视结构、纪律、责任和职业定型。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>阶段</th><th>时间</th><th>主题</th></tr></thead>
+<tbody>
+<tr><td>Rahu-Jupiter</td><td>2025-06 到 2027-10</td><td>学习扩张、体系化、作品/方法沉淀</td></tr>
+<tr><td>Rahu-Saturn</td><td>2027-10 到 2030-09</td><td>责任加重、职业结构定型、长期路线筛选</td></tr>
+<tr><td>Rahu-Mercury</td><td>2030-09 到 2033-03</td><td>技术表达、数据/产品/工具能力放大</td></tr>
+</tbody>
+</table></div>
+</section><section class="report-section" id="13-career-phase12-md">
+  <div class="section-kicker">Career ? career_phase12.md</div>
+  <h1>Career Phase 1-2 - Field Position And Talent Structure</h1>
+  <h2 id="career-phase-1-2-field-position-and-talent-structure">Career Phase 1-2 - Field Position And Talent Structure</h2>
+<h3 id="phase-1-职场生态位">Phase 1 - 职场生态位</h3>
+<p>你这张盘的事业，不像一条平直的行政路线，更像一条“进入复杂系统，找到关键节点，再把它拆开重组”的路线。管事业的核心信号有两组：第一组是火星，火星既是白羊上升的命主，也是 AmK 事业指示星，落在天蝎 8 宫；第二组是 D10 事业盘，Mercury 和 Rahu 同在 Virgo 10 宫。</p>
+<p>这两组信息合起来很明确：你适合做高信息密度、高问题密度、高技术或高研究含量的工作。火星在 8 宫让你不怕深水区，Mercury/Rahu 在 D10 10 宫让你适合把复杂问题变成系统、流程、模型、数据、产品或工具。你不适合长期做只靠情绪服务、重复执行、没有积累的岗位。</p>
+<p>10 宫本命是 Capricorn，SAV=33，事业宫硬件强。10 宫主 Saturn 落 2 宫 Taurus，说明事业最终要回到稳定资源、收入结构、语言表达和长期价值。你不是不能折腾，而是折腾最后必须沉淀成可复用技能和可持续收入。</p>
+<p>可归类的职场生态位：</p>
+<div class="table-wrap"><table>
+<thead><tr><th>生态位</th><th>匹配度</th><th>依据</th></tr></thead>
+<tbody>
+<tr><td>技术/数据/系统分析</td><td>高</td><td>D10 Mercury+Rahu 在 Virgo 10 宫</td></tr>
+<tr><td>风控/研究/安全/深度诊断</td><td>高</td><td>AmK Mars 在 Scorpio 8 宫</td></tr>
+<tr><td>知识产品/咨询/内容系统</td><td>中高</td><td>Gemini 3 宫聚 Jupiter/Venus/Rahu</td></tr>
+<tr><td>纯销售/纯情绪劳动</td><td>中低</td><td>缺少长期沉淀时会消耗</td></tr>
+<tr><td>稳定体制内单线执行</td><td>中</td><td>Saturn 支持稳定，但 Rahu/Mars 需要复杂度</td></tr>
+</tbody>
+</table></div>
+<h3 id="phase-2-天赋格局扫描">Phase 2 - 天赋格局扫描</h3>
+<p>事业天赋的第一张牌是火星。火星不只是行动力，它在这里代表“敢碰难题”。它落在 8 宫，说明适合和风险、系统漏洞、隐藏信息、危机、深层机制打交道。这个配置如果放在浅层岗位，会觉得憋；放在深度研究、数据分析、技术排障、金融风控、心理/医学/安全领域，反而能发挥。</p>
+<p>第二张牌是水星。水星本命在 5 宫，D10 在 10 宫 Virgo，是事业盘的关键星。它说明你的职业上限不只靠冲劲，而靠“能不能把问题讲清楚、建成模型、做成流程”。水星在 Virgo 的职业盘位置很适合：数据分析、算法/自动化、产品逻辑、咨询框架、研究写作、知识管理。</p>
+<p>第三张牌是 Rahu。Rahu 当前大运，又在 D10 事业宫放大水星。它会把职业推向新技术、新平台、新工具、新行业。AI、互联网、跨平台内容、数据增长、自动化工具、非传统路径，都属于 Rahu 会打开的门。问题是 Rahu 容易贪多，所以必须让 Jupiter 小运来做体系化。</p>
+<p>强制策略指令：</p>
+<ul><li>不要把自己放在只有重复执行、没有积累的岗位。</li><li>选择岗位时优先看三件事：能否接触复杂问题，能否沉淀方法，能否形成作品或系统。</li><li>当前 Rahu-Jupiter 小运最适合建立知识体系、作品集、工具链，而不是频繁换方向。</li></ul>
+</section><section class="report-section" id="14-career-phase3-md">
+  <div class="section-kicker">Career ? career_phase3.md</div>
+  <h1>Career Phase 3 - D9 Deep Audit</h1>
+  <h2 id="career-phase-3-d9-deep-audit">Career Phase 3 - D9 Deep Audit</h2>
+<p>D9 给这条事业线做了一个很有意思的修正：D1 看起来是白羊火星式冲锋，但 D9 上升变成 Scorpio。也就是说，成熟后的你不会只是靠快和狠取胜，而是靠深、稳、准。你越长大，越不适合只做表层竞争，越适合进入底层机制。</p>
+<p>火星 AmK 在 D9 Aquarius 4 宫。这个位置把本命 8 宫火星的深度，转成了系统、平台、技术共同体、底层架构。职业上不是单纯“解决一个问题”，而是建立一套让问题以后更少发生的机制。比如自动化流程、数据框架、产品系统、研究模型、风控规则、知识库。</p>
+<p>水星在 D9 Taurus 7 宫，说明职业表达最终要面对真实的人：客户、用户、合作者、读者、团队。你不能只在脑子里完成分析，而要把分析变成别人愿意使用的东西。Taurus 让水星更落地，适合收费交付、稳定服务、长期合作。</p>
+<p>D9 的 10 宫是 Leo，没有主要行星，但其主星 Sun 在 Pisces 5 宫。事业成熟后的内核不是冷冰冰的工具，而是带有创造、教育、意义感、表达和作品化。你适合把技术/研究结果变成能被理解、被学习、被传播的形态。</p>
+<p>Karakamsha 线索也支持这一点：AK Sun 在 D9 Pisces 5 宫，AmK Mars 在 Aquarius 4 宫。一个负责意义和创造，一个负责系统和底层建设。合起来就是：用系统能力承载知识表达，用深度分析服务长期作品。</p>
+<p>Phase 3 结论：你的职业不能只选“技术”或只选“表达”。最稳的是“深度技术/研究能力 + 可传播的知识产品/咨询/工具化输出”。这条线既满足 Mars 的深度，又满足 Mercury/Rahu 的系统化，也满足 Sun 的作品感。</p>
+</section><section class="report-section" id="15-career-phase4a-md">
+  <div class="section-kicker">Career ? career_phase4a.md</div>
+  <h1>Career Phase 4A - Career Image And Narrative</h1>
+  <h2 id="career-phase-4a-career-image-and-narrative">Career Phase 4A - Career Image And Narrative</h2>
+<h3 id="step-0-格局滤镜">STEP 0 - 格局滤镜</h3>
+<p>本盘事业不是纯稳定型，也不是纯艺术型，而是“技术分析型 + 深度研究型 + 新平台型”。D1 的火星 AmK 在 8 宫，D10 的 Mercury/Rahu 在 10 宫，这是全局判断的主轴。火星给深度，水星给模型，Rahu 给新赛道。</p>
+<h3 id="step-1-多宫位合成">STEP 1 - 多宫位合成</h3>
+<p>事业宫 Capricorn 本身要求长期结构，10 宫主 Saturn 落 2 宫 Taurus，说明事业最后要变成稳定资源。可是事业指示星 Mars 落 8 宫，又说明你不能只靠稳定重复来获得满足。你要做的是：在复杂领域里建立稳定输出。</p>
+<p>3 宫 Gemini 聚集 Jupiter、Venus、Rahu，是你的技能与表达基地。它让你不适合闭门做纯技术孤岛，而适合把复杂研究传播出去，变成报告、课程、产品、咨询、工具、内容系统。</p>
+<h3 id="step-2-四层精密合成">STEP 2 - 四层精密合成</h3>
+<p>Layer 1 物理骨架：Mars in Scorpio 8th。你适合深度问题、风险问题、隐藏结构、诊断和重构。</p>
+<p>Layer 2 灵魂内核：D9 Sun in Pisces 5th。你最终要把能力做成作品、知识、教学或创造性表达。</p>
+<p>Layer 3 管理面具：D10 Sagittarius Lagna。职业形象适合带观点、带框架、能讲清方向。</p>
+<p>Layer 4 暗物质：Rahu in Gemini 3rd and D10 Virgo 10th。新工具、新媒体、AI、数据、网络平台会不断推你进入新场景。</p>
+<p>最终职业画像：你是一个基于深度拆解能力的系统化知识/技术型人才，适合以研究、数据、工具、产品或咨询的方式，把复杂问题变成别人能使用的方案。</p>
+<h3 id="命运叙事链">命运叙事链</h3>
+<p>当前 Rahu 大运会把你推到信息量很大的环境里。2025-2027 的 Rahu-Jupiter 小运，重点是把信息变体系；2027-2030 的 Rahu-Saturn 小运，重点是把体系变结构；2030-2033 的 Rahu-Mercury 小运，才是技术表达和职业放大的更强窗口。</p>
+</section><section class="report-section" id="16-career-phase4b-md">
+  <div class="section-kicker">Career ? career_phase4b.md</div>
+  <h1>Career Phase 4B - Strategic Decision</h1>
+  <h2 id="career-phase-4b-strategic-decision">Career Phase 4B - Strategic Decision</h2>
+<h3 id="3-战略决策">3. 战略决策</h3>
+<p>你的职业策略不应该从“哪个行业最热”开始，而应该从“哪个场景最能使用你的核心结构”开始。你的核心结构是：火星的深度攻坚，水星的系统分析，Rahu 的新工具敏感，Jupiter 的体系化。</p>
+<p>优先级最高的方向：</p>
+<p>1. 数据分析、商业分析、量化研究、金融风控 2. AI 工具链、自动化流程、知识库/工作流系统 3. 产品策略、增长分析、用户研究 4. 网络安全、风险控制、系统排障 5. 深度内容、研究写作、课程/咨询产品</p>
+<p>不建议作为主线的方向：</p>
+<p>1. 纯前台销售，除非背后有复杂产品或咨询系统 2. 纯行政重复执行，没有技术积累 3. 只靠情绪劳动的服务岗位 4. 没有长期作品和能力沉淀的短期流量路线</p>
+<h3 id="变现逻辑">变现逻辑</h3>
+<p>2 宫 Moon+Saturn，11 宫 SAV=31，说明你不是没有变现能力，但需要稳定结构。钱最好来自三类东西：技能服务、知识产品、系统化工具。短期可以靠岗位工资，长期要把个人方法沉淀成可复制资产。</p>
+<h3 id="时间策略">时间策略</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>时间</th><th>判断</th><th>行动建议</th></tr></thead>
+<tbody>
+<tr><td>2025-06 到 2027-10</td><td>Rahu-Jupiter：扩张和体系化</td><td>建作品集、学 AI/数据工具、形成方法论</td></tr>
+<tr><td>2027-10 到 2030-09</td><td>Rahu-Saturn：责任和定型</td><td>选择长期赛道，减少试错，进入更稳定结构</td></tr>
+<tr><td>2030-09 到 2033-03</td><td>Rahu-Mercury：技术表达放大</td><td>产品化、咨询化、平台化，适合职业跃迁</td></tr>
+</tbody>
+</table></div>
+<p>最终建议：先用两年打出“深度分析 + 技术工具 + 可展示作品”的组合拳，不要急着把自己锁死在一个窄岗位名称里。岗位名可以变，但能力组合不要散。</p>
+</section><section class="report-section" id="17-career-phase4c-md">
+  <div class="section-kicker">Career ? career_phase4c.md</div>
+  <h1>Career Phase 4C - Risks And Architect Notes</h1>
+  <h2 id="career-phase-4c-risks-and-architect-notes">Career Phase 4C - Risks And Architect Notes</h2>
+<h3 id="4-阻力与风险">4. 阻力与风险</h3>
+<p>第一类风险是方向过载。Rahu 在 3 宫，又处在 Rahu 大运，会让你看到很多可能性。今天想做 AI，明天想做金融，后天想做内容，这不是懒，而是盘里确实对新信息敏感。但如果没有 Jupiter 的体系化，Rahu 会把你拖进碎片化。</p>
+<p>第二类风险是压力内化。Mars 在 8 宫，Saturn 与 Moon 在 2 宫，容易把问题往身体里压。职业上如果长期处在高压、低掌控、无沉淀的环境里，你会消耗很快。你适合难题，但不适合无意义的混乱。</p>
+<p>第三类风险是表达被低估。你可能会觉得“我先把东西研究透再说”，但 D10 的 Mercury/Rahu 要求你持续输出。作品、笔记、demo、报告、项目复盘，都是职业资产。不要等完美才公开。</p>
+<h3 id="5-架构师箴言">5. 架构师箴言</h3>
+<p>你的事业不是找一个舒服标签，而是建一套能长期复利的能力系统。火星负责深入，水星负责结构，Rahu负责打开新赛道，Jupiter负责让它成体系。只要这四件事各归其位，职业会越来越清楚。</p>
+<p>最适合你的路线是：选择一个复杂领域，持续做拆解；把拆解结果变成工具、文章、模型、案例库；再通过平台、团队或客户场景变现。这个过程前期看起来慢，但越往后越有复利。</p>
+<h3 id="附录-关键数据速查">附录：关键数据速查</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>项目</th><th>数据</th><th>职业含义</th></tr></thead>
+<tbody>
+<tr><td>AmK</td><td>Mars</td><td>事业靠深度攻坚</td></tr>
+<tr><td>Mars</td><td>Scorpio 8 宫</td><td>风险、研究、系统拆解</td></tr>
+<tr><td>D10 Lagna</td><td>Sagittarius</td><td>职业形象带观点和教学感</td></tr>
+<tr><td>D10 10 宫</td><td>Virgo</td><td>分析、技术、流程、细节</td></tr>
+<tr><td>D10 10 宫行星</td><td>Mercury + Rahu</td><td>AI/数据/系统化/非传统路径</td></tr>
+<tr><td>当前大运</td><td>Rahu</td><td>新工具、新平台、新赛道</td></tr>
+<tr><td>当前小运</td><td>Jupiter</td><td>体系化、学习、方法论</td></tr>
+</tbody>
+</table></div>
+</section><section class="report-section" id="18-love-step1-md">
+  <div class="section-kicker">Love ? love_step1.md</div>
+  <h1>Love Step 1 - 原盘感情代码</h1>
+  <h2 id="love-step-1-原盘感情代码">Love Step 1 - 原盘感情代码</h2>
+<blockquote>数据源：Pushya 版 <code>structured_data.md</code>，并参考已生成的 core 报告。性别资料未提供，因此本报告不把“男盘/女盘 karaka”作为单一判断依据，而以 DK、UL、5 宫、7 宫、Venus、Jupiter、D9 做综合分析。</blockquote>
+<h3 id="1-恋爱体质报告">1. 恋爱体质报告</h3>
+<p>你这张盘的感情，不是那种单纯“看见顺眼就稳定走下去”的结构。恋爱宫是 5 宫 Leo，里面有 Mercury；伴侣宫是 7 宫 Libra，宫内没有行星，7 宫主 Venus 跑到 Gemini 3 宫。翻成人话就是：你容易先被“会说话、脑子快、有信息感、有交流密度”的人吸引。聊天、学习、共同兴趣、线上互动、同学同事、社交平台，这些都容易成为感情入口。</p>
+<p>但真正能不能长期走下去，不只看聊天热不热。你的 DK，也就是配偶指示星，是 Moon，落在 Taurus 2 宫。这个位置很实际：灵魂层面对伴侣的需求，是稳定、生活感、价值观一致、能一起建立资源，而不是只有暧昧和刺激。你会被聪明有趣的人吸引，但最终留下来的，一定要能给你安全感和生活秩序。</p>
+<p>5 宫有 Mercury，说明恋爱启动常常从沟通开始。对方可能要先让你觉得“这个人脑子有东西”“聊得动”“能接住我的想法”。Mercury 也会让恋爱带一点观察和分析，你不太容易完全无脑投入。优点是能看细节，缺点是容易想太多，尤其当对方信息不透明、回复不稳定、关系定义模糊时，你会自动开始推理。</p>
+<p>7 宫主 Venus 在 Gemini 3 宫，进一步加强了“沟通型伴侣”的主题。对方可能有年轻感、学习能力强、会表达、跨圈层、移动性强，或者你们通过网络、短途出行、学习培训、内容平台、朋友介绍认识。Venus 力量 140.9%，说明恋爱与关系不是弱项；只是 Venus 在 3 宫，感情需要持续沟通维持，不能靠沉默默契。</p>
+<p>这里也有一个风险：Gemini 3 宫同时有 Rahu、Jupiter、Venus，社交和信息能量很重。它会带来机会，也会带来“聊得很多，但关系不一定落地”的情况。Rahu 会放大新鲜感，Venus 会制造吸引，Jupiter 会让你给关系寻找意义。遇到信息不完整的人，尤其是线上认识、身份背景不够透明的人，要慢一点确认。</p>
+<h3 id="2-d9-深层关系质量">2. D9 深层关系质量</h3>
+<p>D9 上升 Scorpio，关系深层不是轻松社交型，而是强烈、敏感、需要信任的类型。D9 的 7 宫是 Taurus，里面有 Mercury。成熟关系里，沟通仍然重要，但 Taurus 会要求沟通落地：钱、生活节奏、承诺、实际安排、未来规划，都要说清楚。</p>
+<p>D9 的 7 宫主 Venus 落 Aries 6 宫。这个位置提示：关系进入深层以后，容易遇到“谁让步、谁服务、谁承担琐事、谁在竞争中更强势”的议题。Aries 让 Venus 有主动和冲动，6 宫让关系需要解决现实问题。它不是不能成，而是不能只靠浪漫；越到后期，越需要规则、分工、边界。</p>
+<p>D1 DK Moon 落在 D9 Capricorn 3 宫。配偶灵魂画像带一点土星味：理性、现实、能吃苦，可能表达不算特别柔软，但重视实际。你适合的伴侣不是天天制造情绪波峰的人，而是能一起做事、一起规划、一起把生活推稳的人。</p>
+<h3 id="3-配偶画像">3. 配偶画像</h3>
+<p>配偶或长期伴侣画像可以这样看：外层有 Gemini/Venus 的聪明、会沟通、移动性强；内层有 Taurus/Moon 的稳定、生活感、资源意识；深层 D9 又带 Capricorn/Taurus 的务实。这个人可能不一定一开始显得“特别浪漫”，但真正适合你的人，应该有三个特征：说得清楚、做得到、价值观稳定。</p>
+<p>UL 是 Gemini 3 宫，说明婚恋入口与沟通、同学同事、短途移动、网络平台、学习场景很有关。Gemini 也代表多选项和比较心态，因此关系早期要避免同时开太多窗口。你这张盘不怕没人聊，怕的是聊太多、筛选太慢、迟迟不确认谁值得进入深层。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>指标</th><th>数据</th><th>解读</th></tr></thead>
+<tbody>
+<tr><td>5 宫</td><td>Leo，Mercury 入驻</td><td>恋爱从交流、兴趣、智力吸引开始</td></tr>
+<tr><td>7 宫</td><td>Libra，空宫</td><td>关系需要平衡、审美、互相尊重</td></tr>
+<tr><td>7 宫主</td><td>Venus 在 Gemini 3 宫</td><td>伴侣来自沟通/网络/学习/近距离社交场景</td></tr>
+<tr><td>DK</td><td>Moon 在 Taurus 2 宫</td><td>长期伴侣要稳定、有生活感、价值观可靠</td></tr>
+<tr><td>UL</td><td>Gemini 3 宫</td><td>婚恋入口偏社交、信息、同学同事、线上</td></tr>
+<tr><td>D9 7 宫</td><td>Taurus，Mercury 入驻</td><td>深层关系要靠可落地的沟通维持</td></tr>
+</tbody>
+</table></div>
+<p>Step 1 结论：你适合“先聊得动，再落得稳”的关系。只会聊天不落地的人不够，只稳定但完全没有思想交流的人也不够。真正匹配的是：脑子灵、表达顺、但生活态度可靠的人。</p>
+</section><section class="report-section" id="19-love-step2-md">
+  <div class="section-kicker">Love ? love_step2.md</div>
+  <h1>Love Step 2 - 时间窗口</h1>
+  <h2 id="love-step-2-时间窗口">Love Step 2 - 时间窗口</h2>
+<h3 id="1-当前大运背景">1. 当前大运背景</h3>
+<p>你现在走 Rahu 大运，Rahu 在 Gemini 3 宫，和 Venus、Jupiter 同宫。这个大运本身就会把关系机会放到“信息、社交、网络、学习、短途移动、朋友介绍、内容平台”这些地方。Rahu 的特点是来得快、吸引强、边界不一定清楚，所以它能带来桃花，也能带来真假混杂。</p>
+<p>当前小运是 Rahu-Jupiter，从 2025-06-02 到 2027-10-26。Jupiter 是 PK，和 Venus、Rahu 同在 3 宫。PK 可以看恋爱、创造、子女和情感愉悦，Jupiter 又有正缘和意义感的性质。因此这段时间确实是一个有恋爱机会的窗口，但它更像“通过学习、社交、表达、网络场景打开机会”，不是坐着等人从天上掉下来。</p>
+<p>不过，Jupiter 在 Gemini 3 宫也有一个问题：选择多、信息多、话题多，未必马上稳定。它容易先产生交流和好感，再慢慢筛选。真正能不能落地，要看 2027 以后 Saturn 小运是否愿意给关系结构。</p>
+<h3 id="2-未来三年窗口">2. 未来三年窗口</h3>
+<h4 id="2026-06-到-2027-10-rahu-jupiter">2026-06 到 2027-10：Rahu-Jupiter</h4>
+<p>这是未来三年里比较适合认识人、扩大社交、打开恋爱机会的阶段。触发机制是：Rahu 放大 3 宫社交与网络，Jupiter 作为 PK 同宫，带来恋爱/好感/学习场景的机会。Venus 也同在 3 宫，所以桃花入口很可能不是传统相亲式，而是聊天、共同学习、线上互动、兴趣圈层、项目合作。</p>
+<p>关系性质上，这段更偏“心动与认识窗口”。有机会遇到让你觉得聊得来、有意思、能打开思路的人。但是否能稳定，需要你主动做筛选：身份是否清楚，价值观是否一致，对方是否愿意把关系从聊天推进到真实生活。</p>
+<h4 id="2027-10-到-2028-12-rahu-saturn-初期">2027-10 到 2028-12：Rahu-Saturn 初期</h4>
+<p>Rahu-Saturn 从 2027-10-26 开始。Saturn 落 Taurus 2 宫，和 DK Moon 同宫。这个小运会把关系从“聊得来”推向“能不能稳定、能不能承担、钱和生活怎么安排”。如果前一阶段已经有关系，这一阶段会测试现实结构；如果前一阶段只是暧昧，这一阶段会淘汰不落地的人。</p>
+<p>它不是最轻松的恋爱期，但它适合确认长期性。Saturn 的好处是慢、稳、现实；坏处是压力、距离、冷感。你要看对方是否愿意共同处理现实，而不是只在轻松时出现。</p>
+<h4 id="2029-rahu-saturn-中段">2029：Rahu-Saturn 中段</h4>
+<p>2029 仍在 Rahu-Saturn。这个阶段更像关系定型期，而不是纯桃花期。适合讨论长期计划、共同资源、居住、职业节奏、双方家庭边界。若关系基础好，会变得更稳；基础差，则容易暴露“只会聊天，不会生活”的问题。</p>
+<h3 id="3-窗口排序">3. 窗口排序</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>时间</th><th>桃花强度</th><th>落地强度</th><th>关系性质</th></tr></thead>
+<tbody>
+<tr><td>2026-06 到 2027-10</td><td>高</td><td>中</td><td>认识、暧昧、学习/社交场景机会</td></tr>
+<tr><td>2027-10 到 2028-12</td><td>中</td><td>中高</td><td>现实测试、关系定型、筛选</td></tr>
+<tr><td>2029</td><td>中</td><td>高</td><td>长期规划、承诺压力、稳定或淘汰</td></tr>
+</tbody>
+</table></div>
+<h3 id="4-触发场景">4. 触发场景</h3>
+<p>最容易触发感情机会的场景：</p>
+<ul><li>学习、考试、课程、训练营、研究项目</li><li>线上平台、内容互动、社群、朋友介绍</li><li>工作中的沟通协作、文档/产品/技术交流</li><li>短途出行、同城跨圈层活动</li></ul>
+<p>不太建议把主要希望放在完全无背景的随机认识上。Rahu 会带来新鲜感，但你这张盘真正需要的是 Moon/Taurus 式的稳定。最好的路径是：先在共同兴趣或共同任务里建立交流，再看对方是否能进入真实生活。</p>
+</section><section class="report-section" id="20-love-step3-md">
+  <div class="section-kicker">Love ? love_step3.md</div>
+  <h1>Love Step 3 - 建议与风险</h1>
+  <h2 id="love-step-3-建议与风险">Love Step 3 - 建议与风险</h2>
+<h3 id="1-现代恋爱建议">1. 现代恋爱建议</h3>
+<p>你要主动，但不要急着交出判断。Rahu 大运会让你更容易遇到有吸引力、信息密度高、会聊天的人。你一开始可能会被对方的脑子、表达、经历、跨界感吸引；这没问题，盘里本来就吃这一套。问题在于，你的长期伴侣指标 DK Moon 在 Taurus 2 宫，真正合适的人必须能稳定生活和价值观。</p>
+<p>所以你的筛选顺序应该是：先看聊不聊得动，再看做不做得到，最后看稳不稳定。只满足第一条的人，只适合观察，不适合投入太快。</p>
+<h3 id="2-避坑指南">2. 避坑指南</h3>
+<p>第一类坑：线上强吸引但身份模糊。Rahu+Gemini 会带来网络和信息型桃花，但也容易出现包装过度、关系定义不清、对方生活结构不透明。任何不能进入真实生活、不能给出稳定安排的人，都不要用想象力替他补完。</p>
+<p>第二类坑：只靠聊天维持关系。你这张盘的恋爱入口是沟通，但婚恋落点是 2 宫 Moon 和 D9 Taurus。聊天只是开门，生活才是正题。对方是否守时、是否稳定、是否尊重金钱边界、是否愿意公开和承担，比甜言蜜语更重要。</p>
+<p>第三类坑：把关系当成智力游戏。Mercury 强，会让你分析对方、分析语气、分析回复速度。适度分析有用，但过度分析会让关系变成推理题。遇到不清楚的地方，直接问，比在脑子里跑十套模型更省命。</p>
+<h3 id="3-主动出击建议">3. 主动出击建议</h3>
+<p>2026-2027 适合扩大社交，但要选对场。你适合去高质量学习场、专业社群、项目协作、内容平台、技术/研究/写作相关圈子。你的桃花不太像纯玩乐场合来得最稳，更像在“共同做一件事”的过程中出现。</p>
+<p>可以采取的策略：</p>
+<ul><li>固定参加一个长期学习/项目型社群，而不是频繁换圈子。</li><li>把个人表达做出来，比如笔记、文章、作品集、项目复盘。UL 在 3 宫，表达本身会带来连接。</li><li>初期约会尽量选择能聊天也能观察生活习惯的场景，比如一起学习、展览、书店、项目讨论、短途活动。</li><li>在关系 1-2 个月内确认现实信息：是否单身、工作节奏、城市规划、金钱观、家庭边界。</li></ul>
+<h3 id="4-关键数据速查">4. 关键数据速查</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>指标</th><th>数据</th><th>含义</th></tr></thead>
+<tbody>
+<tr><td>恋爱宫 5 宫</td><td>Leo，Mercury 入驻</td><td>智力吸引、沟通启动</td></tr>
+<tr><td>伴侣宫 7 宫</td><td>Libra</td><td>需要平衡、尊重、审美感</td></tr>
+<tr><td>7 宫主</td><td>Venus in Gemini 3 宫</td><td>通过沟通、网络、学习、近距离社交认识</td></tr>
+<tr><td>DK</td><td>Moon in Taurus 2 宫</td><td>长期伴侣要稳定、生活化、价值观可靠</td></tr>
+<tr><td>PK</td><td>Jupiter in Gemini 3 宫</td><td>恋爱机会与学习/表达/社交有关</td></tr>
+<tr><td>UL</td><td>Gemini 3 宫</td><td>婚恋入口偏信息、同学同事、线上平台</td></tr>
+<tr><td>D9 7 宫</td><td>Taurus，Mercury 入驻</td><td>深层关系要落地沟通、现实安排</td></tr>
+<tr><td>当前小运</td><td>Rahu-Jupiter 到 2027-10</td><td>认识与扩圈窗口</td></tr>
+<tr><td>下一小运</td><td>Rahu-Saturn 到 2030-09</td><td>稳定、承诺、现实测试</td></tr>
+</tbody>
+</table></div>
+<h3 id="5-一句话结论">5. 一句话结论</h3>
+<p>你不是没桃花，而是桃花入口偏“聊天、学习、网络、共同项目”。真正适合你的人，不只是会聊，还要能把生活落稳。2026-2027 适合认识和筛选，2027-2029 更适合看关系能不能定下来。</p>
+</section><section class="report-section" id="21-appendix-md">
+  <div class="section-kicker">Appendix ? appendix.md</div>
+  <h1>Appendix - Technical Notes</h1>
+  <h2 id="appendix-technical-notes">Appendix - Technical Notes</h2>
+<h3 id="birth-and-ayanamsa">Birth And Ayanamsa</h3>
+<ul><li>Date: 2001-08-12</li><li>Time: 23:14 local, UTC+8</li><li>Place: Fugu, China</li><li>Ayanamsa: Pushya, confirmed against PDF</li><li>Lagna: Aries 24°49&#x27;</li></ul>
+<h3 id="d1-positions">D1 Positions</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Body</th><th>Sign</th><th>House</th><th>Degree</th></tr></thead>
+<tbody>
+<tr><td>Lagna</td><td>Aries</td><td>1</td><td>24°49&#x27;</td></tr>
+<tr><td>Sun</td><td>Cancer</td><td>4</td><td>27°14&#x27;</td></tr>
+<tr><td>Moon</td><td>Taurus</td><td>2</td><td>0°53&#x27;</td></tr>
+<tr><td>Mars</td><td>Scorpio</td><td>8</td><td>26°04&#x27;</td></tr>
+<tr><td>Mercury</td><td>Leo</td><td>5</td><td>4°15&#x27;</td></tr>
+<tr><td>Jupiter</td><td>Gemini</td><td>3</td><td>13°42&#x27;</td></tr>
+<tr><td>Venus</td><td>Gemini</td><td>3</td><td>20°08&#x27;</td></tr>
+<tr><td>Saturn</td><td>Taurus</td><td>2</td><td>20°27&#x27;</td></tr>
+<tr><td>Rahu</td><td>Gemini</td><td>3</td><td>11°07&#x27;</td></tr>
+<tr><td>Ketu</td><td>Sagittarius</td><td>9</td><td>11°07&#x27;</td></tr>
+</tbody>
+</table></div>
+<h3 id="karakas">Karakas</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Karaka</th><th>Planet</th></tr></thead>
+<tbody>
+<tr><td>AK</td><td>Sun</td></tr>
+<tr><td>AmK</td><td>Mars</td></tr>
+<tr><td>BK</td><td>Saturn</td></tr>
+<tr><td>MK</td><td>Venus</td></tr>
+<tr><td>PK</td><td>Jupiter</td></tr>
+<tr><td>GK</td><td>Mercury</td></tr>
+<tr><td>DK</td><td>Moon</td></tr>
+</tbody>
+</table></div>
+<h3 id="sav-by-house">SAV By House</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>House</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th></tr></thead>
+<tbody>
+<tr><td>SAV</td><td>33</td><td>30</td><td>27</td><td>28</td><td>24</td><td>28</td><td>26</td><td>23</td><td>26</td><td>33</td><td>31</td><td>28</td></tr>
+</tbody>
+</table></div>
+<h3 id="current-dasha">Current Dasha</h3>
+<ul><li>Mahadasha: Rahu, 2022-09 to 2040-09</li><li>Current Antardasha: Rahu-Jupiter, 2025-06-02 to 2027-10-26</li><li>Next Antardasha: Rahu-Saturn, 2027-10-26 to 2030-09-01</li></ul>
+<h3 id="divisional-highlights">Divisional Highlights</h3>
+<ul><li>D9 Lagna: Scorpio</li><li>D10 Lagna: Sagittarius</li><li>D10 10th house: Virgo, occupied by Mercury and Rahu</li><li>D4 Lagna: Capricorn</li><li>D5 Lagna: Libra</li></ul>
+</section>
+</main>
+</div>
+</body>
+</html>
